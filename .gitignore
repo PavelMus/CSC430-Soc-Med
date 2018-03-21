@@ -1,4 +1,3 @@
 *.code-workspace
-/node_modules
 # keys.js
 .eslintrc.json
