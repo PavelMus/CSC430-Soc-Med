@@ -1,5 +1,5 @@
-import materializeCSS from "materialize-css/dist/css/materialize.css";
-import customStyles from "./style/style.css";
+import customStyles from "./style-css/style.css";
+import materializeCSS from "./style-css/materialize.css";
 import materializeJS from "materialize-css/dist/js/materialize.js"
 import React from "react";
 import ReactDOM from "react-dom";

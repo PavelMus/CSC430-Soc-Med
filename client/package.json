@@ -25,6 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sass-compile": "node-sass -o src/style-css ./node_modules/materialize-css/sass/materialize.scss | node-sass -o src/style-css ./src/style-sass/style.scss"
   }
 }

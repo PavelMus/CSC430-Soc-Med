@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import Landing from "./Landing";
 import Header from "./Header";
-import Sidenav from './Sidenav';
 import Footer from "./Footer";
 
 const Dashboard = () => <h2>Dashboard</h2>;
