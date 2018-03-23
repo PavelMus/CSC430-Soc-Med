@@ -26,6 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "sass-compile": "node-sass -o src/style-css ./node_modules/materialize-css/sass/materialize.scss | node-sass -o src/style-css ./src/style-sass/style.scss"
+    "sass-compile": "node-sass -o src/style-css ./node_modules/materialize-css/sass/materialize.scss | node-sass -o src/style-css ./src/style-sass/style.scss",
+    "sass-watch": "node-sass --watch ./src/style-sass/style.scss ./src/style-css/style.css"
   }
 }
