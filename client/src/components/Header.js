@@ -20,15 +20,15 @@ class Header extends Component {
       default:
         return (
           <div>
-          <li>
-            <a
-              data-target="slide-out"
-              className="sidenav-trigger waves-effect waves-light button-collapse show-on-medium-and-down show-on-medium-and-up"
-            >
-              <span className="hide-on-med-and-down">Profile</span>
-              <i className="material-icons left">account_circle</i>
-            </a>
-          </li>
+            <li>
+              <a
+                data-target="slide-out"
+                className="sidenav-trigger waves-effect waves-light button-collapse show-on-medium-and-down show-on-medium-and-up"
+              >
+                <span className="hide-on-med-and-down">Profile</span>
+                <i className="material-icons left">account_circle</i>
+              </a>
+            </li>
           </div>
         );
     }

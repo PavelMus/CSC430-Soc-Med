@@ -70,13 +70,20 @@ main {
   background-color: #800000;
 }
 
-#newsfeed .user-icon-wrapper {
+#newsfeed .card-top {
   height: 55px;
-  overflow: hidden
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.responsive-img {
-  max-width: 100%;
-  max-height: 100%;
+#newsfeed .card-top .username {
+  margin-left: 10px;
+}
+
+#newsfeed .card-top .responsive-img {
   float: left;
+  margin-left: 9px;
+  max-width: 85%;
+  max-height: 85%;
 }
