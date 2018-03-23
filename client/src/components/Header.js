@@ -29,9 +29,6 @@ class Header extends Component {
                 <i className="material-icons left">account_circle</i>
               </a>
             </li>
-            <li>
-              <a href="/api/logout">Logout</a>
-            </li>
           </div>
         );
     }
