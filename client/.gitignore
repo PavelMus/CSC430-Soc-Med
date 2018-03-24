@@ -10,7 +10,7 @@
 /build
 
 #CSS files
-/style-css
+/src/style-css
 
 # misc
 .DS_Store

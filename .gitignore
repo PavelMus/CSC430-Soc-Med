@@ -4,4 +4,4 @@
 /node_modules
 
 #CSS FILES
-/style-css
+/client/src/style-css
