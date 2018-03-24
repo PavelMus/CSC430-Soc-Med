@@ -2,3 +2,6 @@
 # keys.js
 .eslintrc.json
 /node_modules
+
+#CSS FILES
+/style-css

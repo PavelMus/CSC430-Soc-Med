@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import Sidenav from "./Sidenav";
 import * as M from "materialize-css";
 
 class Header extends Component {
   renderContent() {
-    var elem = document.querySelector(".sidenav");
-    var instance = M.Sidenav.init(elem, { edge: "right" });
+    var sidenav = document.querySelector(".sidenav");
+    var sidenavInst = M.Sidenav.init(sidenav, { edge: "right" });
     switch (this.props.auth) {
       case null:
         return;
@@ -20,6 +20,11 @@ class Header extends Component {
       default:
         return (
           <div>
+            <li>
+              <a href="/posts" className="btn-floating btn-medium cyan pulse">
+                <i className="material-icons">comment</i>
+              </a>
+            </li>
             <li>
               <a
                 data-target="slide-out"
@@ -39,7 +44,7 @@ class Header extends Component {
         <nav>
           <div className="nav-wrapper">
             <Link
-              to={this.props.auth ? "surveys" : "/"}
+              to={this.props.auth ? "/" : "/Landing"}
               className="left brand-logo"
             >
               CSI Social Club
