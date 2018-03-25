@@ -7,11 +7,11 @@ const keys = require("./config/keys");
 require("./models/Users");
 require("./models/Posts");
 require("./services/passport");
+var posts = require("./routes/postsRoutes");
 
 mongoose.connect(keys.mongoURI);
 
 const app = express();
-const router = express.Router();
 
 /**************Applying middleware**************/
 app.use(
@@ -40,22 +40,16 @@ app.use(function(req, res, next) {
     "Access-Control-Allow-Headers",
     "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
   );
-
   //and remove cacheing so we get the most recent comments
   res.setHeader("Cache-Control", "no-cache");
   next();
 });
 /*********************************************************************************************************************/
+app.use("/api", posts);
 
-//now  we can set the route path & initialize the API
-router.get("/", function(req, res) {
-  res.json({ message: "API Initialized!" });
-});
-
-require("./routes/postRoutes")(router);
 require("./routes/authRoutes")(app);
 
-app.use("/api", router);
+
 
 if (process.env.NODE_ENV == "production") {
   // Express will serve up production assets

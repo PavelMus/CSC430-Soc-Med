@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_USER, PROFILE_DATA, FETCH_POSTS } from "./types";
+import { FETCH_USER, PROFILE_DATA, FETCH_POSTS, SUBMIT_POST } from "./types";
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/current_user");
@@ -12,6 +12,11 @@ export const userData = () => async dispatch => {
 };
 
 export const fetchPosts = () => async dispatch => {
-  const res = await axios.get("");
+  const res = await axios.get("/api/posts");
   dispatch({ type: FETCH_POSTS, posts: res.data });
+};
+
+export const submitPost = (post) => async dispatch => {
+  const res = await axios.post("/api/posts", post).catch(err => { console.error(err);});
+  dispatch({ type: SUBMIT_POST, post: res.data})
 };

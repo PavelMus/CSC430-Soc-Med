@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Sidenav from "./Sidenav";
 import * as M from "materialize-css";
 
