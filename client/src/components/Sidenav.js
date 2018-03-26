@@ -29,11 +29,10 @@ class Sidenav extends Component {
       <ul id="slide-out" className="sidenav">
         <li>
           <div className="user-view">
-            <div className="background">
-              <img src="images/office.jpg" alt="background" />
+            <div className="background" id="sidenav-background">         
             </div>
             <a href="#!user">
-              <img className="circle" src="images/yuna.jpg" alt="user avatar" />
+              <img className="circle" src={ this.props.user.avatar} alt="user avatar" />
             </a>
             <a href="#!name">
               <span className="black-text name">{this.getName()}</span>

@@ -5,6 +5,23 @@
   #postBox h1 {
     color: red; }
 
+#sidenav-background {
+  background-color: #0288d1; }
+
+#header-div::after {
+  content: "";
+  clear: both;
+  display: table; }
+
+#header-nav {
+  background-color: #1e88e5; }
+
+#header-avatar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8%; }
+
 /*Below is the CSS reset*/
 /* HTML5 display-role reset for older browsers */
 body {
@@ -12,6 +29,8 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column; }
+  body .container {
+    max-width: 1440px; }
 
 main {
   flex: 1 0 auto; }
@@ -42,7 +61,6 @@ main {
   margin-right: 0;
   margin: 0 auto;
   width: 100%;
-  max-width: 1012px !important;
   text-align: center; }
 
 #left-section {

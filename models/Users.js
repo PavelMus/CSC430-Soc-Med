@@ -7,7 +7,8 @@ const userSchema = new Schema({
   name: {
     familyName: String,
     givenName: String
-  }
+  },
+  avatar: String
 });
 
 module.exports = mongoose.model("users", userSchema);
