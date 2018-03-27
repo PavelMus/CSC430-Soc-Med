@@ -1,1 +1,17 @@
-Error: Source sample is missing.
+#header-div::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#header-nav {
+    background-color: #1e88e5;
+}
+
+
+#header-avatar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+}

@@ -25,8 +25,7 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
       if (existingUser) {
-        console.log(existingUser);
-        
+        console.log(profile);
         // we already have a record with the given profile ID
         done(null, existingUser);
       } else {
@@ -34,7 +33,8 @@ passport.use(
         const user = await new User({
           googleId: profile.id,
           displayName: profile.displayName,
-          name: profile.name
+          name: profile.name,
+          avatar: profile._json.image.url
         }).save();
         done(null, user);
       }

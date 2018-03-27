@@ -3,7 +3,7 @@ import PostBox from "./PostBox";
 
 export class PostIndex extends Component {
   render() {
-    return <PostBox pollInterval={2000} />;
+    return <PostBox url= "/api/posts" pollInterval={2000} />;
   }
 }
 

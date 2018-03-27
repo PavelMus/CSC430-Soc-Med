@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Alerts from './AlertComponents/Alerts'
 
 class Leftsection extends Component {
   constructor(props){
@@ -8,8 +9,8 @@ class Leftsection extends Component {
   }
   render() {
     return (
-      <div className="col s12 m4 l4 xl4" id="left-section">
-        <h3>Important Alerts</h3>
+      <div className="col s12 m3 l3 xl3" id="left-section">
+        <Alerts />
       </div>
 
     );
