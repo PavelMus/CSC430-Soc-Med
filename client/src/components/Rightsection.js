@@ -10,7 +10,6 @@ class Rightsection extends Component {
     return (
       <div className="col s12 m3 l3 xl3" id="right-section">
         <h3>Right Section</h3>
-        
       </div>
     );
   }
