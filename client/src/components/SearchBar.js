@@ -3,32 +3,22 @@ import React, { Component } from "react";
 class SearchBar extends Component {
   render() {
     return (
-<<<<<<< HEAD
-      <div id="header-search-bar" className="col m3 l4 xl5">
-        <form>
-          <div className="input-field">
-            <input id="search" type="search" required />
-            <label className="label-icon" htmlFor="search">
-              <i className="material-icons">search</i>
-            </label>
-            <i className="material-icons">close</i>
-=======
-      <div id="header-search-bar" className="col m4 l5 xl5">
-        <form >
-          <div className="input-field">
-            <div className="input-field-wrapper">
-              <label className="label-icon" htmlFor="search">
-                <i className="material-icons">search</i>
-              </label>
-                <input placeholder="Search" id="search" type="search" required />
 
+        <div id="header-search-bar" className="col m4 l5 xl5">
+          <form>
+            <div className="input-field">
 
-                <i className="material-icons">close</i>
+              <div className="input-field-wrapper">
+                <label className="label-icon" htmlFor="search">
+                  <i className="material-icons">search</i>
+                </label>
+                  <input placeholder="Search" id="search" type="search" required />
+                  <i className="material-icons">close</i>
+              </div>
+
             </div>
->>>>>>> e8ae185ba9352383c15fc2c5138fd06a0745e06a
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
     );
   }
 }

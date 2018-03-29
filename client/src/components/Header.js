@@ -67,11 +67,11 @@ class Header extends Component {
                 </Link>
               </div>
               <SearchBar />
-<<<<<<< HEAD
-              <div className="col m6 l5 xl4">
-=======
+
+
+
               <div id="header-buttons"  className="col m5 l4 xl4">
->>>>>>> e8ae185ba9352383c15fc2c5138fd06a0745e06a
+
                 <ul className="right">{this.renderContent()}</ul>
               </div>
             </div>
