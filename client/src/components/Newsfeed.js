@@ -14,7 +14,7 @@ class Newsfeed extends Component {
           <div id="post" className="card small">
 
             <div className="card-top">
-              <img src="https://pbs.twimg.com/profile_images/952537094085271553/Le35qXfX.jpg" alt="" class="userimage responsive-img circle"/>
+              <img src="https://pbs.twimg.com/profile_images/952537094085271553/Le35qXfX.jpg" alt="" className="userimage responsive-img circle"/>
               <div className="username">Milkman272</div>
             </div>
 
@@ -24,8 +24,8 @@ class Newsfeed extends Component {
 
             <div className="activity-section">
               <div className="user-actions">
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                <i className="fa fa-commenting-o" aria-hidden="true"></i>
               </div>
               <div className="comments">
                 <ul>

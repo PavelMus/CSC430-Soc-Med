@@ -67,7 +67,7 @@ class Header extends Component {
                 </Link>
               </div>
               <SearchBar />
-              <div className="col m5 l4 xl4">
+              <div className="col m6 l5 xl4">
                 <ul className="right">{this.renderContent()}</ul>
               </div>
             </div>
