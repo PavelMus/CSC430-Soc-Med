@@ -56,9 +56,9 @@ class Header extends Component {
     return (
       <div id="header-div">
         <nav id="header-nav">
-          <div className="nav-wrapper container">
-            <div className="row">
-              <div className="col m3 l3 xl3">
+          <div id="nav-wrapper" className="container">
+            <div id="header-row" className="row">
+              <div id="header-logo" className="col m3 l3 xl3">
                 <Link
                   to={this.props.auth ? "/" : "/Landing"}
                   className="brand-logo"
@@ -67,7 +67,7 @@ class Header extends Component {
                 </Link>
               </div>
               <SearchBar />
-              <div className="col m5 l4 xl4">
+              <div id="header-buttons"  className="col m5 l4 xl4">
                 <ul className="right">{this.renderContent()}</ul>
               </div>
             </div>

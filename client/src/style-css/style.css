@@ -8,6 +8,9 @@
 #sidenav-background {
   background-color: #0288d1; }
 
+#header-div {
+  height: 64px; }
+
 #header-div::after {
   content: "";
   clear: both;
@@ -15,6 +18,36 @@
 
 #header-nav {
   background-color: #1e88e5; }
+  #header-nav #nav-wrapper #header-row {
+    height: 64px;
+    margin: 0; }
+    #header-nav #nav-wrapper #header-row #header-logo {
+      height: 64px; }
+      #header-nav #nav-wrapper #header-row #header-logo a {
+        height: 64px; }
+    #header-nav #nav-wrapper #header-row #header-search-bar {
+      height: 64px; }
+      #header-nav #nav-wrapper #header-row #header-search-bar .input-field {
+        display: flex;
+        align-items: center; }
+        #header-nav #nav-wrapper #header-row #header-search-bar .input-field .input-field-wrapper {
+          height: 64px;
+          width: 100%; }
+          #header-nav #nav-wrapper #header-row #header-search-bar .input-field .input-field-wrapper .label-icon {
+            height: 64px;
+            display: inline-block; }
+          #header-nav #nav-wrapper #header-row #header-search-bar .input-field .input-field-wrapper #search {
+            display: inline-block;
+            width: 80%;
+            margin-bottom: 0;
+            height: 30px; }
+          #header-nav #nav-wrapper #header-row #header-search-bar .input-field .input-field-wrapper .material-icons {
+            height: 64px; }
+    #header-nav #nav-wrapper #header-row #header-buttons {
+      height: 64px; }
+      #header-nav #nav-wrapper #header-row #header-buttons .right .header-user-btn a .hide-on-med-and-down {
+        margin-left: 5px;
+        vertical-align: top; }
   #header-nav #header-avatar {
     display: inline-block;
     margin-left: auto;
@@ -22,7 +55,7 @@
   #header-nav li {
     display: inline-block; }
   #header-nav .header-user-btn a {
-    margin: 0 5px 0 5px;
+    margin: 0 5px;
     padding: 0; }
   #header-nav .header-user-btn img {
     margin-top: 0.4em; }
@@ -37,7 +70,7 @@
   width: 100%;
   min-height: 5vmax;
   border-radius: 5px;
-  margin: 10px auto 10px auto;
+  margin: 10px auto;
   background-color: #34555e;
   overflow: hidden; }
   .alert-box .alert-header {

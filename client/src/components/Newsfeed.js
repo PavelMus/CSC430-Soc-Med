@@ -24,8 +24,8 @@ class Newsfeed extends Component {
 
             <div className="activity-section">
               <div className="user-actions">
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                <i className="fa fa-commenting-o" aria-hidden="true"></i>
               </div>
               <div className="comments">
                 <ul>
