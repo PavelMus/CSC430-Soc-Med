@@ -4,30 +4,28 @@ $border-color: #608d8b;
     display: block;
     width: 100%;
     min-height: 5vmax;
-    border: 3px solid $border-color;
     border-radius: 5px;
     margin: 10px auto 10px auto;
     background-color: #34555e;
-    overflow: auto;
+    overflow: hidden;
 
     .alert-header {
-        display: flex;
+        display: block;
         min-height: 50px;
         border-bottom: 1px solid $border-color;
-        color: #fff;
+        color: rgb(255, 255, 255);
         align-items: baseline;
-        align-content: baseline;
         .alert-type {
             
             i {
-                display: inline-block;
                 font-size: 3rem;
                 margin-left: 8px;
                 margin-right: 8px;
             }
-            span {
+            div {
                 display: inline-block;
                 font-size: 2rem;
+                margin-bottom: 10px;
             }
         }
     }

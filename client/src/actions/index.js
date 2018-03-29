@@ -11,12 +11,12 @@ export const userData = () => async dispatch => {
   dispatch({ type: PROFILE_DATA, payload: res.data });
 };
 
-export const fetchPosts = () => async dispatch => {
-  const res = await axios.get("/api/posts");
+export const fetchPosts = (url) => async dispatch => {
+  const res = await axios.get(url);
   dispatch({ type: FETCH_POSTS, posts: res.data });
 };
 
-export const submitPost = (post) => async dispatch => {
-  const res = await axios.post("/api/posts", post).catch(err => { console.error(err);});
+export const submitPost = (url, post) => async dispatch => {
+  const res = await axios.post(url, post).catch(err => { console.error(err);});
   dispatch({ type: SUBMIT_POST, post: res.data})
 };

@@ -1,17 +1,37 @@
 #header-div::after {
     content: "";
     clear: both;
-    display: table;
+    display: block;
 }
 
 #header-nav {
     background-color: #1e88e5;
-}
 
+    #header-avatar {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: 5px;
+    }
+    li {
+        display: inline-block;
+    }
 
-#header-avatar {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8%;
+    .header-user-btn {
+        a {
+            margin: 0 5px 0 5px;
+            padding: 0;
+        }
+        img { 
+            margin-top: 0.4em;
+        }
+        span { 
+            display: inline-block;
+        }
+    }
+
+    .brand-logo {
+        position: relative;
+        display: inline-block;
+    }
+
 }

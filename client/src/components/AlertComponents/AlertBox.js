@@ -21,11 +21,11 @@ class AlertBox extends Component {
 
   render() {
     return (
-      <div className="alert-box">
+      <div className="alert-box hoverable">
         <div className="alert-header">
           <div className="alert-type">
             <i className="material-icons">{this.props.type}</i>
-            <span>{this.alertType()}</span>
+            <div>{this.alertType()}</div>
             <i className="material-icons">{this.props.type}</i>
           </div>
         </div>

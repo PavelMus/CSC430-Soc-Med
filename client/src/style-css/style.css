@@ -11,53 +11,62 @@
 #header-div::after {
   content: "";
   clear: both;
-  display: table; }
+  display: block; }
 
 #header-nav {
   background-color: #1e88e5; }
-
-#header-avatar {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 8%; }
+  #header-nav #header-avatar {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 5px; }
+  #header-nav li {
+    display: inline-block; }
+  #header-nav .header-user-btn a {
+    margin: 0 5px 0 5px;
+    padding: 0; }
+  #header-nav .header-user-btn img {
+    margin-top: 0.4em; }
+  #header-nav .header-user-btn span {
+    display: inline-block; }
+  #header-nav .brand-logo {
+    position: relative;
+    display: inline-block; }
 
 .alert-box {
   display: block;
   width: 100%;
   min-height: 5vmax;
-  border: 3px solid #608d8b;
   border-radius: 5px;
   margin: 10px auto 10px auto;
   background-color: #34555e;
-  overflow: auto; }
+  overflow: hidden; }
   .alert-box .alert-header {
-    display: flex;
+    display: block;
     min-height: 50px;
     border-bottom: 1px solid #608d8b;
-    color: #fff;
-    align-items: baseline;
-    align-content: baseline; }
+    color: white;
+    align-items: baseline; }
     .alert-box .alert-header .alert-type i {
-      display: inline-block;
       font-size: 3rem;
       margin-left: 8px;
       margin-right: 8px; }
-    .alert-box .alert-header .alert-type span {
+    .alert-box .alert-header .alert-type div {
       display: inline-block;
-      font-size: 2rem; }
+      font-size: 2rem;
+      margin-bottom: 10px; }
 
 .alert-message p {
-  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  margin: 5px 10px 5px 10px;
   color: #fff;
   text-align: left;
-  overflow: auto;
+  overflow: hidden;
   font-size: 1.2rem; }
 
 /*Below is the CSS reset*/
 /* HTML5 display-role reset for older browsers */
 body {
-  line-height: 1;
+  line-height: 1.2em;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
