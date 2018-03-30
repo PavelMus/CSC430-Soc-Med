@@ -36,18 +36,23 @@
             width: 100%;
 
             .label-icon {
+              height: 64px;
+
               i {}
             }
 
             #search {
               display: inline-block;
-              width: 80%;
+              width: 90%;
               margin-bottom: 0;
               height: 30px;
             }
 
             .material-icons {
+              display: inline-block;
+              width: 10%;
               height: 64px;
+              padding-top: 4px;
               vertical-align: middle;
             }
           }

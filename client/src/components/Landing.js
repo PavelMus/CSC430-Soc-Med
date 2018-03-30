@@ -6,7 +6,7 @@ import Newsfeed from "./Newsfeed";
 class Landing extends Component {
   render() {
     return (
-      <div className="container">
+      <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
           <div className=""></div>
           <Leftsection />
