@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import marked from "marked";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
 
 export class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      admin: false,
+      teacher: false,
       author: "",
       content: "",
       toBeUpdated: false
@@ -43,9 +47,10 @@ export class Posts extends Component {
             <a href="" onClick={this.deletePost}>
               DELETE
             </a>
-            <a href="" onClick={this.editPost}>
-              EDIT
-            </a>
+            {
+              this.props.admin
+              ? <a href="" onClick={this.editPost}>EDIT</a>:""
+            }
           </div>
         </div>
       </div>
@@ -53,4 +58,10 @@ export class Posts extends Component {
   }
 }
 
-export default Posts;
+const mapStateToProps = state => {
+  return {
+    admin: state.auth.admin
+  };
+};
+
+export default connect(mapStateToProps, actions)(Posts);

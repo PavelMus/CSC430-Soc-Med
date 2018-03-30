@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import PostList from "./PostList";
 import PostForm from "./PostForm";
-import * as actions from "../../actions";
 import axios from "axios";
 
 export class PostBox extends Component {
