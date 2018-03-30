@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Sidenav from "./Sidenav";
 import SearchBar from "./SearchBar";
 import * as M from "materialize-css";
+import logo from'../img/logo.PNG';
 
 class Header extends Component {
   constructor(props) {
@@ -63,7 +64,7 @@ class Header extends Component {
                   to={this.props.auth ? "/" : "/Landing"}
                   className="brand-logo"
                 >
-                  CSI Social Club
+                  <img src={logo} alt="sitelogo"/>
                 </Link>
               </div>
               <SearchBar />
