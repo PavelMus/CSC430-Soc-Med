@@ -33,16 +33,14 @@
         #header-nav #nav-wrapper #header-row #header-search-bar .input-field .input-field-wrapper {
           height: 64px;
           width: 100%; }
-          #header-nav #nav-wrapper #header-row #header-search-bar .input-field .input-field-wrapper .label-icon {
-            height: 64px;
-            display: inline-block; }
           #header-nav #nav-wrapper #header-row #header-search-bar .input-field .input-field-wrapper #search {
             display: inline-block;
             width: 80%;
             margin-bottom: 0;
             height: 30px; }
           #header-nav #nav-wrapper #header-row #header-search-bar .input-field .input-field-wrapper .material-icons {
-            height: 64px; }
+            height: 64px;
+            vertical-align: middle; }
     #header-nav #nav-wrapper #header-row #header-buttons {
       height: 64px; }
       #header-nav #nav-wrapper #header-row #header-buttons .right .header-user-btn a .hide-on-med-and-down {

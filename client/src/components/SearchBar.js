@@ -4,7 +4,7 @@ class SearchBar extends Component {
   render() {
     return (
 
-        <div id="header-search-bar" className="col m4 l5 xl5">
+        <div id="header-search-bar" className="col m5 l5 xl5">
           <form>
             <div className="input-field">
 

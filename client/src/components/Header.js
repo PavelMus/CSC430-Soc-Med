@@ -68,9 +68,7 @@ class Header extends Component {
               </div>
               <SearchBar />
 
-
-
-              <div id="header-buttons"  className="col m5 l4 xl4">
+              <div id="header-buttons"  className="col m4 l4 xl4">
 
                 <ul className="right">{this.renderContent()}</ul>
               </div>
