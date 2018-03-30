@@ -8,7 +8,7 @@ class Rightsection extends Component {
   }
   render() {
     return (
-      <div className="col s12 m3 l3 xl3" id="right-section">
+      <div className="col s12 m3 l3 xl3 " id="right-section">
         <h3>Right Section</h3>
       </div>
     );
