@@ -10,6 +10,7 @@ export class Posts extends Component {
       toBeUpdated: false
     };
     this.deletePost = this.deletePost.bind(this);
+    this.editPost = this.editPost.bind(this);
   }
 
   deletePost(e) {
@@ -17,6 +18,12 @@ export class Posts extends Component {
     let post_id = this.props.uniqueID;
     this.props.onPostDelete(post_id);
     console.log("Deleted!");
+  }
+
+  editPost(e) {
+    e.preventDefault();
+    let post = { post_id: this.props.uniqueID, text: this.props.children };
+    this.props.onPostEdit(post);
   }
 
   rawMarkup() {
@@ -30,11 +37,14 @@ export class Posts extends Component {
         <div className="card blue-grey darken-1 hoverable">
           <div className="card-content white-text">
             <span className="card-title">{this.props.author}</span>
-            <span dangerouslySetInnerHTML={ this.rawMarkup() } />
+            <span dangerouslySetInnerHTML={this.rawMarkup()} />
           </div>
           <div className="card-action">
             <a href="" onClick={this.deletePost}>
               DELETE
+            </a>
+            <a href="" onClick={this.editPost}>
+              EDIT
             </a>
           </div>
         </div>

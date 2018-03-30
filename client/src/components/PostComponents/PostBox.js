@@ -8,23 +8,15 @@ import axios from "axios";
 export class PostBox extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = { data: [], edit: false, text: "", post_id: "" };
 
     this.postSubmit = this.postSubmit.bind(this);
+    this.postEdit = this.postEdit.bind(this);
     this.postDelete = this.postDelete.bind(this);
+    this.onPostEdit = this.onPostEdit.bind(this);
+    this.editFlag = this.editFlag.bind(this);
     this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
     this.pollInterval = null;
-  }
-
-  postDelete(post_id) {
-    axios
-      .delete(`${this.props.url}/${post_id}`)
-      .then(res => {
-        console.log("Comment deleted");
-      })
-      .catch(err => {
-        console.error(err);
-      });
   }
 
   postSubmit(post) {
@@ -38,14 +30,44 @@ export class PostBox extends Component {
     });
   }
 
+  postEdit(post) {
+    axios
+      .put(`${this.props.url}/${this.state.post_id}`, { text: post.text })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  postDelete(post_id) {
+    axios
+      .delete(`${this.props.url}/${post_id}`)
+      .then(res => {
+        console.log("Comment deleted");
+      })
+      .catch(err => {
+        console.error(err);
+      });
+    this.setState({ post_id: "" });
+  }
+
+  onPostEdit(post) {
+    this.setState({ edit: true, text: post.text, post_id: post.post_id });
+  }
+
+  editFlag() {
+    this.setState({ edit: false });
+  }
+
   loadPostsFromServer() {
     axios.get(this.props.url).then(res => {
       this.setState({ data: res.data });
     });
   }
+
   componentWillMount() {
     this.loadPostsFromServer();
   }
+
   componentDidMount() {
     if (!this.pollInterval)
       this.pollInterval = setInterval(
@@ -62,12 +84,16 @@ export class PostBox extends Component {
   render() {
     return (
       <div id="postBox">
-        <PostList 
-        data={this.state.data}
-        onPostDelete={this.postDelete}
-         />
+        <PostList
+          data={this.state.data}
+          onPostDelete={this.postDelete}
+          onPostEdit={this.onPostEdit}
+        />
         <PostForm
           onPostSubmit={this.postSubmit}
+          onPostEdit={this.postEdit}
+          editPost={{ edit: this.state.edit, text: this.state.text }}
+          editFlag={this.editFlag}
         />
       </div>
     );

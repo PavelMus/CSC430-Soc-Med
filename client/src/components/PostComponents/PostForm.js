@@ -6,13 +6,21 @@ export class PostForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { author: "", text: "" };
+    this.state = { author: "", text: "", edit: false };
     this.onTextChange = this.onTextChange.bind(this);
     this.onPostSubmit = this.onPostSubmit.bind(this);
+    this.onPostEdit = this.onPostEdit.bind(this);
   }
 
   onTextChange(e) {
     this.setState({ text: e.target.value });
+  }
+
+  componentWillReceiveProps() {
+    if (this.props.editPost.edit) {
+      this.setState({ text: this.props.editPost.text, edit: true });
+      this.props.editFlag();
+    }
   }
 
   onPostSubmit(e) {
@@ -25,10 +33,23 @@ export class PostForm extends Component {
     this.props.onPostSubmit({ author: author, text: text });
     this.setState({ text: "" });
   }
+
+  onPostEdit(e) {
+    e.preventDefault();
+    let text = this.state.text.trim();
+    if (!text) {
+      return;
+    }
+    this.props.onPostEdit({ author: this.state.author, text: text });
+    this.setState({ text: "" });
+  }
   render() {
     return (
       <div>
-        <div className="row" onSubmit={this.onPostSubmit}>
+        <div
+          className="row"
+          onSubmit={this.state.edit ? this.onPostEdit : this.onPostSubmit}
+        >
           <form className="col s12">
             <div className="row">
               <div className="input-field col s12">
@@ -52,10 +73,9 @@ export class PostForm extends Component {
 }
 
 const mapStateToProps = state => {
-    return {
-      author: state.user
-    };
-    
+  return {
+    author: state.user
   };
+};
 
 export default connect(mapStateToProps, actions)(PostForm);
