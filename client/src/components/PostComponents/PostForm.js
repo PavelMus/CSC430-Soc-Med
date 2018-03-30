@@ -41,7 +41,7 @@ export class PostForm extends Component {
       return;
     }
     this.props.onPostEdit({ author: this.state.author, text: text });
-    this.setState({ text: "" });
+    this.setState({ edit: false, text: "" });
   }
   render() {
     return (
