@@ -16,7 +16,7 @@ export class PostList extends Component {
         </Post>
       );
     });
-    //console.log(postNodes);
+    console.log(postNodes);
 
     return <div className="row">{postNodes}</div>;
   }

@@ -8,7 +8,7 @@ class Newsfeed extends Component {
   }
   render() {
     return (
-      <div className="col s12 m6 l6 xl6" id="newsfeed">
+      <div className="col s12 m6 l6 xl5" id="newsfeed">
           <h3>News feed</h3>
 
           <div id="post" className="card small">

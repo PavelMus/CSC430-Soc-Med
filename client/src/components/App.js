@@ -23,7 +23,7 @@ class App extends Component {
             <Route exact path="/dashboard" component={Dashboard} />
             <Route path="/somethingelse" component={SurveyNew} />
             <Route exact path="/posts" component={PostIndex} />
-            <Footer />
+
           </div>
         </BrowserRouter>
     );
