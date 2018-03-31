@@ -6,7 +6,9 @@
     color: red; }
 
 #sidenav-background {
-  background-color: #0288d1; }
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: #1e88e5; }
 
 .alert-box {
   display: block;
