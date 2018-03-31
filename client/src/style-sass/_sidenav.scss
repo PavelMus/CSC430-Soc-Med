@@ -1,6 +1,8 @@
 // Variables
-$primary-background: #0288d1;
+$primary-background: #1e88e5;
 
 #sidenav-background {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     background-color: $primary-background;
 }

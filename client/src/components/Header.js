@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Sidenav from "./Sidenav";
 import SearchBar from "./SearchBar";
 import * as M from "materialize-css";
-import logo from'../img/logo.PNG';
+import logo from "../img/logo.PNG";
 
 class Header extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Header extends Component {
 
     this.renderContent = this.renderContent.bind(this);
   }
+
   renderContent() {
     //Initializing Javascript variables for Materialize-CSS sidenav
     var sidenav = document.querySelector(".sidenav");
@@ -35,19 +36,19 @@ class Header extends Component {
               </a>
             </li>
             <li className="header-user-btn">
-                <a
-                  data-target="slide-out"
-                  className="sidenav-trigger waves-effect waves-light show-on-medium-and-down show-on-medium-and-up"
-                >
-                  <img
-                    id="header-avatar"
-                    className="circle z-depth-2"
-                    src={this.props.auth.avatar}
-                  />
-                  <span className="hide-on-med-and-down">
-                    {this.props.auth.displayName}
-                  </span>
-                </a>
+              <a
+                data-target="slide-out"
+                className="sidenav-trigger waves-effect waves-light show-on-medium-and-down show-on-medium-and-up"
+              >
+                <img
+                  id="header-avatar"
+                  className="circle z-depth-2"
+                  src={this.props.auth.avatar}
+                />
+                <span className="hide-on-med-and-down">
+                  {this.props.auth.displayName}
+                </span>
+              </a>
             </li>
           </React.Fragment>
         );
@@ -64,19 +65,18 @@ class Header extends Component {
                   to={this.props.auth ? "/" : "/Landing"}
                   className="brand-logo"
                 >
-                  <img src={logo} alt="sitelogo"/>
+                  <img src={logo} alt="sitelogo" />
                 </Link>
               </div>
               <SearchBar />
 
-              <div id="header-buttons"  className="col m4 l4 xl4">
-
+              <div id="header-buttons" className="col m4 l4 xl4">
                 <ul className="right">{this.renderContent()}</ul>
               </div>
             </div>
           </div>
         </nav>
-        <Sidenav />
+        <Sidenav/>
       </div>
     );
   }
