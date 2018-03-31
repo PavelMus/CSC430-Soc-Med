@@ -9,7 +9,7 @@ class Newsfeed extends Component {
   render() {
     return (
       <div>
-        <div className="col s12 m6 l6 xl5" id="newsfeed">
+        <div className="col s12 m6 l6 xl8" id="newsfeed">
             <h3>News feed</h3>
             <FeedPost/>
             <FeedPost/>

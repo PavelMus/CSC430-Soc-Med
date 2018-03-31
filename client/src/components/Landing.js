@@ -8,10 +8,14 @@ class Landing extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className=""></div>
-          <Leftsection />
-          <Newsfeed />
-          <Rightsection />
+          <div className="Leftsection col s12 m12 l12 xl2">
+            <Leftsection />
+          </div>
+
+          <div className="middle-right-section col s12 m12 l12 xl9">
+            <Newsfeed />
+            <Rightsection />
+          </div>
         </div>
       </div>
     );

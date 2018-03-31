@@ -55,7 +55,8 @@
     color: black; }
     .alert-box .alert-message p {
       color: black;
-      line-height: 1.6; }
+      line-height: 1.6;
+      font-size: 14px; }
   .alert-box a {
     margin-bottom: 16px; }
 
@@ -188,23 +189,8 @@ body {
   width: 100%;
   text-align: center; }
 
-#left-section {
-  height: 100vh;
-  -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: grey;
-  background-color: #1464c0;
-  overflow-y: auto; }
-
-#newsfeed {
-  height: 100vh;
-  margin-left: 10px;
+.middle-right-section {
+  display: inline-block;
   -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
@@ -214,7 +200,27 @@ body {
   border-style: solid;
   border-width: 4px;
   border-color: grey;
-  background-color: #1464c0;
+  height: 100vh; }
+
+#left-section {
+  height: 100vh;
+  width: 100%;
+  -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+  background-color: #e9ebee;
+  overflow-y: auto;
+  display: inline-block; }
+
+#newsfeed {
+  height: 100vh;
+  background-color: #e9ebee;
   overflow-y: auto;
   color: white; }
   #newsfeed .feed-post {
@@ -272,6 +278,18 @@ body {
         #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .chip {
           margin-left: 5px;
           color: black; }
+        #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button {
+          display: inline-block;
+          float: right;
+          display: table; }
+          #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button .i-wrapper {
+            display: inline-block;
+            margin: auto 0; }
+            #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button .i-wrapper i {
+              padding: 5px; }
+          #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button span {
+            display: table-cell;
+            vertical-align: middle; }
 
 #newsfeed .card-top {
   height: 55px;
@@ -290,14 +308,4 @@ body {
 
 #right-section {
   height: 100vh;
-  margin-left: 10px;
-  -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: grey;
-  background-color: #1464c0; }
+  background-color: #e9ebee; }

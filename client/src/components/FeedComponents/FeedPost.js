@@ -23,7 +23,13 @@ class FeedPost extends Component {
                 <img src={tempimg} alt="Contact Person"/>
                 Louis Petingi
               </div>
+              <div className="comment-button">
+                <div className="i-wrapper">
+                  <i class="material-icons">comment</i>
+                </div>
 
+                <span>Comment</span>
+              </div>
               </div>
               </div>
         </div>
