@@ -25,7 +25,7 @@ export class PostForm extends Component {
 
   onPostSubmit(e) {
     e.preventDefault();
-    let author = this.props.author.displayName.trim();
+    let author = this.props.user.displayName.trim();
     let text = this.state.text.trim();
     if (!text) {
       return;
@@ -72,10 +72,17 @@ export class PostForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    author: state.user
-  };
-};
+//const mapStateToProps = state => {
+//  console.log(state.user);
+//  
+//  return {
+//    author: state.user
+//  };
+//};
+function mapStateToProps(state) {
+  console.log(state.auth);
+  
+  return { user: state.auth};
+}
 
 export default connect(mapStateToProps, actions)(PostForm);

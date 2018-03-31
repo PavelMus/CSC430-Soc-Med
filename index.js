@@ -6,8 +6,10 @@ const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 require("./models/Users");
 require("./models/Posts");
+require("./models/Feed");
 require("./services/passport");
 var posts = require("./routes/postsRoutes");
+var feed = require("./routes/feedRoutes");
 
 mongoose.connect(keys.mongoURI);
 

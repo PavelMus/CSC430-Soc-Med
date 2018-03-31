@@ -7,6 +7,7 @@ export class PostList extends Component {
       return (
         <Post
           author={post.author}
+          admin={post.admin}
           uniqueID={post["_id"]}
           key={post.id}
           onPostDelete={this.props.onPostDelete}
@@ -16,8 +17,6 @@ export class PostList extends Component {
         </Post>
       );
     });
-    console.log(postNodes);
-
     return <div className="row">{postNodes}</div>;
   }
 }

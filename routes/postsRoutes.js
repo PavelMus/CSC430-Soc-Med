@@ -7,15 +7,12 @@ var mongoose = require('mongoose');
 var Post = require("../models/Posts");
 
 //and create our instances
-var router = express.Router();
+var postRouter = express.Router();
 
 //now  we can set the route path & initialize the API
-router.get('/', function(req, res) {
-  res.json({ message: 'API Initialized!'});
-});
 
-//adding the /posts route to our /api router
-router.route('/posts')
+//adding the /posts route to our /api postRouter
+postRouter.route('/posts')
   //retrieve all posts from the database
   .get(function(req, res) {
     //looks at our Post Schema
@@ -40,7 +37,7 @@ router.route('/posts')
   });
 
 //Adding a route to a specific post based on the database ID
-router.route('/posts/:post_id')
+postRouter.route('/posts/:post_id')
 //The put method gives us the chance to update our post based on the ID passed to the route
   .put(function(req, res) {
     Post.findById(req.params.post_id, function(err, post) {
@@ -68,4 +65,4 @@ router.route('/posts/:post_id')
     })
   });
 
-module.exports = router;
+module.exports = postRouter;

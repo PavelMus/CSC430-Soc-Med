@@ -41,6 +41,9 @@ export class PostBox extends Component {
       .delete(`${this.props.url}/${post_id}`)
       .then(res => {
         console.log("Comment deleted");
+        var d = new Date();
+        console.log(d);
+        
       })
       .catch(err => {
         console.error(err);
