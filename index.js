@@ -47,7 +47,9 @@ app.use(function(req, res, next) {
   next();
 });
 /*********************************************************************************************************************/
+
 app.use("/api", posts);
+app.use("/api", feed);
 
 require("./routes/authRoutes")(app);
 

@@ -4,6 +4,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var Feed = require("../models/Feed");
 var News = require("../models/NewsPost");
+var Events = require("../models/EventPost");
 
 var feedRouter = express.Router();
 
@@ -20,6 +21,8 @@ feedRouter
     });
   })
 
+  /* This is the feed router for news posts, it is responsible for
+     post and put events that are made through the api/feed/news URI */
 
   feedRouter
     .route("/feed/news")
@@ -31,10 +34,36 @@ feedRouter
         news.postDate = date;
         news.content = req.body.content;
 
-        news.save((err) => {
+        var feed = new Feed();
+        feed.type = "news";
+        feed.feedItem = news;
+        feed.save((err) => {
             if(err)
                 res.send(err);
             res.json({message: 'news item successfully posted'});
+        });
+    });
+
+      /* This is the feed router for event posts, it is responsible for
+     post and put events that are made through the api/feed/events URI */
+
+    feedRouter
+    .route("/feed/events")
+    .post((req, res) =>{
+        var event = new Events();
+        var date = new Date();
+        event.author = req.body.author;
+        event.title = req.body.title;
+        event.postDate = date;
+        event.content = req.body.content;
+
+        var feed = new Feed();
+        feed.type = "event";
+        feed.feedItem = event;
+        feed.save((err) => {
+            if(err)
+                res.send(err);
+            res.json({message: 'event item successfully posted'});
         });
     });
 
