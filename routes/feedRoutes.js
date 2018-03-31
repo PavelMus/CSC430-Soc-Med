@@ -29,9 +29,10 @@ feedRouter
     .post((req, res) =>{
         var news = new News();
         var date = new Date();
+        var dateFormated = date.toUTCString();
         news.author = req.body.author;
         news.title = req.body.title;
-        news.postDate = date;
+        news.postDate = dateFormated;
         news.content = req.body.content;
 
         var feed = new Feed();
@@ -52,9 +53,11 @@ feedRouter
     .post((req, res) =>{
         var event = new Events();
         var date = new Date();
+        var dateFormated = date.toUTCString();
+
         event.author = req.body.author;
         event.title = req.body.title;
-        event.postDate = date;
+        event.postDate = dateFormated;
         event.content = req.body.content;
 
         var feed = new Feed();
