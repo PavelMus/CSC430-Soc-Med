@@ -1,64 +1,94 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import * as M from "materialize-css";
 
 class Sidenav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      displayName: "",
-      name: {
-        familyName: "",
-        givenName: ""
-      }
-    };
     this.getName = this.getName.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.userData();
+    this.getAvatar = this.getAvatar.bind(this);
+    this.getEmail = this.getEmail.bind(this);
   }
 
   getName() {
-    return this.props.user
-      ? this.props.user.displayName
-      : this.state.displayName;
+    return this.props.user ? this.props.user.displayName : "";
   }
+
+  getAvatar() {
+    return this.props.user ? this.props.user.avatar : "";
+  }
+
+  getEmail() {
+    return this.props.user ? this.props.user.emails[0].value : "";
+  }
+
   render() {
     return (
       <ul id="slide-out" className="sidenav">
         <li>
           <div className="user-view">
-            <div className="background" id="sidenav-background">         
-            </div>
+            <div className="background" id="sidenav-background" />
             <a href="#!user">
-              <img className="circle" src={ this.props.user.avatar} alt="user avatar" />
+              <img
+                className="circle"
+                src={this.getAvatar()}
+                alt="user avatar"
+              />
             </a>
             <a href="#!name">
               <span className="black-text name">{this.getName()}</span>
             </a>
             <a href="#!email">
-              <span className="white-text email">jdandturk@gmail.com</span>
+              <span className="white-text email">{this.getEmail()}</span>
             </a>
           </div>
         </li>
         <li>
-          <a href="#!">
-            <i className="material-icons">cloud</i>First Link With Icon
+          <a className="subheader">
+            <i className="material-icons">face</i>
+            TEACHERS
           </a>
         </li>
         <li>
-          <a href="#!">Second Link</a>
+          <a className="waves-effect" href="#!">Teacher 1</a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">Teacher 2</a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">Teacher 3</a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">Teacher 4</a>
         </li>
         <li>
           <div className="divider" />
         </li>
         <li>
-          <a className="subheader">Subheader</a>
+          <a className="subheader">
+            <i className="material-icons">school</i>
+            CLASSMATES
+          </a>
         </li>
         <li>
           <a className="waves-effect" href="#!">
-            Third Link With Waves
+            Classmate 1
+          </a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">
+            Classmate 2
+          </a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">
+            Classmate 3
+          </a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">
+            Classmate 4
           </a>
         </li>
         <li>
@@ -71,7 +101,7 @@ class Sidenav extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.auth
   };
 };
 

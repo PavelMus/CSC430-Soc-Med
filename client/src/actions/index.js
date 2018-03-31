@@ -16,7 +16,7 @@ export const fetchPosts = (url) => async dispatch => {
   dispatch({ type: FETCH_POSTS, posts: res.data });
 };
 
-export const submitPost = (url, post) => async dispatch => {
-  const res = await axios.post(url, post).catch(err => { console.error(err);});
-  dispatch({ type: SUBMIT_POST, post: res.data})
-};
+//export const submitPost = (url, post) => async dispatch => {
+//  const res = await axios.post(url, post).catch(err => { console.error(err);});
+//  dispatch({ type: SUBMIT_POST, post: res.data})
+//};

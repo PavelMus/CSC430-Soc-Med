@@ -8,6 +8,7 @@ const userSchema = new Schema({
     familyName: String,
     givenName: String
   },
+  emails: Array,
   avatar: String,
   teacher: Boolean,
   admin: Boolean

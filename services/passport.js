@@ -34,7 +34,10 @@ passport.use(
           googleId: profile.id,
           displayName: profile.displayName,
           name: profile.name,
-          avatar: profile._json.image.url
+          avatar: profile._json.image.url,
+          emails: profile.emails,
+          teacher: false,
+          admin: false
         }).save();
         done(null, user);
       }
