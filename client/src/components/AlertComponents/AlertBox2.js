@@ -36,10 +36,10 @@ class AlertBox extends Component {
           <div className="alert-header">
             <div className="alert-type">
               <i className="material-icons">{this.props.type}</i>
-              <div><span>{this.alertType()}</span></div>
+              <div>{this.alertType()}</div>
+              <i className="material-icons">{this.props.type}</i>
             </div>
           </div>
-          <div className="divider"></div>
           <AlertMessage />
           <a className="waves-effect waves-light btn" onClick={this.showModal}>
             Modal

@@ -5,13 +5,7 @@ class AlertMessage extends Component {
     return (
       <div className="alert-message">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          A chance of rain before 4am, then snow likely, possibly mixed with rain. Increasing clouds, with a low around 32. Northwest wind 8 to 10 mph becoming northeast after midnight. Chance of precipitation is 60%. New snow accumulation of 1 to 2 inches possible.
         </p>
       </div>
     );

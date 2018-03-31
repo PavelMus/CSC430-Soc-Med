@@ -6,28 +6,64 @@ $border-color: #608d8b;
   min-height: 5vmax;
   border-radius: 5px;
   margin: 10px auto;
-  background-color: #34555e;
+  background-color: $feedbackgroundcolor;
   overflow: hidden;
+  color: $textcolor;
 
   .alert-header {
     display: block;
     min-height: 50px;
-    border-bottom: 1px solid $border-color;
     color: rgb(255, 255, 255);
     align-items: baseline;
+    display: table;
+    color: $textcolor;
 
     .alert-type {
       i {
-        font-size: 3rem;
+        margin: 5px;
+        float: left;
+        font-size: 2.7rem;
         margin-left: 8px;
         margin-right: 8px;
+        display: table-cell;
+        vertical-align: middle;
       }
 
       div {
+        min-height: 50px;
+        float: left;
         display: inline-block;
-        font-size: 2rem;
-        margin-bottom: 10px;
+        margin-left: 4px;
+        font-size: 1.9rem;
+        vertical-align: middle;
+        color: $textcolor;
+        display: table;
+
+        span {
+          vertical-align: top;
+          display: table-cell;
+          vertical-align: middle;
+        }
       }
     }
+
+    .divider {
+      float: none;
+      margin-top: 8px;
+      background-color: #a1a1a1;
+    }
+  }
+
+  .alert-message {
+    color: $textcolor;
+
+    p {
+      color: $textcolor;
+      line-height: 1.6;
+    }
+  }
+
+  a {
+    margin-bottom: 16px;
   }
 }
