@@ -13,7 +13,9 @@ class Landing extends Component {
           </div>
 
           <div className="middle-right-section col s12 m12 l12 xl9">
-            <Newsfeed />
+            <Newsfeed
+              pollInterval = {5000}
+            />
             <Rightsection />
           </div>
         </div>

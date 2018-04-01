@@ -11,12 +11,6 @@ class FeedPost extends Component {
       content: ""
    };
   }
-
-  renderTime = () =>{
-    let h = this.props.postDate.getHours();
-    let m = this.props.postDate.getMinutes();
-    return (h + ":" + m)
-  }
   render() {
     return (
       <div>

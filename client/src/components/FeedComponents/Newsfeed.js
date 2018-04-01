@@ -9,6 +9,8 @@ class Newsfeed extends Component {
       feed: [],
       isLoading: false
     };
+
+    this.pollInterval = null;
   }
 
   loadFeed = () => {
@@ -19,7 +21,18 @@ class Newsfeed extends Component {
 
   componentDidMount() {
     this.loadFeed();
+    if (!this.pollInterval)
+    this.pollInterval = setInterval(
+      this.loadFeed,
+      this.props.pollInterval
+    );
   }
+
+  componentWillUnmount() {
+    this.pollInterval && clearInterval(this.pollInterval);
+    this.pollInterval = null;
+  }
+
   render() {
     switch (this.state.feed) {
       case []:
@@ -29,7 +42,6 @@ class Newsfeed extends Component {
         return (
           <div>
             <div className="col s12 m6 l6 xl8" id="newsfeed">
-              <h3>News feed</h3>
               {feed.map( data => (
                 <FeedPost
                 author={data.feedItem.author}
