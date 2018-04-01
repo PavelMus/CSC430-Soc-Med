@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
         <BrowserRouter>
-          <div id="CSIBrigde">
+          <div id="CSIBridge">
             <Header />
             <Route exact={true} path="/" component={Landing} />
             <Route exact path="/dashboard" component={Dashboard} />

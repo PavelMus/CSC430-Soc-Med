@@ -42,7 +42,7 @@ class AlertBox extends Component {
           <div className="divider"></div>
           <AlertMessage />
           <a className="waves-effect waves-light btn" onClick={this.showModal}>
-            Modal
+            Read More
           </a>
         </div>
         {this.state.show ? (

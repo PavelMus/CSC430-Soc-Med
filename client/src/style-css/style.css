@@ -10,6 +10,9 @@
   border-bottom-right-radius: 1rem;
   background-color: #1e88e5; }
 
+.alert-section-header {
+  font-size: 2.0rem; }
+
 .alert-box {
   display: block;
   width: 100%;
@@ -58,6 +61,8 @@
       line-height: 1.6;
       font-size: 14px; }
   .alert-box a {
+    z-index: auto;
+    background-color: #1565c0;
     margin-bottom: 16px; }
 
 #left-section .modal-underlay {
@@ -157,7 +162,11 @@ body {
   min-height: 100vh;
   height: 100%;
   flex-direction: column;
-  background-color: #f5f5f5; }
+  background-color: #e9ebee;
+  font-family: 'Exo 2', sans-serif; }
+
+#CSIBridge {
+  background-color: #e9ebee; }
 
 #content-section-container {
   padding-top: 10px;
@@ -166,7 +175,7 @@ body {
 
 #content-section-container {
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1640px;
   width: 90%; }
 
 @media only screen and (min-width: 601px) {
@@ -191,15 +200,13 @@ body {
 
 .middle-right-section {
   display: inline-block;
+  background-color: #c3ccd8;
   -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-  border-style: solid;
-  border-width: 4px;
-  border-color: grey;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
   height: 100vh; }
 
 #left-section {
@@ -208,21 +215,23 @@ body {
   -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: grey;
-  background-color: #e9ebee;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #c3ccd8;
   overflow-y: auto;
   display: inline-block; }
 
 #newsfeed {
   height: 100vh;
-  background-color: #e9ebee;
+  padding-top: 16px;
+  background-color: #c3ccd8;
   overflow-y: auto;
-  color: white; }
+  color: black; }
+  #newsfeed .myhoverable {
+    transition: box-shadow 0.25s; }
+  #newsfeed .myhoverable:hover {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
   #newsfeed .feed-post {
     background-color: #f5f5f5;
     margin-bottom: 20px;
@@ -308,4 +317,4 @@ body {
 
 #right-section {
   height: 100vh;
-  background-color: #e9ebee; }
+  background-color: #c3ccd8; }

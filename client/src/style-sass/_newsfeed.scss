@@ -1,8 +1,17 @@
 #newsfeed {
   height: 100vh;
-  background-color: $primarylight;
+  padding-top: 16px;
+  background-color: $primarylight2;
   overflow-y: auto;
-  color: white;
+  color: $textcolor;
+
+  .myhoverable {
+    transition: box-shadow 0.25s;
+  }
+
+  .myhoverable:hover {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
   .feed-post {
     background-color: $feedbackgroundcolor;
