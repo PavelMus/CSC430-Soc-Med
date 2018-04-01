@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FeedPost from "./FeedPost";
+import Loading from '../Loading';
 import axios from "axios";
 class Newsfeed extends Component {
   constructor(props) {
@@ -13,12 +14,17 @@ class Newsfeed extends Component {
     this.pollInterval = null;
   }
 
+  //loadFeed sends a get request to the database to grab the latests feed items
+  //and then stores them in this components state
   loadFeed = () => {
-    axios.get("api/feed").then(res => {
+    axios.get("api/feed", 3).then(res => {
       this.setState({ feed: res.data });
     });
   };
 
+  //When the component mounts, use loadFeed function to grab the latests feed
+  //items from the database, then it sets an interval to send another request to
+  //the database, the interval is set in the props of this component
   componentDidMount() {
     this.loadFeed();
     if (!this.pollInterval)
@@ -28,6 +34,8 @@ class Newsfeed extends Component {
     );
   }
 
+
+  //When the component unmounts this will reset the interval
   componentWillUnmount() {
     this.pollInterval && clearInterval(this.pollInterval);
     this.pollInterval = null;
@@ -36,7 +44,7 @@ class Newsfeed extends Component {
   render() {
     switch (this.state.feed) {
       case []:
-        return "";
+        return <Loading />
       default:
         let { feed } = this.state;
         return (
@@ -48,6 +56,7 @@ class Newsfeed extends Component {
                 title={data.feedItem.title}
                 content={data.feedItem.content}
                 postDate={data.feedItem.postDate}
+                key={data._id}
               />
               ))}
             </div>
