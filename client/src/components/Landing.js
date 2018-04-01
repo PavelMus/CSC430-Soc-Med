@@ -8,10 +8,10 @@ class Landing extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="Leftsection col s12 m12 l12 xl3">
+          <div className="Leftsection col s12 m12 l3 xl3">
             <Leftsection />
           </div>
-          <div className="middle-right-section col s12 m12 l12 xl9">
+          <div className="middle-right-section col s12 m12 l9 xl9">
             <Newsfeed
               pollInterval = {5000}
             />

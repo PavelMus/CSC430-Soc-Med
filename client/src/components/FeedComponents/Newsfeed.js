@@ -41,7 +41,7 @@ class Newsfeed extends Component {
         let { feed } = this.state;
         return (
           <div>
-            <div className="col s12 m6 l6 xl8" id="newsfeed">
+            <div className="col s12 m6 l8 xl8" id="newsfeed">
               {feed.map( data => (
                 <FeedPost
                 author={data.feedItem.author}
