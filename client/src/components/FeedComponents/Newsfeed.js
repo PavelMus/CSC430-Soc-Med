@@ -29,7 +29,7 @@ class Newsfeed extends Component {
         return (
           <div>
             <div className="col s12 m6 l6 xl8" id="newsfeed">
-              <h3>News feed</h3>
+
               {feed.map( data => (
                 <FeedPost
                 author={data.feedItem.author}

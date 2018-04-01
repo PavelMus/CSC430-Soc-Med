@@ -4,7 +4,7 @@ class FeedPost extends Component {
   constructor(props){
     super(props);
 
-    this.state = { 
+    this.state = {
       author: "",
       title: "",
       postDate:"",
@@ -20,7 +20,7 @@ class FeedPost extends Component {
   render() {
     return (
       <div>
-        <div className="feed-post">
+        <div className="feed-post hoverable">
           <h3><a href="">{this.props.title}</a></h3>
             <div className="divider"></div>
             <div className="feed-item-body">
