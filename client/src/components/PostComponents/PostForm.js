@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import Quill from "quill";
 
 export class PostForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { author: "", text: "", edit: false };
+    this.state = { 
+      author: "", 
+      text: "", 
+      edit: false,
+      qhtml: '',
+      qtext: ''
+    };
     this.onTextChange = this.onTextChange.bind(this);
     this.onPostSubmit = this.onPostSubmit.bind(this);
     this.onPostEdit = this.onPostEdit.bind(this);
@@ -43,7 +50,8 @@ export class PostForm extends Component {
     this.props.onPostEdit({ author: this.state.author, text: text });
     this.setState({ edit: false, text: "" });
   }
-  render() {
+
+  renderInput = () => {
     return (
       <div>
         <div
@@ -69,20 +77,64 @@ export class PostForm extends Component {
         </div>
       </div>
     );
+  };
+
+  componentDidMount() {
+    this.renderQuill();
+  }
+
+  quillsubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.qtext);
+    
+  }
+  qchange = (e) => {
+    this.setState({qtext:e.target.value})
+  }
+
+  renderQuill = () => {
+    let toolbarOptions = [
+      ["bold", "italic", "underline", "strike"],
+      ["blockquote"],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ list: "ordered" }, { list: "bullet" }],
+      [{ indent: "-1" }, { indent: "+1" }]
+      [{"size":['small', false, 'large', 'huge']}],
+      ['link', 'image', 'video'],
+      [{'color':[]}, {'background': []}]
+    ];
+    var quill = new Quill("#quill", {
+      modules: {
+        toolbar: toolbarOptions
+      },
+      theme: "snow"
+    });
+    return "";
+  };
+  render() {
+    return (
+      <React.Fragment>
+        {this.renderInput()}
+
+        <div id="quill" onChange={this.qchange} value={this.state.qtext}>
+        </div>
+        <button className="btn" type="submit" onClick={this.quillsubmit} value="Post">Post</button>
+      </React.Fragment>
+    );
   }
 }
 
 //const mapStateToProps = state => {
 //  console.log(state.user);
-//  
+//
 //  return {
 //    author: state.user
 //  };
 //};
 function mapStateToProps(state) {
   console.log(state.auth);
-  
-  return { user: state.auth};
+
+  return { user: state.auth };
 }
 
 export default connect(mapStateToProps, actions)(PostForm);

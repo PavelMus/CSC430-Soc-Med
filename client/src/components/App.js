@@ -6,28 +6,30 @@ import Landing from "./Landing";
 import Header from "./Header";
 import PostIndex from "./PostComponents/PostIndex";
 import Footer from "./Footer";
-
-const Dashboard = () => <h2>Dashboard</h2>;
-const SurveyNew = () => <h2>SurveyNew</h2>;
-
+import ComposeEvent from './ComposeEvent';
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     this.props.fetchUser();
   }
   render() {
     return (
-        <BrowserRouter>
-          <div id="CSIBridge">
-            <Header />
-            <Route exact={true} path="/" component={Landing} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route path="/somethingelse" component={SurveyNew} />
-            <Route exact path="/posts" component={PostIndex} />
-
-          </div>
-        </BrowserRouter>
+      <BrowserRouter>
+        <div id="CSIBridge">
+          <Header />
+          <Route exact={true} path="/" component={Landing} />
+          <Route exact path="/newEvent" component={ComposeEvent} />
+          <Route exact path="/posts" component={PostIndex} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
-export default connect(null, actions)(App);
+const mapStateToProps = state => {
+  return { user: state.auth };
+};
+
+export default connect(mapStateToProps, actions)(App);

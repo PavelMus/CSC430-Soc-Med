@@ -2,6 +2,7 @@ import materializeCSS from "./style-css/materialize.css";
 import materializeJS from "materialize-css/dist/js/materialize.js";
 import animateCSS from "animate.css";
 import animeJS from "animejs";
+import Quill from "quill";
 import customStyles from "./style-css/style.css";
 import React from "react";
 import ReactDOM from "react-dom";

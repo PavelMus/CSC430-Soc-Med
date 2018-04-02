@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Sidenav from "./Sidenav";
+import Sidenav from "./SidenavComponents/Sidenav";
 import SearchBar from "./SearchBar";
 import * as M from "materialize-css";
 import logo from "../img/logo.PNG";
@@ -9,15 +9,56 @@ import logo from "../img/logo.PNG";
 class Header extends Component {
   constructor(props) {
     super(props);
-
-    this.renderContent = this.renderContent.bind(this);
+    this.state = {
+      sideNavInterval: ""
+    };
   }
 
-  renderContent() {
-    //Initializing Javascript variables for Materialize-CSS sidenav
-    var sidenav = document.querySelector(".sidenav");
-    var sidenavInst = M.Sidenav.init(sidenav, { edge: "right" });
+  //When the component mounts, set the interval for the sidenav initialization function
+  //and then set the interval id in to the state to clear it later.
+  componentDidMount(){
+    let interval = setInterval(this.initSidenav, 100);
+    this.setState({ sideNavInterval: interval});
+  }
 
+  //Initializing Javascript variables for Materialize-CSS sidenav this function is on a small interval,
+  //The javascript variable need the html tags to be rendered before they can be initialized, and since
+  //the sidenav requires information from the server before it is rendered, this requires a delayed function call.
+  initSidenav = () => {
+    let sidenavDOM = document.getElementById("slide-out");  
+    if (sidenavDOM != null){
+      var sidenav = document.querySelector(".sidenav");
+      var sidenavInst = M.Sidenav.init(sidenav, { edge: "right" });
+      clearInterval(this.state.sideNavInterval);
+      this.setState({ sideNavInterval: "" });
+      console.log(sidenavDOM);
+    }
+  }
+
+  //Renders the sidenav with props that are passed down from the user database.
+  renderSidenav = () => {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return;
+      default:
+        let user = this.props.auth;
+        return (
+            <Sidenav
+              email={user.emails[0].value}
+              name={user.displayName}
+              avatar={user.avatar}
+              admin={user.admin}
+              teacher={user.teacher}
+            />
+        );
+    }
+  };
+
+  //The content of the page is rendered when the information on whether or not a user logged in,
+  //and when said data was successfully stored in the props from the Redux store.
+  renderContent = () => {
     switch (this.props.auth) {
       case null:
         return;
@@ -53,7 +94,7 @@ class Header extends Component {
           </React.Fragment>
         );
     }
-  }
+  };
   render() {
     return (
       <div id="header-div">
@@ -69,20 +110,20 @@ class Header extends Component {
                 </Link>
               </div>
               <SearchBar />
-
               <div id="header-buttons" className="col m4 l4 xl4">
                 <ul className="right">{this.renderContent()}</ul>
               </div>
             </div>
           </div>
         </nav>
-        <Sidenav/>
+        {this.renderSidenav()}
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
+//Maps the user accont info from the Redux store to the component props.
+const mapStateToProps = state =>{
   return { auth: state.auth };
 }
 

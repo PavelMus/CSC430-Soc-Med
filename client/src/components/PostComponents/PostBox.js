@@ -75,6 +75,8 @@ export class PostBox extends Component {
         this.loadPostsFromServer,
         this.props.pollInterval
       );
+      console.log(this.props.pollInterval);
+      
   }
 
   componentWillUnmount() {
