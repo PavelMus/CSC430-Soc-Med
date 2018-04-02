@@ -48,18 +48,16 @@ class Newsfeed extends Component {
       default:
         let { feed } = this.state;
         return (
-          <div>
-            <div className="col s12 m6 l8 xl8" id="newsfeed">
-              {feed.map( data => (
-                <FeedPost
-                author={data.feedItem.author}
-                title={data.feedItem.title}
-                content={data.feedItem.content}
-                postDate={data.feedItem.postDate}
-                key={data._id}
-              />
-              ))}
-            </div>
+          <div className="col s12 m6 l8 xl6" id="newsfeed">
+            {feed.map( data => (
+              <FeedPost
+              author={data.feedItem.author}
+              title={data.feedItem.title}
+              content={data.feedItem.content}
+              postDate={data.feedItem.postDate}
+              key={data._id}
+            />
+            ))}
           </div>
         );
     }
