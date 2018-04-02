@@ -1,0 +1,41 @@
+#event-section-container {
+    max-width: 1440px;
+    width: 90%;
+    margin-top: 22px;
+    #event-editor-area{
+        background-color: $primarylight2;
+        border-radius: 10px;
+        #event-header{
+            text-align: left;
+            margin-top: 25px;
+            font-size: 1.4em;
+            input{
+                background-color: white;
+                margin-top: 10px;
+            }
+        }
+        #quill-area{
+            height: 82vh;
+            display: block;
+            margin-top: 26px;
+            .ql-toolbar{
+                background-color: white;
+                border-radius: 0.6em;
+                margin-bottom: 10px;
+            }
+            .ql-container{
+                background-color: white;
+            }
+            button{
+                margin-top: 12px;
+                margin-left: 10px;
+                float: right;
+            }
+        }
+        #preview{
+            background: black;
+            display: none;
+            height: 25vh;
+        }
+    }
+}

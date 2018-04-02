@@ -8,8 +8,10 @@ require("./models/Users");
 require("./models/Posts");
 require("./models/Feed");
 require("./services/passport");
+require("./models/QuillPost");
 var posts = require("./routes/postsRoutes");
 var feed = require("./routes/feedRoutes");
+var quill = require("./routes/quillRouter");
 
 mongoose.connect(keys.mongoURI);
 
@@ -50,6 +52,7 @@ app.use(function(req, res, next) {
 
 app.use("/api", posts);
 app.use("/api", feed);
+app.use("/api", quill);
 
 require("./routes/authRoutes")(app);
 
