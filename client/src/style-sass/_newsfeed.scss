@@ -2,10 +2,10 @@
   height: 100vh;
   min-width: 500px;
   max-width: 500px;
-  padding-top: 16px;
   background-color: $primarylight2;
   overflow-y: auto;
   color: $textcolor;
+  padding: 0 !important;
 
   .myhoverable {
     transition: box-shadow 0.25s;
@@ -27,6 +27,7 @@
     border-color: grey;
     overflow: auto;
     line-height: 1.6;
+    font-size: 12px;
 
     h3 {
       font-weight: 120;

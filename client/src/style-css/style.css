@@ -59,7 +59,7 @@
     .alert-box .alert-message p {
       color: black;
       line-height: 1.6;
-      font-size: 14px; }
+      font-size: 12px; }
   .alert-box a {
     z-index: auto;
     background-color: #1565c0;
@@ -169,7 +169,7 @@ body {
   background-color: #e9ebee; }
 
 #content-section-container {
-  padding-top: 10px;
+  padding-top: 20px;
   height: 100vh;
   width: 100vh; }
 
@@ -200,6 +200,7 @@ body {
 
 .middle-right-section {
   display: inline-block;
+  padding: 0 !important;
   background-color: #c3ccd8;
   -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
@@ -226,10 +227,10 @@ body {
   height: 100vh;
   min-width: 500px;
   max-width: 500px;
-  padding-top: 16px;
   background-color: #c3ccd8;
   overflow-y: auto;
-  color: black; }
+  color: black;
+  padding: 0 !important; }
   #newsfeed .myhoverable {
     transition: box-shadow 0.25s; }
   #newsfeed .myhoverable:hover {
@@ -245,7 +246,8 @@ body {
     border-width: 1.2px;
     border-color: grey;
     overflow: auto;
-    line-height: 1.6; }
+    line-height: 1.6;
+    font-size: 12px; }
     #newsfeed .feed-post h3 {
       font-weight: 120;
       font-size: 1.6rem;
@@ -340,3 +342,6 @@ body {
 #right-section {
   height: 100vh;
   background-color: #c3ccd8; }
+
+.ql-editor strong {
+  font-weight: bold; }
