@@ -72,6 +72,10 @@
         p {
           width: 100%;
           overflow: auto;
+
+          u {
+            text-align: left;
+          }
         }
       }
 
@@ -80,6 +84,17 @@
         text-align: left;
         float: left;
         margin: 0;
+      }
+
+      ol,
+      ul {
+        li {
+          text-align: left;
+        }
+      }
+
+      blockquote {
+        text-align: left;
       }
     }
 
@@ -148,6 +163,14 @@
           }
         }
       }
+    }
+
+    .comments-container {
+      display: none;
+    }
+
+    .show {
+      display: block !important;
     }
 
     #comment-section {
