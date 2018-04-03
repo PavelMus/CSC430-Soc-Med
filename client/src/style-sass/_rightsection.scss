@@ -9,28 +9,67 @@
     text-align: center;
     font-size: 2.0rem;
   }
-  /* Dropdown Button */
-  .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
 
-    &:focus,
-    &:hover {
-      background-color: #2980B9;
-    }
-  }
-  /* Dropdown button on hover & focus */
-  /* The container <div> - needed to position the dropdown content */
   .dropdown {
     position: relative;
     display: inline-block;
+    margin-top: 35px;
+
+    .dropbtn {
+      //margin-bottom: 35px;
+      display: block;
+      position: relative;
+      background-color: #3498DB;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: 1px solid #3498DB;
+      cursor: pointer;
+      -webkit-border-top-left-radius: 8px;
+      -webkit-border-top-right-radius: 8px;
+      -moz-border-radius-topleft: 8px;
+      -moz-border-radius-topright: 8px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      z-index: 99 !important;
+      margin-top: 20px;
+
+      &:focus,
+      &:hover {
+        background-color: #2980B9;
+      }
+    }
+  }
+  /* Dropdown Button */
+  /* Dropdown button on hover & focus */
+  /* The container <div> - needed to position the dropdown content */
+  #class1,
+  #class2,
+  #class3,
+  #class4 {
+    display: none;
+    position: relative;
+    top: -5px;
+    background-color: #f1f1f1;
+    color: black;
+    min-width: 90px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    z-index: 1;
+
+    ul {
+      padding: 4px;
+      border-radius: 8px;
+      margin-bottom: 0;
+    }
   }
   /* Dropdown Content (Hidden by Default) */
-  #classesDropdown {
+  .classesDropdown {
     display: none;
     position: relative;
     background-color: #f1f1f1;
@@ -40,22 +79,23 @@
     z-index: 1;
   }
   /* Links inside the dropdown */
-  #classesDropdown a {
+  .classesDropdown a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
   /* Change color of dropdown links on hover */
-  #classesDropdown a:hover {
+  .classesDropdown a:hover {
     background-color: #ddd;
   }
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {
-    display: block;
+    display: block !important;
   }
 
   ul {
+    margin: 0;
     text-align: center;
 
     li {
