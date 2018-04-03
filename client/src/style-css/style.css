@@ -342,10 +342,46 @@ body {
 #right-section {
   height: 100vh;
   background-color: #c3ccd8;
-  margin: 0 auto 0 10%; }
+  margin: 0 auto 0 10%;
+  /* Dropdown Button */
+  /* Dropdown button on hover & focus */
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Content (Hidden by Default) */
+  /* Links inside the dropdown */
+  /* Change color of dropdown links on hover */
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
   #right-section h4 {
     text-align: center;
     font-size: 2.0rem; }
+  #right-section .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer; }
+    #right-section .dropbtn:focus, #right-section .dropbtn:hover {
+      background-color: #2980B9; }
+  #right-section .dropdown {
+    position: relative;
+    display: inline-block; }
+  #right-section #classesDropdown {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    color: black;
+    min-width: 90px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1; }
+  #right-section #classesDropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; }
+  #right-section #classesDropdown a:hover {
+    background-color: #ddd; }
+  #right-section .show {
+    display: block; }
   #right-section ul {
     text-align: center; }
     #right-section ul li {
@@ -354,3 +390,36 @@ body {
 
 .ql-editor strong {
   font-weight: bold; }
+
+#event-section-container {
+  max-width: 1440px;
+  width: 90%;
+  margin-top: 22px; }
+  #event-section-container #event-editor-area {
+    background-color: #c3ccd8;
+    border-radius: 10px; }
+    #event-section-container #event-editor-area #event-header {
+      text-align: left;
+      margin-top: 25px;
+      font-size: 1.4em; }
+      #event-section-container #event-editor-area #event-header input {
+        background-color: white;
+        margin-top: 10px; }
+    #event-section-container #event-editor-area #quill-area {
+      height: 82vh;
+      display: block;
+      margin-top: 26px; }
+      #event-section-container #event-editor-area #quill-area .ql-toolbar {
+        background-color: white;
+        border-radius: 0.6em;
+        margin-bottom: 10px; }
+      #event-section-container #event-editor-area #quill-area .ql-container {
+        background-color: white; }
+      #event-section-container #event-editor-area #quill-area button {
+        margin-top: 12px;
+        margin-left: 10px;
+        float: right; }
+    #event-section-container #event-editor-area #preview {
+      background: black;
+      display: none;
+      height: 25vh; }
