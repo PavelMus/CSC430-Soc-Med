@@ -103,7 +103,7 @@ export class PostForm extends Component {
       ['link', 'image', 'video'],
       [{'color':[]}, {'background': []}]
     ];
-    var quill = new Quill("#quill", {
+    let quill = new Quill("#quill", {
       modules: {
         toolbar: toolbarOptions
       },

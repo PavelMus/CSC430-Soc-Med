@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Leftsection from "./Leftsection";
 import Rightsection from "./Rightsection";
 import Quill from "quill";
-import axios from 'axios';
+import axios from "axios";
+import marked from "marked";
 
 class ComposeEvent extends Component {
   constructor(props) {
@@ -10,8 +11,35 @@ class ComposeEvent extends Component {
     this.state = {
       quill: null,
       quillDelta: null,
-      header: ''
+      deltaMarkup: '',
+      header: '',
+      showPreview: false
     }
+  }
+
+  convertQuill = () =>{
+
+  }
+
+  rawMarkup() {
+    console.log(this.state.deltaMarkup.toString());
+    
+    let rawMarkup = marked(this.state.deltaMarkup.toString());
+    return { __html: rawMarkup };
+  }
+
+  eventPreview = () => {
+      return (
+        <div id="preview" className="col s12 m12 l8 lx8">
+            <span dangerouslySetInnerHTML={this.rawMarkup()}></span>
+        </div>
+      );
+  }
+
+  showEventPreview = (e) => {
+    e.preventDefault();
+    this.saveDelta();
+    this.setState({showPreview: !this.state.showPreview});
   }
 
   componentDidMount() {
@@ -21,10 +49,9 @@ class ComposeEvent extends Component {
       [{ "header": [1, 2, 3, 4, 5, 6, false] }],
       [{ "list": "ordered" }, { "list": "bullet" }],
       [{ "indent": "-1" }, { "indent": "+1" }],
-      [{ "size": ["small", false, "large", "huge"] }],
+      [{ "size": [] }],
       ["link", "image", "video"],
       [{ "color": [] }, { "background": [] }],
-      [{ "font": [] }],
       [{ 'align': [] }]
     ];
     var quill = new Quill("#quill", {
@@ -38,10 +65,6 @@ class ComposeEvent extends Component {
     this.setState({quill: quill})
   }
 
-  previewEvent = () => {
-
-  }
-
   headerChange = (e) =>{
     e.preventDefault();
     this.setState({header: e.target.value});
@@ -49,8 +72,9 @@ class ComposeEvent extends Component {
 
   saveDelta = () => {
     let delta = this.state.quill.getContents();
-    console.log(delta);
-    this.setState({quillDelta: delta});
+    let quill_innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
+    //////////////////////////////////////////
+    this.setState({deltaMarkup: quill_innerHTML , quillDelta: delta});
   }
   uploadDelta = () => {
     var delta = JSON.stringify(this.state.quillDelta);
@@ -71,8 +95,10 @@ class ComposeEvent extends Component {
   };
 
   consoleDelta = () =>{
-    console.log(this.state.quillDelta);
-    console.log(this.state.header);
+    let test = document.getElementsByClassName('ql-editor')[0].innerHTML;
+    let rawMarkup = marked(test);
+
+    console.log(rawMarkup);
   }
 
   render() {
@@ -91,22 +117,19 @@ class ComposeEvent extends Component {
             <div id="quill-area">
               <div id="quill" />
               <button id="saveDelta" className="btn" onClick={this.saveDelta}>SUBMIT</button>
-              <button id="saveDelta" className="btn" onClick={this.eventPreview}>Preview</button>
+              <button id="saveDelta" className="btn" onClick={this.showEventPreview}>Preview</button>
               <button className="btn" onClick={this.consoleDelta}>LOG</button>
+              <button className="btn" onClick={this.rawMarkup}>markup</button>
             </div>
           </div>
           <div className="col l3 lx3">
             <Rightsection/>
           </div>
-
-          <div id="preview" className="col s12 m12 l8 lx8">
-          
-          </div>
+          {this.state.showPreview ? this.eventPreview(): ""}
         </div>
 
       </div>
     );
   }
 }
-
 export default ComposeEvent;

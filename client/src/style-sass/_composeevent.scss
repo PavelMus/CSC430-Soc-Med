@@ -15,7 +15,7 @@
             }
         }
         #quill-area{
-            height: 82vh;
+            height: 83vh;
             display: block;
             margin-top: 26px;
             .ql-toolbar{
@@ -25,17 +25,20 @@
             }
             .ql-container{
                 background-color: white;
+                font-size: 1.2em;
             }
             button{
-                margin-top: 12px;
+                margin-top: 5px;
                 margin-left: 10px;
                 float: right;
             }
         }
-        #preview{
-            background: black;
-            display: none;
-            height: 25vh;
-        }
+    }
+    #preview{
+        margin-top: 22px;
+        margin-bottom: 30px;
+        background: $primarylight2;
+        display: block;
+        height: 25vh;
     }
 }

@@ -32,6 +32,8 @@ export class Posts extends Component {
 
   rawMarkup() {
     let rawMarkup = marked(this.props.children.toString());
+    console.log(this.props.children);
+    
     return { __html: rawMarkup };
   }
 
