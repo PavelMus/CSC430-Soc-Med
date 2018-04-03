@@ -19,9 +19,7 @@ class ComposeEvent extends Component {
     }
   }
 
-  rawMarkup = () => {
-    console.log(this.state.deltaMarkup.toString());
-    
+  quillMarkup = () => {
     let rawMarkup = marked(this.state.deltaMarkup.toString());
     return { __html: rawMarkup };
   }
@@ -29,18 +27,23 @@ class ComposeEvent extends Component {
   eventPreview = () => {
       return (
         <div id="preview" className="col s12 m12 l8 lx8">
-            <span dangerouslySetInnerHTML={this.rawMarkup()}></span>
+            <span dangerouslySetInnerHTML={this.quillMarkup()}></span>
         </div>
       );
   }
 
   showEventPreview = (e) => {
     e.preventDefault();
-    this.saveDelta();
     this.setState({showPreview: !this.state.showPreview});
   }
 
+  initEventPreview = (e) =>{
+    let quill_innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
+    this.setState({deltaMarkup:quill_innerHTML}, this.showEventPreview(e));
+  }
+
   componentDidMount() {
+    //Setting up the Quill toolbar options
     let toolbarOptions = [
       ["bold", "italic", "underline", "strike"],
       ["blockquote"],
@@ -52,6 +55,7 @@ class ComposeEvent extends Component {
       [{ "color": [] }, { "background": [] }],
       [{ 'align': [] }]
     ];
+    //Initializing Quill state object
     let quillInit = new Quill("#quill", {
       modules: {
         toolbar: toolbarOptions
@@ -59,14 +63,8 @@ class ComposeEvent extends Component {
       placeholder: "Componse an event post",
       theme: "snow"
     });
-
-    let interval = setInterval(this.saveDelta,5000);
-
-    this.setState({quill: quillInit, saveDeltaInterval: interval})
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.state.saveDeltaInterval);
+    //Saving the Quill object in to the state
+    this.setState({quill: quillInit});
   }
 
   headerChange = (e) =>{
@@ -74,18 +72,16 @@ class ComposeEvent extends Component {
     this.setState({header: e.target.value});
   }
 
-  saveDelta = () => {
+  submitEvent = () => {
+    //Grabs the delta from the quill state object
     let delta = this.state.quill.getContents();
-    console.log(delta);
+    //Grabs the HTML from whithin the Quill edditor
     let quill_innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
-    //////////////////////////////////////////
-    this.setState({deltaMarkup: quill_innerHTML , quillDelta: delta});
-    console.log(quill_innerHTML);
-    
+    //Sets the states and calls upload event after
+    this.setState({deltaMarkup: quill_innerHTML , quillDelta: delta}, this.uploadEvent);
   }
 
-  submitEvent = () => {
-    this.saveDelta();
+  uploadEvent = () => {
     let eventPost = {
       author: this.props.user.displayName,
       title: this.state.header,
@@ -95,24 +91,6 @@ class ComposeEvent extends Component {
     axios.post("api/feed/event-post", eventPost).catch(err => {
       console.error(err);
     });
-  }
-
-  renderQuill = () => {
-    var quillDisplay= new Quill(".quillDisplay", {
-      modules: {
-        toolbar: false
-      },
-      readOnly: true,
-      theme: "snow"
-    });
-    quillDisplay.setContents(this.state.quillDelta);
-  };
-
-  consoleDelta = () =>{
-    let test = document.getElementsByClassName('ql-editor')[0].innerHTML;
-    let rawMarkup = marked(test);
-
-    console.log(rawMarkup);
   }
 
   render() {
@@ -131,9 +109,7 @@ class ComposeEvent extends Component {
             <div id="quill-area">
               <div id="quill" />
               <button id="saveDelta" className="btn" onClick={this.submitEvent}>SUBMIT</button>
-              <button id="saveDelta" className="btn" onClick={this.showEventPreview}>Preview</button>
-              <button className="btn" onClick={this.saveDelta}>SAVE</button>
-              <button className="btn" onClick={this.rawMarkup}>markup</button>
+              <button id="saveDelta" className="btn" onClick={this.initEventPreview}>Preview</button>
             </div>
           </div>
           <div className="col l3 lx3">
