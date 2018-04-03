@@ -42,6 +42,7 @@ feedRouter
         var date = new Date();
         var dateFormated = date.toUTCString();
         news.author = req.body.author;
+        news.authorAvatar = req.body.avatar;
         news.title = req.body.title;
         news.postDate = dateFormated;
         news.delta = req.delta;
@@ -68,6 +69,7 @@ feedRouter
         var dateFormated = date.toUTCString();
 
         event.author = req.body.author;
+        event.authorAvatar = req.body.avatar;
         event.title = req.body.title;
         event.postDate = dateFormated;
         event.delta = req.body.delta;

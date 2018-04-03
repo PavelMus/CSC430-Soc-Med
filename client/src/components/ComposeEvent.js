@@ -14,8 +14,7 @@ class ComposeEvent extends Component {
       quillDelta: null,
       deltaMarkup: '',
       header: '',
-      showPreview: false,
-      saveDeltaInterval: null
+      showPreview: false
     }
   }
 
@@ -84,6 +83,7 @@ class ComposeEvent extends Component {
   uploadEvent = () => {
     let eventPost = {
       author: this.props.user.displayName,
+      avatar: this.props.user.avatar,
       title: this.state.header,
       delta: this.state.quillDelta,
       preview: this.state.deltaMarkup

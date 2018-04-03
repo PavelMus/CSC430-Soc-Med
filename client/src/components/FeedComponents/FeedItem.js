@@ -11,8 +11,7 @@ class FeedItem extends Component {
         super(props);
     this.state = {
         feedItem: false,
-        quill: "",
-        quillInterval: ""
+        quill: ""
     }
 }
 
@@ -37,15 +36,13 @@ initQuill = () =>{
   });
   quillInit.setContents(post.delta);
   this.setState({quill: quillInit});
-  clearInterval(this.state.quillInterval);
 }
 }
 
 componentDidMount(){
   axios.get(`${"/api"}${this.props.location.pathname}`)
   .then( res =>{
-      let interval = setInterval(this.initQuill, 300);
-      this.setState({feedItem: res.data, quillInterval: interval});
+      this.setState({feedItem: res.data}, this.initQuill);
     });
 }
 

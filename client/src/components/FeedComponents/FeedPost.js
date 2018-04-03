@@ -36,16 +36,14 @@ class FeedPost extends Component {
             <div className="feed-item-body">
               <div className="inputed-post" dangerouslySetInnerHTML={this.renderContent()}>
 
-
               </div>
-
             </div>
               <Link className="read-more-link" to={`${this.state.feedItemURL}/${this.props.feed_id}`} onClick={this.giveLog}>Read more...</Link>
             <div className="feed-item-footer">
               <div className="feed-item-footer-left"><time className=" js-relative-time">{this.props.postDate}</time> by
 
                 <div className="chip">
-                  <img src={tempimg} alt="Contact Person"/>
+                  <img src={this.props.authorAvatar} alt="Contact Person"/>
                   {this.props.author}
                 </div>
 

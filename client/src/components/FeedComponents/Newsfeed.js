@@ -17,7 +17,7 @@ class Newsfeed extends Component {
   //loadFeed sends a get request to the database to grab the latests feed items
   //and then stores them in this components state
   loadFeed = () => {
-    axios.get("api/feed", 3).then(res => {
+    axios.get("api/feed").then(res => {
       this.setState({ feed: res.data });
     });
   };
@@ -52,6 +52,7 @@ class Newsfeed extends Component {
             {feed.map( data => (
               <FeedPost
               author={data.feedItem.author}
+              authorAvatar={data.feedItem.authorAvatar}
               title={data.feedItem.title}
               content={data.feedItem.preview}
               postDate={data.feedItem.postDate}
