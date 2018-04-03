@@ -18,7 +18,7 @@ class FeedPost extends Component {
   }
 
   giveLog = (e) =>{
-    //e.preventDefault();  
+    //e.preventDefault();
     axios.get(`${this.state.feedURL}/${this.props.feed_id}`)
     .then(res => console.log(res.data));
   }
@@ -34,10 +34,13 @@ class FeedPost extends Component {
           <h3><a href="">{this.props.title}</a></h3>
             <div className="divider"></div>
             <div className="feed-item-body">
-              <div dangerouslySetInnerHTML={this.renderContent()}></div>
-              <Link className="read-more-link" to={`${this.state.feedItemURL}/${this.props.feed_id}`} onClick={this.giveLog}>Read more...</Link>
-            </div>
+              <div className="inputed-post" dangerouslySetInnerHTML={this.renderContent()}>
 
+
+              </div>
+
+            </div>
+              <Link className="read-more-link" to={`${this.state.feedItemURL}/${this.props.feed_id}`} onClick={this.giveLog}>Read more...</Link>
             <div className="feed-item-footer">
               <div className="feed-item-footer-left"><time className=" js-relative-time">{this.props.postDate}</time> by
 
@@ -69,7 +72,7 @@ class FeedPost extends Component {
                         <img class="user-pic" src={tempimg} width="64"/>
                       </div>
                       <div class="input-comment-body">
-                        <textarea placeholder="Leave a comment"></textarea>
+                        <input placeholder="Leave a comment"/>
                       </div>
                     </div>
                   </form>
