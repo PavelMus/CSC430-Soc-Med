@@ -10,8 +10,15 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      sidenavInst: "",
       sideNavInterval: ""
     };
+  }
+
+  closeSideNav = () =>{
+    if(this.state.sidenavInst == null){}
+    else
+    this.state.sidenavInst.close();
   }
 
   //When the component mounts, set the interval for the sidenav initialization function
@@ -27,11 +34,10 @@ class Header extends Component {
   initSidenav = () => {
     let sidenavDOM = document.getElementById("slide-out");  
     if (sidenavDOM != null){
-      var sidenav = document.querySelector(".sidenav");
-      var sidenavInst = M.Sidenav.init(sidenav, { edge: "right" });
+      let sidenav = document.querySelector(".sidenav");
+      let sidenavInst = M.Sidenav.init(sidenav, { edge: "right" });
       clearInterval(this.state.sideNavInterval);
-      this.setState({ sideNavInterval: "" });
-      console.log(sidenavDOM);
+      this.setState({ sideNavInterval: "", sidenavInst: sidenavInst });
     }
   }
 
@@ -51,6 +57,7 @@ class Header extends Component {
               avatar={user.avatar}
               admin={user.admin}
               teacher={user.teacher}
+              close={this.closeSideNav}
             />
         );
     }
@@ -71,6 +78,14 @@ class Header extends Component {
       default:
         return (
           <React.Fragment>
+            <li>
+              <button type="button" className="btn" onClick={
+                (e) =>{
+                  e.preventDefault();
+                  this.state.sidenavInst.open();
+                }
+              }>open</button>
+            </li>
             <li>
               <a href="/posts" className="btn-floating btn-medium cyan pulse">
                 <i className="material-icons">comment</i>

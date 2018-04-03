@@ -26,9 +26,13 @@ export class PostBox extends Component {
       console.error(err);
       this.setState({ data: posts });
     });
+    console.log(post.id);
+    
   }
 
   postEdit(post) {
+    console.log(`${this.props.url}/${this.state.post_id}`);
+    
     axios
       .put(`${this.props.url}/${this.state.post_id}`, { text: post.text })
       .catch(err => {

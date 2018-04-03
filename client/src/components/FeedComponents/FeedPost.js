@@ -1,24 +1,41 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import tempimg from '../../img/temp-user-img.jpg';
+import axios from 'axios';
+import marked from 'marked'
 class FeedPost extends Component {
   constructor(props){
     super(props);
 
     this.state = {
+      feedURL: "/api/feed",
+      feedItemURL: "/feed",
       author: "",
       title: "",
       postDate:"",
       content: ""
    };
   }
+
+  giveLog = (e) =>{
+    //e.preventDefault();  
+    axios.get(`${this.state.feedURL}/${this.props.feed_id}`)
+    .then(res => console.log(res.data));
+  }
+
+  renderContent = () =>{
+    let content = marked(this.props.content);
+    return {__html: content};
+  }
+
   render() {
     return (
         <div className="feed-post hoverable">
           <h3><a href="">{this.props.title}</a></h3>
             <div className="divider"></div>
             <div className="feed-item-body">
-              <p>{this.props.content}</p>
-              <a className="read-more-link" href="">Read more...</a>
+              <div dangerouslySetInnerHTML={this.renderContent()}></div>
+              <Link className="read-more-link" to={`${this.state.feedItemURL}/${this.props.feed_id}`} onClick={this.giveLog}>Read more...</Link>
             </div>
 
             <div className="feed-item-footer">

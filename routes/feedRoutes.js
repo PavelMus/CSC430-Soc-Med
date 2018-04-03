@@ -1,4 +1,4 @@
-'use strict'
+
 
 var express = require("express");
 var mongoose = require("mongoose");
@@ -14,18 +14,29 @@ feedRouter
   //retrieve all feeds from the database
   .get(function(req, res) {
     //looks at our feed Schema
-    Feed.find(function(err, feed) {
+    Feed.find().sort({_id: -1}).exec(function(err, feed) {
       if (err) res.send(err);
       //responds with a json object of our database feeds.
       res.json(feed);
     });
-  })
+  });
+
+  feedRouter
+    .route("/feed/:feed_id")
+    .get(function(req, res){
+      Feed.findById(req.params.feed_id, function(err, feed){
+        if(err)
+          res.send(err);
+        
+        res.json(feed);
+      });
+    });
 
   /* This is the feed router for news posts, it is responsible for
      post and put events that are made through the api/feed/news URI */
 
   feedRouter
-    .route("/feed/news")
+    .route("/feed/news-post")
     .post((req, res) =>{
         var news = new News();
         var date = new Date();
@@ -33,7 +44,8 @@ feedRouter
         news.author = req.body.author;
         news.title = req.body.title;
         news.postDate = dateFormated;
-        news.content = req.body.content;
+        news.delta = req.delta;
+        news.preview = req.body.preview;
 
         var feed = new Feed();
         feed.type = "news";
@@ -49,7 +61,7 @@ feedRouter
      post and put events that are made through the api/feed/events URI */
 
     feedRouter
-    .route("/feed/events")
+    .route("/feed/event-post")
     .post((req, res) =>{
         var event = new Events();
         var date = new Date();
@@ -58,7 +70,8 @@ feedRouter
         event.author = req.body.author;
         event.title = req.body.title;
         event.postDate = dateFormated;
-        event.content = req.body.content;
+        event.delta = req.body.delta;
+        event.preview = req.body.preview;
 
         var feed = new Feed();
         feed.type = "event";

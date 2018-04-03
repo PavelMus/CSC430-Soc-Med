@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux'
 import Leftsection from "./Leftsection";
 import Rightsection from "./Rightsection";
 import Quill from "quill";
@@ -13,15 +14,12 @@ class ComposeEvent extends Component {
       quillDelta: null,
       deltaMarkup: '',
       header: '',
-      showPreview: false
+      showPreview: false,
+      saveDeltaInterval: null
     }
   }
 
-  convertQuill = () =>{
-
-  }
-
-  rawMarkup() {
+  rawMarkup = () => {
     console.log(this.state.deltaMarkup.toString());
     
     let rawMarkup = marked(this.state.deltaMarkup.toString());
@@ -54,7 +52,7 @@ class ComposeEvent extends Component {
       [{ "color": [] }, { "background": [] }],
       [{ 'align': [] }]
     ];
-    var quill = new Quill("#quill", {
+    let quillInit = new Quill("#quill", {
       modules: {
         toolbar: toolbarOptions
       },
@@ -62,7 +60,13 @@ class ComposeEvent extends Component {
       theme: "snow"
     });
 
-    this.setState({quill: quill})
+    let interval = setInterval(this.saveDelta,5000);
+
+    this.setState({quill: quillInit, saveDeltaInterval: interval})
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.saveDeltaInterval);
   }
 
   headerChange = (e) =>{
@@ -72,13 +76,23 @@ class ComposeEvent extends Component {
 
   saveDelta = () => {
     let delta = this.state.quill.getContents();
+    console.log(delta);
     let quill_innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
     //////////////////////////////////////////
     this.setState({deltaMarkup: quill_innerHTML , quillDelta: delta});
+    console.log(quill_innerHTML);
+    
   }
-  uploadDelta = () => {
-    var delta = JSON.stringify(this.state.quillDelta);
-    axios.post("api/quill", this.state.quillDelta).catch(err => {
+
+  submitEvent = () => {
+    this.saveDelta();
+    let eventPost = {
+      author: this.props.user.displayName,
+      title: this.state.header,
+      delta: this.state.quillDelta,
+      preview: this.state.deltaMarkup
+    }
+    axios.post("api/feed/event-post", eventPost).catch(err => {
       console.error(err);
     });
   }
@@ -116,9 +130,9 @@ class ComposeEvent extends Component {
             </form>
             <div id="quill-area">
               <div id="quill" />
-              <button id="saveDelta" className="btn" onClick={this.saveDelta}>SUBMIT</button>
+              <button id="saveDelta" className="btn" onClick={this.submitEvent}>SUBMIT</button>
               <button id="saveDelta" className="btn" onClick={this.showEventPreview}>Preview</button>
-              <button className="btn" onClick={this.consoleDelta}>LOG</button>
+              <button className="btn" onClick={this.saveDelta}>SAVE</button>
               <button className="btn" onClick={this.rawMarkup}>markup</button>
             </div>
           </div>
@@ -132,4 +146,9 @@ class ComposeEvent extends Component {
     );
   }
 }
-export default ComposeEvent;
+
+const mapStateToProps = state =>{
+  return {user: state.auth}
+}
+
+export default connect(mapStateToProps)(ComposeEvent);

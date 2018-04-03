@@ -53,9 +53,10 @@ class Newsfeed extends Component {
               <FeedPost
               author={data.feedItem.author}
               title={data.feedItem.title}
-              content={data.feedItem.content}
+              content={data.feedItem.preview}
               postDate={data.feedItem.postDate}
-              key={data._id}
+              key={data["_id"]}
+              feed_id={data["_id"]}
             />
             ))}
           </div>

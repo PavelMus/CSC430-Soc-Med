@@ -7,6 +7,7 @@ import Header from "./Header";
 import PostIndex from "./PostComponents/PostIndex";
 import Footer from "./Footer";
 import ComposeEvent from './ComposeEvent';
+import FeedItem from "./FeedComponents/FeedItem";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +23,7 @@ class App extends Component {
           <Route exact={true} path="/" component={Landing} />
           <Route exact path="/newEvent" component={ComposeEvent} />
           <Route exact path="/posts" component={PostIndex} />
+          <Route path="/feed" component={FeedItem} />
         </div>
       </BrowserRouter>
     );
