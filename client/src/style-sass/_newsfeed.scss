@@ -18,7 +18,7 @@
   .feed-post {
     background-color: $feedbackgroundcolor;
     margin-bottom: 20px;
-    padding: 14px 14px 0;
+    padding: 18px 18px 0;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     border-radius: 7px;
@@ -43,36 +43,62 @@
       a {
         color: $textcolor;
         text-align: left;
+        display: flex;
       }
     }
 
     .divider {
       margin-top: 8px;
+      margin-bottom: 10px;
       background-color: #a1a1a1;
     }
 
     .feed-item-body {
+      overflow: auto;
+
+      .inputed-post {
+        overflow: auto;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+          margin: 12px 0;
+          text-align: left;
+          font-size: 20px;
+        }
+
+        p {
+          width: 100%;
+          overflow: auto;
+        }
+      }
+
       p {
         color: $textcolor;
         text-align: left;
         float: left;
+        margin: 0;
       }
+    }
 
-      .read-more-link {
-        margin-bottom: 10px;
-        display: block;
-        color: $textcolor;
-        text-align: left;
-      }
+    .read-more-link {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      text-align: left;
+      display: flex;
+      color: black;
     }
 
     .feed-item-footer {
       color: $textcolor;
+      display: block;
 
       .feed-item-footer-left {
         //background-color: #D3D3D3;
         border-radius: 7px;
-        padding: 4px;
         width: 100%;
         text-align: left;
 
@@ -111,6 +137,7 @@
             margin: auto 0;
 
             i {
+              margin-right: 10px;
               padding: 5px;
             }
           }
@@ -124,6 +151,8 @@
     }
 
     #comment-section {
+      display: none;
+
       h4 {}
 
       .input-comment-header {
@@ -155,7 +184,7 @@
             }
 
             .input-comment-body {
-              textarea {
+              input {
                 display: inline-block;
                 width: 80%;
               }
