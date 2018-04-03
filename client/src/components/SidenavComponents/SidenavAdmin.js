@@ -11,13 +11,13 @@ export default class SidenavAdmin extends Component {
           </a>
         </li>
         <li>
-          <a className="waves-effect" href="/newEvent">POST NEW EVENT</a>
+          <a className="waves-effect" href="/newEvent">POST NEWS ITEM</a>
         </li>
         <li>
-          <a className="waves-effect" href="#!">Action 2</a>
+          <a className="waves-effect" href="#!">POST EVENT ITEM</a>
         </li>
         <li>
-          <a className="waves-effect" href="#!">Action 3</a>
+          <a className="waves-effect" href="#!">POST ALERT ITEM</a>
         </li>
         <li>
           <a className="waves-effect" href="#!">Action 4</a>
