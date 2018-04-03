@@ -15,7 +15,22 @@ class FeedPost extends Component {
       postDate:"",
       content: ""
    };
+    this.showCommentSection = this.showCommentSection.bind(this);
   }
+
+  showCommentSection(e){
+    e.preventDefault();
+    console.log(e.target.parentNode.target);
+
+    let element = document.getElementById(e.target.parentNode.target);
+    if(!element.classList.contains('show')){
+      element.classList.add("show");
+    }else{
+      element.classList.remove("show");
+    }
+
+  }
+
 
   giveLog = (e) =>{
     //e.preventDefault();
@@ -48,15 +63,15 @@ class FeedPost extends Component {
                 </div>
 
                 <div className="comment-button">
-                  <div className="i-wrapper">
+                  <a href="" target={this.props.feed_id} onClick={this.showCommentSection} className="i-wrapper">
                     <i className="material-icons">comment</i>
-                  </div>
+                  </a>
                   {/*  <span>Comment</span>*/}
                 </div>
               </div>
             </div>
 
-            <div id="comment-section" class="comments-container">
+            <div id={this.props.feed_id} class="comments-container">
               {/* <h4>
                 <span className="input-comment-header"><i class=" material-icons">comment</i> Comments</span>
               </h4>
@@ -76,6 +91,7 @@ class FeedPost extends Component {
                   </form>
                 </div>
               </div>
+
           </div>
     );
   }

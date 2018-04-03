@@ -279,11 +279,18 @@ body {
         #newsfeed .feed-post .feed-item-body .inputed-post p {
           width: 100%;
           overflow: auto; }
+          #newsfeed .feed-post .feed-item-body .inputed-post p u {
+            text-align: left; }
       #newsfeed .feed-post .feed-item-body p {
         color: black;
         text-align: left;
         float: left;
         margin: 0; }
+      #newsfeed .feed-post .feed-item-body ol li,
+      #newsfeed .feed-post .feed-item-body ul li {
+        text-align: left; }
+      #newsfeed .feed-post .feed-item-body blockquote {
+        text-align: left; }
     #newsfeed .feed-post .read-more-link {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -326,6 +333,10 @@ body {
           #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button span {
             display: table-cell;
             vertical-align: middle; }
+    #newsfeed .feed-post .comments-container {
+      display: none; }
+    #newsfeed .feed-post .show {
+      display: block !important; }
     #newsfeed .feed-post #comment-section {
       display: none; }
       #newsfeed .feed-post #comment-section .input-comment-header {
