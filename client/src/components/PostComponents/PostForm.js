@@ -7,9 +7,9 @@ export class PostForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
-      author: "", 
-      text: "", 
+    this.state = {
+      author: "",
+      text: "",
       edit: false,
       qhtml: '',
       qtext: ''
@@ -86,7 +86,7 @@ export class PostForm extends Component {
   quillsubmit = (e) => {
     e.preventDefault();
     console.log(this.state.qtext);
-    
+
   }
   qchange = (e) => {
     this.setState({qtext:e.target.value})
