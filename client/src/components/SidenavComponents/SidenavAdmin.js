@@ -6,18 +6,24 @@ export default class SidenavAdmin extends Component {
       <React.Fragment>
         <li>
           <a className="subheader">
-            <i className="material-icons">face</i>
+            <i className="material-icons">call_to_action</i>
             ACTIONS
           </a>
         </li>
         <li>
-          <a className="waves-effect" href="/newEvent">POST NEWS ITEM</a>
+          <a className="waves-effect" href="/newEvent">
+          <i className="material-icons">public</i>
+          POST NEWS ITEM</a>
         </li>
         <li>
-          <a className="waves-effect" href="#!">POST EVENT ITEM</a>
+          <a className="waves-effect" href="#!">
+          <i className="material-icons">event_note</i>
+          POST EVENT ITEM</a>
         </li>
         <li>
-          <a className="waves-effect" href="#!">POST ALERT ITEM</a>
+          <a className="waves-effect" href="#!">
+          <i className="material-icons">notifications_none</i>
+          POST ALERT ITEM</a>
         </li>
         <li>
           <a className="waves-effect" href="#!">Action 4</a>

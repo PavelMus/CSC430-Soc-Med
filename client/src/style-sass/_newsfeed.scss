@@ -1,5 +1,5 @@
 #newsfeed {
-  height: 100vh;
+  //height: 100vh;
   min-width: 500px;
   max-width: 500px;
   background-color: $primarylight2;
@@ -16,6 +16,7 @@
   }
 
   .feed-post {
+    max-height: 40vh;
     background-color: $feedbackgroundcolor;
     margin-bottom: 20px;
     padding: 18px 18px 0;
@@ -54,8 +55,8 @@
     }
 
     .feed-item-body {
-      overflow: auto;
-
+      overflow: hidden;
+      max-height: 12vh;
       .inputed-post {
         overflow: auto;
 

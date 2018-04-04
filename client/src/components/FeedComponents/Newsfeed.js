@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import FeedPost from "./FeedPost";
 import Loading from '../Loading';
 import axios from "axios";
@@ -7,26 +8,47 @@ class Newsfeed extends Component {
     super(props);
 
     this.state = {
-      feed: [],
-      isLoading: false
+      feed: null,
+      isLoading: false,
+      loadSkip: 0
     };
 
     this.pollInterval = null;
   }
 
-  //loadFeed sends a get request to the database to grab the latests feed items
+  updateFeed = () => {
+    axios.get(`${"api/main-feed"}/${(this.state.loadSkip+6)}`).then(res => {
+      let updatedFeed = this.state.feed.concat(res.data);
+      this.setState({ feed: updatedFeed, loadSkip: (this.state.loadSkip+6), isLoading: false});
+    });
+  }
+
+  //initialLoadFeed sends a get request to the database to grab the latests feed items
   //and then stores them in this components state
-  loadFeed = () => {
-    axios.get("api/feed").then(res => {
-      this.setState({ feed: res.data });
+  initialLoadFeed = () => {
+    axios.get(`${"api/main-feed"}/${this.state.loadSkip}`).then(res => {
+      this.setState({ feed: res.data }, this.logFeed);
     });
   };
+
+  onScroll = () => {
+    if (
+      (window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 5
+      && !this.state.isLoading
+    ) {
+      this.setState({isLoading: true}, this.updateFeed());
+    }
+  }
 
   //When the component mounts, use loadFeed function to grab the latests feed
   //items from the database, then it sets an interval to send another request to
   //the database, the interval is set in the props of this component
   componentDidMount() {
-    this.loadFeed();
+    window.addEventListener(
+      "scroll", 
+      () => window.requestAnimationFrame(this.onScroll), false);
+    
+    this.initialLoadFeed();
     if (!this.pollInterval)
     this.pollInterval = setInterval(
       this.loadFeed,
@@ -37,17 +59,23 @@ class Newsfeed extends Component {
 
   //When the component unmounts this will reset the interval
   componentWillUnmount() {
+    window.removeEventListener("scroll",
+    () => window.requestAnimationFrame(this.onScroll), false);
     this.pollInterval && clearInterval(this.pollInterval);
     this.pollInterval = null;
   }
 
   render() {
     switch (this.state.feed) {
-      case []:
-        return <Loading />
+      case null:
+        return (
+        <div className="col s12 m6 l8 xl6" id="newsfeed"> 
+          <Loading/>
+        </div>
+      );
       default:
         let { feed } = this.state;
-        return (
+        return ( 
           <div className="col s12 m6 l8 xl6" id="newsfeed">
             {feed.map( data => (
               <FeedPost
@@ -58,12 +86,17 @@ class Newsfeed extends Component {
               postDate={data.feedItem.postDate}
               key={data["_id"]}
               feed_id={data["_id"]}
-            />
-            ))}
+              />
+              ))
+            }
           </div>
         );
     }
   }
 }
 
-export default Newsfeed;
+const mapStateToProps = state => {
+  return {user: state.auth};
+}
+
+export default connect(mapStateToProps)(Newsfeed);

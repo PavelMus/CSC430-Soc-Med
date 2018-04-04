@@ -5,16 +5,23 @@ var mongoose = require("mongoose");
 var Feed = require("../models/Feed");
 var News = require("../models/NewsPost");
 var Events = require("../models/EventPost");
+require('body-parser');
 
 var feedRouter = express.Router();
-
 //adding the /feeds route to our /api feedRouter
 feedRouter
-  .route("/feed")
+//skip is a parameter used to designate the limit of the search
+  .route("/main-feed/:skip")
   //retrieve all feeds from the database
-  .get(function(req, res) {
+  .get( (req, res) => {
+    let queryLimit = 6;
+    let skip = Number(req.params.skip);
     //looks at our feed Schema
-    Feed.find().sort({_id: -1}).exec(function(err, feed) {
+    Feed.find().
+    limit(queryLimit).
+    skip(skip).
+    sort({_id: -1})
+    .exec(function(err, feed) {
       if (err) res.send(err);
       //responds with a json object of our database feeds.
       res.json(feed);
@@ -23,7 +30,7 @@ feedRouter
 
   feedRouter
     .route("/feed/:feed_id")
-    .get(function(req, res){
+    .get( (req, res) => {
       Feed.findById(req.params.feed_id, function(err, feed){
         if(err)
           res.send(err);
@@ -37,7 +44,7 @@ feedRouter
 
   feedRouter
     .route("/feed/news-post")
-    .post((req, res) =>{
+    .post( (req, res) =>{
         var news = new News();
         var date = new Date();
         var dateFormated = date.toUTCString();
@@ -63,7 +70,7 @@ feedRouter
 
     feedRouter
     .route("/feed/event-post")
-    .post((req, res) =>{
+    .post( (req, res) => {
         var event = new Events();
         var date = new Date();
         var dateFormated = date.toUTCString();
