@@ -23,7 +23,6 @@ class Rightsection extends Component {
   render() {
     return (
       <div id="right-section">
-
         <h4 className="myclassesheader">My Classes</h4>
 
         <div className="dropdown">
