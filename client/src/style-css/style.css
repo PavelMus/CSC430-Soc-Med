@@ -10,7 +10,7 @@
   border-bottom-right-radius: 1rem;
   background-color: #1e88e5; }
 
-#left-section .alert-box {
+.alert-box {
   display: block;
   width: 100%;
   min-height: 5vmax;
@@ -20,47 +20,47 @@
   background-color: #f5f5f5;
   overflow: hidden;
   color: black; }
-  #left-section .alert-box .alert-header {
+  .alert-box .alert-header {
     display: table;
     width: 100%;
     background-color: #e9ebee;
     color: black; }
-    #left-section .alert-box .alert-header i {
+    .alert-box .alert-header i {
       margin: 5px;
       float: left;
       font-size: 1.8em;
       margin-left: 8px;
       margin-right: 8px; }
-    #left-section .alert-box .alert-header h5 {
+    .alert-box .alert-header h5 {
       min-height: 30px;
       float: left;
       margin: 4px;
       color: black; }
-    #left-section .alert-box .alert-header .divider {
+    .alert-box .alert-header .divider {
       float: left;
       margin-top: 8px;
       background-color: #a1a1a1; }
-  #left-section .alert-box .alert-message {
+  .alert-box .alert-message {
     color: black; }
-    #left-section .alert-box .alert-message p {
+    .alert-box .alert-message p {
       color: black;
       margin: 5px 10px;
       line-height: 1.6;
       font-size: 12px;
       text-align: left;
       overflow: hidden; }
-  #left-section .alert-box a {
+  .alert-box a {
     z-index: auto;
     float: right;
     background-color: #1565c0; }
-  #left-section .alert-box .alert-footer {
+  .alert-box .alert-footer {
     display: block;
     height: 30px; }
-    #left-section .alert-box .alert-footer span {
+    .alert-box .alert-footer span {
       font-size: 0.75rem;
       margin: 12px 0 0 10px;
       float: left; }
-    #left-section .alert-box .alert-footer a {
+    .alert-box .alert-footer a {
       margin: 5px;
       padding: 0 5px 0 5px;
       font-size: 0.75em;
@@ -93,14 +93,14 @@
   background-color: #005bb2;
   overflow: hidden;
   z-index: 1; }
-  #left-section .modal .modal-content {
+  .modal .modal-content {
     color: white; }
-    #left-section .modal .modal-content h4 {
+    .modal .modal-content h4 {
       color: white; }
-  #left-section .modal .modal-footer {
+  .modal .modal-footer {
     display: block;
     height: 3vh; }
-    #left-section .modal .modal-footer p {
+    .modal .modal-footer p {
       margin: 0 10px 0 0; }
 
 #header-div {
@@ -651,6 +651,11 @@ body {
     #right-section ul li {
       padding: 5px 0;
       text-align: center; }
+
+#alert-preview {
+  width: 50%;
+  display: block;
+  float: center; }
 
 .user-col {
   text-align: right; }
