@@ -22,7 +22,7 @@ class Rightsection extends Component {
 
   render() {
     return (
-      <div className="col s12 m3 l3 xl3 offset-xl4" id="right-section">
+      <React.Fragment>
         <h4>My Classes</h4>
 
         <div className="dropdown">
@@ -72,7 +72,7 @@ class Rightsection extends Component {
           </div>
 
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

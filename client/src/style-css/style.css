@@ -10,64 +10,68 @@
   border-bottom-right-radius: 1rem;
   background-color: #1e88e5; }
 
-.alert-section-header {
-  font-size: 2.0rem; }
-
 .alert-box {
   display: block;
   width: 100%;
   min-height: 5vmax;
+  min-width: 250px;
   border-radius: 5px;
-  margin: 10px auto;
+  margin: 0 0 10px 0;
   background-color: #f5f5f5;
   overflow: hidden;
   color: black; }
   .alert-box .alert-header {
-    display: block;
-    min-height: 50px;
-    color: white;
-    align-items: baseline;
     display: table;
+    width: 100%;
+    background-color: #e9ebee;
     color: black; }
-    .alert-box .alert-header .alert-type i {
+    .alert-box .alert-header i {
       margin: 5px;
       float: left;
-      font-size: 2.7rem;
+      font-size: 1.8em;
       margin-left: 8px;
-      margin-right: 8px;
-      display: table-cell;
-      vertical-align: middle; }
-    .alert-box .alert-header .alert-type div {
-      min-height: 50px;
+      margin-right: 8px; }
+    .alert-box .alert-header h5 {
+      min-height: 30px;
       float: left;
-      display: inline-block;
-      margin-left: 4px;
-      font-size: 1.9rem;
-      vertical-align: middle;
-      color: black;
-      display: table; }
-      .alert-box .alert-header .alert-type div span {
-        vertical-align: top;
-        display: table-cell;
-        vertical-align: middle; }
+      margin: 4px;
+      color: black; }
     .alert-box .alert-header .divider {
-      float: none;
+      float: left;
       margin-top: 8px;
       background-color: #a1a1a1; }
   .alert-box .alert-message {
     color: black; }
     .alert-box .alert-message p {
       color: black;
+      margin: 5px 10px;
       line-height: 1.6;
-      font-size: 12px; }
+      font-size: 12px;
+      text-align: left;
+      overflow: hidden; }
   .alert-box a {
     z-index: auto;
-    background-color: #1565c0;
-    margin-bottom: 16px; }
+    float: right;
+    background-color: #1565c0; }
+  .alert-box .alert-footer {
+    display: block;
+    height: 30px; }
+    .alert-box .alert-footer span {
+      font-size: 0.75rem;
+      margin: 12px 0 0 10px;
+      float: left; }
+    .alert-box .alert-footer a {
+      margin: 5px;
+      padding: 0 5px 0 5px;
+      font-size: 0.75em;
+      max-height: 25px;
+      float: right;
+      background-color: #1565c0;
+      z-index: auto; }
 
-#left-section .modal-underlay {
+.modal-underlay {
   content: "";
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   left: 0;
@@ -75,21 +79,29 @@
   top: 0;
   opacity: 0.7;
   background: black;
+  overflow: hidden;
   z-index: 1; }
 
-#left-section .modal {
+.modal {
   display: block;
   position: fixed;
-  background-color: #34555e;
-  z-index: 1; }
-
-.alert-message p {
-  padding: 10px;
-  margin: 5px 10px;
-  color: #fff;
-  text-align: left;
+  width: 32%;
+  border-radius: 1vh;
+  left: 0;
+  right: 0;
+  top: 35%;
+  background-color: #005bb2;
   overflow: hidden;
-  font-size: 1.2rem; }
+  z-index: 1; }
+  .modal .modal-content {
+    color: white; }
+    .modal .modal-content h4 {
+      color: white; }
+  .modal .modal-footer {
+    display: block;
+    height: 3vh; }
+    .modal .modal-footer p {
+      margin: 0 10px 0 0; }
 
 #header-div {
   height: 64px; }
@@ -394,6 +406,7 @@ body {
     #right-section .dropdown .dropbtn {
       display: block;
       position: relative;
+      min-width: 120px;
       background-color: #3498DB;
       color: white;
       padding: 16px;
@@ -406,7 +419,7 @@ body {
       -moz-border-radius-topright: 8px;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
-      z-index: 99 !important;
+      z-index: auto;
       margin-top: 20px; }
       #right-section .dropdown .dropbtn:focus, #right-section .dropdown .dropbtn:hover {
         background-color: #2980B9; }
@@ -427,7 +440,18 @@ body {
     -moz-border-radius-bottomleft: 8px;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    z-index: 1; }
+    z-index: 1;
+    animation: menu1 300ms linear forwards; }
+
+@keyframes menu1 {
+  0% {
+    opacity: 0;
+    max-height: 0px;
+    transform: scaleY(0%) translateY(0px); }
+  100% {
+    opacity: 1;
+    max-height: 150px;
+    transform: scaleY(100%) translateY(0px); } }
     #right-section #class1 ul,
     #right-section #class2 ul,
     #right-section #class3 ul,
@@ -501,3 +525,11 @@ body {
     background: #c3ccd8;
     display: block;
     height: 25vh; }
+
+#alert-preview {
+  width: 50%;
+  display: block;
+  float: center; }
+
+#root {
+  height: 100%; }

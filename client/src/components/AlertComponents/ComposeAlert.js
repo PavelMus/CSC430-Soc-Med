@@ -1,0 +1,81 @@
+import React, { Component } from "react";
+import Leftsection from "../Leftsection";
+import Rightsection from "../Rightsection";
+import axios from "axios";
+import * as M from 'materialize-css';
+import AlertPreview from './AlertBox'
+import {WEATHER_ALERT} from './types';
+
+
+class ComposeAlert extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        content: "",
+        previewType: ""
+    }
+  }
+
+  submitAlert = (e) => {
+    e.preventDefault();
+    let alertType = document.querySelector('select');
+    let alert = {
+      type: alertType.value,
+      content: this.state.content
+    }
+    axios.post("/api/new-alert/", alert);
+  }
+
+  onTextChange = (e) => {
+      e.preventDefault();
+      this.setState({content: e.target.value})
+  }
+
+  componentDidMount() {
+      let elem = document.querySelector('select');
+      let instance = M.FormSelect.init(elem);
+  }
+
+  typeUpdate = () => {
+    let typePreview = document.querySelector('select');
+    this.setState({previewType: typePreview.value})
+  }
+
+  render() {
+    return (
+      <div id="event-section-container" className="container">
+        <div className="row" id="content-area-row">
+          <div className="col s12 m12 l2 xl2">
+            <div className="input-field">
+                <select onChange={this.typeUpdate}>
+                <option value="1" disabled selected>Select Alert Type</option>
+                <option value={WEATHER_ALERT}>Weather Alert</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                </select>
+                <label>Alert Type Selector</label>
+            </div>
+          </div>
+          <div id="" className="col s12 m12 l7 xl7">
+            <div id="alert-preview">
+                <AlertPreview
+                  type={this.state.previewType}
+                  content={this.state.content}
+                />
+            </div>
+            <div className="input-field col s12">
+              <textarea id="textarea1" onChange={this.onTextChange} value={this.state.content} className="materialize-textarea"></textarea>
+              <label htmlFor="textarea1">Text</label>
+            </div>
+            <a className="btn" onClick={this.submitAlert} href="#!">SUBMIT</a>
+          </div>
+          <div className="col l3 lx3">
+            <Rightsection/>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default ComposeAlert;

@@ -22,10 +22,10 @@ export default class AlertModal extends Component {
         <div className="modal">
           <div className="modal-content">
             <h4>{this.props.type}</h4>
-            {this.props.alertMsg}
+            <p>{this.props.alertMsg}</p>
           </div>
           <div className="modal-footer">
-            <p>Thu, 05 Apr 2018 00:22:37 GMT</p>
+            <p>{this.props.date}</p>
           </div>
         </div>
       </React.Fragment>

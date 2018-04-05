@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class SidenavAdmin extends Component {
   render() {
@@ -11,52 +12,54 @@ export default class SidenavAdmin extends Component {
           </a>
         </li>
         <li>
-          <a className="waves-effect" href="/newEvent">
+          <Link className="waves-effect" onClick={this.props.close} to="/newEvent">
           <i className="material-icons">public</i>
-          POST NEWS ITEM</a>
+          POST NEWS ITEM</Link>
         </li>
         <li>
-          <a className="waves-effect" href="#!">
+          <a className="waves-effect" to="">
           <i className="material-icons">event_note</i>
           POST EVENT ITEM</a>
         </li>
         <li>
-          <a className="waves-effect" href="#!">
+          <Link className="waves-effect" onClick={this.props.close} to="/newAlert">
           <i className="material-icons">notifications_none</i>
-          POST ALERT ITEM</a>
+          POST ALERT ITEM</Link>
         </li>
+        {/*
         <li>
-          <a className="waves-effect" href="#!">Action 4</a>
+          <Link className="waves-effect" to="">Action 4</Link>
         </li>
         <li>
           <div className="divider" />
         </li>
         <li>
-          <a className="subheader">
+          <Link className="subheader">
             <i className="material-icons">school</i>
             STAFF
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="waves-effect" href="#!">
+          <Link className="waves-effect" to="">
             Staff 1
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="waves-effect" href="#!">
+          <Link className="waves-effect" to="">
             Staff 2
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="waves-effect" href="#!">
+          <Link className="waves-effect" to="">
             Staff 3
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="waves-effect" href="#!">
+          <Link className="waves-effect" to="">
             Staff 4
-          </a>
+          </Link>
         </li>
+        */}
       </React.Fragment>
     )
   }

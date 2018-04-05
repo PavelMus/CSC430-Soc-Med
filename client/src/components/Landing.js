@@ -16,8 +16,9 @@ class Landing extends Component {
           <Newsfeed
             pollInterval = {5000}
           />
-          <Rightsection />
-
+          <div className="col s12 m3 l3 xl3 offset-xl4" id="right-section">
+            <Rightsection />
+          </div>
           </div>
         </div>
       </div>

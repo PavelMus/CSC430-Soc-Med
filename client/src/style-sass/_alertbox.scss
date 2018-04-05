@@ -1,115 +1,111 @@
 $border-color: #608d8b;
+.alert-box {
+  display: block;
+  width: 100%;
+  min-height: 5vmax;
+  min-width: 250px;
+  border-radius: 5px;
+  margin: 0 0 10px 0;
+  background-color: $feedbackgroundcolor;
+  overflow: hidden;
+  color: $textcolor;
 
-#left-section {
-  .alert-box {
-    display: block;
+  .alert-header {
+    display: table;
     width: 100%;
-    min-height: 5vmax;
-    min-width: 250px;
-    border-radius: 5px;
-    margin: 0 0 10px 0;
-    background-color: $feedbackgroundcolor;
-    overflow: hidden;
+    background-color: $primarylight1;
     color: $textcolor;
-  
-    .alert-header {
-      display: table;
-      width: 100%;
-      background-color: $primarylight1;
-      color: $textcolor;
-      i {
-        margin: 5px;
-        float: left;
-        font-size: 1.8em;
-        margin-left: 8px;
-        margin-right: 8px;
-      }
-      h5 {
-        min-height: 30px;
-        float: left;
-        margin: 4px;
-        color: $textcolor;
-      }
-      .divider {
-        float: left;
-        margin-top: 8px;
-        background-color: #a1a1a1;
-      }
+    i {
+      margin: 5px;
+      float: left;
+      font-size: 1.8em;
+      margin-left: 8px;
+      margin-right: 8px;
     }
-  
-    .alert-message {
+    h5 {
+      min-height: 30px;
+      float: left;
+      margin: 4px;
       color: $textcolor;
-      p {
-        color: $textcolor;
-        margin: 5px 10px;
-        line-height: 1.6;
-        font-size: 12px;
-        text-align: left;
-        overflow: hidden;
-      }
     }
-    a {
-      z-index: auto;
+    .divider {
+      float: left;
+      margin-top: 8px;
+      background-color: #a1a1a1;
+    }
+  }
+  
+  .alert-message {
+    color: $textcolor;
+    p {
+      color: $textcolor;
+      margin: 5px 10px;
+      line-height: 1.6;
+      font-size: 12px;
+      text-align: left;
+      overflow: hidden;
+    }
+  }
+  a {
+    z-index: auto;
+    float: right;
+    background-color: $primarycolor;
+  }
+  .alert-footer{
+    display: block;
+    height: 30px;
+    span{
+      font-size: 0.75rem;
+      margin: 12px 0 0 10px;
+      float: left;
+    }
+    a{
+      margin: 5px;
+      padding: 0 5px 0 5px;
+      font-size: 0.75em;
+      max-height: 25px;
       float: right;
       background-color: $primarycolor;
-    }
-    .alert-footer{
-      display: block;
-      height: 30px;
-      span{
-        font-size: 0.75rem;
-        margin: 12px 0 0 10px;
-        float: left;
-      }
-      a{
-        margin: 5px;
-        padding: 0 5px 0 5px;
-        font-size: 0.75em;
-        max-height: 25px;
-        float: right;
-        background-color: $primarycolor;
-        z-index: auto;
-      }
+      z-index: auto;
     }
   }
-  
-  .modal-underlay {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    top: 0;
-    opacity: 0.7;
-    background: black; 
-    overflow: hidden;
-    z-index: 1;
-  }
+}
+.modal-underlay {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0.7;
+  background: black; 
+  overflow: hidden;
+  z-index: 1;
+}
 
-  .modal {
-    display: block;
-    position: fixed;
-    width: 32%;
-    border-radius: 1vh;
-    left: 0;
-    right: 0;
-    top: 35%;
-    background-color: $primarydark;
-    overflow: hidden;
-    z-index: 1;
-    .modal-content{
+.modal {
+  display: block;
+  position: fixed;
+  width: 32%;
+  border-radius: 1vh;
+  left: 0;
+  right: 0;
+  top: 35%;
+  background-color: $primarydark;
+  overflow: hidden;
+  z-index: 1;
+  .modal-content{
+    color: white;
+    h4{
       color: white;
-      h4{
-        color: white;
-      }
     }
-    .modal-footer{
-      display: block;
-      height: 3vh;
-      p{
-        margin: 0 10px 0 0;
-      }
+  }
+  .modal-footer{
+    display: block;
+    height: 3vh;
+    p{
+      margin: 0 10px 0 0;
     }
   }
 }
