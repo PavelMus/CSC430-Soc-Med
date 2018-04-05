@@ -19,7 +19,4 @@ $primarydark: #005bb2;
 @import "./_general.scss";
 @import "./_composeevent.scss";
 @import "./_composealert.scss";
-
-#root{
-    height: 100%;
-}
+@import "./_feeditem.scss";

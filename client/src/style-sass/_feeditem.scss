@@ -1,0 +1,23 @@
+.user-col {
+  text-align: right;
+
+  .user-pic-wrapper {
+    width: 100%;
+    overflow: auto;
+
+    .user-pic {
+      border-radius: 50%;
+      float: right;
+    }
+
+    .user-name {
+      margin: 0 !important;
+      text-align: right;
+    }
+
+    .time {
+      margin: 0 !important;
+      text-align: right;
+    }
+  }
+}
