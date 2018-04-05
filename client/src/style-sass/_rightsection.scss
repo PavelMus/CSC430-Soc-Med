@@ -19,6 +19,7 @@
       //margin-bottom: 35px;
       display: block;
       position: relative;
+      min-width: 120px;
       background-color: #3498DB;
       color: white;
       padding: 16px;
@@ -31,7 +32,7 @@
       -moz-border-radius-topright: 8px;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
-      z-index: 99 !important;
+      z-index: auto;
       margin-top: 20px;
 
       &:focus,
@@ -62,6 +63,21 @@
     border-bottom-left-radius: 8px;
     z-index: 1;
 
+    animation: menu1 300ms linear forwards;
+      
+
+    @keyframes menu1{
+      0%{
+        opacity: 0;
+        max-height: 0px;
+        transform: scaleY(0%) translateY(0px);
+      }
+      100%{
+        opacity: 1;
+        max-height: 150px;
+        transform: scaleY(100%) translateY(0px);
+      }
+    }
     ul {
       padding: 4px;
       border-radius: 8px;

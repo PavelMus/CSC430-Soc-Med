@@ -5,14 +5,12 @@ class Alerts extends Component {
   render() {
     return(
       <React.Fragment>
-      <h2 className="alert-section-header">Important Alerts! Look here!</h2>
       <AlertBox type={WEATHER_ALERT} />
       <AlertBox type={WEATHER_ALERT} />
       <AlertBox type={WEATHER_ALERT} />
       <AlertBox type={WEATHER_ALERT} />
       <AlertBox type={WEATHER_ALERT} />
       </React.Fragment>
-
     );
   }
 }

@@ -9,7 +9,7 @@ class Leftsection extends Component {
   }
   render() {
     return (
-      <div className="col s12 m3 l4 xl4" id="left-section">
+      <div id="left-section">
         <Alerts />
       </div>
 

@@ -16,7 +16,12 @@ class FeedItem extends Component {
 }
 
 renderContent = () =>{
-  
+  return (
+    <div id="feeditem-header">
+      <h4 >{this.state.feedItem.feedItem.title}
+      </h4>
+    </div>
+  );
 }
 
 initQuill = () =>{
@@ -56,8 +61,9 @@ componentDidMount(){
             </div>
           </div>
           <div className="middle-right-section col s12 m12 l9 xl9">
+            {this.state.feedItem ? this.renderContent() : ""}
             <div id="quill">
-                {this.state.feedItem ? this.renderContent() : ""}
+                
             </div>
           <Rightsection />
 

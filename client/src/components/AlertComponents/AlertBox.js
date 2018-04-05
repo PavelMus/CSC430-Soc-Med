@@ -34,20 +34,27 @@ class AlertBox extends Component {
       <React.Fragment>
         <div className="alert-box hoverable">
           <div className="alert-header">
-            <div className="alert-type">
-              <i className="material-icons">{this.props.type}</i>
-              <div><span>{this.alertType()}</span></div>
-            </div>
+            <i className="material-icons">{this.props.type}</i>
+            <h5>{this.alertType()}</h5>
           </div>
-          <div className="divider"></div>
-          <AlertMessage />
-          <a className="waves-effect waves-light btn" onClick={this.showModal}>
-            Read More
-          </a>
+          <div className="divider" />
+          <div className="alert-message">
+            <p>
+              A chance of rain before 4am, then snow likely, possibly mixed with
+              rain. Increasing clouds, with a low around 32. Northwest wind 8 to
+              10 mph becoming northeast after midnight. Chance of precipitation
+              is 60%. New snow accumulation of 1 to 2 inches possible.
+            </p>
+          </div>
+          <div className="alert-footer">
+            <span>Thu, 05 Apr 2018 00:22:37 GMT</span>
+            <a className="waves-effect waves-light btn"
+              onClick={this.showModal}
+            >Expand</a>
+          </div>
         </div>
         {this.state.show ? (
           <React.Fragment>
-            <div className="modal-underlay" />
             <AlertModal
               type={this.alertType()}
               alertMsg={<AlertMessage />}
