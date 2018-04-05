@@ -32,7 +32,7 @@ class Header extends Component {
   //The javascript variable need the html tags to be rendered before they can be initialized, and since
   //the sidenav requires information from the server before it is rendered, this requires a delayed function call.
   initSidenav = () => {
-    let sidenavDOM = document.getElementById("slide-out");  
+    let sidenavDOM = document.getElementById("slide-out");
     if (sidenavDOM != null){
       let sidenav = document.querySelector(".sidenav");
       let sidenavInst = M.Sidenav.init(sidenav, { edge: "right" });

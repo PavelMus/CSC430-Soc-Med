@@ -3,7 +3,8 @@
   background-color: $primarylight2;
   //position: absolute;
   //left: 1000px;
-  margin: 0 auto 0 10%;
+  margin: 0;
+  padding: 0;
 
   h4 {
     text-align: center;
@@ -62,22 +63,21 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     z-index: 1;
-
     animation: menu1 300ms linear forwards;
-      
-
-    @keyframes menu1{
-      0%{
+    @keyframes menu1 {
+      0% {
         opacity: 0;
-        max-height: 0px;
+        max-height: 0;
         transform: scaleY(0%) translateY(0px);
       }
-      100%{
+
+      100% {
         opacity: 1;
         max-height: 150px;
         transform: scaleY(100%) translateY(0px);
       }
     }
+
     ul {
       padding: 4px;
       border-radius: 8px;

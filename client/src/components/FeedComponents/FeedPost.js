@@ -72,10 +72,6 @@ class FeedPost extends Component {
             </div>
 
             <div id={this.props.feed_id} class="comments-container">
-              {/* <h4>
-                <span className="input-comment-header"><i class=" material-icons">comment</i> Comments</span>
-              </h4>
-              */}
               <div class="comments">
               </div>
               <div class="new-comment">
@@ -91,11 +87,9 @@ class FeedPost extends Component {
                   </form>
                 </div>
               </div>
-
           </div>
     );
   }
-
 }
 
 export default FeedPost;

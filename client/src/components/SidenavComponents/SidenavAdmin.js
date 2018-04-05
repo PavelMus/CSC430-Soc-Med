@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 export default class SidenavAdmin extends Component {
   render() {
     return (
@@ -11,9 +11,9 @@ export default class SidenavAdmin extends Component {
           </a>
         </li>
         <li>
-          <a className="waves-effect" href="/newEvent">
+          <Link className="waves-effect" to="/newEvent">
           <i className="material-icons">public</i>
-          POST NEWS ITEM</a>
+          POST NEWS ITEM</Link>
         </li>
         <li>
           <a className="waves-effect" href="#!">

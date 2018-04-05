@@ -48,6 +48,8 @@ body {
   margin: 0 auto;
   width: 100%;
   text-align: center;
+
+  .left-section {}
 }
 
 .middle-right-section {
@@ -61,4 +63,9 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   height: 100vh;
+
+  .col,
+  .row {
+    margin: 0;
+  }
 }

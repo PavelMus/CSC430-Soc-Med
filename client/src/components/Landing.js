@@ -8,16 +8,19 @@ class Landing extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="col s12 m12 l3 xl3">
+          <div className="left-section col s12 m12 l3 xl3">
             <Leftsection />
           </div>
-          <div className="middle-right-section col s12 m12 l9 xl9">
+          <div className="middle-right-section col s12 m12 l8 xl8">
+          <div className="row" id="middle-right-row">
+            <Newsfeed
+              pollInterval = {5000}
 
-          <Newsfeed
-            pollInterval = {5000}
-          />
-          <Rightsection />
-
+            />
+            <div className="col s12 m3 l3 xl4">
+              <Rightsection />
+            </div>
+          </div>
           </div>
         </div>
       </div>
