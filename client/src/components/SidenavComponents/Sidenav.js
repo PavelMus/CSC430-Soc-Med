@@ -17,12 +17,12 @@ class Sidenav extends Component {
     if(user.admin && user.teacher){
       return <AdminTeacher/>;
     } else if(user.admin){
-      return <Admin/>;
+      return <Admin close={this.props.close}/>;
     }else if(user.teacher){
       return <Teacher/>;
     }else return <Student/>;
   }
-
+  
   render() {
     let user = this.props;
     return (

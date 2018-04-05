@@ -1,11 +1,8 @@
-
-
 var express = require("express");
 var mongoose = require("mongoose");
 var Feed = require("../models/Feed");
 var News = require("../models/NewsPost");
 var Events = require("../models/EventPost");
-require('body-parser');
 
 var feedRouter = express.Router();
 //adding the /feeds route to our /api feedRouter

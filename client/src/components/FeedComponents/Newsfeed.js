@@ -27,7 +27,7 @@ class Newsfeed extends Component {
   //and then stores them in this components state
   initialLoadFeed = () => {
     axios.get(`${"api/main-feed"}/${this.state.loadSkip}`).then(res => {
-      this.setState({ feed: res.data }, this.logFeed);
+      this.setState({ feed: res.data });
     });
   };
 
@@ -87,7 +87,7 @@ class Newsfeed extends Component {
               key={data["_id"]}
               feed_id={data["_id"]}
               />
-              ))
+            ))
             }
           </div>
         );

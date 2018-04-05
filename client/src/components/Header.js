@@ -16,8 +16,7 @@ class Header extends Component {
   }
 
   closeSideNav = () =>{
-    if(this.state.sidenavInst == null){}
-    else
+    console.log("IM HERE!");
     this.state.sidenavInst.close();
   }
 
@@ -78,14 +77,6 @@ class Header extends Component {
       default:
         return (
           <React.Fragment>
-            <li>
-              <button type="button" className="btn" onClick={
-                (e) =>{
-                  e.preventDefault();
-                  this.state.sidenavInst.open();
-                }
-              }>open</button>
-            </li>
             <li>
               <a href="/posts" className="btn-floating btn-medium cyan pulse">
                 <i className="material-icons">comment</i>

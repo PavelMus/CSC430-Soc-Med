@@ -12,6 +12,7 @@ require("./models/QuillPost");
 var posts = require("./routes/postsRoutes");
 var feed = require("./routes/feedRoutes");
 var quill = require("./routes/quillRouter");
+var alerts = require("./routes/alertRoutes");
 
 mongoose.connect(keys.mongoURI);
 
@@ -53,6 +54,7 @@ app.use(function(req, res, next) {
 app.use("/api", posts);
 app.use("/api", feed);
 app.use("/api", quill);
+app.use("/api", alerts);
 
 require("./routes/authRoutes")(app);
 
