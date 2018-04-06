@@ -118,9 +118,9 @@ class ComposeNews extends Component {
         <div className="row" id="content-area-row">
           {this.renderUser()} {/* Here we are calling the renderUser function*/}
 
-          <div id="news-editor-area" className="col s12 m12 l8 xl8">
+          <div id="news-editor-area" className="col s12 m12 l7 xl7">
             <form id="news-header">
-              News Header
+              Create News Post
               <input type="text"
               value={this.state.header}
               onChange={this.headerChange}
