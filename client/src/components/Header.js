@@ -70,9 +70,17 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li>
-            <a href="/auth/google">Login With Google</a>
-          </li>
+          <React.Fragment>
+            {/*<li>
+              <a href="/auth/google">Login With Google</a>
+            </li>*/}
+            <li>
+              <a href="/api/login">Login</a>
+            </li>
+            <li>
+              <a href="/api/register">Register</a>
+            </li>
+          </React.Fragment>
         );
       default:
         return (

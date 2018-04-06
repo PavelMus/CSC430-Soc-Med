@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
-import Landing from "./Landing";
+import FrontPage from "./FrontPage";
 import Header from "./Header";
 import PostIndex from "./PostComponents/PostIndex";
 import Footer from "./Footer";
@@ -23,7 +23,7 @@ class App extends Component {
       <BrowserRouter>
         <div id="CSIBridge">
           <Header />
-          <Route exact={true} path="/" component={Landing} />
+          <Route exact={true} path="/" component={FrontPage} />
           <Route exact path="/newEvent" component={ComposeEvent} />
           <Route exact path="/newNews" component={ComposeNews} />
           <Route exact path="/newAlert" component={ComposeAlert} />

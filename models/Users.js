@@ -8,10 +8,12 @@ const userSchema = new Schema({
     familyName: String,
     givenName: String
   },
+  EMPID: String,
   emails: Array,
   avatar: String,
   teacher: Boolean,
-  admin: Boolean
+  admin: Boolean,
+  classes: Array
 });
 
 module.exports = mongoose.model("users", userSchema);

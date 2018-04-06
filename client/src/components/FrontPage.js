@@ -3,7 +3,7 @@ import Leftsection from "./Leftsection";
 import Rightsection from "./Rightsection";
 import Newsfeed from "./FeedComponents/Newsfeed";
 
-class Landing extends Component {
+class FrontPage extends Component {
   render() {
     return (
       <div id="content-section-container" className="container">
@@ -30,4 +30,4 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+export default FrontPage;

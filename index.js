@@ -11,6 +11,7 @@ require("./services/passport");
 var posts = require("./routes/postsRoutes");
 var feed = require("./routes/feedRoutes");
 var alerts = require("./routes/alertRoutes");
+var local_user = require("./routes/localAuthRoutes");
 
 mongoose.connect(keys.mongoURI);
 
@@ -56,6 +57,7 @@ app.use(function(req, res, next) {
 app.use("/api", posts);
 app.use("/api", feed);
 app.use("/api", alerts);
+app.use("/api", local_user);
 
 require("./routes/authRoutes")(app);
 
@@ -77,9 +79,13 @@ server.listen(PORT, () => console.log("Listening to port " + PORT)
 );
 
 //////// SOCKET IO FUNCTIONS  ////////////////////
+var clients = {};
 
 io.on('connection', socket => {
-  console.log("CONNECTED!");
+  console.log(socket.id + ": CONNECTED!");
+  clients[socket.id] = socket;
+  //io.emit('socket-data', socket);
+  
   socket.on('text', (text) => {
     let { message } = text;
     // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
@@ -88,9 +94,7 @@ io.on('connection', socket => {
     io.sockets.emit('text', text);
   })
    socket.on('disconnect', () => {
-     socket.removeAllListeners('text');
-     socket.removeAllListeners('disconnect');
-     io.removeAllListeners('connection');
-     console.log("DISCONNECTED");
+     delete clients[socket.id];
+     console.log(socket.id + ": DISCONNECTED");
 })  
 })

@@ -1,11 +1,12 @@
 import socketIO from "socket.io-client";
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
-export default class Chat extends Component {
+class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "http://localhost:5000",
+      endpoint: "https://nameless-lake-54965.herokuapp.com",
       messages: [],
       socketInterval: null,
       socket: null,
@@ -55,7 +56,7 @@ export default class Chat extends Component {
         return (
           <div>
            {this.state.messages.map(data => (
-            <h6>{data}</h6>
+            <p>{this.props.user.displayName}: {data}</p>
            ))}
           </div>
         );
@@ -66,6 +67,9 @@ export default class Chat extends Component {
     this.state.socket.on("text", message => { 
       console.log(message);
       this.updateChat(message);
+    });
+    this.state.socket.on('socket-data', (data) =>{
+      console.log(data);
     });
   }
 
@@ -92,7 +96,9 @@ export default class Chat extends Component {
   render() {
     return (
       <div style={{ textAlign: "center" }}>
-          {this.renderChat()}
+        <div id="chat-box">
+            {this.renderChat()}
+        </div>
         <div className="input-field col s12">
         <form id="textarea1" onSubmit={this.sendText}>
               <input type="text" onChange={this.onTextChange} value={this.state.textbox} className="materialize-textarea"></input>
@@ -103,3 +109,9 @@ export default class Chat extends Component {
     );
   }
 }
+
+var mapStateToProps = state =>{
+  return {user: state.auth}
+}
+
+export default connect(mapStateToProps)(Chat);
