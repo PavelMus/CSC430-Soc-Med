@@ -423,19 +423,15 @@ body {
   max-height: 85%; }
 
 #right-section {
-  background-color: #c3ccd8;
+  position: fixed;
+  top: 65px;
+  right: 200px;
   margin: 0;
   padding: 10px;
-  -webkit-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-  box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-  border: 1px solid #aaa;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   max-width: 185px;
   margin: 0 auto;
   height: 600px;
+  float: right;
   /* Dropdown Button */
   /* Dropdown button on hover & focus */
   /* The container <div> - needed to position the dropdown content */
@@ -445,35 +441,52 @@ body {
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
   #right-section .right-section-wrapper {
     padding: 8px; }
-  #right-section .myclassesheader {
+  #right-section .right-section-wrapper .myclassesheader {
     margin: 0;
     padding: 16px 0 0;
     text-align: center;
-    font-size: 2.0rem; }
+    font-size: 1.8rem; }
+    #right-section .right-section-wrapper .myclassesheader .divider {
+      height: 2px;
+      overflow: hidden;
+      border: black;
+      color: black;
+      background-color: black !important; }
   #right-section .dropdown {
     position: relative;
-    display: inline-block;
-    margin-top: 15px !important; }
+    display: inline-block; }
     #right-section .dropdown .dropbtn {
       display: block;
-      position: relative;
-      min-width: 100px;
-      background-color: #1565c0 !important;
-      color: white;
+      top: -4px;
+      min-width: 140px;
+      min-height: 14px;
+      height: 40px;
+      color: #787878;
       padding: 14px;
-      font-size: 14px;
-      border: 1px solid #3498DB;
+      font-size: 15.5px;
+      font-weight: bolder;
       cursor: pointer;
-      -webkit-border-top-left-radius: 8px;
-      -webkit-border-top-right-radius: 8px;
-      -moz-border-radius-topleft: 8px;
-      -moz-border-radius-topright: 8px;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
       z-index: auto;
       margin-top: 20px; }
       #right-section .dropdown .dropbtn:focus, #right-section .dropdown .dropbtn:hover {
-        background-color: #2980B9; }
+        background-color: #E0E7F9;
+        color: #6694F8; }
+      #right-section .dropdown .dropbtn span {
+        margin-left: 12px;
+        float: left;
+        position: relative;
+        top: -3px; }
+      #right-section .dropdown .dropbtn .left-icon {
+        float: left;
+        position: relative;
+        top: -6px;
+        left: 2px; }
+      #right-section .dropdown .dropbtn .right-icon {
+        margin-left: 8px;
+        float: right;
+        position: relative;
+        top: -24px;
+        left: 5px; }
   #right-section #class1,
   #right-section #class2,
   #right-section #class3,
@@ -674,111 +687,6 @@ body {
     background: #c3ccd8;
     display: block;
     height: 25vh; }
-
-#right-section {
-  height: 100vh;
-  background-color: #c3ccd8;
-  margin: 0;
-  padding: 0;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 4px;
-  max-width: 185px;
-  margin: 0 auto;
-  /* Dropdown Button */
-  /* Dropdown button on hover & focus */
-  /* The container <div> - needed to position the dropdown content */
-  /* Dropdown Content (Hidden by Default) */
-  /* Links inside the dropdown */
-  /* Change color of dropdown links on hover */
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
-  #right-section .myclassesheader {
-    margin: 0;
-    text-align: center;
-    font-size: 2.0rem; }
-  #right-section .dropdown {
-    position: relative;
-    display: inline-block;
-    margin-top: 35px; }
-    #right-section .dropdown .dropbtn {
-      display: block;
-      position: relative;
-      min-width: 120px;
-      background-color: #3498DB;
-      color: white;
-      padding: 16px;
-      font-size: 16px;
-      border: 1px solid #3498DB;
-      cursor: pointer;
-      -webkit-border-top-left-radius: 8px;
-      -webkit-border-top-right-radius: 8px;
-      -moz-border-radius-topleft: 8px;
-      -moz-border-radius-topright: 8px;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      z-index: auto;
-      margin-top: 20px; }
-      #right-section .dropdown .dropbtn:focus, #right-section .dropdown .dropbtn:hover {
-        background-color: #2980B9; }
-  #right-section #class1,
-  #right-section #class2,
-  #right-section #class3,
-  #right-section #class4 {
-    display: none;
-    position: relative;
-    top: -5px;
-    background-color: #f1f1f1;
-    color: black;
-    min-width: 90px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    -webkit-border-bottom-right-radius: 8px;
-    -webkit-border-bottom-left-radius: 8px;
-    -moz-border-radius-bottomright: 8px;
-    -moz-border-radius-bottomleft: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    z-index: 1;
-    animation: menu1 300ms linear forwards; }
-
-@keyframes menu1 {
-  0% {
-    opacity: 0;
-    max-height: 0;
-    transform: scaleY(0%) translateY(0px); }
-  100% {
-    opacity: 1;
-    max-height: 150px;
-    transform: scaleY(100%) translateY(0px); } }
-    #right-section #class1 ul,
-    #right-section #class2 ul,
-    #right-section #class3 ul,
-    #right-section #class4 ul {
-      padding: 4px;
-      border-radius: 8px;
-      margin-bottom: 0; }
-  #right-section .classesDropdown {
-    display: none;
-    position: relative;
-    background-color: #f1f1f1;
-    color: black;
-    min-width: 90px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1; }
-  #right-section .classesDropdown a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block; }
-  #right-section .classesDropdown a:hover {
-    background-color: #ddd; }
-  #right-section .show {
-    display: block !important; }
-  #right-section ul {
-    margin: 0;
-    text-align: center; }
-    #right-section ul li {
-      padding: 5px 0;
-      text-align: center; }
 
 #alert-preview {
   width: 50%;

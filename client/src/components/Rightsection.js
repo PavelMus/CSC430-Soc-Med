@@ -9,6 +9,8 @@ class Rightsection extends Component {
 
   dropdownClick(e) {
     e.preventDefault();
+
+    console.log(e.target.parentNode.target);
     let element = document.getElementById(e.target.target);
     if (!element.classList.contains("show")) {
       element.classList.add("show");
@@ -22,16 +24,20 @@ class Rightsection extends Component {
       <div id="right-section">
         <div className="right-section-wrapper">
           <h4 className="myclassesheader">My Classes</h4>
-
+          <div className="divider"></div>
           <div className="dropdown">
             {/*/First class below*/}
+
             <a
               target="class1"
               onClick={this.dropdownClick}
-              className="hoverable dropbtn "
+              className="hoverable dropbtn"
             >
-              CSC 430
+              <i className="left-icon material-icons">code</i>
+              <span>CSC 430</span>
+              <i className="right-icon material-icons">arrow_drop_down</i>
             </a>
+
             <div id="class1">
               <ul>
                 <li>
@@ -55,7 +61,9 @@ class Rightsection extends Component {
               onClick={this.dropdownClick}
               className="hoverable dropbtn"
             >
-              CSC 429
+              <i className="left-icon material-icons">code</i>
+              <span>CSC 429</span>
+              <i className="right-icon material-icons">arrow_drop_down</i>
             </a>
             <div id="class2">
               <ul>
@@ -78,9 +86,11 @@ class Rightsection extends Component {
             <a
               target="class3"
               onClick={this.dropdownClick}
-              className="hoverable dropbtn "
+              className="hoverable dropbtn"
             >
-              CSC 446
+              <i className="left-icon material-icons">code</i>
+              <span>CSC 446</span>
+              <i className="right-icon material-icons">arrow_drop_down</i>
             </a>
             <div id="class3">
               <ul>
@@ -98,14 +108,15 @@ class Rightsection extends Component {
                 </li>
               </ul>
             </div>
-
             {/*/Fourth class below*/}
             <a
               target="class4"
               onClick={this.dropdownClick}
-              className="hoverable dropbtn"
+              className="hoverable dropbtn "
             >
-              MTH 338
+              <i className="left-icon material-icons">code</i>
+              <span>MTH 338</span>
+              <i className="right-icon material-icons">arrow_drop_down</i>
             </a>
             <div id="class4">
               <ul>
@@ -123,6 +134,7 @@ class Rightsection extends Component {
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
       </div>

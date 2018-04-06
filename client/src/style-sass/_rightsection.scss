@@ -3,62 +3,87 @@
   //top: 85px;
   //right: 280px;
   //height: 500px;
-  background-color: $primarylight2;
   //position: absolute;
   //left: 1000px;
+  position: fixed;
+  top: 65px;
+  right: 200px;
   margin: 0;
   padding: 10px;
-  -webkit-box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
-  -moz-box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
-  box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
-  border: 1px solid #aaa;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   max-width: 185px;
   margin: 0 auto;
   height: 600px;
+  float: right;
 
   .right-section-wrapper {
     padding: 8px;
   }
 
-  .myclassesheader {
-    margin: 0;
-    padding: 16px 0 0;
-    text-align: center;
-    font-size: 2.0rem;
+  .right-section-wrapper {
+    .myclassesheader {
+      margin: 0;
+      padding: 16px 0 0;
+      text-align: center;
+      font-size: 1.8rem;
+
+      .divider {
+        height: 2px;
+        overflow: hidden;
+        border: black;
+        color: black;
+        background-color: black !important;
+      }
+    }
   }
 
   .dropdown {
     position: relative;
     display: inline-block;
-    margin-top: 15px !important;
 
     .dropbtn {
       //margin-bottom: 35px;
       display: block;
-      position: relative;
-      min-width: 100px;
-      background-color: #1565c0 !important;
-      color: white;
+      top: -4px;
+      min-width: 140px;
+      min-height: 14px;
+      height: 40px;
+      color: #787878;
       padding: 14px;
-      font-size: 14px;
-      border: 1px solid #3498DB;
+      font-size: 15.5px;
+      font-weight: bolder;
       cursor: pointer;
-      -webkit-border-top-left-radius: 8px;
-      -webkit-border-top-right-radius: 8px;
-      -moz-border-radius-topleft: 8px;
-      -moz-border-radius-topright: 8px;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
       z-index: auto;
       margin-top: 20px;
 
       &:focus,
       &:hover {
-        background-color: #2980B9;
+        background-color: #E0E7F9;
+        color: #6694F8;
       }
+
+      span {
+        margin-left: 12px;
+        float: left;
+        position: relative;
+        top: -3px;
+      }
+
+      .left-icon {
+        float: left;
+        position: relative;
+        top: -6px;
+        left: 2px;
+      }
+
+      .right-icon {
+        margin-left: 8px;
+        float: right;
+        position: relative;
+        top: -24px;
+        left: 5px;
+      }
+
+      .material-icons {}
     }
   }
   /* Dropdown Button */
