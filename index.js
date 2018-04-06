@@ -14,6 +14,8 @@ var alerts = require("./routes/alertRoutes");
 
 mongoose.connect(keys.mongoURI);
 
+
+// SOCKET IO SETUP //
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
@@ -74,18 +76,20 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log("Listening to port " + PORT)
 );
 
+//////// SOCKET IO FUNCTIONS  ////////////////////
+
 io.on('connection', socket => {
-  socket.emit('news', {hello: 'world'})
-  //var socketId = socket.id;
-  //var clientIp = socket.request.connection.remoteAddress;
-  console.log("connected");
-  socket.on('disconnect', () => {
-    console.log("DISCONNECTED");
-  })
-  socket.on('change color', (color) => {
+  console.log("CONNECTED!");
+  socket.on('text', (text) => {
     // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
     // we make use of the socket.emit method again with the argument given to use from the callback function above
-    console.log('Color Changed to: ', color)
-    io.sockets.emit('change color', color)
-})
+    console.log('Color Changed to: ', text)
+    io.sockets.emit('recieve-text', text)
+  })
+   socket.on('disconnect', () => {
+     socket.removeAllListeners('text');
+     socket.removeAllListeners('disconnect');
+     io.removeAllListeners('connection');
+     console.log("DISCONNECTED");
+})  
 })

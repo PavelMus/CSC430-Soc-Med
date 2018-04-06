@@ -10,7 +10,7 @@ import ComposeEvent from './ComposeEvent';
 import ComposeNews from './ComposeNews';
 import ComposeAlert from './AlertComponents/ComposeAlert';
 import FeedItem from "./FeedComponents/FeedItem";
-import chat  from "../chat";
+import chat  from "./Chat";
 class App extends Component {
   constructor(props) {
     super(props);

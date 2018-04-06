@@ -26,10 +26,13 @@ export default class SidenavAdmin extends Component {
           <i className="material-icons">notifications_none</i>
           POST ALERT ITEM</Link>
         </li>
-        {/*
+        
         <li>
-          <Link className="waves-effect" to="">Action 4</Link>
+          <Link className="waves-effect" onClick={this.props.close} to="/chat">
+          <i className="material-icons">chat</i>
+          CHAT TESTING</Link>
         </li>
+        {/*
         <li>
           <div className="divider" />
         </li>
