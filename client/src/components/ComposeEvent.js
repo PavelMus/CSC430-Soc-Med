@@ -60,7 +60,7 @@ class ComposeEvent extends Component {
       modules: {
         toolbar: toolbarOptions
       },
-      placeholder: "Componse an event post",
+      placeholder: "Compose an event post",
       theme: "snow"
     });
     //Saving the Quill object in to the state
@@ -119,10 +119,10 @@ class ComposeEvent extends Component {
         <div className="row" id="content-area-row">
           {this.renderUser()} {/* Here we are calling the renderUser function*/}
 
-          <div id="event-editor-area" className="col s12 m12 l8 xl8">
+          <div id="event-editor-area" className="col s12 m12 l7 xl7">
             <div className="event-editor-area-wrapper">
               <div className="post-event-header">
-                <h4>Create Event</h4>
+                <h4>Create New Event</h4>
               </div>
 
               <div className="post-event-body">
