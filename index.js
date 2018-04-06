@@ -14,7 +14,9 @@ var alerts = require("./routes/alertRoutes");
 
 mongoose.connect(keys.mongoURI);
 
-const app = express();
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 /**************Applying middleware**************/
 app.use(
@@ -55,28 +57,6 @@ app.use("/api", alerts);
 
 require("./routes/authRoutes")(app);
 
-/***********SOCKET SETUP**********/
-var socket = require("socket.io");
-const http = require('http');
-const server = http.createServer(app);
-const io = socket(server);
-
-io.on('connection', socket => {
-  var socketId = socket.id;
-  var clientIp = socket.request.connection.remoteAddress;
-  console.log(clientIp);
-  socket.on('disconnect', () => {
-    console.log("DISCONNECTED");
-  })
-  socket.on('change color', (color) => {
-    // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
-    // we make use of the socket.emit method again with the argument given to use from the callback function above
-    console.log('Color Changed to: ', color)
-    io.sockets.emit('change color', color)
-})
-})
-
-
 if (process.env.NODE_ENV == "production") {
   // Express will serve up production assets
   // like our main.js file, or main.css file!
@@ -93,3 +73,19 @@ if (process.env.NODE_ENV == "production") {
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log("Listening to port " + PORT)
 );
+
+io.on('connection', socket => {
+  socket.emit('news', {hello: 'world'})
+  //var socketId = socket.id;
+  //var clientIp = socket.request.connection.remoteAddress;
+  console.log("connected");
+  socket.on('disconnect', () => {
+    console.log("DISCONNECTED");
+  })
+  socket.on('change color', (color) => {
+    // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+    // we make use of the socket.emit method again with the argument given to use from the callback function above
+    console.log('Color Changed to: ', color)
+    io.sockets.emit('change color', color)
+})
+})

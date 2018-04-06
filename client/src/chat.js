@@ -5,7 +5,7 @@ export default class chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "http://localhost:5000"
+      endpoint: "https://nameless-lake-54965.herokuapp.com"
     };
   }
 
