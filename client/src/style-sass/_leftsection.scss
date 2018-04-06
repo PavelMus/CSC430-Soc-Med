@@ -16,4 +16,12 @@
   background-color: $primarylight2;
   overflow-y: auto;
   display: inline-block;
+
+  .expand-btn {
+    vertical-align: middle;
+
+    .btn {
+      background-color: #1565c0;
+    }
+  }
 }

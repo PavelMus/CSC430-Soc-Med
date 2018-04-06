@@ -1,11 +1,12 @@
 $border-color: #608d8b;
+
 .alert-box {
   display: block;
   width: 100%;
   min-height: 5vmax;
   min-width: 250px;
   border-radius: 5px;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   background-color: $feedbackgroundcolor;
   overflow: hidden;
   color: $textcolor;
@@ -15,6 +16,7 @@ $border-color: #608d8b;
     width: 100%;
     background-color: $primarylight1;
     color: $textcolor;
+
     i {
       margin: 5px;
       float: left;
@@ -22,21 +24,26 @@ $border-color: #608d8b;
       margin-left: 8px;
       margin-right: 8px;
     }
+
     h5 {
       min-height: 30px;
       float: left;
       margin: 4px;
       color: $textcolor;
     }
-    .divider {
-      float: left;
-      margin-top: 8px;
-      background-color: #a1a1a1;
-    }
   }
-  
+
+  .divider {
+    float: left;
+    margin-top: 8px;
+    background-color: #a1a1a1;
+  }
+
   .alert-message {
+    display: block;
     color: $textcolor;
+    overflow: auto;
+
     p {
       color: $textcolor;
       margin: 5px 10px;
@@ -46,30 +53,41 @@ $border-color: #608d8b;
       overflow: hidden;
     }
   }
+
   a {
     z-index: auto;
     float: right;
     background-color: $primarycolor;
   }
-  .alert-footer{
+
+  .alert-footer {
     display: block;
-    height: 30px;
-    span{
+    margin: 10px 0 0;
+
+    span {
+      display: inline-block;
       font-size: 0.75rem;
-      margin: 12px 0 0 10px;
+      margin: 0 0 0 10px;
+      text-align: left;
+      width: 70%;
       float: left;
     }
-    a{
-      margin: 5px;
-      padding: 0 5px 0 5px;
-      font-size: 0.75em;
-      max-height: 25px;
-      float: right;
-      background-color: $primarycolor;
-      z-index: auto;
+
+    .expand-btn {
+      a {
+        width: 20%;
+        display: inline-block;
+        margin: 5px;
+        padding: 0 5px;
+        font-size: 0.75em;
+        max-height: 25px;
+        background-color: $primarycolor;
+        z-index: auto;
+      }
     }
   }
 }
+
 .modal-underlay {
   content: "";
   position: fixed;
@@ -79,7 +97,7 @@ $border-color: #608d8b;
   right: 0;
   top: 0;
   opacity: 0.7;
-  background: black; 
+  background: black;
   overflow: hidden;
   z-index: 1;
 }
@@ -95,16 +113,20 @@ $border-color: #608d8b;
   background-color: $primarydark;
   overflow: hidden;
   z-index: 1;
-  .modal-content{
+
+  .modal-content {
     color: white;
-    h4{
+
+    h4 {
       color: white;
     }
   }
-  .modal-footer{
+
+  .modal-footer {
     display: block;
     height: 3vh;
-    p{
+
+    p {
       margin: 0 10px 0 0;
     }
   }

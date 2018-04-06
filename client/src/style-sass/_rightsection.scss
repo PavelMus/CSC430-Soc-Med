@@ -1,5 +1,4 @@
 #right-section {
-  height: 100vh;
   background-color: $primarylight2;
   //position: absolute;
   //left: 1000px;
@@ -20,12 +19,12 @@
       //margin-bottom: 35px;
       display: block;
       position: relative;
-      min-width: 120px;
-      background-color: #3498DB;
+      min-width: 90px;
+      background-color: #1565c0;
       color: white;
       padding: 16px;
       font-size: 16px;
-      border: 1px solid #3498DB;
+      border: 1px solid #1565c0;
       cursor: pointer;
       -webkit-border-top-left-radius: 8px;
       -webkit-border-top-right-radius: 8px;

@@ -39,9 +39,11 @@ class AlertBox extends Component {
           </div>
           <div className="alert-footer">
             <span>{this.props.date}</span>
-            <a className="waves-effect waves-light btn"
+            <div className="expand-btn">
+              <a className="waves-effect waves-light btn"
               onClick={this.showModal}
             >Expand</a>
+            </div>
           </div>
         </div>
         {this.state.show ? (

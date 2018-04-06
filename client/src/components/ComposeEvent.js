@@ -120,18 +120,27 @@ class ComposeEvent extends Component {
           {this.renderUser()} {/* Here we are calling the renderUser function*/}
 
           <div id="event-editor-area" className="col s12 m12 l8 xl8">
-            <form id="event-header">
-              Event Header
-              <input type="text"
-              value={this.state.header}
-              onChange={this.headerChange}
-              placeholder="Enter Header">
-              </input>
-            </form>
-            <div id="quill-area">
-              <div id="quill" />
-              <button id="saveDelta" className="btn" onClick={this.submitEvent}>SUBMIT</button>
-              <button id="saveDelta" className="btn" onClick={this.initEventPreview}>Preview</button>
+            <div className="event-editor-area-wrapper">
+              <div className="post-event-header">
+                <h4>Create Event</h4>
+              </div>
+
+              <div className="post-event-body">
+                <form id="event-header">
+
+                  <input type="text"
+                  value={this.state.header}
+                  onChange={this.headerChange}
+                  placeholder="Enter header for event here">
+                  </input>
+                </form>
+                <div id="quill-area">
+                  <div id="quill" />
+                  <button id="saveDelta" className="btn" onClick={this.submitEvent}>SUBMIT</button>
+                  <button id="saveDelta" className="btn" onClick={this.initEventPreview}>Preview</button>
+                </div>
+              </div>
+
             </div>
           </div>
           <div className="col l2 xl2">

@@ -12,6 +12,7 @@ body {
 
 #CSIBridge {
   background-color: $primarylight1;
+  overflow: auto;
 }
 
 #content-section-container {
@@ -55,10 +56,9 @@ body {
 .middle-right-section {
   display: inline-block;
   padding: 0 !important;
-  background-color: $primarylight2;
-  -webkit-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-  -moz-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-  box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
+  //-webkit-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
+  //-moz-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
+  //box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;

@@ -56,7 +56,7 @@ class Alerts extends Component {
     return(
       <React.Fragment>
         {this.renderAlerts()}
-        <a className="btn" onClick={this.loadMore} href="#!">Load More</a>
+          <a className="btn" onClick={this.loadMore} href="#!">Load More</a>
       </React.Fragment>
     );
   }
