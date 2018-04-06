@@ -261,10 +261,9 @@ body {
   background-color: #c3ccd8;
   overflow-y: auto;
   display: inline-block; }
-  #left-section .expand-btn {
-    vertical-align: middle; }
-    #left-section .expand-btn .btn {
-      background-color: #1565c0; }
+  #left-section .btn {
+    background-color: #1565c0;
+    margin-bottom: 10px; }
 
 #newsfeed {
   min-width: 500px;
@@ -281,7 +280,7 @@ body {
   #newsfeed .myhoverable:hover {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
   #newsfeed .feed-post {
-    max-height: 40vh;
+    overflow: auto;
     background-color: #f5f5f5;
     margin-bottom: 20px;
     padding: 18px 18px 0;
@@ -299,7 +298,9 @@ body {
       font-size: 1.6rem;
       color: white;
       text-align: left;
-      margin: 0; }
+      margin: 0;
+      overflow: hidden;
+      max-height: 8vh; }
       #newsfeed .feed-post h3 a:hover {
         text-decoration: underline; }
       #newsfeed .feed-post h3 a {
@@ -312,7 +313,7 @@ body {
       background-color: #a1a1a1; }
     #newsfeed .feed-post .feed-item-body {
       overflow: hidden;
-      max-height: 12vh; }
+      max-height: 13vh; }
       #newsfeed .feed-post .feed-item-body .inputed-post {
         overflow: auto; }
         #newsfeed .feed-post .feed-item-body .inputed-post h1,
@@ -384,26 +385,27 @@ body {
       display: none; }
     #newsfeed .feed-post .show {
       display: block !important; }
-    #newsfeed .feed-post #comment-section {
-      display: none; }
-      #newsfeed .feed-post #comment-section .input-comment-header {
-        display: block;
-        float: left;
-        width: 100%;
+    #newsfeed .feed-post .input-comment-header {
+      display: block;
+      float: left;
+      width: 100%;
+      font-size: 18px; }
+      #newsfeed .feed-post .input-comment-header i {
         font-size: 18px; }
-        #newsfeed .feed-post #comment-section .input-comment-header i {
-          font-size: 18px; }
-      #newsfeed .feed-post #comment-section .new-comment form .input-comment-section {
-        padding: 5px 0; }
-        #newsfeed .feed-post #comment-section .new-comment form .input-comment-section .user-pic-wrapper .user-pic {
+    #newsfeed .feed-post .new-comment form .input-comment-section {
+      padding: 5px 0; }
+      #newsfeed .feed-post .new-comment form .input-comment-section .user-pic-wrapper {
+        padding: 8px 0 0 8px; }
+        #newsfeed .feed-post .new-comment form .input-comment-section .user-pic-wrapper .user-pic {
           display: inline-block;
-          float: left;
           height: 34px;
           width: 34px;
           border-radius: 50%; }
-        #newsfeed .feed-post #comment-section .new-comment form .input-comment-section .input-comment-body input {
-          display: inline-block;
-          width: 80%; }
+      #newsfeed .feed-post .new-comment form .input-comment-section .input-comment-body input {
+        margin-left: 15px;
+        float: left;
+        display: inline-block;
+        width: 80%; }
 
 #newsfeed .card-top {
   height: 55px;
@@ -423,7 +425,17 @@ body {
 #right-section {
   background-color: #c3ccd8;
   margin: 0;
-  padding: 0;
+  padding: 10px;
+  -webkit-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+  box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+  border: 1px solid #aaa;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  max-width: 185px;
+  margin: 0 auto;
+  height: 600px;
   /* Dropdown Button */
   /* Dropdown button on hover & focus */
   /* The container <div> - needed to position the dropdown content */
@@ -431,22 +443,26 @@ body {
   /* Links inside the dropdown */
   /* Change color of dropdown links on hover */
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
-  #right-section h4 {
+  #right-section .right-section-wrapper {
+    padding: 8px; }
+  #right-section .myclassesheader {
+    margin: 0;
+    padding: 16px 0 0;
     text-align: center;
     font-size: 2.0rem; }
   #right-section .dropdown {
     position: relative;
     display: inline-block;
-    margin-top: 35px; }
+    margin-top: 15px !important; }
     #right-section .dropdown .dropbtn {
       display: block;
       position: relative;
-      min-width: 90px;
-      background-color: #1565c0;
+      min-width: 100px;
+      background-color: #1565c0 !important;
       color: white;
-      padding: 16px;
-      font-size: 16px;
-      border: 1px solid #1565c0;
+      padding: 14px;
+      font-size: 14px;
+      border: 1px solid #3498DB;
       cursor: pointer;
       -webkit-border-top-left-radius: 8px;
       -webkit-border-top-right-radius: 8px;
@@ -609,111 +625,6 @@ body {
     display: block;
     height: 25vh; }
 
-#right-section {
-  background-color: #c3ccd8;
-  margin: 0;
-  padding: 10px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  max-width: 185px;
-  margin: 0 auto;
-  height: 600px;
-  /* Dropdown Button */
-  /* Dropdown button on hover & focus */
-  /* The container <div> - needed to position the dropdown content */
-  /* Dropdown Content (Hidden by Default) */
-  /* Links inside the dropdown */
-  /* Change color of dropdown links on hover */
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
-  #right-section .myclassesheader {
-    margin: 0;
-    text-align: center;
-    font-size: 2.0rem; }
-  #right-section .dropdown {
-    position: relative;
-    display: inline-block;
-    margin-top: 35px; }
-    #right-section .dropdown .dropbtn {
-      display: block;
-      position: relative;
-      min-width: 100px;
-      background-color: 1565c0;
-      color: white;
-      padding: 14px;
-      font-size: 14px;
-      border: 1px solid #3498DB;
-      cursor: pointer;
-      -webkit-border-top-left-radius: 8px;
-      -webkit-border-top-right-radius: 8px;
-      -moz-border-radius-topleft: 8px;
-      -moz-border-radius-topright: 8px;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      z-index: auto;
-      margin-top: 20px; }
-      #right-section .dropdown .dropbtn:focus, #right-section .dropdown .dropbtn:hover {
-        background-color: #2980B9; }
-  #right-section #class1,
-  #right-section #class2,
-  #right-section #class3,
-  #right-section #class4 {
-    display: none;
-    position: relative;
-    top: -5px;
-    background-color: #f1f1f1;
-    color: black;
-    min-width: 90px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    -webkit-border-bottom-right-radius: 8px;
-    -webkit-border-bottom-left-radius: 8px;
-    -moz-border-radius-bottomright: 8px;
-    -moz-border-radius-bottomleft: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    z-index: 1;
-    animation: menu1 300ms linear forwards; }
-
-@keyframes menu1 {
-  0% {
-    opacity: 0;
-    max-height: 0;
-    transform: scaleY(0%) translateY(0px); }
-  100% {
-    opacity: 1;
-    max-height: 150px;
-    transform: scaleY(100%) translateY(0px); } }
-    #right-section #class1 ul,
-    #right-section #class2 ul,
-    #right-section #class3 ul,
-    #right-section #class4 ul {
-      padding: 4px;
-      border-radius: 8px;
-      margin-bottom: 0; }
-  #right-section .classesDropdown {
-    display: none;
-    position: relative;
-    background-color: #f1f1f1;
-    color: black;
-    min-width: 90px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1; }
-  #right-section .classesDropdown a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block; }
-  #right-section .classesDropdown a:hover {
-    background-color: #ddd; }
-  #right-section .show {
-    display: block !important; }
-  #right-section ul {
-    margin: 0;
-    text-align: center; }
-    #right-section ul li {
-      padding: 5px 0;
-      text-align: center; }
-
 #news-section-container {
   max-width: 1240px;
   width: 90%;
@@ -771,7 +682,7 @@ body {
   padding: 0;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   max-width: 185px;
   margin: 0 auto;
   /* Dropdown Button */
@@ -873,6 +784,27 @@ body {
   width: 50%;
   display: block;
   float: center; }
+
+.middle-right-section .feed-item-container {
+  background-color: #fff;
+  overflow: auto; }
+  .middle-right-section .feed-item-container #feed-item-header {
+    background-color: #c3ccd8;
+    height: 70px;
+    padding: 16px 45px; }
+    .middle-right-section .feed-item-container #feed-item-header h4 {
+      margin: 0;
+      padding: 0;
+      font-size: 25px;
+      text-align: left;
+      display: flex;
+      align-items: center; }
+  .middle-right-section .feed-item-container .feed-item-body {
+    padding: 0 30px 16px;
+    height: 100%;
+    overflow: auto; }
+    .middle-right-section .feed-item-container .feed-item-body p {
+      line-height: 1.8; }
 
 .user-col {
   text-align: right; }

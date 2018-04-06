@@ -18,8 +18,9 @@ class FeedItem extends Component {
 
 renderContent = () =>{
   return (
-    <div id="feeditem-header">
-      <h4 >{this.state.feedItem.feedItem.title}
+    <div id="feed-item-header">
+      <h4>
+        {this.state.feedItem.feedItem.title}
       </h4>
     </div>
   );
@@ -74,19 +75,30 @@ renderUser = () => {
   render() {
     return (
       <div id="content-section-container" className="container">
-        <div className="row" id="content-area-row">
-          {this.renderUser()} {/* Here we are calling the renderUser function*/}
-          <div className="middle-right-section col s12 m12 l8 xl8">
-            {this.state.feedItem ? this.renderContent() : ""}
-            <div id="quill">
+        <div className="event-editor-area-wrapper">
+          <div className="row" id="content-area-row">
 
+            {this.renderUser()} {/* Here we are calling the renderUser function*/}
+
+            <div className="middle-right-section col s12 m12 l7 xl7">
+              <div className="feed-item-container">
+
+
+                {this.state.feedItem ? this.renderContent() : ""}
+                <div className="feed-item-body">
+                  <div id="quill">
+
+                  </div>
+                </div>
+              </div>
+
+              <div className="col l2 xl2">
+                {/*    <Rightsection/> */}
+              </div>`
             </div>
-
-          </div>
-          <div className="col l2 xl2">
-            <Rightsection/>
           </div>
         </div>
+
       </div>
     );
   }

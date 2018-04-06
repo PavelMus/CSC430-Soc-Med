@@ -17,11 +17,8 @@
   overflow-y: auto;
   display: inline-block;
 
-  .expand-btn {
-    vertical-align: middle;
-
-    .btn {
-      background-color: #1565c0;
-    }
+  .btn {
+    background-color: $primarycolor;
+    margin-bottom: 10px;
   }
 }

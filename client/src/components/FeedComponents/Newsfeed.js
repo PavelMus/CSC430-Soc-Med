@@ -45,9 +45,9 @@ class Newsfeed extends Component {
   //the database, the interval is set in the props of this component
   componentDidMount() {
     window.addEventListener(
-      "scroll", 
+      "scroll",
       () => window.requestAnimationFrame(this.onScroll), false);
-    
+
     this.initialLoadFeed();
     if (!this.pollInterval)
     this.pollInterval = setInterval(
@@ -69,14 +69,14 @@ class Newsfeed extends Component {
     switch (this.state.feed) {
       case null:
         return (
-        <div className="col s12 m6 l8 xl6" id="newsfeed"> 
+        <div className="col s12 m4 l8 xl6" id="newsfeed">
           <Loading/>
         </div>
       );
       default:
         let { feed } = this.state;
-        return ( 
-          <div className="col s12 m6 l8 xl6" id="newsfeed">
+        return (
+          <div className="col s12 m4 l8 xl6" id="newsfeed">
             {feed.map( data => (
               <FeedPost
               author={data.feedItem.author}

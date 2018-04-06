@@ -19,7 +19,7 @@
   }
 
   .feed-post {
-    max-height: 40vh;
+    overflow: auto;
     background-color: $feedbackgroundcolor;
     margin-bottom: 20px;
     padding: 18px 18px 0;
@@ -39,6 +39,8 @@
       color: white;
       text-align: left;
       margin: 0;
+      overflow: hidden;
+      max-height: 8vh;
 
       a:hover {
         text-decoration: underline;
@@ -59,7 +61,7 @@
 
     .feed-item-body {
       overflow: hidden;
-      max-height: 12vh;
+      max-height: 13vh;
 
       .inputed-post {
         overflow: auto;
@@ -178,44 +180,43 @@
       display: block !important;
     }
 
-    #comment-section {
-      display: none;
+    h4 {}
 
-      h4 {}
+    .input-comment-header {
+      display: block;
+      float: left;
+      width: 100%;
+      font-size: 18px;
 
-      .input-comment-header {
-        display: block;
-        float: left;
-        width: 100%;
+      i {
         font-size: 18px;
-
-        i {
-          font-size: 18px;
-        }
       }
+    }
 
-      .comments {}
+    .comments {}
 
-      .new-comment {
-        form {
-          .input-comment-section {
-            padding: 5px 0;
+    .new-comment {
+      form {
+        .input-comment-section {
+          padding: 5px 0;
 
-            .user-pic-wrapper {
-              .user-pic {
-                display: inline-block;
-                float: left;
-                height: 34px;
-                width: 34px;
-                border-radius: 50%;
-              }
+          .user-pic-wrapper {
+            padding: 8px 0 0 8px;
+
+            .user-pic {
+              display: inline-block;
+              height: 34px;
+              width: 34px;
+              border-radius: 50%;
             }
+          }
 
-            .input-comment-body {
-              input {
-                display: inline-block;
-                width: 80%;
-              }
+          .input-comment-body {
+            input {
+              margin-left: 15px;
+              float: left;
+              display: inline-block;
+              width: 80%;
             }
           }
         }

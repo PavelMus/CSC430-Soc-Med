@@ -59,7 +59,7 @@ class ComposeNews extends Component {
       modules: {
         toolbar: toolbarOptions
       },
-      placeholder: "Componse an news post",
+      placeholder: "Compose a news post",
       theme: "snow"
     });
     //Saving the Quill object in to the state
@@ -114,23 +114,32 @@ class ComposeNews extends Component {
 
   render() {
     return (
-      <div id="news-section-container" className="container">
+      <div id="event-section-container" className="container">
         <div className="row" id="content-area-row">
           {this.renderUser()} {/* Here we are calling the renderUser function*/}
 
-          <div id="news-editor-area" className="col s12 m12 l7 xl7">
-            <form id="news-header">
-              Create News Post
-              <input type="text"
-              value={this.state.header}
-              onChange={this.headerChange}
-              placeholder="Enter Header">
-              </input>
-            </form>
-            <div id="quill-area">
-              <div id="quill" />
-              <button id="saveDelta" className="btn" onClick={this.submitNews}>SUBMIT</button>
-              <button id="saveDelta" className="btn" onClick={this.initNewsPreview}>Preview</button>
+          <div id="event-editor-area" className="col s12 m12 l7 xl7">
+            <div className="event-editor-area-wrapper">
+              <div className="post-event-header">
+                <h4>Create News Post</h4>
+              </div>
+
+              <div className="post-event-body">
+                <form id="event-header">
+
+                  <input type="text"
+                  value={this.state.header}
+                  onChange={this.headerChange}
+                  placeholder="Enter header here">
+                  </input>
+                </form>
+                <div id="quill-area">
+                  <div id="quill" />
+                  <button id="saveDelta" className="btn" onClick={this.submitNews}>SUBMIT</button>
+                  <button id="saveDelta" className="btn" onClick={this.initNewsPreview}>Preview</button>
+                </div>
+              </div>
+
             </div>
           </div>
           <div className="col l2 xl2">
