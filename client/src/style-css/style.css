@@ -16,7 +16,7 @@
   min-height: 5vmax;
   min-width: 250px;
   border-radius: 5px;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   background-color: #f5f5f5;
   overflow: hidden;
   color: black; }
@@ -36,12 +36,14 @@
       float: left;
       margin: 4px;
       color: black; }
-    .alert-box .alert-header .divider {
-      float: left;
-      margin-top: 8px;
-      background-color: #a1a1a1; }
+  .alert-box .divider {
+    float: left;
+    margin-top: 8px;
+    background-color: #a1a1a1; }
   .alert-box .alert-message {
-    color: black; }
+    display: block;
+    color: black;
+    overflow: auto; }
     .alert-box .alert-message p {
       color: black;
       margin: 5px 10px;
@@ -55,17 +57,21 @@
     background-color: #1565c0; }
   .alert-box .alert-footer {
     display: block;
-    height: 30px; }
+    margin: 10px 0 0; }
     .alert-box .alert-footer span {
+      display: inline-block;
       font-size: 0.75rem;
-      margin: 12px 0 0 10px;
+      margin: 0 0 0 10px;
+      text-align: left;
+      width: 70%;
       float: left; }
-    .alert-box .alert-footer a {
+    .alert-box .alert-footer .expand-btn a {
+      width: 20%;
+      display: inline-block;
       margin: 5px;
-      padding: 0 5px 0 5px;
+      padding: 0 5px;
       font-size: 0.75em;
       max-height: 25px;
-      float: right;
       background-color: #1565c0;
       z-index: auto; }
 
@@ -178,7 +184,8 @@ body {
   font-family: 'Exo 2', sans-serif; }
 
 #CSIBridge {
-  background-color: #e9ebee; }
+  background-color: #e9ebee;
+  overflow: auto; }
 
 #content-section-container {
   padding-top: 20px;
@@ -213,10 +220,6 @@ body {
 .middle-right-section {
   display: inline-block;
   padding: 0 !important;
-  background-color: #c3ccd8;
-  -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-  box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -236,6 +239,10 @@ body {
   background-color: #c3ccd8;
   overflow-y: auto;
   display: inline-block; }
+  #left-section .expand-btn {
+    vertical-align: middle; }
+    #left-section .expand-btn .btn {
+      background-color: #1565c0; }
 
 #newsfeed {
   min-width: 500px;
@@ -392,7 +399,6 @@ body {
   max-height: 85%; }
 
 #right-section {
-  height: 100vh;
   background-color: #c3ccd8;
   margin: 0;
   padding: 0;
@@ -413,12 +419,12 @@ body {
     #right-section .dropdown .dropbtn {
       display: block;
       position: relative;
-      min-width: 120px;
-      background-color: #3498DB;
+      min-width: 90px;
+      background-color: #1565c0;
       color: white;
       padding: 16px;
       font-size: 16px;
-      border: 1px solid #3498DB;
+      border: 1px solid #1565c0;
       cursor: pointer;
       -webkit-border-top-left-radius: 8px;
       -webkit-border-top-right-radius: 8px;
@@ -516,30 +522,64 @@ body {
         margin: 0 !important;
         text-align: right; }
   #event-section-container #content-area-row #event-editor-area {
-    background-color: #c3ccd8;
-    border-radius: 10px; }
-    #event-section-container #content-area-row #event-editor-area #event-header {
-      text-align: left;
-      margin-top: 25px;
-      font-size: 1.4em; }
-      #event-section-container #content-area-row #event-editor-area #event-header input {
-        background-color: white;
-        margin-top: 10px; }
-    #event-section-container #content-area-row #event-editor-area #quill-area {
-      height: 83vh;
-      display: block;
-      margin-top: 26px; }
-      #event-section-container #content-area-row #event-editor-area #quill-area .ql-toolbar {
-        background-color: white;
-        border-radius: 0.6em;
-        margin-bottom: 10px; }
-      #event-section-container #content-area-row #event-editor-area #quill-area .ql-container {
-        background-color: white;
-        font-size: 1.2em; }
-      #event-section-container #content-area-row #event-editor-area #quill-area button {
-        margin-top: 5px;
-        margin-left: 10px;
-        float: right; }
+    background-color: #FFFFFF;
+    -webkit-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+    box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0; }
+    #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header {
+      background-color: #c3ccd8;
+      height: 70px;
+      padding: 16px 30px; }
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header h4 {
+        margin: 0;
+        padding: 0;
+        font-size: 25px;
+        text-align: left;
+        display: flex;
+        align-items: center; }
+    #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body {
+      background-color: #c3ccd8;
+      padding: 0 30px 16px;
+      height: 100%;
+      overflow: auto; }
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header {
+        text-align: left;
+        font-size: 1.4em;
+        background-color: #c3ccd8;
+        border-color: #DEDEDE; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input {
+          background-color: white;
+          margin-top: 10px;
+          -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+          -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+          box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 6px;
+          height: 38px; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input::-webkit-input-placeholder {
+          /* WebKit, Blink, Edge */
+          color: #808080; }
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area {
+        height: 83vh;
+        display: block;
+        margin-top: 26px; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-toolbar {
+          background-color: white;
+          border-radius: 0.6em;
+          margin-bottom: 10px; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
+          background-color: white;
+          font-size: 1.2em; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area #saveDelta {
+          background-color: #1565c0;
+          margin-top: 5px;
+          margin-left: 10px;
+          float: right; }
   #event-section-container #preview {
     margin-top: 22px;
     margin-bottom: 30px;
@@ -548,15 +588,15 @@ body {
     height: 25vh; }
 
 #right-section {
-  height: 100vh;
   background-color: #c3ccd8;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
   max-width: 185px;
   margin: 0 auto;
+  height: 600px;
   /* Dropdown Button */
   /* Dropdown button on hover & focus */
   /* The container <div> - needed to position the dropdown content */
@@ -575,11 +615,11 @@ body {
     #right-section .dropdown .dropbtn {
       display: block;
       position: relative;
-      min-width: 120px;
-      background-color: #3498DB;
+      min-width: 100px;
+      background-color: 1565c0;
       color: white;
-      padding: 16px;
-      font-size: 16px;
+      padding: 14px;
+      font-size: 14px;
       border: 1px solid #3498DB;
       cursor: pointer;
       -webkit-border-top-left-radius: 8px;
