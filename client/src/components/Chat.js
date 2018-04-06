@@ -13,16 +13,23 @@ export default class Chat extends Component {
     };
   }
   // https://nameless-lake-54965.herokuapp.com
-  componentDidMount() {
-    if (!this.state.socketInterval){
-      let pollInterval = setInterval(
-        this.checkSockets,
-        1000
-      );
-      let socket = socketIO(this.state.endpoint);
 
-      this.setState({socketInterval: pollInterval, socket: socket});
+  socketInit = () =>{
+    if(this.state.socket == null){
+      let socket = socketIO(this.state.endpoint);
+      this.setState({socket: socket}, this.checkSockets);
     }
+    
+  }
+  componentDidMount() {
+   // if (!this.state.socketInterval){
+     // let pollInterval = setInterval(
+     //   this.checkSockets,
+     //   1000
+      //);
+      this.socketInit();
+      //this.setState({socketInterval: pollInterval});
+  //  }
   }
   componentWillUnmount() {
     this.state.socketInterval && clearInterval(this.state.socketInterval);
@@ -30,7 +37,9 @@ export default class Chat extends Component {
   }
 
   updateChat = (msg) => {
-    let newChat = this.state.messages.concat(msg);
+    let newChat = this.state.messages.concat(msg.message);
+    console.log(this.state.textbox);
+    
     console.log(msg);
     console.log(this.state.messages);
     
@@ -54,9 +63,8 @@ export default class Chat extends Component {
   }
 
   checkSockets = () => {
-    this.state.socket;
-    console.log("socket check");
-    this.state.socket.on("recieve-text", message => { 
+    this.state.socket.on("text", message => { 
+      console.log(message);
       this.updateChat(message);
     });
   }
@@ -69,7 +77,7 @@ export default class Chat extends Component {
     // this emits an event to the socket (your server) with an argument of 'red'
     // you can make the argument any color you would like, or any kind of data you want to send.
  
-    this.state.socket.emit("text", "HELLO");
+    this.state.socket.emit("text", {message: this.state.textbox});
     
     // socket.emit('change color', 'red', 'yellow') | you can have multiple arguments
   };
@@ -78,12 +86,13 @@ export default class Chat extends Component {
     this.setState({ color });
   };
   onTextChange = (e) => {
-    this.setState({textbox: e.value});
+    e.preventDefault();
+    this.setState({textbox: e.target.value});
   }
   render() {
     return (
       <div style={{ textAlign: "center" }}>
-          
+          {this.renderChat()}
         <div className="input-field col s12">
         <form id="textarea1" onSubmit={this.sendText}>
               <input type="text" onChange={this.onTextChange} value={this.state.textbox} className="materialize-textarea"></input>

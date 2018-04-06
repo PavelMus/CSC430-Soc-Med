@@ -81,10 +81,11 @@ server.listen(PORT, () => console.log("Listening to port " + PORT)
 io.on('connection', socket => {
   console.log("CONNECTED!");
   socket.on('text', (text) => {
+    let { message } = text;
     // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
     // we make use of the socket.emit method again with the argument given to use from the callback function above
-    console.log('Color Changed to: ', text)
-    io.sockets.emit('recieve-text', text)
+    console.log('Color Changed to: ', message);
+    io.sockets.emit('text', text);
   })
    socket.on('disconnect', () => {
      socket.removeAllListeners('text');
