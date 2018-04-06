@@ -62,7 +62,9 @@ const server = http.createServer(app);
 const io = socket(server);
 
 io.on('connection', socket => {
-  console.log("made socket connection");
+  var socketId = socket.id;
+  var clientIp = socket.request.connection.remoteAddress;
+  console.log(clientIp);
   socket.on('disconnect', () => {
     console.log("DISCONNECTED");
   })

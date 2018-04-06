@@ -48,7 +48,7 @@ feedRouter
         news.authorAvatar = req.body.avatar;
         news.title = req.body.title;
         news.postDate = moment().tz("America/New_York").format('ddd, Do MMM YYYY hh:mm a');
-        news.delta = req.delta;
+        news.delta = req.body.delta;
         news.preview = req.body.preview;
 
         var feed = new Feed();
@@ -68,7 +68,6 @@ feedRouter
     .route("/feed/event-post")
     .post( (req, res) => {
         var event = new Events();
-
         event.author = req.body.author;
         event.authorAvatar = req.body.avatar;
         event.title = req.body.title;

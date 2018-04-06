@@ -7,7 +7,8 @@ const newsSchema = new Schema({
   authorAvatar: String,
   title: String,
   postDate: String,
-  content: String
+  delta: Object,
+  preview: String
 });
 
 module.exports = mongoose.model("news", newsSchema);
