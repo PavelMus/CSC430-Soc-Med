@@ -7,8 +7,10 @@ import Header from "./Header";
 import PostIndex from "./PostComponents/PostIndex";
 import Footer from "./Footer";
 import ComposeEvent from './ComposeEvent';
+import ComposeNews from './ComposeNews';
 import ComposeAlert from './AlertComponents/ComposeAlert';
 import FeedItem from "./FeedComponents/FeedItem";
+import chat  from "../chat";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,8 +25,10 @@ class App extends Component {
           <Header />
           <Route exact={true} path="/" component={Landing} />
           <Route exact path="/newEvent" component={ComposeEvent} />
+          <Route exact path="/newNews" component={ComposeNews} />
           <Route exact path="/newAlert" component={ComposeAlert} />
           <Route exact path="/posts" component={PostIndex} />
+          <Route ecavt path="/chat" component={chat} />
           <Route path="/feed" component={FeedItem} />
         </div>
       </BrowserRouter>

@@ -8,10 +8,8 @@ require("./models/Users");
 require("./models/Posts");
 require("./models/Feed");
 require("./services/passport");
-require("./models/QuillPost");
 var posts = require("./routes/postsRoutes");
 var feed = require("./routes/feedRoutes");
-var quill = require("./routes/quillRouter");
 var alerts = require("./routes/alertRoutes");
 
 mongoose.connect(keys.mongoURI);
@@ -53,11 +51,28 @@ app.use(function(req, res, next) {
 
 app.use("/api", posts);
 app.use("/api", feed);
-app.use("/api", quill);
 app.use("/api", alerts);
 
 require("./routes/authRoutes")(app);
 
+/***********SOCKET SETUP**********/
+var socket = require("socket.io");
+const http = require('http');
+const server = http.createServer(app);
+const io = socket(server);
+
+io.on('connection', socket => {
+  console.log("made socket connection");
+  socket.on('disconnect', () => {
+    console.log("DISCONNECTED");
+  })
+  socket.on('change color', (color) => {
+    // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+    // we make use of the socket.emit method again with the argument given to use from the callback function above
+    console.log('Color Changed to: ', color)
+    io.sockets.emit('change color', color)
+})
+})
 
 
 if (process.env.NODE_ENV == "production") {
@@ -74,4 +89,5 @@ if (process.env.NODE_ENV == "production") {
 }
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+server.listen(PORT, () => console.log("Listening to port " + PORT)
+);

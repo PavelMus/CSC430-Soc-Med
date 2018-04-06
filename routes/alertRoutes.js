@@ -1,6 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var Alert = require("../models/Alerts");
+var moment = require("moment-timezone");
 
 var alertRouter = express.Router();
 
@@ -27,11 +28,9 @@ alertRouter
   .route("/new-alert/")
   .post( (req, res) =>{
       var alert = new Alert();
-      var date = new Date();
-      var dateFormated = date.toUTCString();
       alert.type = req.body.type;
       alert.content = req.body.content;
-      alert.postDate = dateFormated;
+      alert.postDate = moment().tz("America/New_York").format('ddd, Do MMM YYYY hh:mm a');
       alert.save((err) => {
           if(err)
               res.send(err);

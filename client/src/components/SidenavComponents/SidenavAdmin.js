@@ -12,14 +12,14 @@ export default class SidenavAdmin extends Component {
           </a>
         </li>
         <li>
-          <Link className="waves-effect" onClick={this.props.close} to="/newEvent">
+          <Link className="waves-effect" onClick={this.props.close} to="/newNews">
           <i className="material-icons">public</i>
           POST NEWS ITEM</Link>
         </li>
         <li>
-          <a className="waves-effect" to="">
+          <Link className="waves-effect" onClick={this.props.close} to="/newEvent">
           <i className="material-icons">event_note</i>
-          POST EVENT ITEM</a>
+          POST EVENT ITEM</Link>
         </li>
         <li>
           <Link className="waves-effect" onClick={this.props.close} to="/newAlert">

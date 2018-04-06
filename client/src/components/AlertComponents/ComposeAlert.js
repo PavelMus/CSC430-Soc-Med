@@ -43,9 +43,9 @@ class ComposeAlert extends Component {
 
   render() {
     return (
-      <div id="event-section-container" className="container">
+      <div id="alert-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="col s12 m12 l2 xl2">
+          <div id="alert-left" className="col s12 m12 l2 xl2">
             <div className="input-field">
                 <select onChange={this.typeUpdate}>
                 <option value="1" disabled selected>Select Alert Type</option>
@@ -56,7 +56,8 @@ class ComposeAlert extends Component {
                 <label>Alert Type Selector</label>
             </div>
           </div>
-          <div id="" className="col s12 m12 l7 xl7">
+          <div id="alert-middle" className="col s12 m12 l7 xl7">
+            <h4>This is a live preview of the outgoing alert</h4>
             <div id="alert-preview">
                 <AlertPreview
                   type={this.state.previewType}

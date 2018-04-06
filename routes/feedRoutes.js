@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var Feed = require("../models/Feed");
 var News = require("../models/NewsPost");
 var Events = require("../models/EventPost");
+var moment = require("moment-timezone");
 
 var feedRouter = express.Router();
 //adding the /feeds route to our /api feedRouter
@@ -43,12 +44,10 @@ feedRouter
     .route("/feed/news-post")
     .post( (req, res) =>{
         var news = new News();
-        var date = new Date();
-        var dateFormated = date.toUTCString();
         news.author = req.body.author;
         news.authorAvatar = req.body.avatar;
         news.title = req.body.title;
-        news.postDate = dateFormated;
+        news.postDate = moment().tz("America/New_York").format('ddd, Do MMM YYYY hh:mm a');
         news.delta = req.delta;
         news.preview = req.body.preview;
 
@@ -69,13 +68,11 @@ feedRouter
     .route("/feed/event-post")
     .post( (req, res) => {
         var event = new Events();
-        var date = new Date();
-        var dateFormated = date.toUTCString();
 
         event.author = req.body.author;
         event.authorAvatar = req.body.avatar;
         event.title = req.body.title;
-        event.postDate = dateFormated;
+        event.postDate = moment().tz("America/New_York").format('ddd, Do MMM YYYY hh:mm a');
         event.delta = req.body.delta;
         event.preview = req.body.preview;
 
