@@ -1,11 +1,31 @@
 #right-section {
+  //position: fixed;
+  //top: 85px;
+  //right: 280px;
+  //height: 500px;
   background-color: $primarylight2;
   //position: absolute;
   //left: 1000px;
   margin: 0;
-  padding: 0;
+  padding: 10px;
+  -webkit-box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
+  -moz-box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
+  box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
+  border: 1px solid #aaa;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  max-width: 185px;
+  margin: 0 auto;
+  height: 600px;
 
-  h4 {
+  .right-section-wrapper {
+    padding: 8px;
+  }
+
+  .myclassesheader {
+    margin: 0;
+    padding: 16px 0 0;
     text-align: center;
     font-size: 2.0rem;
   }
@@ -13,18 +33,18 @@
   .dropdown {
     position: relative;
     display: inline-block;
-    margin-top: 35px;
+    margin-top: 15px !important;
 
     .dropbtn {
       //margin-bottom: 35px;
       display: block;
       position: relative;
-      min-width: 90px;
-      background-color: #1565c0;
+      min-width: 100px;
+      background-color: #1565c0 !important;
       color: white;
-      padding: 16px;
-      font-size: 16px;
-      border: 1px solid #1565c0;
+      padding: 14px;
+      font-size: 14px;
+      border: 1px solid #3498DB;
       cursor: pointer;
       -webkit-border-top-left-radius: 8px;
       -webkit-border-top-right-radius: 8px;

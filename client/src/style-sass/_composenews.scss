@@ -1,209 +1,207 @@
 #news-section-container {
-    max-width: 1240px;
-    width: 90%;
-    margin-top: 22px;
-  
-    #content-area-row {
-      .user-col {
-        text-align: right;
-  
-        .user-pic-wrapper {
-          width: 100%;
-          overflow: auto;
-  
-          .user-pic {
-            border-radius: 50%;
-            float: right;
-          }
-  
-          .user-name {
-            margin: 0 !important;
-            text-align: right;
-          }
-  
-          .time {
-            margin: 0 !important;
-            text-align: right;
-          }
+  max-width: 1240px;
+  width: 90%;
+  margin-top: 22px;
+
+  #content-area-row {
+    .user-col {
+      text-align: right;
+
+      .user-pic-wrapper {
+        width: 100%;
+        overflow: auto;
+
+        .user-pic {
+          border-radius: 50%;
+          float: right;
         }
-      }
-  
-      #news-editor-area {
-        background-color: $primarylight2;
-        border-radius: 10px;
-  
-        #news-header {
-          text-align: left;
-          margin-top: 25px;
-          font-size: 1.4em;
-  
-          input {
-            background-color: white;
-            margin-top: 10px;
-          }
+
+        .user-name {
+          margin: 0 !important;
+          text-align: right;
         }
-  
-        #quill-area {
-          height: 83vh;
-          display: block;
-          margin-top: 26px;
-  
-          .ql-toolbar {
-            background-color: white;
-            border-radius: 0.6em;
-            margin-bottom: 10px;
-          }
-  
-          .ql-container {
-            background-color: white;
-            font-size: 1.2em;
-          }
-  
-          button {
-            margin-top: 5px;
-            margin-left: 10px;
-            float: right;
-          }
+
+        .time {
+          margin: 0 !important;
+          text-align: right;
         }
       }
     }
-  
-    #preview {
-      margin-top: 22px;
-      margin-bottom: 30px;
-      background: $primarylight2;
-      display: block;
-      height: 25vh;
-    }
-  }
-  ////////////////////////////////////
-  
-  #right-section {
-    height: 100vh;
-    background-color: $primarylight2;
-    //position: absolute;
-    //left: 1000px;
-    margin: 0;
-    padding: 0;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    max-width: 185px;
-    margin: 0 auto;
-  
-    .myclassesheader {
-      margin: 0;
-      text-align: center;
-      font-size: 2.0rem;
-    }
-  
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      margin-top: 35px;
-  
-      .dropbtn {
-        //margin-bottom: 35px;
+
+    #news-editor-area {
+      background-color: $primarylight2;
+      border-radius: 10px;
+
+      #news-header {
+        text-align: left;
+        margin-top: 25px;
+        font-size: 1.4em;
+
+        input {
+          background-color: white;
+          margin-top: 10px;
+        }
+      }
+
+      #quill-area {
+        height: 83vh;
         display: block;
-        position: relative;
-        min-width: 120px;
-        background-color: #3498DB;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: 1px solid #3498DB;
-        cursor: pointer;
-        -webkit-border-top-left-radius: 8px;
-        -webkit-border-top-right-radius: 8px;
-        -moz-border-radius-topleft: 8px;
-        -moz-border-radius-topright: 8px;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        z-index: auto;
-        margin-top: 20px;
-  
-        &:focus,
-        &:hover {
-          background-color: #2980B9;
+        margin-top: 26px;
+
+        .ql-toolbar {
+          background-color: white;
+          border-radius: 0.6em;
+          margin-bottom: 10px;
         }
-      }
-    }
-    /* Dropdown Button */
-    /* Dropdown button on hover & focus */
-    /* The container <div> - needed to position the dropdown content */
-    #class1,
-    #class2,
-    #class3,
-    #class4 {
-      display: none;
-      position: relative;
-      top: -5px;
-      background-color: #f1f1f1;
-      color: black;
-      min-width: 90px;
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      -webkit-border-bottom-right-radius: 8px;
-      -webkit-border-bottom-left-radius: 8px;
-      -moz-border-radius-bottomright: 8px;
-      -moz-border-radius-bottomleft: 8px;
-      border-bottom-right-radius: 8px;
-      border-bottom-left-radius: 8px;
-      z-index: 1;
-      animation: menu1 300ms linear forwards;
-      @keyframes menu1 {
-        0% {
-          opacity: 0;
-          max-height: 0;
-          transform: scaleY(0%) translateY(0px);
+
+        .ql-container {
+          background-color: white;
+          font-size: 1.2em;
         }
-  
-        100% {
-          opacity: 1;
-          max-height: 150px;
-          transform: scaleY(100%) translateY(0px);
+
+        button {
+          margin-top: 5px;
+          margin-left: 10px;
+          float: right;
         }
-      }
-  
-      ul {
-        padding: 4px;
-        border-radius: 8px;
-        margin-bottom: 0;
-      }
-    }
-    /* Dropdown Content (Hidden by Default) */
-    .classesDropdown {
-      display: none;
-      position: relative;
-      background-color: #f1f1f1;
-      color: black;
-      min-width: 90px;
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    /* Links inside the dropdown */
-    .classesDropdown a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    /* Change color of dropdown links on hover */
-    .classesDropdown a:hover {
-      background-color: #ddd;
-    }
-    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-    .show {
-      display: block !important;
-    }
-  
-    ul {
-      margin: 0;
-      text-align: center;
-  
-      li {
-        padding: 5px 0;
-        text-align: center;
       }
     }
   }
-  
+
+  #preview {
+    margin-top: 22px;
+    margin-bottom: 30px;
+    background: $primarylight2;
+    display: block;
+    height: 25vh;
+  }
+}
+////////////////////////////////////
+#right-section {
+  height: 100vh;
+  background-color: $primarylight2;
+  //position: absolute;
+  //left: 1000px;
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 4px;
+  max-width: 185px;
+  margin: 0 auto;
+
+  .myclassesheader {
+    margin: 0;
+    text-align: center;
+    font-size: 2.0rem;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 35px;
+
+    .dropbtn {
+      //margin-bottom: 35px;
+      display: block;
+      position: relative;
+      min-width: 120px;
+      background-color: #3498DB;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: 1px solid #3498DB;
+      cursor: pointer;
+      -webkit-border-top-left-radius: 8px;
+      -webkit-border-top-right-radius: 8px;
+      -moz-border-radius-topleft: 8px;
+      -moz-border-radius-topright: 8px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      z-index: auto;
+      margin-top: 20px;
+
+      &:focus,
+      &:hover {
+        background-color: #2980B9;
+      }
+    }
+  }
+  /* Dropdown Button */
+  /* Dropdown button on hover & focus */
+  /* The container <div> - needed to position the dropdown content */
+  #class1,
+  #class2,
+  #class3,
+  #class4 {
+    display: none;
+    position: relative;
+    top: -5px;
+    background-color: #f1f1f1;
+    color: black;
+    min-width: 90px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    z-index: 1;
+    animation: menu1 300ms linear forwards;
+    @keyframes menu1 {
+      0% {
+        opacity: 0;
+        max-height: 0;
+        transform: scaleY(0%) translateY(0px);
+      }
+
+      100% {
+        opacity: 1;
+        max-height: 150px;
+        transform: scaleY(100%) translateY(0px);
+      }
+    }
+
+    ul {
+      padding: 4px;
+      border-radius: 8px;
+      margin-bottom: 0;
+    }
+  }
+  /* Dropdown Content (Hidden by Default) */
+  .classesDropdown {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    color: black;
+    min-width: 90px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  /* Links inside the dropdown */
+  .classesDropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  /* Change color of dropdown links on hover */
+  .classesDropdown a:hover {
+    background-color: #ddd;
+  }
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {
+    display: block !important;
+  }
+
+  ul {
+    margin: 0;
+    text-align: center;
+
+    li {
+      padding: 5px 0;
+      text-align: center;
+    }
+  }
+}
