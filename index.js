@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
+const expressValidator = require('express-validator');
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
@@ -28,6 +29,7 @@ app.use(
     keys: [keys.cookieKey]
   })
 );
+app.use(expressValidator());
 
 app.use(passport.initialize());
 app.use(passport.session());

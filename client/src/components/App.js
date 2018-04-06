@@ -10,6 +10,7 @@ import ComposeEvent from './ComposeEvent';
 import ComposeNews from './ComposeNews';
 import ComposeAlert from './AlertComponents/ComposeAlert';
 import FeedItem from "./FeedComponents/FeedItem";
+import Registration from './Registration'
 import chat  from "./Chat";
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
           <Route exact path="/posts" component={PostIndex} />
           <Route ecavt path="/chat" component={chat} />
           <Route path="/feed" component={FeedItem} />
+          <Route exact path="/register" component={Registration} />
         </div>
       </BrowserRouter>
     );

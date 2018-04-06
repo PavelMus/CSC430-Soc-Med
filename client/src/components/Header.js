@@ -78,7 +78,7 @@ class Header extends Component {
               <a href="/api/login">Login</a>
             </li>
             <li>
-              <a href="/api/register">Register</a>
+              <Link to="/register">Register</Link>
             </li>
           </React.Fragment>
         );
