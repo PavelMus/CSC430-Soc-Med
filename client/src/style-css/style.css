@@ -504,8 +504,12 @@ body {
     -moz-border-radius-bottomleft: 8px;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    z-index: 1;
-    animation: menu1 300ms linear forwards; }
+    z-index: 1; }
+    #right-section #class1 li,
+    #right-section #class2 li,
+    #right-section #class3 li,
+    #right-section #class4 li {
+      animation: menu1 300ms linear forwards; }
 
 @keyframes menu1 {
   0% {
@@ -728,3 +732,17 @@ body {
     .user-col .user-pic-wrapper .time {
       margin: 0 !important;
       text-align: right; }
+
+#chat-box {
+  width: 100%;
+  height: 60vh;
+  border-style: solid;
+  border-color: black;
+  text-align: left; }
+
+#register-form {
+  width: 50%;
+  height: 93vh;
+  background-color: white;
+  margin: 0 auto 0 auto;
+  padding-top: 50px; }

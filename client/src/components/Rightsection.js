@@ -7,14 +7,15 @@ class Rightsection extends Component {
 
   dropdownClick = (e) => {
     e.preventDefault();
-
-    console.log(e.target.target);
+    console.log(e);
+    console.log(e.target);
     if(e.target.target){
       var element = document.getElementById(e.target.target);
     }
     else{
       var element = document.getElementById(e.target.parentElement.target);
     }
+
     if (!element.classList.contains("show")) {
       element.classList.add("show");
     } else {
