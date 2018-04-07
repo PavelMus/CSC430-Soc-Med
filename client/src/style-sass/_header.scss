@@ -9,8 +9,17 @@
 }
 
 #header-nav {
-  background-color: $primarycolor;
-
+  position: fixed;
+  top: 0;
+  bottom: inherit;
+  left: 0;
+  z-index: 3;
+  background: #4b6cb7;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #182848, #4b6cb7);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #283858, #3b5ca7);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   #nav-wrapper {
     #header-row {
       height: 64px;

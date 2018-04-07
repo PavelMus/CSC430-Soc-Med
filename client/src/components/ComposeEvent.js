@@ -100,7 +100,7 @@ class ComposeEvent extends Component {
 
         default:
         return(
-          <div className="user-col col s6 m6 l2 xl2">
+          <div className="user-col col s6 m6 l1 xl1">
             <div className="user-info">
               <div class="user-pic-wrapper">
                 <img class="user-pic" src={this.props.user.avatar} width="64"/>
@@ -116,7 +116,12 @@ class ComposeEvent extends Component {
   render() {
     return (
       <div id="event-section-container" className="container">
+
+
         <div className="row" id="content-area-row">
+        <div className="col l3 xl3">
+          <Rightsection/>
+        </div>
           {this.renderUser()} {/* Here we are calling the renderUser function*/}
 
           <div id="event-editor-area" className="col s12 m12 l7 xl7">
@@ -143,9 +148,7 @@ class ComposeEvent extends Component {
 
             </div>
           </div>
-          <div className="col l2 xl2">
-            <Rightsection/>
-          </div>
+
           {this.state.showPreview ? this.eventPreview(): ""}
         </div>
       </div>

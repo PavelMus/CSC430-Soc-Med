@@ -1,19 +1,9 @@
 #right-section {
-  //position: fixed;
-  //top: 85px;
-  //right: 280px;
-  //height: 500px;
-  //position: absolute;
-  //left: 1000px;
-  position: fixed;
-  top: 65px;
-  right: 200px;
   margin: 0;
-  padding: 10px;
+  padding: 0 10px 10px;
   max-width: 185px;
   margin: 0 auto;
   height: 600px;
-  float: right;
 
   .right-section-wrapper {
     padding: 8px;
@@ -22,7 +12,7 @@
   .right-section-wrapper {
     .myclassesheader {
       margin: 0;
-      padding: 16px 0 0;
+      padding: 0;
       text-align: center;
       font-size: 1.8rem;
 
@@ -107,8 +97,9 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     z-index: 1;
-    li{
-        animation: menu1 300ms linear forwards;
+
+    li {
+      animation: menu1 300ms linear forwards;
     }
     @keyframes menu1 {
       0% {
@@ -116,12 +107,14 @@
         max-height: 0;
         transform: scaleY(0%) translateY(0px);
       }
+
       100% {
         opacity: 1;
         max-height: 150px;
         transform: scaleY(100%) translateY(0px);
       }
     }
+
     ul {
       padding: 4px;
       border-radius: 8px;

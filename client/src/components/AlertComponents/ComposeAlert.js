@@ -45,6 +45,9 @@ class ComposeAlert extends Component {
     return (
       <div id="alert-section-container" className="container">
         <div className="row" id="content-area-row">
+          <div className="col l3 lx3">
+            <Rightsection/>
+          </div>
           <div id="alert-left" className="col s12 m12 l2 xl2">
             <div className="input-field">
                 <select onChange={this.typeUpdate}>
@@ -70,9 +73,7 @@ class ComposeAlert extends Component {
             </div>
             <a className="btn" onClick={this.submitAlert} href="#!">SUBMIT</a>
           </div>
-          <div className="col l3 lx3">
-            <Rightsection/>
-          </div>
+
         </div>
       </div>
     );
