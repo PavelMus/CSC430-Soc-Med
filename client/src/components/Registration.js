@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import * as M from 'materialize-css';
 
 export default class Register extends Component {
   constructor(props) {
@@ -51,6 +52,7 @@ export default class Register extends Component {
     }
     axios.post("/api/register", newUser).then(
       res => {
+        M.toast({html: res.data[0].msg});
         console.log(res.data); 
       }
     )
