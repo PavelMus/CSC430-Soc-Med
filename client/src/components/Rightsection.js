@@ -3,15 +3,18 @@ import React, { Component } from "react";
 class Rightsection extends Component {
   constructor(props) {
     super(props);
-
-    this.dropdownClick = this.dropdownClick.bind(this);
   }
 
-  dropdownClick(e) {
+  dropdownClick = (e) => {
     e.preventDefault();
 
-    console.log(e.target.parentNode.target);
-    let element = document.getElementById(e.target.target);
+    console.log(e.target.target);
+    if(e.target.target){
+      var element = document.getElementById(e.target.target);
+    }
+    else{
+      var element = document.getElementById(e.target.parentElement.target);
+    }
     if (!element.classList.contains("show")) {
       element.classList.add("show");
     } else {
@@ -37,9 +40,7 @@ class Rightsection extends Component {
               <span>CSC 430</span>
               <i className="right-icon material-icons">arrow_drop_down</i>
             </a>
-
-            <div id="class1">
-              <ul>
+              <ul id="class1">
                 <li>
                   <a href="#">Announcements</a>
                 </li>
@@ -53,8 +54,6 @@ class Rightsection extends Component {
                   <a href="#">Classmates</a>
                 </li>
               </ul>
-            </div>
-
             {/*/Second class below*/}
             <a
               target="class2"
@@ -65,8 +64,7 @@ class Rightsection extends Component {
               <span>CSC 429</span>
               <i className="right-icon material-icons">arrow_drop_down</i>
             </a>
-            <div id="class2">
-              <ul>
+              <ul id="class2">
                 <li>
                   <a href="#">Announcements</a>
                 </li>
@@ -80,8 +78,6 @@ class Rightsection extends Component {
                   <a href="#">Classmates</a>
                 </li>
               </ul>
-            </div>
-
             {/*/Third class below*/}
             <a
               target="class3"
@@ -92,8 +88,7 @@ class Rightsection extends Component {
               <span>CSC 446</span>
               <i className="right-icon material-icons">arrow_drop_down</i>
             </a>
-            <div id="class3">
-              <ul>
+              <ul id="class3">
                 <li>
                   <a href="#">Announcements</a>
                 </li>
@@ -107,7 +102,6 @@ class Rightsection extends Component {
                   <a href="#">Classmates</a>
                 </li>
               </ul>
-            </div>
             {/*/Fourth class below*/}
             <a
               target="class4"
@@ -118,8 +112,7 @@ class Rightsection extends Component {
               <span>MTH 338</span>
               <i className="right-icon material-icons">arrow_drop_down</i>
             </a>
-            <div id="class4">
-              <ul>
+              <ul id="class4">
                 <li>
                   <a href="#">Announcements</a>
                 </li>
@@ -133,8 +126,6 @@ class Rightsection extends Component {
                   <a href="#">Classmates</a>
                 </li>
               </ul>
-            </div>
-
           </div>
         </div>
       </div>

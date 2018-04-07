@@ -23,9 +23,17 @@ router.post("/register", (req, res) => {
     req.checkBody('email', 'Email is required!').notEmpty();
     req.checkBody('password', 'Password is required!').notEmpty();
     req.checkBody('password2', 'Passwords do not match!').equals(req.body.password);
-    req.checkBody('EMPILID', 'EMPLID is required!').notEmpty();
+    req.checkBody('EMPLID', 'EMPLID is required!').notEmpty();
 
-    
+    let errors = req.validationErrors();
+
+    if(errors){
+        res.json(errors);
+        console.log(errors);
+    }else{
+        console.log("NO ERRORS");
+        
+    }
 })
 
 module.exports = router;
