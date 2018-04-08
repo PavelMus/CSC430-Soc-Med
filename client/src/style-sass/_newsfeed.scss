@@ -159,6 +159,7 @@
             margin: auto 0;
 
             i {
+              color: $primarycolor;
               margin-right: 10px;
               padding: 5px;
             }
@@ -202,6 +203,8 @@
 
           .user-pic-wrapper {
             padding: 8px 0 0 8px;
+            display: inline-block;
+            float: left;
 
             .user-pic {
               display: inline-block;
