@@ -49,9 +49,12 @@ class Header extends Component {
         return;
       default:
         let user = this.props.auth;
+        console.log(user);
+        
+        console.log(this.props.auth.displayName);
         return (
             <Sidenav
-              email={user.emails[0].value}
+              email={user.email}
               name={user.displayName}
               avatar={user.avatar}
               admin={user.admin}
@@ -71,11 +74,11 @@ class Header extends Component {
       case false:
         return (
           <React.Fragment>
-            {/*<li>
-              <a href="/auth/google">Login With Google</a>
-            </li>*/}
             <li>
-              <a href="/api/login">Login</a>
+              <a href="/auth/google">Login With Google</a>
+            </li>
+            <li>
+              <a href="/login">Login</a>
             </li>
             <li>
               <Link to="/register">Register</Link>
@@ -138,7 +141,7 @@ class Header extends Component {
 
 //Maps the user accont info from the Redux store to the component props.
 const mapStateToProps = state =>{
-  return { auth: state.auth };
+  return { auth: state.local };
 }
 
 export default connect(mapStateToProps)(Header);

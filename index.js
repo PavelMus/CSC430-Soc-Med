@@ -6,13 +6,13 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 require("./models/Users");
+require("./models/UserLocal");
 require("./models/Posts");
 require("./models/Feed");
 require("./services/passport");
 var posts = require("./routes/postsRoutes");
 var feed = require("./routes/feedRoutes");
 var alerts = require("./routes/alertRoutes");
-var local_user = require("./routes/localAuthRoutes");
 
 mongoose.connect(keys.mongoURI);
 
@@ -59,8 +59,7 @@ app.use(function(req, res, next) {
 app.use("/api", posts);
 app.use("/api", feed);
 app.use("/api", alerts);
-app.use("/api", local_user);
-
+require("./routes/localAuthRoutes")(app);
 require("./routes/authRoutes")(app);
 
 if (process.env.NODE_ENV == "production") {

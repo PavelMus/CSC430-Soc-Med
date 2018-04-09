@@ -14,6 +14,9 @@ export default class Register extends Component {
       EMPLID: ""
     };
   }
+  redirectHome = () =>{
+    this.props.history.push("/");
+  }
   onFirstNameChange = e => {
     e.preventDefault();
     this.setState({ first_name: e.target.value });
@@ -40,7 +43,7 @@ export default class Register extends Component {
     this.setState({ EMPLID: e.target.value });
   };
   registrationSubmit = e => {
-    e.preventDefault();
+     e.preventDefault();
     console.log("SUBMITTED!");
     let newUser = {
       first_name: this.state.first_name,
@@ -52,8 +55,11 @@ export default class Register extends Component {
     }
     axios.post("/api/register", newUser).then(
       res => {
-        M.toast({html: res.data[0].msg});
-        console.log(res.data); 
+        if(res.data != "redirect"){
+          M.toast({html: res.data[0].msg});
+        }else if(res.data == "redirect"){
+          this.redirectHome();
+        }
       }
     )
   };

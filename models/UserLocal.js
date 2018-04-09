@@ -8,11 +8,15 @@ const userLocal = new Schema({
       type: String,
       required: true
   },
-  name: {
+  first_name: {
     type: String,
     required: true
   },
-  EMPID: {
+  last_name:{
+      type: String,
+      required: true
+  },
+  EMPLID: {
       type: String,
       required: true
   },

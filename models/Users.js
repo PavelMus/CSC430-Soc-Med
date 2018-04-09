@@ -9,7 +9,8 @@ const userSchema = new Schema({
     givenName: String
   },
   EMPID: String,
-  emails: Array,
+  email: String,
+  password: String,
   avatar: String,
   teacher: Boolean,
   admin: Boolean,

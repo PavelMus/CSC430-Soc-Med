@@ -16,11 +16,17 @@ module.exports = app => {
   );
 
   app.get("/api/logout", (req, res) => {
+    console.log("LOGGING OUT");
     req.logout();
     res.redirect("/");
   });
 
   app.get("/api/current_user", (req, res) => {
+    res.send(req.user);
+  });
+
+  app.get("/api/current_local", (req, res) => {
+    console.log("FETCHING LOCAL");
     res.send(req.user);
   });
 

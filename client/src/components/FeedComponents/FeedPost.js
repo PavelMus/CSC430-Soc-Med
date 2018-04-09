@@ -15,10 +15,9 @@ class FeedPost extends Component {
       postDate:"",
       content: ""
    };
-    this.showCommentSection = this.showCommentSection.bind(this);
   }
 
-  showCommentSection(e){
+  showCommentSection = (e) => {
     e.preventDefault();
     console.log(e.target.parentNode.target);
 
@@ -71,16 +70,16 @@ class FeedPost extends Component {
               </div>
             </div>
 
-            <div id={this.props.feed_id} class="comments-container">
-              <div class="comments">
+            <div id={this.props.feed_id} className="comments-container">
+              <div className="comments">
               </div>
-              <div class="new-comment">
+              <div className="new-comment">
                 <form >
-                    <div class="input-comment-section">
-                      <div class="user-pic-wrapper">
-                        <img class="user-pic" src={tempimg} width="64"/>
+                    <div className="input-comment-section">
+                      <div className="user-pic-wrapper">
+                        <img className="user-pic" src={tempimg} width="64"/>
                       </div>
-                      <div class="input-comment-body">
+                      <div className="input-comment-body">
                         <input placeholder="Leave a comment"/>
                       </div>
                     </div>

@@ -10,14 +10,15 @@ import ComposeEvent from './ComposeEvent';
 import ComposeNews from './ComposeNews';
 import ComposeAlert from './AlertComponents/ComposeAlert';
 import FeedItem from "./FeedComponents/FeedItem";
-import Registration from './Registration'
+import Registration from './Registration';
+import Login from './Login';
 import chat  from "./Chat";
 class App extends Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    this.props.fetchUser();
+    this.props.fetchLocalUser();
   }
   render() {
     return (
@@ -32,6 +33,7 @@ class App extends Component {
           <Route ecavt path="/chat" component={chat} />
           <Route path="/feed" component={FeedItem} />
           <Route exact path="/register" component={Registration} />
+          <Route exact path="/login" component={Login} />
         </div>
       </BrowserRouter>
     );
