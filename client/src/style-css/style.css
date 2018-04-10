@@ -23,8 +23,8 @@
   .alert-box .alert-header {
     display: table;
     width: 100%;
-    background-color: #e9ebee;
-    color: black; }
+    background-color: #3A5BA6;
+    color: #fff; }
     .alert-box .alert-header i {
       margin: 5px;
       float: left;
@@ -32,10 +32,11 @@
       margin-left: 8px;
       margin-right: 8px; }
     .alert-box .alert-header h5 {
+      font-size: 1.5rem;
       min-height: 30px;
       float: left;
       margin: 4px;
-      color: black; }
+      color: #fff; }
   .alert-box .divider {
     float: left;
     margin-top: 8px;
@@ -145,14 +146,6 @@
     height: 86vh;
     border-radius: 1vh; }
 
-#header-div {
-  height: 64px; }
-
-#header-div::after {
-  content: "";
-  clear: both;
-  display: block; }
-
 #header-nav {
   position: fixed;
   top: 0;
@@ -223,8 +216,6 @@
 body {
   line-height: 1.2em;
   display: flex;
-  min-height: 100vh;
-  height: 100vh;
   flex-direction: column;
   background-color: #e9ebee;
   font-family: 'Exo 2', sans-serif; }
@@ -236,14 +227,13 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
 
 #content-section-container {
-  padding-top: 20px;
-  height: 100%;
+  padding-top: 84px;
   width: 100vh; }
 
 #content-section-container {
   margin: 0 auto;
-  max-width: 1240px;
-  width: 90%; }
+  max-width: 1440px;
+  width: 92%; }
 
 @media only screen and (min-width: 601px) {
   .container {
@@ -254,7 +244,6 @@ body {
     width: 70%; } }
 
 #content-area {
-  min-height: 100vh;
   min-width: 100vh;
   width: 100%;
   display: inline-block;
@@ -270,14 +259,12 @@ body {
   padding: 0 !important;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px;
-  height: 100vh; }
+  border-radius: 10px; }
   .middle-right-section .col,
   .middle-right-section .row {
     margin: 0; }
 
-#left-section {
-  right: 280px;
+#alert-section {
   min-height: 5vmax;
   min-width: 250px;
   width: 250px;
@@ -290,7 +277,7 @@ body {
   background-color: #c3ccd8;
   overflow-y: auto;
   display: inline-block; }
-  #left-section .btn {
+  #alert-section .btn {
     background-color: #1565c0;
     margin-bottom: 10px; }
 
@@ -454,12 +441,13 @@ body {
   max-width: 85%;
   max-height: 85%; }
 
-#right-section {
+#fixedmenu {
   margin: 0;
   padding: 0 10px 10px;
   max-width: 185px;
   margin: 0 auto;
   height: 600px;
+  position: fixed;
   /* Dropdown Button */
   /* Dropdown button on hover & focus */
   /* The container <div> - needed to position the dropdown content */
@@ -467,23 +455,23 @@ body {
   /* Links inside the dropdown */
   /* Change color of dropdown links on hover */
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
-  #right-section .right-section-wrapper {
+  #fixedmenu .fixedmenu-wrapper {
     padding: 8px; }
-  #right-section .right-section-wrapper .myclassesheader {
+  #fixedmenu .fixedmenu-wrapper .myclassesheader {
     margin: 0;
     padding: 0;
     text-align: center;
     font-size: 1.8rem; }
-    #right-section .right-section-wrapper .myclassesheader .divider {
+    #fixedmenu .fixedmenu-wrapper .myclassesheader .divider {
       height: 2px;
       overflow: hidden;
       border: black;
       color: black;
       background-color: black !important; }
-  #right-section .dropdown {
+  #fixedmenu .dropdown {
     position: relative;
     display: inline-block; }
-    #right-section .dropdown .dropbtn {
+    #fixedmenu .dropdown .dropbtn {
       display: block;
       top: -4px;
       min-width: 140px;
@@ -496,29 +484,29 @@ body {
       cursor: pointer;
       z-index: auto;
       margin-top: 20px; }
-      #right-section .dropdown .dropbtn:focus, #right-section .dropdown .dropbtn:hover {
+      #fixedmenu .dropdown .dropbtn:focus, #fixedmenu .dropdown .dropbtn:hover {
         background-color: #E0E7F9;
         color: #6694F8; }
-      #right-section .dropdown .dropbtn span {
+      #fixedmenu .dropdown .dropbtn span {
         margin-left: 12px;
         float: left;
         position: relative;
         top: -3px; }
-      #right-section .dropdown .dropbtn .left-icon {
+      #fixedmenu .dropdown .dropbtn .left-icon {
         float: left;
         position: relative;
         top: -6px;
         left: 2px; }
-      #right-section .dropdown .dropbtn .right-icon {
+      #fixedmenu .dropdown .dropbtn .right-icon {
         margin-left: 8px;
         float: right;
         position: relative;
         top: -24px;
         left: 5px; }
-  #right-section #class1,
-  #right-section #class2,
-  #right-section #class3,
-  #right-section #class4 {
+  #fixedmenu #class1,
+  #fixedmenu #class2,
+  #fixedmenu #class3,
+  #fixedmenu #class4 {
     display: none;
     position: relative;
     top: -5px;
@@ -533,10 +521,10 @@ body {
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     z-index: 1; }
-    #right-section #class1 li,
-    #right-section #class2 li,
-    #right-section #class3 li,
-    #right-section #class4 li {
+    #fixedmenu #class1 li,
+    #fixedmenu #class2 li,
+    #fixedmenu #class3 li,
+    #fixedmenu #class4 li {
       animation: menu1 300ms linear forwards; }
 
 @keyframes menu1 {
@@ -548,14 +536,14 @@ body {
     opacity: 1;
     max-height: 150px;
     transform: scaleY(100%) translateY(0px); } }
-    #right-section #class1 ul,
-    #right-section #class2 ul,
-    #right-section #class3 ul,
-    #right-section #class4 ul {
+    #fixedmenu #class1 ul,
+    #fixedmenu #class2 ul,
+    #fixedmenu #class3 ul,
+    #fixedmenu #class4 ul {
       padding: 4px;
       border-radius: 8px;
       margin-bottom: 0; }
-  #right-section .classesDropdown {
+  #fixedmenu .classesDropdown {
     display: none;
     position: relative;
     background-color: #f1f1f1;
@@ -563,19 +551,19 @@ body {
     min-width: 90px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1; }
-  #right-section .classesDropdown a {
+  #fixedmenu .classesDropdown a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block; }
-  #right-section .classesDropdown a:hover {
+  #fixedmenu .classesDropdown a:hover {
     background-color: #ddd; }
-  #right-section .show {
+  #fixedmenu .show {
     display: block !important; }
-  #right-section ul {
+  #fixedmenu ul {
     margin: 0;
     text-align: center; }
-    #right-section ul li {
+    #fixedmenu ul li {
       padding: 5px 0;
       text-align: center; }
 
@@ -773,4 +761,11 @@ body {
   height: 93vh;
   background-color: white;
   margin: 0 auto 0 auto;
-  padding-top: 50px; }
+  padding-top: 104px; }
+
+#login-form {
+  width: 50%;
+  height: 93vh;
+  background-color: white;
+  margin: 0 auto 0 auto;
+  padding-top: 104px; }

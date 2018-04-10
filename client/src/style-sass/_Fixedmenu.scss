@@ -1,15 +1,16 @@
-#right-section {
+#fixedmenu {
   margin: 0;
   padding: 0 10px 10px;
   max-width: 185px;
   margin: 0 auto;
   height: 600px;
+  position: fixed;
 
-  .right-section-wrapper {
+  .fixedmenu-wrapper {
     padding: 8px;
   }
 
-  .right-section-wrapper {
+  .fixedmenu-wrapper {
     .myclassesheader {
       margin: 0;
       padding: 0;

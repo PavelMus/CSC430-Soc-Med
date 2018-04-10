@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Leftsection from "../Leftsection";
-import Rightsection from "../Rightsection";
+import AlertSection from "../AlertSection";
 import FeedPost from './FeedPost';
 import Loading from '../Loading'
 import axios from 'axios';

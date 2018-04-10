@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Rightsection extends Component {
+class Fixedmenu extends Component {
   constructor(props) {
     super(props);
   }
@@ -25,8 +25,8 @@ class Rightsection extends Component {
 
   render() {
     return (
-      <div id="right-section">
-        <div className="right-section-wrapper">
+      <div id="fixedmenu">
+        <div className="fixedmenu-wrapper">
           <h4 className="myclassesheader">My Classes</h4>
           <div className="divider"></div>
           <div className="dropdown">
@@ -134,4 +134,4 @@ class Rightsection extends Component {
   }
 }
 
-export default Rightsection;
+export default Fixedmenu;
