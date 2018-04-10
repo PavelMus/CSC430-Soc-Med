@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
-import Leftsection from "./Leftsection";
-import Rightsection from "./Rightsection";
+import AlertSection from "./AlertSection";
+import Fixedmenu from "./Fixedmenu";
 import tempimg from '../img/temp-user-img.jpg';
 import Quill from "quill";
 import axios from "axios";
@@ -120,7 +120,7 @@ class ComposeEvent extends Component {
 
         <div className="row" id="content-area-row">
         <div className="col l3 xl3">
-          <Rightsection/>
+          <Fixedmenu/>
         </div>
           {this.renderUser()} {/* Here we are calling the renderUser function*/}
 
@@ -157,7 +157,7 @@ class ComposeEvent extends Component {
 }
 
 const mapStateToProps = state =>{
-  return {user: state.auth}
+  return {user: state.local}
 }
 
 export default connect(mapStateToProps)(ComposeEvent);

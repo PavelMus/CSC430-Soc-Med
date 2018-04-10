@@ -14,8 +14,8 @@ $border-color: #608d8b;
   .alert-header {
     display: table;
     width: 100%;
-    background-color: $primarylight1;
-    color: $textcolor;
+    background-color: #3A5BA6;
+    color: #fff;
 
     i {
       margin: 5px;
@@ -26,10 +26,11 @@ $border-color: #608d8b;
     }
 
     h5 {
+      font-size: 1.5rem;
       min-height: 30px;
       float: left;
       margin: 4px;
-      color: $textcolor;
+      color: #fff;
     }
   }
 

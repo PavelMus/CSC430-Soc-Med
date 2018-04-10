@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Alerts from './AlertComponents/Alerts'
 
-class Leftsection extends Component {
+class AlertSection extends Component {
   constructor(props){
     super(props);
 
@@ -9,7 +9,7 @@ class Leftsection extends Component {
   }
   render() {
     return (
-      <div id="left-section">
+      <div id="alert-section">
         <Alerts />
       </div>
 
@@ -18,4 +18,4 @@ class Leftsection extends Component {
 }
 
 
-export default Leftsection;
+export default AlertSection;

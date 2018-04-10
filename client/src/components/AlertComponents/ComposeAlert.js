@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Leftsection from "../Leftsection";
-import Rightsection from "../Rightsection";
+import AlertSection from "../AlertSection";
+import Fixedmenu from "../Fixedmenu";
 import axios from "axios";
 import * as M from 'materialize-css';
 import AlertPreview from './AlertBox'
@@ -46,7 +46,7 @@ class ComposeAlert extends Component {
       <div id="alert-section-container" className="container">
         <div className="row" id="content-area-row">
           <div className="col l3 lx3">
-            <Rightsection/>
+            <Fixedmenu/>
           </div>
           <div id="alert-left" className="col s12 m12 l2 xl2">
             <div className="input-field">
