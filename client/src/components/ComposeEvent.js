@@ -157,7 +157,7 @@ class ComposeEvent extends Component {
 }
 
 const mapStateToProps = state =>{
-  return {user: state.auth}
+  return {user: state.local}
 }
 
 export default connect(mapStateToProps)(ComposeEvent);
