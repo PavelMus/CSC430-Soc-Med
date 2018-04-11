@@ -12,6 +12,7 @@ body {
 
 #CSIBridge {
   background-color: $primarylight1;
+  height: 100%;
   overflow: auto;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -63,7 +64,6 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
   //height: 100vh;
-
   .col,
   .row {
     margin: 0;

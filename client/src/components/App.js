@@ -15,6 +15,8 @@ import Registration from './Registration';
 import Login from './Login';
 import chat  from "./Chat";
 import CreateClass from './CreateClass';
+import ClassPage  from "./ClassPage";
+import Announcements from "./Announcements";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,8 @@ class App extends Component {
           <Route exact path="/register" component={Registration} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/classDBInput" component={CreateClass} />
+          <Route exact path="/ClassPage" component={ClassPage} />
+          <Route exact path="/Announcements" component={Announcements} />
         </div>
       </BrowserRouter>
     );
