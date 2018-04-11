@@ -10,4 +10,4 @@ const classSchema = new Schema({
   teacher: String
 });
 
-module.exports = mongoose.model("alerts", classSchema);
+module.exports = mongoose.model("class", classSchema);

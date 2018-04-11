@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class SidenavAdmin extends Component {
+class SidenavAdmin extends Component {
   render() {
     return (
       <React.Fragment>
@@ -32,21 +32,22 @@ export default class SidenavAdmin extends Component {
           <i className="material-icons">chat</i>
           CHAT TESTING</Link>
         </li>
-        {/*
         <li>
           <div className="divider" />
         </li>
+        
         <li>
-          <Link className="subheader">
+          <a className="subheader">
             <i className="material-icons">school</i>
-            STAFF
-          </Link>
+            DEVELOPER TOOLS
+          </a>
         </li>
         <li>
-          <Link className="waves-effect" to="">
-            Staff 1
+          <Link className="waves-effect" onClick={this.props.close} to="classDBInput">
+            INPUT NEW CLASS DB
           </Link>
         </li>
+        {/*
         <li>
           <Link className="waves-effect" to="">
             Staff 2
@@ -67,3 +68,5 @@ export default class SidenavAdmin extends Component {
     )
   }
 }
+
+export default withRouter(SidenavAdmin);

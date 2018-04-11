@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import FrontPage from "./FrontPage";
@@ -13,12 +14,10 @@ import FeedItem from "./FeedComponents/FeedItem";
 import Registration from './Registration';
 import Login from './Login';
 import chat  from "./Chat";
+import CreateClass from './CreateClass';
 class App extends Component {
   constructor(props) {
     super(props);
-  }
-  componentDidMount() {
-    this.props.fetchLocalUser();
   }
   render() {
     return (
@@ -34,14 +33,11 @@ class App extends Component {
           <Route path="/feed" component={FeedItem} />
           <Route exact path="/register" component={Registration} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/classDBInput" component={CreateClass} />
         </div>
       </BrowserRouter>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return { user: state.auth };
-};
-
-export default connect(mapStateToProps, actions)(App);
+export default App;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import tempimg from '../../img/temp-user-img.jpg';
 import axios from 'axios';
 import marked from 'marked'

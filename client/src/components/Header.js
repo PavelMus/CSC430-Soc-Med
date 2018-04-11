@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Sidenav from "./SidenavComponents/Sidenav";
 import SearchBar from "./SearchBar";
 import * as M from "materialize-css";
 import logo from "../img/logo.PNG";
+import * as actions from '../actions';
 
 class Header extends Component {
   constructor(props) {
@@ -20,9 +21,13 @@ class Header extends Component {
     this.state.sidenavInst.close();
   }
 
+  reRender = () =>{
+    this.forceUpdate();
+  }
   //When the component mounts, set the interval for the sidenav initialization function
   //and then set the interval id in to the state to clear it later.
   componentDidMount(){
+    this.props.fetchLocalUser();
     let interval = setInterval(this.initSidenav, 100);
     this.setState({ sideNavInterval: interval});
   }
@@ -144,4 +149,4 @@ const mapStateToProps = state =>{
   return { auth: state.local };
 }
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps, actions)(Header));

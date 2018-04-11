@@ -1,55 +1,83 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var Class = require("../models/Class");
-var moment = require("moment-timezone");
+var ClassTemplate = require("../models/ClassTemplate");
 
 var classRouter = express.Router();
 //adding the /class-list route to our /api classRouter
 classRouter
   .route("/class-list")
   //retrieve all classes from the database
-  .get( (req, res) => {
+  .get((req, res) => {
     let queryLimit = 6;
     let skip = Number(req.params.skip);
     //looks at our feed Schema
-    Class.find().
-    limit(queryLimit).
-    sort({_id: -1})
-    .exec(function(err, _class) {
-      if (err) res.send(err);
-      //responds with a json object of our database classes.
-      res.json(_class);
-    });
-  });
-
-  //Finding a class based on its id
-  classRouter
-    .route("/class/:class_id")
-    .get( (req, res) => {
-      Class.findById(req.params.class_id, function(err, _class){
-        if(err)
-          res.send(err);
+    Class.find()
+      .limit(queryLimit)
+      .sort({ _id: -1 })
+      .exec(function(err, _class) {
+        if (err) res.send(err);
+        //responds with a json object of our database classes.
         res.json(_class);
       });
-    });
+  });
 
-  /* This is the feed router for create class, it is responsible for
+//Finding a class based on its id
+classRouter.route("/class/:class_id").get((req, res) => {
+  Class.findById(req.params.class_id, function(err, _class) {
+    if (err) res.send(err);
+    res.json(_class);
+  });
+});
+
+// Search classes by their types
+classRouter.route("/class_template/:class_type").get((req, res) => {
+  Class.findById(req.params.class_type, function(err, _class) {
+    if (err) res.send(err);
+    res.json(_class);
+  });
+});
+
+/* This is the feed router for create class, it is responsible for
      post events that are made through the api/create-class URI */
 
-     classRouter
-    .route("/create-class")
-    .post( (req, res) =>{
-        var _class = new Class();
-        _class.type = req.body.type;
-        _class.subject = req.body.subject;
-        _class.section = req.body.section;
-        _class.teacher = req.body.teacher;
-        _class.save((err) => {
-            if(err)
-                res.send(err);
-            res.json({message: 'class successfully posted'});
-        });
+classRouter.route("/create-class").post((req, res) => {
+  var _class = new Class();
+  _class.type = req.body.type;
+  _class.subject = req.body.subject;
+  _class.section = req.body.section;
+  _class.teacher = req.body.teacher;
+  _class.save(err => {
+    if (err) res.send(err);
+    res.json({ message: "class successfully posted" });
+  });
+});
+
+//Creating a class template for the purpose of grabbing it from the admins to grab them
+//from the database later on, this is a dev tool only.
+classRouter.route("/create-class_template").post((req, res) => {
+  const { class_type, class_subject, class_description } = req.body;
+  req.checkBody("class_type", "Class Type is required!").notEmpty();
+  req.checkBody("class_subject", "Class Subject is required!").notEmpty();
+  req
+    .checkBody("class_description", "Class Description is required!")
+    .notEmpty();
+  let errors = req.validationErrors();
+
+  if (errors) {
+    res.json(errors);
+    console.log(errors);
+  } else {
+    var _class = new ClassTemplate();
+    _class.type = req.body.type;
+    _class.subject = req.body.subject;
+    _class.description = req.body.description;
+    _class.save(err => {
+      if (err) res.send(err);
+      res.json({ message: "class template successfully posted" });
     });
+  }
+});
 /*
 //Adding a route to a specific feed based on the database ID
 feedRouter
@@ -78,4 +106,4 @@ feedRouter
     });
   });
 */
-  module.exports = classRouter;
+module.exports = classRouter;
