@@ -21,8 +21,6 @@ class FrontPage extends Component {
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     );
