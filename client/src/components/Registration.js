@@ -14,8 +14,8 @@ export default class Register extends Component {
       EMPLID: ""
     };
   }
-  redirectHome = () =>{
-    this.props.history.push("/");
+  redirectToLogin = () =>{
+    this.props.history.push("/login");
   }
   onFirstNameChange = e => {
     e.preventDefault();
@@ -58,7 +58,7 @@ export default class Register extends Component {
         if(res.data != "redirect"){
           M.toast({html: res.data[0].msg});
         }else if(res.data == "redirect"){
-          this.redirectHome();
+          this.redirectToLogin();
         }
       }
     )

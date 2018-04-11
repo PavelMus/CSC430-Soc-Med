@@ -44,4 +44,8 @@ class App extends Component {
   }
 }
 
-export default App;
+var mapStateToProps = state =>{
+  return {user: state.local};
+};
+
+export default connect(mapStateToProps, actions)(App);

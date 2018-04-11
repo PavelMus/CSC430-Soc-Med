@@ -24,13 +24,4 @@ module.exports = app => {
   app.get("/api/current_user", (req, res) => {
     res.send(req.user);
   });
-
-  app.get("/api/current_local", (req, res) => {
-    console.log("FETCHING LOCAL");
-    res.send(req.user);
-  });
-
-  app.get("/api/userData", (req, res) => {
-    res.send(req.user);
-  });
 };

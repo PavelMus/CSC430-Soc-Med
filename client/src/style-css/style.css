@@ -575,6 +575,10 @@ body {
   margin-top: 20px;
   overflow: hidden; }
 
+#class-db-input {
+  width: 85%;
+  margin-top: 104px; }
+
 #event-section-container {
   max-width: 1240px;
   width: 90%;

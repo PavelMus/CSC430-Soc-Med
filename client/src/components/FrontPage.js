@@ -2,8 +2,17 @@ import React, { Component } from "react";
 import AlertSection from "./AlertSection";
 import Fixedmenu from "./Fixedmenu";
 import Newsfeed from "./FeedComponents/Newsfeed";
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import * as actions from '../actions';
 
 class FrontPage extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount(){
+    this.props.fetchUser();
+  }
   render() {
     return (
       <div id="content-section-container" className="container">
@@ -18,5 +27,8 @@ class FrontPage extends Component {
     );
   }
 }
+var mapStateToProps = state => {
+  return { user: state.user };
+};
 
-export default FrontPage;
+export default withRouter(connect(null, actions)(FrontPage));

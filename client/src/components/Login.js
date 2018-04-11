@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import * as M from 'materialize-css';
-import * as actions from '../actions';
-import {connect} from 'react-redux';
 
 class Login extends Component {
   constructor(props) {
@@ -78,8 +76,4 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {user: state.local};
-};
-
-export default connect(mapStateToProps, actions)(Login);
+export default Login;

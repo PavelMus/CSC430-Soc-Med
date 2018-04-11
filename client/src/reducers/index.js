@@ -7,9 +7,7 @@ import fetchPostReducer from "./fetchPostReducer";
 import submitReducer from './submitPostReducer';
 
 export default combineReducers({
-  auth: authReducer,
-  local: authLocal,
-  user: userDataReducer,
+  user: authReducer,
   postlist: fetchPostReducer,
   post: submitReducer,
   routing: routerReducer

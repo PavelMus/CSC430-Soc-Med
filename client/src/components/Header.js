@@ -12,7 +12,8 @@ class Header extends Component {
     super(props);
     this.state = {
       sidenavInst: "",
-      sideNavInterval: ""
+      sideNavInterval: "",
+      loggedIn: false
     };
   }
 
@@ -21,13 +22,10 @@ class Header extends Component {
     this.state.sidenavInst.close();
   }
 
-  reRender = () =>{
-    this.forceUpdate();
-  }
   //When the component mounts, set the interval for the sidenav initialization function
   //and then set the interval id in to the state to clear it later.
   componentDidMount(){
-    this.props.fetchLocalUser();
+    this.props.fetchUser();
     let interval = setInterval(this.initSidenav, 100);
     this.setState({ sideNavInterval: interval});
   }
@@ -47,16 +45,16 @@ class Header extends Component {
 
   //Renders the sidenav with props that are passed down from the user database.
   renderSidenav = () => {
-    switch (this.props.auth) {
+    switch (this.props.user) {
       case null:
         return;
       case false:
         return;
       default:
-        let user = this.props.auth;
+        let user = this.props.user;
         console.log(user);
         
-        console.log(this.props.auth.displayName);
+        console.log(this.props.user.displayName);
         return (
             <Sidenav
               email={user.email}
@@ -73,7 +71,7 @@ class Header extends Component {
   //The content of the page is rendered when the information on whether or not a user logged in,
   //and when said data was successfully stored in the props from the Redux store.
   renderContent = () => {
-    switch (this.props.auth) {
+    switch (this.props.user) {
       case null:
         return;
       case false:
@@ -83,7 +81,7 @@ class Header extends Component {
               <a href="/auth/google">Login With Google</a>
             </li>
             <li>
-              <a href="/login">Login</a>
+              <Link to="/login">Login</Link>
             </li>
             <li>
               <Link to="/register">Register</Link>
@@ -106,10 +104,10 @@ class Header extends Component {
                 <img
                   id="header-avatar"
                   className="circle z-depth-2"
-                  src={this.props.auth.avatar}
+                  src={this.props.user.avatar}
                 />
                 <span className="hide-on-med-and-down">
-                  {this.props.auth.displayName}
+                  {this.props.user.displayName}
                 </span>
               </a>
             </li>
@@ -125,7 +123,7 @@ class Header extends Component {
             <div id="header-row" className="row">
               <div id="header-logo" className="col m3 l3 xl3">
                 <Link
-                  to={this.props.auth ? "/" : "/Landing"}
+                  to={this.props.user ? "/" : "/"}
                   className="brand-logo"
                 >
                   <img src={logo} alt="sitelogo" />
@@ -146,7 +144,7 @@ class Header extends Component {
 
 //Maps the user accont info from the Redux store to the component props.
 const mapStateToProps = state =>{
-  return { auth: state.local };
+  return { user: state.user };
 }
 
 export default withRouter(connect(mapStateToProps, actions)(Header));
