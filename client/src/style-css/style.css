@@ -714,25 +714,25 @@ body {
   display: block;
   float: center; }
 
-.middle-right-section .feed-item-container {
+.feed-item-container {
   background-color: #fff;
   overflow: auto; }
-  .middle-right-section .feed-item-container #feed-item-header {
+  .feed-item-container #feed-item-header {
     background-color: #c3ccd8;
     height: 70px;
     padding: 16px 45px; }
-    .middle-right-section .feed-item-container #feed-item-header h4 {
+    .feed-item-container #feed-item-header h4 {
       margin: 0;
       padding: 0;
       font-size: 25px;
       text-align: left;
       display: flex;
       align-items: center; }
-  .middle-right-section .feed-item-container .feed-item-body {
+  .feed-item-container .feed-item-body {
     padding: 0 30px 16px;
     height: 100%;
     overflow: auto; }
-    .middle-right-section .feed-item-container .feed-item-body p {
+    .feed-item-container .feed-item-body p {
       line-height: 1.8; }
 
 .user-col {
