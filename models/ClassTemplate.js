@@ -4,8 +4,9 @@ const { Schema } = mongoose;
 
 const classTemplateSchema = new Schema({
   type: String,
+  level: Number,
   subject: String,
   description: String
   });
 
-module.exports = mongoose.model("classTemplate", classSchema);
+module.exports = mongoose.model("classTemplate", classTemplateSchema);

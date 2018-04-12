@@ -6,13 +6,16 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 require("./models/Users");
-require("./models/UserLocal");
 require("./models/Posts");
 require("./models/Feed");
+require("./models/Class");
+require("./models/ClassTemplate");
 require("./services/passport");
 var posts = require("./routes/postsRoutes");
+var users = require("./routes/usersRoutes");
 var feed = require("./routes/feedRoutes");
 var alerts = require("./routes/alertRoutes");
+var class_template = require("./routes/classRouter");
 
 mongoose.connect(keys.mongoURI);
 
@@ -57,8 +60,10 @@ app.use(function(req, res, next) {
 /*********************************************************************************************************************/
 
 app.use("/api", posts);
+app.use("/api/", users);
 app.use("/api", feed);
 app.use("/api", alerts);
+app.use('/api/', class_template);
 require("./routes/localAuthRoutes")(app);
 require("./routes/authRoutes")(app);
 

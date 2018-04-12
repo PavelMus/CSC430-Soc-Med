@@ -12,6 +12,7 @@ import ComposeNews from './ComposeNews';
 import ComposeAlert from './AlertComponents/ComposeAlert';
 import FeedItem from "./FeedComponents/FeedItem";
 import Registration from './Registration';
+import VerifyTeacher from './VerifyTeacher';
 import Login from './Login';
 import chat  from "./Chat";
 import CreateClass from './CreateClass';
@@ -38,6 +39,7 @@ class App extends Component {
           <Route exact path="/classDBInput" component={CreateClass} />
           <Route exact path="/ClassPage" component={ClassPage} />
           <Route exact path="/Announcements" component={Announcements} />
+          <Route exact path="/VerifyTeacher" component={VerifyTeacher} />
         </div>
       </BrowserRouter>
     );

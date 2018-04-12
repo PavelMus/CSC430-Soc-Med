@@ -56,11 +56,14 @@ classRouter.route("/create-class").post((req, res) => {
 //Creating a class template for the purpose of grabbing it from the admins to grab them
 //from the database later on, this is a dev tool only.
 classRouter.route("/create-class_template").post((req, res) => {
-  const { class_type, class_subject, class_description } = req.body;
-  req.checkBody("class_type", "Class Type is required!").notEmpty();
-  req.checkBody("class_subject", "Class Subject is required!").notEmpty();
+  console.log("IN CREATE-CLASS TEMPLATE POST");
+  
+  const { type, level, subject, description } = req.body;
+  req.checkBody("type", "Class Type is required!").notEmpty();
+  req.checkBody("level", "Class Level is required!").notEmpty();
+  req.checkBody("subject", "Class Subject is required!").notEmpty();
   req
-    .checkBody("class_description", "Class Description is required!")
+    .checkBody("description", "Class Description is required!")
     .notEmpty();
   let errors = req.validationErrors();
 
@@ -69,12 +72,13 @@ classRouter.route("/create-class_template").post((req, res) => {
     console.log(errors);
   } else {
     var _class = new ClassTemplate();
-    _class.type = req.body.type;
-    _class.subject = req.body.subject;
-    _class.description = req.body.description;
+    _class.type = type;
+    _class.level = level;
+    _class.subject = subject;
+    _class.description = description;
     _class.save(err => {
       if (err) res.send(err);
-      res.json({ message: "class template successfully posted" });
+      res.json("posted");
     });
   }
 });
