@@ -157,7 +157,11 @@ class ComposeNews extends Component {
 }
 
 const mapStateToProps = state =>{
+<<<<<<< HEAD
   return {user: state.user}
+=======
+  return {user: state.user};
+>>>>>>> 745c2e00f9958f2cd171122248563c757a7b7fd3
 }
 
 export default connect(mapStateToProps)(ComposeNews);

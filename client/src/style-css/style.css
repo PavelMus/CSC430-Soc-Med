@@ -580,6 +580,16 @@ body {
   width: 85%;
   margin-top: 104px; }
 
+#verify-teacher-container {
+  padding-top: 84px;
+  max-width: 1240px;
+  width: 60%; }
+  #verify-teacher-container #verify-left {
+    background-color: #c3ccd8;
+    height: 86vh;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh; }
+
 #event-section-container {
   max-width: 1240px;
   width: 90%;

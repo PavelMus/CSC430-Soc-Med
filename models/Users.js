@@ -8,7 +8,7 @@ const userSchema = new Schema({
     familyName: String,
     givenName: String
   },
-  EMPID: String,
+  EMPLID: String,
   email: String,
   password: String,
   avatar: String,

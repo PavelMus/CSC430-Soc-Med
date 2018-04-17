@@ -1,5 +1,5 @@
 import axios from "axios";
-import {FETCH_LOCAL, FETCH_USER, PROFILE_DATA, FETCH_POSTS, SUBMIT_POST } from "./types";
+import { FETCH_USER, FETCH_POSTS, SUBMIT_POST } from "./types";
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/current_user");

@@ -18,7 +18,6 @@ class Header extends Component {
   }
 
   closeSideNav = () =>{
-    console.log("IM HERE!");
     this.state.sidenavInst.close();
   }
 
@@ -52,9 +51,6 @@ class Header extends Component {
         return;
       default:
         let user = this.props.user;
-        console.log(user);
-        
-        console.log(this.props.user.displayName);
         return (
             <Sidenav
               email={user.email}
