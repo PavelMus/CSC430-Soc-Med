@@ -135,7 +135,8 @@
 #alert-section-container {
   max-width: 1240px;
   width: 90%;
-  margin-top: 22px; }
+  margin-top: 22px;
+  padding-top: 84px; }
   #alert-section-container #alert-left {
     background-color: #c3ccd8;
     height: 86vh;
@@ -222,7 +223,7 @@ body {
 
 #CSIBridge {
   background-color: #e9ebee;
-  height: 100%;
+  height: 100vh;
   overflow: auto;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
@@ -583,79 +584,82 @@ body {
   max-width: 1240px;
   width: 90%;
   margin-top: 22px; }
-  #event-section-container #content-area-row .user-col {
-    text-align: right; }
-    #event-section-container #content-area-row .user-col .user-pic-wrapper {
-      width: 100%;
-      overflow: auto; }
-      #event-section-container #content-area-row .user-col .user-pic-wrapper .user-pic {
-        border-radius: 50%;
-        float: right; }
-      #event-section-container #content-area-row .user-col .user-pic-wrapper .user-name {
-        margin: 0 !important;
-        text-align: right; }
-      #event-section-container #content-area-row .user-col .user-pic-wrapper .time {
-        margin: 0 !important;
-        text-align: right; }
-  #event-section-container #content-area-row #event-editor-area {
-    background-color: #FFFFFF;
-    -webkit-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-    box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    margin: 0;
-    padding: 0; }
-    #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header {
-      background-color: #c3ccd8;
-      height: 70px;
-      padding: 16px 30px; }
-      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header h4 {
-        margin: 0;
-        padding: 0;
-        font-size: 25px;
-        text-align: left;
-        display: flex;
-        align-items: center; }
-    #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body {
-      background-color: #c3ccd8;
-      padding: 0 30px 16px;
-      height: 100%;
-      overflow: auto; }
-      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header {
-        text-align: left;
-        font-size: 1.4em;
-        background-color: #c3ccd8;
-        border-color: #DEDEDE; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input {
-          background-color: white;
-          margin-top: 10px;
-          -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 6px;
-          height: 38px; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input::-webkit-input-placeholder {
-          /* WebKit, Blink, Edge */
-          color: #808080; }
-      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area {
-        height: 83vh;
-        display: block;
-        margin-top: 26px; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-toolbar {
-          background-color: white;
-          border-radius: 0.6em;
-          margin-bottom: 10px; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
-          background-color: white;
-          font-size: 1.2em; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area #saveDelta {
-          background-color: #1565c0;
-          margin-top: 5px;
-          margin-left: 10px;
+  #event-section-container #content-area-row {
+    padding-top: 84px;
+    height: 100%; }
+    #event-section-container #content-area-row .user-col {
+      text-align: right; }
+      #event-section-container #content-area-row .user-col .user-pic-wrapper {
+        width: 100%;
+        overflow: auto; }
+        #event-section-container #content-area-row .user-col .user-pic-wrapper .user-pic {
+          border-radius: 50%;
           float: right; }
+        #event-section-container #content-area-row .user-col .user-pic-wrapper .user-name {
+          margin: 0 !important;
+          text-align: right; }
+        #event-section-container #content-area-row .user-col .user-pic-wrapper .time {
+          margin: 0 !important;
+          text-align: right; }
+    #event-section-container #content-area-row #event-editor-area {
+      background-color: #FFFFFF;
+      -webkit-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+      -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+      box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      margin: 0;
+      padding: 0; }
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header {
+        background-color: #c3ccd8;
+        height: 70px;
+        padding: 16px 30px; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header h4 {
+          margin: 0;
+          padding: 0;
+          font-size: 25px;
+          text-align: left;
+          display: flex;
+          align-items: center; }
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body {
+        background-color: #c3ccd8;
+        padding: 0 30px 16px;
+        height: 500px;
+        overflow: auto; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header {
+          text-align: left;
+          font-size: 1.4em;
+          background-color: #c3ccd8;
+          border-color: #DEDEDE; }
+          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input {
+            background-color: white;
+            margin-top: 10px;
+            -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+            -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+            box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 6px;
+            height: 38px; }
+          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input::-webkit-input-placeholder {
+            /* WebKit, Blink, Edge */
+            color: #808080; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area {
+          height: 83vh;
+          display: block;
+          margin-top: 26px; }
+          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-toolbar {
+            background-color: white;
+            border-radius: 0.6em;
+            margin-bottom: 10px; }
+          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
+            background-color: white;
+            font-size: 1.2em; }
+          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area #saveDelta {
+            background-color: #1565c0;
+            margin-top: 5px;
+            margin-left: 10px;
+            float: right; }
   #event-section-container #preview {
     margin-top: 22px;
     margin-bottom: 30px;

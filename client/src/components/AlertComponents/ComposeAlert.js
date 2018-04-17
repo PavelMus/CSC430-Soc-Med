@@ -48,20 +48,23 @@ class ComposeAlert extends Component {
           <div className="col l3 lx3">
             <Fixedmenu/>
           </div>
-          <div id="alert-left" className="col s12 m12 l2 xl2">
-            <div className="input-field">
-                <select onChange={this.typeUpdate}>
-                <option value="1" disabled selected>Select Alert Type</option>
-                <option value={WEATHER_ALERT}>Weather Alert</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-                </select>
-                <label>Alert Type Selector</label>
-            </div>
-          </div>
+
           <div id="alert-middle" className="col s12 m12 l7 xl7">
-            <h4>This is a live preview of the outgoing alert</h4>
+            <div id="alert-left" className="col s12 m12 l2 xl2">
+              <div className="input-field">
+                  <select onChange={this.typeUpdate}>
+                  <option value="1" disabled selected>Select Alert Type</option>
+                  <option value={WEATHER_ALERT}>Weather Alert</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                  </select>
+                  <label>Alert Type Selector</label>
+              </div>
+            </div>
+
+
             <div id="alert-preview">
+            <h4>This is a live preview of the outgoing alert</h4>
                 <AlertPreview
                   type={this.state.previewType}
                   content={this.state.content}

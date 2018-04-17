@@ -77,7 +77,7 @@ class FeedPost extends Component {
                 <form >
                     <div className="input-comment-section">
                       <div className="user-pic-wrapper">
-                        <img className="user-pic" src={tempimg} width="64"/>
+                        <img className="user-pic" src={this.props.authorAvatar} width="64"/>
                       </div>
                       <div className="input-comment-body">
                         <input placeholder="Leave a comment"/>
