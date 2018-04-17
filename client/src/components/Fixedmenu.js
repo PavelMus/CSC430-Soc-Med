@@ -1,18 +1,20 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
+import ClassItem from "./ClassMenuComponents/ClassMenuItem";
+import ClassList from "./ClassMenuComponents/ClassList";
 
 class Fixedmenu extends Component {
   constructor(props) {
     super(props);
   }
-
-  dropdownClick = (e) => {
+/*
+  dropdownClick = e => {
     e.preventDefault();
     console.log(e);
     console.log(e.target);
-    if(e.target.target){
+    if (e.target.target) {
       var element = document.getElementById(e.target.target);
-    }
-    else{
+    } else {
       var element = document.getElementById(e.target.parentElement.target);
     }
 
@@ -21,6 +23,11 @@ class Fixedmenu extends Component {
     } else {
       element.classList.remove("show");
     }
+  };
+*/
+
+  renderMenu = () => {
+
   }
 
   render() {
@@ -28,9 +35,13 @@ class Fixedmenu extends Component {
       <div id="fixedmenu">
         <div className="fixedmenu-wrapper">
           <h4 className="myclassesheader">My Classes</h4>
-          <div className="divider"></div>
+          <div className="divider" />
           <div className="dropdown">
-            {/*/First class below*/}
+            <ClassList user={this.props.user} />
+            <Link to="/selectClasses">
+              Select Classes
+            </Link>
+            {/*/First class below
 
             <a
               target="class1"
@@ -55,7 +66,6 @@ class Fixedmenu extends Component {
                   <a href="#">Classmates</a>
                 </li>
               </ul>
-            {/*/Second class below*/}
             <a
               target="class2"
               onClick={this.dropdownClick}
@@ -79,7 +89,6 @@ class Fixedmenu extends Component {
                   <a href="#">Classmates</a>
                 </li>
               </ul>
-            {/*/Third class below*/}
             <a
               target="class3"
               onClick={this.dropdownClick}
@@ -103,7 +112,6 @@ class Fixedmenu extends Component {
                   <a href="#">Classmates</a>
                 </li>
               </ul>
-            {/*/Fourth class below*/}
             <a
               target="class4"
               onClick={this.dropdownClick}
@@ -127,6 +135,7 @@ class Fixedmenu extends Component {
                   <a href="#">Classmates</a>
                 </li>
               </ul>
+              */}
           </div>
         </div>
       </div>

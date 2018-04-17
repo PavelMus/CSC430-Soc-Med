@@ -10,6 +10,18 @@ class FrontPage extends Component {
   constructor(props) {
     super(props);
   }
+
+  renderFixedMenu = () => {
+    switch (this.props.user) {
+      case null:   
+        return "";
+      case false:
+        return "";
+      default:
+        return <Fixedmenu user={this.props.user} />;
+    }
+  }
+
   componentDidMount(){
     this.props.fetchUser();
   }
@@ -18,7 +30,7 @@ class FrontPage extends Component {
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
           <div className="col s12 m2 l3 xl3">
-            <Fixedmenu />
+            {this.renderFixedMenu()}
           </div>
           <Newsfeed pollInterval = {5000}/>
           <AlertSection />
@@ -31,4 +43,4 @@ var mapStateToProps = state => {
   return { user: state.user };
 };
 
-export default withRouter(connect(null, actions)(FrontPage));
+export default withRouter(connect(mapStateToProps, actions)(FrontPage));

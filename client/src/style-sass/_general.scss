@@ -29,3 +29,45 @@
       border-bottom-left-radius: 1vh;
     }
   }
+
+
+#class-select-area{
+    margin-top: 84px;
+    min-height: 90vh;
+    max-width: 1240px;
+    width: 60%;
+    #class-cart{
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        border-radius: 0.66em;
+        h6 {
+            text-align: center;
+        }
+        li {
+            font-size: 0.82em;
+            text-align: center;
+        }
+        button {
+            padding: 0px 0px;
+            height: 18px;
+            line-height: inherit;
+            margin-bottom: 8px;
+        }
+    }
+    #class-list {
+        li {
+            min-height: 24px;
+          margin-bottom: 8px;  
+          button {
+            padding: 0px 5px;
+            height: 20px;
+            line-height: inherit;
+            margin-bottom: 8px;
+          }
+        }
+        .divider {
+            margin-top: -10px;
+        }
+    }
+}

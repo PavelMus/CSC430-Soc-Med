@@ -13,6 +13,7 @@ const userSchema = new Schema({
   password: String,
   avatar: String,
   teacher: Boolean,
+  teacherSubject: String,
   admin: Boolean,
   classes: Array
 });

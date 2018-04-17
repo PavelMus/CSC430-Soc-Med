@@ -9,12 +9,9 @@ classRouter
   .route("/class-list")
   //retrieve all classes from the database
   .get((req, res) => {
-    let queryLimit = 6;
-    let skip = Number(req.params.skip);
     //looks at our feed Schema
     Class.find()
-      .limit(queryLimit)
-      .sort({ _id: -1 })
+      .sort({ level: -1 })
       .exec(function(err, _class) {
         if (err) res.send(err);
         //responds with a json object of our database classes.
@@ -22,17 +19,18 @@ classRouter
       });
   });
 
-//Finding a class based on its id
-classRouter.route("/class/:class_id").get((req, res) => {
-  Class.findById(req.params.class_id, function(err, _class) {
-    if (err) res.send(err);
+classRouter.route("/class-list/:type").get((req, res) => {
+  Class.find({type: req.params.type})
+  .sort({ level: 1 })
+  .exec( (err, _class) => {
+    if(err) res.send(err);
     res.json(_class);
   });
 });
 
-// Search classes by their types
-classRouter.route("/class_template/:class_type").get((req, res) => {
-  Class.findById(req.params.class_type, function(err, _class) {
+//Finding a class based on its id
+classRouter.route("/class/:class_id").get((req, res) => {
+  Class.findById(req.params.class_id, function(err, _class) {
     if (err) res.send(err);
     res.json(_class);
   });
@@ -44,12 +42,13 @@ classRouter.route("/class_template/:class_type").get((req, res) => {
 classRouter.route("/create-class").post((req, res) => {
   var _class = new Class();
   _class.type = req.body.type;
+  _class.level = req.body.level;
   _class.subject = req.body.subject;
   _class.section = req.body.section;
   _class.teacher = req.body.teacher;
   _class.save(err => {
     if (err) res.send(err);
-    res.json({ message: "class successfully posted" });
+    res.json({ message: "Class Section Created" });
   });
 });
 
@@ -82,6 +81,15 @@ classRouter.route("/create-class_template").post((req, res) => {
     });
   }
 });
+
+// Search for a class_template by their types
+classRouter.route("/class_template/:class_type").get((req, res) => {
+  ClassTemplate.find({type: req.params.class_type}, (err, _class) => {
+    if (err) res.send(err);
+    res.json(_class);
+  });
+});
+
 /*
 //Adding a route to a specific feed based on the database ID
 feedRouter

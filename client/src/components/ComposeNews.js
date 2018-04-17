@@ -120,7 +120,7 @@ class ComposeNews extends Component {
 
         <div className="row" id="content-area-row">
         <div className="col l3 xl3">
-          <Fixedmenu />
+          <Fixedmenu user={this.props.user?this.props.user:""}/>
         </div>
           {this.renderUser()} {/* Here we are calling the renderUser function*/}
 

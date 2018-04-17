@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const classSchema = new Schema({
   type: String,
+  level: String,
   subject: String,
   section: String,
   description: String,

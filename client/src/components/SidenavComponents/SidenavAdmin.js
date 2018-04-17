@@ -52,12 +52,12 @@ class SidenavAdmin extends Component {
             VERIFY TEACHER
           </Link>
         </li>
-        {/*
         <li>
-          <Link className="waves-effect" to="">
-            Staff 3
+          <Link className="waves-effect" onClick={this.props.close} to="/newClassSection">
+            CREATE A NEW CLASS SECTION
           </Link>
         </li>
+        {/*
         <li>
           <Link className="waves-effect" to="">
             Staff 4

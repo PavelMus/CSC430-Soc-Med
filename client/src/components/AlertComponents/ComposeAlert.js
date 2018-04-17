@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux'
 import AlertSection from "../AlertSection";
 import Fixedmenu from "../Fixedmenu";
 import axios from "axios";
@@ -46,7 +47,7 @@ class ComposeAlert extends Component {
       <div id="alert-section-container" className="container">
         <div className="row" id="content-area-row">
           <div className="col l3 lx3">
-            <Fixedmenu/>
+            <Fixedmenu user={this.props.user?this.props.user:""}/>
           </div>
 
           <div id="alert-middle" className="col s12 m12 l7 xl7">
@@ -83,4 +84,8 @@ class ComposeAlert extends Component {
   }
 }
 
-export default ComposeAlert;
+const mapStateToProps = state =>{
+  return {user: state.user}
+}
+
+export default connect(mapStateToProps)(ComposeAlert);

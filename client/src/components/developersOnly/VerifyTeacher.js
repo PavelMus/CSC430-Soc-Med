@@ -9,27 +9,35 @@ class VerifyTeacher extends Component {
       user_list: [],
       user_options: "",
       selected: "",
+      classType: "",
       init: "",
-      instance: ""
+      instance: "",
+      typeInstance: ""
     };
   }
 
   verifyTeacher = () => {
     let user = document.querySelector("select");
-    axios.put(`${"/api/verify-teacher"}/${this.state.selected}`).then( res =>{
+    axios.put(`${"/api/verify-teacher"}/${this.state.selected}/${this.state.classType}`).then( res =>{
         M.toast({html: res.data.message});
-        this.setState({selected: ""})
-    })
+    });
   };
+
+  selectedClassType = e =>{
+    e.preventDefault();
+    this.setState({classType: e.target.value})
+  }
 
   componentDidMount() {
     this.loadUserList();
   }
 
   initForm = () => {
-    let elem = document.querySelector("select");
+    let elem = document.getElementById("teacherName");
+    let elem2 = document.getElementById("cType");
     let instance = M.FormSelect.init(elem);
-    this.setState({ init: elem, instance: instance });
+    let typeInstance = M.FormSelect.init(elem2);
+    this.setState({ init: elem, instance: instance, typeInstance: typeInstance });
   };
 
   loadUserList = () => {
@@ -50,9 +58,7 @@ class VerifyTeacher extends Component {
   };
 
   selectedTeacher = e => {
-    let teacher = document.querySelector("select");
-    console.log(teacher.value);
-    
+    let teacher = document.getElementById("teacherName");
     this.setState({ selected: teacher.value });
   };
 
@@ -60,9 +66,10 @@ class VerifyTeacher extends Component {
     return (
       <div id="verify-teacher-container" className="container">
         <div className="row" id="content-area-row">
-          <div id="verify-left" className="col s12 m12 l12 xl12">
+          <div id="verify-left" className="col s8">
             <div className="input-field">
-              <select onChange={this.selectedTeacher}>
+              <select id="teacherName" onChange={this.selectedTeacher}>
+                <option value="">Select Teacher</option>
                 {this.state.user_options}
               </select>
               <label>User Selector</label>
@@ -70,6 +77,15 @@ class VerifyTeacher extends Component {
                 SUBMIT
               </a>
             </div>
+          </div>
+          <div className="col s4 input-field">
+            <select id="cType" onChange={this.selectedClassType}>
+              <option value="">Select Subject</option>
+              <option value="CSC">CSC</option>
+              <option value="ENG">ENG</option>
+              <option value="MTH">MTH</option>
+            </select>
+            <label>Class Type</label>
           </div>
         </div>
       </div>
