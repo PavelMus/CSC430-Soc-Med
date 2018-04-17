@@ -6,28 +6,27 @@ class ClassList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      classes: null
+      classes: [],
+      classList: []
     }
   }
 
   componentDidMount(){
-    this.setState({classes: this.props.user.classes}, this.logState);
+    this.setState({classes: this.props.user.classes}, this.generateClassList);
   }
 
-  logState = () =>{
-    console.log(this.state.classes);
-  }
-
-  renderClasses = () => {
-
+  generateClassList = () => {
+    let classes = this.state.classes;
+    let classList = classes.map(cls => {
+      return (
+        <ClassItem key={cls._id} class={cls} />
+      );
+    });
+    this.setState({classList: classList});
   }
 
   render() {
-    return (
-    <ClassItem
-      class={this.props.classes}
-       />
-  );
+    return this.state.classList;
   }
 }
 

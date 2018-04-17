@@ -30,7 +30,7 @@ class ClassMenuItem extends Component {
           className="hoverable dropbtn"
         >
           <i className="left-icon material-icons">code</i>
-          <span>CSC 430</span>
+          <span>{this.props.class.type}{this.props.class.level}</span>
           <i className="right-icon material-icons">arrow_drop_down</i>
         </a>
         <ul id="class1">

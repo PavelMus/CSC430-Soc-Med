@@ -13,7 +13,8 @@ class SelectClasses extends Component {
       class_cart: [],
       selected_classes: [],
       formInit: "",
-      selectedType: ""
+      selectedType: "",
+      renderModal: false
     };
   }
 
@@ -151,9 +152,29 @@ class SelectClasses extends Component {
     });
     let data = {user: this.props.user._id, classes: add_classes};
     axios.put("/api/add_class_to_user", data).then(res => {
-      this.props.fetchUser()
-      .then(this.generateClassList);
+      this.setState({renderModal: true});
     });
+  }
+
+  backToFrontPage = () => {
+    this.props.history.push("/");
+  }
+
+  renderModal = () => {
+    return (
+      <React.Fragment>
+        <div className="modal-underlay" />
+        <div className="modal">
+          <div className="modal-content">
+            <h5>Classes Added</h5>
+            <p>You will have to wait for a teacher or an administrator to verify your class selection.</p>
+          </div>
+          <div className="modal-footer">
+            <button onClick={this.backToFrontPage}>close</button>
+          </div>
+        </div>
+      </React.Fragment>
+    );
   }
 
   //The function waits for the fetchTeacher reducer to finish grabbing the data
@@ -211,6 +232,7 @@ class SelectClasses extends Component {
           </div>
           {this.renderForm()}
         </div>
+        {this.state.renderModal?this.renderModal():""}
       </div>
     );
   }
