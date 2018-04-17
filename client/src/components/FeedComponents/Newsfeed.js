@@ -23,9 +23,10 @@ class Newsfeed extends Component {
     });
   }
 
-  //initialLoadFeed sends a get request to the database to grab the latests feed items
+  //loadFeed sends a get request to the database to grab the latests feed items
   //and then stores them in this components state
-  initialLoadFeed = () => {
+  loadFeed = () => {
+    console.log("loaded");
     axios.get(`${"api/main-feed"}/${this.state.loadSkip}`).then(res => {
       this.setState({ feed: res.data });
     });
@@ -48,7 +49,7 @@ class Newsfeed extends Component {
       "scroll",
       () => window.requestAnimationFrame(this.onScroll), false);
 
-    this.initialLoadFeed();
+    this.loadFeed();
     if (!this.pollInterval)
     this.pollInterval = setInterval(
       this.loadFeed,

@@ -27,7 +27,7 @@ class CreateClass extends Component {
       }
       else{
         M.toast({html: "Class Template Posted" });
-        this.setState({type: "", subject: "", description: ""});
+        this.setState({type: "", level: "", subject: "", description: ""});
       }
     });
   }

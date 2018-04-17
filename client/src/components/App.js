@@ -10,13 +10,15 @@ import Footer from "./Footer";
 import ComposeEvent from './ComposeEvent';
 import ComposeNews from './ComposeNews';
 import ComposeAlert from './AlertComponents/ComposeAlert';
+import ComposeClass from './ComposeClass';
 import FeedItem from "./FeedComponents/FeedItem";
 import Registration from './Registration';
-import VerifyTeacher from './VerifyTeacher';
+import VerifyTeacher from './developersOnly/VerifyTeacher';
 import Login from './Login';
 import chat  from "./Chat";
-import CreateClass from './CreateClass';
-import ClassPage  from "./ClassPage";
+import CreateClass from './developersOnly/CreateClass';
+import SelectClasses from './SelectClasses';
+import ClassPage  from "./ClassMenuComponents/ClassPage";
 import Announcements from "./Announcements";
 class App extends Component {
   constructor(props) {
@@ -40,6 +42,8 @@ class App extends Component {
           <Route exact path="/ClassPage" component={ClassPage} />
           <Route exact path="/Announcements" component={Announcements} />
           <Route exact path="/VerifyTeacher" component={VerifyTeacher} />
+          <Route exact path="/newClassSection" component={ComposeClass} />
+          <Route exact path="/selectClasses" component={SelectClasses} />
         </div>
       </BrowserRouter>
     );

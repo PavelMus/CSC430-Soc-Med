@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 
-import Fixedmenu from "./Fixedmenu";
-import Newsfeed from "./FeedComponents/Newsfeed";
-import AlertSection from "./AlertSection";
+import Fixedmenu from "../Fixedmenu";
+import Newsfeed from "../FeedComponents/Newsfeed";
+import AlertSection from "../AlertSection";
 
 class ClassPage extends Component {
   render() {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-
           <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
-
           <div id="class-content-wrapper" className="col s12 m6 l9 xl9">
             <div className="row">
 
