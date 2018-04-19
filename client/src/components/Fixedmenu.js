@@ -38,7 +38,7 @@ class Fixedmenu extends Component {
           <div className="divider" />
           <div className="dropdown">
             <ClassList user={this.props.user} />
-            <Link to="/selectClasses">
+            <Link class="select-class" to="/selectClasses">
               Select Classes
             </Link>
             {/*/First class below
