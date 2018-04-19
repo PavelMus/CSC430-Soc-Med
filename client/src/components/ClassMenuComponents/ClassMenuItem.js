@@ -25,7 +25,7 @@ class ClassMenuItem extends Component {
       <React.Fragment>
         {/*/First class below*/}
         <a
-          target="class1"
+          target={this.props.class._id}
           onClick={this.dropdownClick}
           className="hoverable dropbtn"
         >
@@ -33,7 +33,7 @@ class ClassMenuItem extends Component {
           <span>{this.props.class.type}{this.props.class.level}</span>
           <i className="right-icon material-icons">arrow_drop_down</i>
         </a>
-        <ul id="class1">
+        <ul id={this.props.class._id} className="class-item">
           <li>
             <a href="#">Announcements</a>
           </li>
