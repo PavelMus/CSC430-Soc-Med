@@ -50,7 +50,9 @@ class CreateClass extends Component {
   render() {
     return (
       <div id="class-db-input" className="row">
+
         <h3>CLASS DATABASE INPUT</h3>
+
         <form className="col s12" onSubmit={this.onClassSubmit}>
           <div className="row">
             <div className="input-field col s3">
@@ -74,6 +76,7 @@ class CreateClass extends Component {
           </div>
           <button type="submit" className="btn">SUBMIT</button>
         </form>
+
       </div>
       );
   }

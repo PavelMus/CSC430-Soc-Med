@@ -73,12 +73,12 @@ class Announcements extends Component {
                           <br/>
                           <p>Best,</p>
                           <p>Prof. Jacobs</p>
+
                           <br/>
                         </div>
                       </div>
                       </li>
                     </div>
-
                   </ul>
                 </div>
               </div>

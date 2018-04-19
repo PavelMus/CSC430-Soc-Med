@@ -868,3 +868,15 @@ body {
           padding: 0;
           margin-top: 0;
           font-size: 12px; }
+
+#class-db-input {
+  margin-top: 140px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid; }
+  #class-db-input h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px; }
+  #class-db-input form {
+    width: 80%; }
