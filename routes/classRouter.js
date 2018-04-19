@@ -46,6 +46,10 @@ classRouter.route("/create-class").post((req, res) => {
   _class.subject = req.body.subject;
   _class.section = req.body.section;
   _class.teacher = req.body.teacher;
+  _class.content = [];
+  _class.unverifiedStudents = [];
+  _class.studentList = [];
+  _class.announcements = [];
   _class.save(err => {
     if (err) res.send(err);
     res.json({ message: "Class Section Created" });

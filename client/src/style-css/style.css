@@ -504,10 +504,7 @@ body {
         position: relative;
         top: -24px;
         left: 5px; }
-  #fixedmenu #class1,
-  #fixedmenu #class2,
-  #fixedmenu #class3,
-  #fixedmenu #class4 {
+  #fixedmenu .class-item {
     display: none;
     position: relative;
     top: -5px;
@@ -522,10 +519,7 @@ body {
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     z-index: 1; }
-    #fixedmenu #class1 li,
-    #fixedmenu #class2 li,
-    #fixedmenu #class3 li,
-    #fixedmenu #class4 li {
+    #fixedmenu .class-item li {
       animation: menu1 300ms linear forwards; }
 
 @keyframes menu1 {
@@ -537,10 +531,7 @@ body {
     opacity: 1;
     max-height: 150px;
     transform: scaleY(100%) translateY(0px); } }
-    #fixedmenu #class1 ul,
-    #fixedmenu #class2 ul,
-    #fixedmenu #class3 ul,
-    #fixedmenu #class4 ul {
+    #fixedmenu .class-item ul {
       padding: 4px;
       border-radius: 8px;
       margin-bottom: 0; }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class ClassMenuItem extends Component {
   constructor(props) {
@@ -35,10 +36,10 @@ class ClassMenuItem extends Component {
         </a>
         <ul id={this.props.class._id} className="class-item">
           <li>
-            <a href="#">Announcements</a>
+            <Link to="/announcements">Announcements</Link>
           </li>
           <li>
-            <a href="#">Content</a>
+            <Link to="/classPage">Content</Link>
           </li>
           <li>
             <a href="#">Teacher</a>

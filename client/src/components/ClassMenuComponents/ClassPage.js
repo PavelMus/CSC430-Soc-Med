@@ -1,17 +1,37 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 import Fixedmenu from "../Fixedmenu";
 import Newsfeed from "../FeedComponents/Newsfeed";
 import AlertSection from "../AlertSection";
 
 
 class ClassPage extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  renderFixedMenu = () => {
+    switch (this.props.user) {
+      case null:   
+        return "";
+      case false:
+        return "";
+      default:
+        return <Fixedmenu user={this.props.user} />;
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.props.location.pathname);
+    
+  }
+
   render() {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
           <div className="col s12 m2 l2 xl2">
-            <Fixedmenu />
+            {this.renderFixedMenu()}
           </div>
           <div id="class-content-wrapper" className="col s12 m6 l9 xl9">
             <div className="row">
@@ -51,4 +71,8 @@ class ClassPage extends Component {
   }
 }
 
-export default ClassPage;
+const mapStateToProps = state => {
+  return {user: state.user};
+};
+
+export default connect(mapStateToProps)(ClassPage);
