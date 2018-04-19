@@ -4,6 +4,7 @@ import Fixedmenu from "../Fixedmenu";
 import Newsfeed from "../FeedComponents/Newsfeed";
 import AlertSection from "../AlertSection";
 
+
 class ClassPage extends Component {
   render() {
     return (
