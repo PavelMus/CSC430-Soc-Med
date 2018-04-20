@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Fixedmenu from "../Fixedmenu";
 import Newsfeed from "../FeedComponents/Newsfeed";
 import AlertSection from "../AlertSection";
 
 
-class ClassPage extends Component {
+class ClassContent extends Component {
   constructor(props){
     super(props);
     this.state = {
-      class: ""
+      _class: "",
+      content: ""
     }
   }
 
@@ -25,11 +27,15 @@ class ClassPage extends Component {
     }
   }
 
-
+  logtest = () => {
+    console.log(this.state._class);
+    console.log(this.state.content);
+  }
 
   componentDidMount() {
-    console.log(this.props.location.pathname);
-    
+    axios.get(`${"/api"}${this.props.location.pathname}`).then(res => {
+      this.setState({_class: res.data, content: res.data.content}, this.logtest);
+    });
   }
 
   render() {
@@ -81,4 +87,4 @@ const mapStateToProps = state => {
   return {user: state.user};
 };
 
-export default connect(mapStateToProps)(ClassPage);
+export default withRouter(connect(mapStateToProps)(ClassContent));

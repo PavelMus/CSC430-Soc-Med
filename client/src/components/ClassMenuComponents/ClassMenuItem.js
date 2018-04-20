@@ -7,8 +7,6 @@ class ClassMenuItem extends Component {
   }
   dropdownClick = e => {
     e.preventDefault();
-    console.log(e);
-    console.log(e.target);
     if (e.target.target) {
       var element = document.getElementById(e.target.target);
     } else {
@@ -24,7 +22,6 @@ class ClassMenuItem extends Component {
   render() {
     return (
       <React.Fragment>
-        {/*/First class below*/}
         <a
           target={this.props.class._id}
           onClick={this.dropdownClick}
@@ -39,7 +36,7 @@ class ClassMenuItem extends Component {
             <Link to={`${"/announcements"}/${this.props.class._id}`}>Announcements</Link>
           </li>
           <li>
-            <Link to={`${"/classPage"}/${this.props.class._id}`}>Content</Link>
+            <Link to={`${"/ClassContent"}/${this.props.class._id}`}>Content</Link>
           </li>
           <li>
             <a href="#">Teacher</a>

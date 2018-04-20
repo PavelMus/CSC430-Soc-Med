@@ -18,7 +18,7 @@ import Login from './Login';
 import chat  from "./Chat";
 import CreateClass from './developersOnly/CreateClass';
 import SelectClasses from './SelectClasses';
-import ClassPage  from "./ClassMenuComponents/ClassPage";
+import ClassContent  from "./ClassMenuComponents/ClassContent";
 import Announcements from "./ClassMenuComponents/Announcements";
 class App extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class App extends Component {
           <Route exact path="/register" component={Registration} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/classDBInput" component={CreateClass} />
-          <Route path="/ClassPage" component={ClassPage} />
+          <Route path="/ClassContent" component={ClassContent} />
           <Route path="/Announcements" component={Announcements} />
           <Route exact path="/VerifyTeacher" component={VerifyTeacher} />
           <Route exact path="/newClassSection" component={ComposeClass} />

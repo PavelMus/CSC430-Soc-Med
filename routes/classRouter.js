@@ -36,6 +36,23 @@ classRouter.route("/class/:class_id").get((req, res) => {
   });
 });
 
+//Finding a class based on its id and grab the announcements
+classRouter.route("/class/announcements/:class_id").get((req, res) => {
+  Class.findById(req.params.class_id, function(err, _class) {
+    if (err) res.send(err);
+    res.json(_class.announcements);
+  });
+});
+//Finding a class based on its id and grab the content
+classRouter.route("/ClassContent/:class_id").get((req, res) => {
+  Class.findById(req.params.class_id, function(err, _class) {
+    if (err) res.send(err);
+    console.log(_class.content);
+    
+    res.json(_class);
+  });
+});
+
 /* This is the feed router for create class, it is responsible for
      post events that are made through the api/create-class URI */
 
