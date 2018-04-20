@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from 'axios';
 import Fixedmenu from "../Fixedmenu";
 import Newsfeed from "../FeedComponents/Newsfeed";
 import AlertSection from "../AlertSection";
@@ -8,6 +9,9 @@ import AlertSection from "../AlertSection";
 class ClassPage extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      class: ""
+    }
   }
 
   renderFixedMenu = () => {
@@ -20,6 +24,8 @@ class ClassPage extends Component {
         return <Fixedmenu user={this.props.user} />;
     }
   }
+
+
 
   componentDidMount() {
     console.log(this.props.location.pathname);
@@ -43,19 +49,19 @@ class ClassPage extends Component {
                   </div>
                   <ul>
                     <div className="item-container">
-                      <i class="material-icons">assignment</i>
+                      <i className="material-icons">assignment</i>
                       <li className="item"><a>Syllabus</a>
                       </li>
                     </div>
 
                     <div className="item-container">
-                      <i class="material-icons">assignment</i>
+                      <i className="material-icons">assignment</i>
                       <li className="item"><a>Chapter 01 Computer Abstractions and Technology</a>
                       </li>
                     </div>
 
                     <div className="item-container">
-                      <i class="material-icons">assignment</i>
+                      <i className="material-icons">assignment</i>
                       <li className="item"><a>Chapter 02 Instructions Language of the Computer</a>
                       </li>
                     </div>
