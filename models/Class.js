@@ -8,7 +8,11 @@ const classSchema = new Schema({
   subject: String,
   section: String,
   description: String,
-  teacher: String
+  teacher: String,
+  content: Array,
+  announcements: Array,
+  unverifiedStudents: Array,
+  studentList: Array
 });
 
 module.exports = mongoose.model("class", classSchema);

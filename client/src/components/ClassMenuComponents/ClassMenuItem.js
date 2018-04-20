@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class ClassMenuItem extends Component {
   constructor(props) {
@@ -6,8 +7,6 @@ class ClassMenuItem extends Component {
   }
   dropdownClick = e => {
     e.preventDefault();
-    console.log(e);
-    console.log(e.target);
     if (e.target.target) {
       var element = document.getElementById(e.target.target);
     } else {
@@ -23,7 +22,6 @@ class ClassMenuItem extends Component {
   render() {
     return (
       <React.Fragment>
-        {/*/First class below*/}
         <a
           target={this.props.class._id}
           onClick={this.dropdownClick}
@@ -35,10 +33,10 @@ class ClassMenuItem extends Component {
         </a>
         <ul id={this.props.class._id} className="class-item">
           <li>
-            <a href="#">Announcements</a>
+            <Link to={`${"/announcements"}/${this.props.class._id}`}>Announcements</Link>
           </li>
           <li>
-            <a href="#">Content</a>
+            <Link to={`${"/ClassContent"}/${this.props.class._id}`}>Content</Link>
           </li>
           <li>
             <a href="#">Teacher</a>

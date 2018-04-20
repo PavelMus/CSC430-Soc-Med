@@ -505,9 +505,12 @@ body {
         position: relative;
         top: -24px;
         left: 5px; }
+<<<<<<< HEAD
     #fixedmenu .dropdown .select-class {
       margin: 0 auto;
       text-align: center; }
+=======
+>>>>>>> 1b256c40fb68ccbba98ac70ebef08d327c48e493
   #fixedmenu .class-item {
     display: none;
     position: relative;
