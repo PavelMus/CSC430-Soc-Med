@@ -77,9 +77,17 @@
       .material-icons {}
     }
 
-    .select-class {
-      margin: 0 auto;
-      text-align: center;
+    div {
+      min-width: 140px;
+
+      span {
+        .select-class {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
   }
   /* Dropdown Button */
@@ -151,12 +159,55 @@
   }
 
   ul {
-    margin: 0;
+    margin-top: 20px;
     text-align: center;
 
     li {
       padding: 5px 0;
       text-align: center;
+    }
+  }
+
+  .action-list {
+    .header-li {
+      height: 40px;
+
+      .subheader {
+        float: left;
+
+        .material-icons {
+          float: left;
+
+          .actions {
+            float: left;
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+
+    li {
+      height: 40px;
+      margin-left: 14px;
+      width: 200px;
+
+      .material-icons {
+        float: left;
+        margin-right: 12px;
+      }
+
+      .waves-effect {
+        float: left;
+
+        a {
+          float: left;
+
+          .action {
+            padding-left: 12px;
+            margin-left: 12px;
+          }
+        }
+      }
     }
   }
 }

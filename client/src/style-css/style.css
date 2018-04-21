@@ -452,126 +452,6 @@ body {
   max-width: 85%;
   max-height: 85%; }
 
-#fixedmenu {
-  margin: 0;
-  padding: 0 10px 10px;
-  max-width: 185px;
-  margin: 0 auto;
-  height: 600px;
-  position: fixed;
-  /* Dropdown Button */
-  /* Dropdown button on hover & focus */
-  /* The container <div> - needed to position the dropdown content */
-  /* Dropdown Content (Hidden by Default) */
-  /* Links inside the dropdown */
-  /* Change color of dropdown links on hover */
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
-  #fixedmenu .fixedmenu-wrapper {
-    padding: 8px; }
-  #fixedmenu .fixedmenu-wrapper .myclassesheader {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-size: 1.8rem; }
-    #fixedmenu .fixedmenu-wrapper .myclassesheader .divider {
-      height: 2px;
-      overflow: hidden;
-      border: black;
-      color: black;
-      background-color: black !important; }
-  #fixedmenu .dropdown {
-    position: relative;
-    display: inline-block; }
-    #fixedmenu .dropdown .dropbtn {
-      display: block;
-      top: -4px;
-      min-width: 140px;
-      min-height: 14px;
-      height: 40px;
-      color: #787878;
-      padding: 14px;
-      font-size: 15.5px;
-      font-weight: bolder;
-      cursor: pointer;
-      z-index: auto;
-      margin-top: 20px; }
-      #fixedmenu .dropdown .dropbtn:focus, #fixedmenu .dropdown .dropbtn:hover {
-        background-color: #E0E7F9;
-        color: #6694F8; }
-      #fixedmenu .dropdown .dropbtn span {
-        margin-left: 12px;
-        float: left;
-        position: relative;
-        top: -3px; }
-      #fixedmenu .dropdown .dropbtn .left-icon {
-        float: left;
-        position: relative;
-        top: -6px;
-        left: 2px; }
-      #fixedmenu .dropdown .dropbtn .right-icon {
-        margin-left: 8px;
-        float: right;
-        position: relative;
-        top: -24px;
-        left: 5px; }
-    #fixedmenu .dropdown .select-class {
-      margin: 0 auto;
-      text-align: center; }
-  #fixedmenu .class-item {
-    display: none;
-    position: relative;
-    top: -5px;
-    background-color: #f1f1f1;
-    color: black;
-    min-width: 90px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    -webkit-border-bottom-right-radius: 8px;
-    -webkit-border-bottom-left-radius: 8px;
-    -moz-border-radius-bottomright: 8px;
-    -moz-border-radius-bottomleft: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    z-index: 1; }
-    #fixedmenu .class-item li {
-      animation: menu1 300ms linear forwards; }
-
-@keyframes menu1 {
-  0% {
-    opacity: 0;
-    max-height: 0;
-    transform: scaleY(0%) translateY(0px); }
-  100% {
-    opacity: 1;
-    max-height: 150px;
-    transform: scaleY(100%) translateY(0px); } }
-    #fixedmenu .class-item ul {
-      padding: 4px;
-      border-radius: 8px;
-      margin-bottom: 0; }
-  #fixedmenu .classesDropdown {
-    display: none;
-    position: relative;
-    background-color: #f1f1f1;
-    color: black;
-    min-width: 90px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1; }
-  #fixedmenu .classesDropdown a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block; }
-  #fixedmenu .classesDropdown a:hover {
-    background-color: #ddd; }
-  #fixedmenu .show {
-    display: block !important; }
-  #fixedmenu ul {
-    margin: 0;
-    text-align: center; }
-    #fixedmenu ul li {
-      padding: 5px 0;
-      text-align: center; }
-
 .ql-editor strong {
   font-weight: bold; }
 
@@ -880,3 +760,150 @@ body {
     font-size: 24px; }
   #class-db-input form {
     width: 80%; }
+
+#fixedmenu {
+  margin: 0;
+  padding: 0 10px 10px;
+  max-width: 185px;
+  margin: 0 auto;
+  height: 600px;
+  position: fixed;
+  /* Dropdown Button */
+  /* Dropdown button on hover & focus */
+  /* The container <div> - needed to position the dropdown content */
+  /* Dropdown Content (Hidden by Default) */
+  /* Links inside the dropdown */
+  /* Change color of dropdown links on hover */
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
+  #fixedmenu .fixedmenu-wrapper {
+    padding: 8px; }
+  #fixedmenu .fixedmenu-wrapper .myclassesheader {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1.8rem; }
+    #fixedmenu .fixedmenu-wrapper .myclassesheader .divider {
+      height: 2px;
+      overflow: hidden;
+      border: black;
+      color: black;
+      background-color: black !important; }
+  #fixedmenu .dropdown {
+    position: relative;
+    display: inline-block; }
+    #fixedmenu .dropdown .dropbtn {
+      display: block;
+      top: -4px;
+      min-width: 140px;
+      min-height: 14px;
+      height: 40px;
+      color: #787878;
+      padding: 14px;
+      font-size: 15.5px;
+      font-weight: bolder;
+      cursor: pointer;
+      z-index: auto;
+      margin-top: 20px; }
+      #fixedmenu .dropdown .dropbtn:focus, #fixedmenu .dropdown .dropbtn:hover {
+        background-color: #E0E7F9;
+        color: #6694F8; }
+      #fixedmenu .dropdown .dropbtn span {
+        margin-left: 12px;
+        float: left;
+        position: relative;
+        top: -3px; }
+      #fixedmenu .dropdown .dropbtn .left-icon {
+        float: left;
+        position: relative;
+        top: -6px;
+        left: 2px; }
+      #fixedmenu .dropdown .dropbtn .right-icon {
+        margin-left: 8px;
+        float: right;
+        position: relative;
+        top: -24px;
+        left: 5px; }
+    #fixedmenu .dropdown div {
+      min-width: 140px; }
+      #fixedmenu .dropdown div span .select-class {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+  #fixedmenu .class-item {
+    display: none;
+    position: relative;
+    top: -5px;
+    background-color: #f1f1f1;
+    color: black;
+    min-width: 90px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    z-index: 1; }
+    #fixedmenu .class-item li {
+      animation: menu1 300ms linear forwards; }
+
+@keyframes menu1 {
+  0% {
+    opacity: 0;
+    max-height: 0;
+    transform: scaleY(0%) translateY(0px); }
+  100% {
+    opacity: 1;
+    max-height: 150px;
+    transform: scaleY(100%) translateY(0px); } }
+    #fixedmenu .class-item ul {
+      padding: 4px;
+      border-radius: 8px;
+      margin-bottom: 0; }
+  #fixedmenu .classesDropdown {
+    display: none;
+    position: relative;
+    background-color: #f1f1f1;
+    color: black;
+    min-width: 90px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1; }
+  #fixedmenu .classesDropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; }
+  #fixedmenu .classesDropdown a:hover {
+    background-color: #ddd; }
+  #fixedmenu .show {
+    display: block !important; }
+  #fixedmenu ul {
+    margin-top: 20px;
+    text-align: center; }
+    #fixedmenu ul li {
+      padding: 5px 0;
+      text-align: center; }
+  #fixedmenu .action-list .header-li {
+    height: 40px; }
+    #fixedmenu .action-list .header-li .subheader {
+      float: left; }
+      #fixedmenu .action-list .header-li .subheader .material-icons {
+        float: left; }
+        #fixedmenu .action-list .header-li .subheader .material-icons .actions {
+          float: left;
+          margin-left: 12px; }
+  #fixedmenu .action-list li {
+    height: 40px;
+    margin-left: 14px;
+    width: 200px; }
+    #fixedmenu .action-list li .material-icons {
+      float: left;
+      margin-right: 12px; }
+    #fixedmenu .action-list li .waves-effect {
+      float: left; }
+      #fixedmenu .action-list li .waves-effect a {
+        float: left; }
+        #fixedmenu .action-list li .waves-effect a .action {
+          padding-left: 12px;
+          margin-left: 12px; }
