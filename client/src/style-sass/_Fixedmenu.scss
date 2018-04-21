@@ -1,12 +1,13 @@
 #fixedmenu {
   margin: 0;
   padding: 0 10px 10px;
-  max-width: 185px;
+  max-width: 200px;
   margin: 0 auto;
   height: 600px;
   position: fixed;
 
   .fixedmenu-wrapper {
+    max-width: 200px;
     padding: 8px;
   }
 
@@ -14,8 +15,8 @@
     .myclassesheader {
       margin: 0;
       padding: 0;
-      text-align: center;
-      font-size: 1.8rem;
+      text-align: left;
+      font-size: 1.5rem;
 
       .divider {
         height: 2px;
@@ -28,8 +29,11 @@
   }
 
   .dropdown {
+    float: left;
+    font-size: 14px;
     position: relative;
-    display: inline-block;
+    display: block;
+    margin-bottom: 20px;
 
     .dropbtn {
       //margin-bottom: 35px;
@@ -38,13 +42,13 @@
       min-width: 140px;
       min-height: 14px;
       height: 40px;
-      color: #787878;
-      padding: 14px;
-      font-size: 15.5px;
+      color: black;
+      padding: 14px 14px 14px 0;
+      font-size: 14px;
       font-weight: bolder;
       cursor: pointer;
       z-index: auto;
-      margin-top: 20px;
+      margin-top: 10px;
 
       &:focus,
       &:hover {
@@ -70,7 +74,7 @@
         margin-left: 8px;
         float: right;
         position: relative;
-        top: -24px;
+        top: -8px;
         left: 5px;
       }
 
@@ -82,10 +86,12 @@
 
       span {
         .select-class {
+          margin-top: 10px;
+          color: black;
           width: 100%;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
         }
       }
     }
@@ -127,6 +133,7 @@
     }
 
     ul {
+      color: black;
       padding: 4px;
       border-radius: 8px;
       margin-bottom: 0;
@@ -163,17 +170,29 @@
     text-align: center;
 
     li {
+      font-size: 14px;
       padding: 5px 0;
       text-align: center;
     }
   }
 
   .action-list {
+    clear: both;
+    display: block;
+
     .header-li {
+      margin-left: 0;
       height: 40px;
 
       .subheader {
         float: left;
+        font-size: 14px;
+
+        .actions-header {
+          color: black;
+          font-size: 20px;
+          text-align: left;
+        }
 
         .material-icons {
           float: left;
@@ -183,26 +202,45 @@
             margin-left: 12px;
           }
         }
+
+        span {
+          display: flex;
+          align-items: flex-start;
+        }
       }
     }
 
     li {
       height: 40px;
-      margin-left: 14px;
       width: 200px;
 
+      .subheader {
+        span {
+          font-size: 18px;
+          color: black;
+          display: flex;
+          align-items: flex-start;
+        }
+      }
+
       .material-icons {
+        font-size: 20px;
+        color: black;
         float: left;
         margin-right: 12px;
       }
 
       .waves-effect {
+        color: black;
         float: left;
 
         a {
+          color: black;
           float: left;
 
           .action {
+            color: black;
+            font-size: 8px;
             padding-left: 12px;
             margin-left: 12px;
           }

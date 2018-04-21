@@ -764,7 +764,7 @@ body {
 #fixedmenu {
   margin: 0;
   padding: 0 10px 10px;
-  max-width: 185px;
+  max-width: 200px;
   margin: 0 auto;
   height: 600px;
   position: fixed;
@@ -776,12 +776,13 @@ body {
   /* Change color of dropdown links on hover */
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
   #fixedmenu .fixedmenu-wrapper {
+    max-width: 200px;
     padding: 8px; }
   #fixedmenu .fixedmenu-wrapper .myclassesheader {
     margin: 0;
     padding: 0;
-    text-align: center;
-    font-size: 1.8rem; }
+    text-align: left;
+    font-size: 1.5rem; }
     #fixedmenu .fixedmenu-wrapper .myclassesheader .divider {
       height: 2px;
       overflow: hidden;
@@ -789,21 +790,24 @@ body {
       color: black;
       background-color: black !important; }
   #fixedmenu .dropdown {
+    float: left;
+    font-size: 14px;
     position: relative;
-    display: inline-block; }
+    display: block;
+    margin-bottom: 20px; }
     #fixedmenu .dropdown .dropbtn {
       display: block;
       top: -4px;
       min-width: 140px;
       min-height: 14px;
       height: 40px;
-      color: #787878;
-      padding: 14px;
-      font-size: 15.5px;
+      color: black;
+      padding: 14px 14px 14px 0;
+      font-size: 14px;
       font-weight: bolder;
       cursor: pointer;
       z-index: auto;
-      margin-top: 20px; }
+      margin-top: 10px; }
       #fixedmenu .dropdown .dropbtn:focus, #fixedmenu .dropdown .dropbtn:hover {
         background-color: #E0E7F9;
         color: #6694F8; }
@@ -821,15 +825,17 @@ body {
         margin-left: 8px;
         float: right;
         position: relative;
-        top: -24px;
+        top: -8px;
         left: 5px; }
     #fixedmenu .dropdown div {
       min-width: 140px; }
       #fixedmenu .dropdown div span .select-class {
+        margin-top: 10px;
+        color: black;
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center; }
+        justify-content: flex-start; }
   #fixedmenu .class-item {
     display: none;
     position: relative;
@@ -858,6 +864,7 @@ body {
     max-height: 150px;
     transform: scaleY(100%) translateY(0px); } }
     #fixedmenu .class-item ul {
+      color: black;
       padding: 4px;
       border-radius: 8px;
       margin-bottom: 0; }
@@ -882,28 +889,51 @@ body {
     margin-top: 20px;
     text-align: center; }
     #fixedmenu ul li {
+      font-size: 14px;
       padding: 5px 0;
       text-align: center; }
-  #fixedmenu .action-list .header-li {
-    height: 40px; }
-    #fixedmenu .action-list .header-li .subheader {
-      float: left; }
-      #fixedmenu .action-list .header-li .subheader .material-icons {
+  #fixedmenu .action-list {
+    clear: both;
+    display: block; }
+    #fixedmenu .action-list .header-li {
+      margin-left: 0;
+      height: 40px; }
+      #fixedmenu .action-list .header-li .subheader {
+        float: left;
+        font-size: 14px; }
+        #fixedmenu .action-list .header-li .subheader .actions-header {
+          color: black;
+          font-size: 20px;
+          text-align: left; }
+        #fixedmenu .action-list .header-li .subheader .material-icons {
+          float: left; }
+          #fixedmenu .action-list .header-li .subheader .material-icons .actions {
+            float: left;
+            margin-left: 12px; }
+        #fixedmenu .action-list .header-li .subheader span {
+          display: flex;
+          align-items: flex-start; }
+    #fixedmenu .action-list li {
+      height: 40px;
+      width: 200px; }
+      #fixedmenu .action-list li .subheader span {
+        font-size: 18px;
+        color: black;
+        display: flex;
+        align-items: flex-start; }
+      #fixedmenu .action-list li .material-icons {
+        font-size: 20px;
+        color: black;
+        float: left;
+        margin-right: 12px; }
+      #fixedmenu .action-list li .waves-effect {
+        color: black;
         float: left; }
-        #fixedmenu .action-list .header-li .subheader .material-icons .actions {
-          float: left;
-          margin-left: 12px; }
-  #fixedmenu .action-list li {
-    height: 40px;
-    margin-left: 14px;
-    width: 200px; }
-    #fixedmenu .action-list li .material-icons {
-      float: left;
-      margin-right: 12px; }
-    #fixedmenu .action-list li .waves-effect {
-      float: left; }
-      #fixedmenu .action-list li .waves-effect a {
-        float: left; }
-        #fixedmenu .action-list li .waves-effect a .action {
-          padding-left: 12px;
-          margin-left: 12px; }
+        #fixedmenu .action-list li .waves-effect a {
+          color: black;
+          float: left; }
+          #fixedmenu .action-list li .waves-effect a .action {
+            color: black;
+            font-size: 8px;
+            padding-left: 12px;
+            margin-left: 12px; }

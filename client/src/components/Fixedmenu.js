@@ -23,19 +23,17 @@ class Fixedmenu extends Component {
       <ul className="action-list">
         <li className="header-li">
           <a className="subheader">
-            <i className="material-icons">call_to_action</i>
-            <span className="actions">ACTIONS</span>
+            <span className="actions-header">Actions</span>
           </a>
         </li>
         <li>
-                    <i className="material-icons">public</i>
+          <i className="material-icons">public</i>
           <Link
             className="waves-effect"
             onClick={this.props.close}
             to="/newNews"
           >
-
-            <span className="action">POST NEWS ITEM</span>
+            <span className="action">Post News Item</span>
           </Link>
         </li>
         <li>
@@ -45,7 +43,7 @@ class Fixedmenu extends Component {
             to="/newEvent"
           >
             <i className="material-icons">event_note</i>
-            <span>POST EVENT ITEM</span>
+            <span>Post Event Item</span>
           </Link>
         </li>
         <li>
@@ -55,14 +53,14 @@ class Fixedmenu extends Component {
             to="/newAlert"
           >
             <i className="material-icons">notifications_none</i>
-            <span>POST ALERT ITEM</span>
+            <span>Post Alert Item</span>
           </Link>
         </li>
 
         <li>
           <Link className="waves-effect" onClick={this.props.close} to="/chat">
             <i className="material-icons">chat</i>
-            <span>CHAT TESTING</span>
+            <span>Chat Testing</span>
           </Link>
         </li>
         <li>
@@ -71,8 +69,8 @@ class Fixedmenu extends Component {
 
         <li>
           <a className="subheader">
-            <i className="material-icons">school</i>
-            DEVELOPER TOOLS
+            
+            <span>Admin Tools</span>
           </a>
         </li>
         <li>
@@ -81,7 +79,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="classDBInput"
           >
-            INPUT NEW CLASS DB
+            Input New Class
           </Link>
         </li>
         <li>
@@ -90,7 +88,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="/VerifyTeacher"
           >
-            VERIFY TEACHER
+            Verify Teacher
           </Link>
         </li>
         <li>
@@ -99,7 +97,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="/newClassSection"
           >
-            CREATE A NEW CLASS SECTION
+            Create A New Class Section
           </Link>
         </li>
       </ul>
@@ -109,7 +107,7 @@ class Fixedmenu extends Component {
   renderClassList = () => {
     return (
       <React.Fragment>
-        <h4 className="myclassesheader">My Classes</h4>
+        <h4 className="myclassesheader">Classes</h4>
         <div className="divider" />
         <div className="dropdown">
           <ClassList user={this.props.user} />
