@@ -42,7 +42,7 @@ class App extends Component {
           <Route exact path="/register" component={Registration} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/classDBInput" component={CreateClass} />
-          <Route path="/ClassContent" component={ClassContent} />
+          <Route path="/ClassContent/" component={ClassContent} />
           <Route path="/ContentItem" component={ClassContentItem} />
           <Route path="/ComposeClassContent" component={ComposeClassContent} />
           <Route path="/ClassAnnouncements" component={Announcements} />

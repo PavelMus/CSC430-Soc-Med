@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, connectAdvanced } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios';
 import Fixedmenu from "../Fixedmenu";
 import Newsfeed from "../FeedComponents/Newsfeed";
 import AlertSection from "../AlertSection";
@@ -19,8 +19,16 @@ class Announcements extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps){
+    this.loadAnnouncements(nextProps.location.pathname);
+  }
+
   componentDidMount() {
-    axios.get(`${"/api"}${this.props.location.pathname}`).then(res => {
+    this.loadAnnouncements(this.props.location.pathname);
+  }
+
+  loadAnnouncements = (url) => {
+    axios.get(`${"/api"}${url}`).then(res => {
       this.setState(
         { _class: res.data, announcements: res.data.announcements },
         this.mapAnnouncements
@@ -47,6 +55,8 @@ class Announcements extends Component {
   };
 
   renderContent = announcement =>{
+    console.log(announcement);
+    
     let content = marked(announcement);
     return {__html: content};
   }

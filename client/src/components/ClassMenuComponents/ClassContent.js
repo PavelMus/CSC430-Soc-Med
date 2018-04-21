@@ -12,7 +12,8 @@ class ClassContent extends Component {
     this.state = {
       _class: false,
       content: "",
-      contentHTML: false
+      contentHTML: false,
+      currentURL: ""
     };
   }
 
@@ -34,9 +35,17 @@ class ClassContent extends Component {
     }
   };
 
+  componentWillReceiveProps(nextProps){
+    this.loadContent(nextProps.location.pathname);
+  }
+
   componentDidMount() {
-    axios.get(`${"/api"}${this.props.location.pathname}`).then(res => {
-      this.setState({ _class: res.data, content: res.data.content }, this.mapContent);
+    this.loadContent(this.props.location.pathname);
+  }
+
+  loadContent = (url) =>{
+    axios.get(`${"/api"}${url}`).then(res => {
+      this.setState({ _class: res.data, content: res.data.content, currentURL: this.props.location.pathname }, this.mapContent);
     });
   }
 
