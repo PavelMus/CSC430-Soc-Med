@@ -34,17 +34,6 @@ class ClassContent extends Component {
     }
   };
 
-  renderFixedMenu = () => {
-    switch (this.props.user) {
-      case null:
-        return "";
-      case false:
-        return "";
-      default:
-        return <Fixedmenu user={this.props.user} />;
-    }
-  };
-
   componentDidMount() {
     axios.get(`${"/api"}${this.props.location.pathname}`).then(res => {
       this.setState({ _class: res.data, content: res.data.content }, this.mapContent);
@@ -70,7 +59,7 @@ class ClassContent extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="col s12 m2 l2 xl2">{this.renderFixedMenu()}</div>
+          <div className="col s12 m2 l2 xl2"><Fixedmenu /></div>
           <div id="class-content-wrapper" className="col s12 m6 l8 xl8">
             <div className="row">
               <div id="class-content-section" className="col s12 m3 l12 xl12">

@@ -1,128 +1,102 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import axios from "axios";
 import Fixedmenu from "../Fixedmenu";
 import Newsfeed from "../FeedComponents/Newsfeed";
 import AlertSection from "../AlertSection";
-import Quill from 'quill';
+import Quill from "quill";
+import marked from 'marked';
 
 class Announcements extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      quill: null,
+      _class: false,
+      announcements: "",
+      announcementsHTML: false,
       date: ""
-    }
-  }
-  renderFixedMenu = () => {
-    switch (this.props.user) {
-      case null:   
-        return "";
-      case false:
-        return "";
-      default:
-        return <Fixedmenu user={this.props.user} />;
-    }
+    };
   }
 
-  initQuill = () => {
-    if (this.state.content == null) {
-    } else {
-      let post = this.state.content;
+  componentDidMount() {
+    axios.get(`${"/api"}${this.props.location.pathname}`).then(res => {
+      this.setState(
+        { _class: res.data, announcements: res.data.announcements },
+        this.mapAnnouncements
+      );
+    });
+  }
 
-      let quillInit = new Quill("#quill", {
-        modules: {
-          toolbar: false
-        },
-        readOnly: true,
-        theme: "snow"
-      });
-      quillInit.setContents(post.delta);
-
-      let date = new Date(this.state.content.date);
-      this.setState({ quill: quillInit, date: date.toLocaleString('en-US', {timeZone: "America/New_York"}) });
+  renderTeacherActions = () => {
+    let _class = this.state._class;
+    if (_class) {
+      if (_class.teacher === this.props.user._id) {
+        return (
+          <React.Fragment>
+            <Link
+              className="btn-small"
+              to={"/ComposeClassAnnouncement/" + _class._id}
+            >
+              New Post
+            </Link>
+          </React.Fragment>
+        );
+      }
     }
   };
 
+  renderContent = announcement =>{
+    let content = marked(announcement);
+    return {__html: content};
+  }
+
+  mapAnnouncements = () => {
+    let ann = this.state.announcements;
+    let annHTML = ann.map(item => {
+      let date = new Date(item.date);
+      let dateFormatted = date.toLocaleString('en-US', {timeZone: "America/New_York"});
+      return (
+        <div key={item.date} className="item-container">
+          <li className="item">
+            <h3 className="announcement-header">{item.header}</h3>
+            <div>
+              <div dangerouslySetInnerHTML={this.renderContent(item.preview)} className="announcement-body">
+              </div>
+            </div>
+            <p>
+              <span>Posted on: {dateFormatted}</span>
+            </p>
+          </li>
+        </div>
+      );
+    });
+    this.setState({announcementsHTML: annHTML});
+  };
   render() {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-
-          <div className="col s12 m2 l2 xl2">
-            {this.renderFixedMenu()}
+          <div className="col s2 m2 l2 xl2">
+            <Fixedmenu />
           </div>
 
-          <div id="class-content-wrapper" className="col s12 m6 l9 xl9">
+          <div id="class-content-wrapper" className="col s2 m8 l8 xl8">
             <div className="row">
-
               <div id="class-content-section" className="col s12 m3 l12 xl12">
                 <div className="class-content-section-container">
                   <div className="content-header">
                     <h2>Announcements</h2>
                   </div>
                   <ul>
-                    <div className="item-container">
-                      <li className="item">
-
-                        <h3 className="announcement-header">Review Problems for Exam II</h3>
-                        <p><span>Posted on: Thursday, March 22, 2018 3:30:56 PM EDT</span></p>
-                        <div>
-                          <div class="announcement-body"><p>Hello everyone,</p>
-                            <br/>
-                            <p>Under content you can find some review problems for Exam II. Note that problems on the exam may (and will) vary.</p>
-                            <br/>
-                            <p>Best,</p>
-                            <p>Prof. Jacobs.</p>
-                            <br/>
-                          </div>
-                        </div>
-
-                      </li>
-                    </div>
-
-                    <div className="item-container">
-
-                      <li className="item">
-                      <h3 className="announcement-header">Homework # 3 available</h3>
-                      <p><span>Posted on: Tuesday, March 20, 2018 2:44:34 PM EDT</span></p>
-                      <div>
-                        <div class="announcement-body"><p>Hello,</p>
-                          <br/>
-                          <p>The updated version of Homework # 3 is available under content. The homework is due March 27, 2018.
-                          </p>
-                          <br/>
-                          <p>Best,</p>
-                          <p>Prof. Jacobs.</p>
-                          <br/>
-                        </div>
-                      </div>
-                      </li>
-                    </div>
-
-                    <div className="item-container">
-
-                      <li className="item">
-                      <h3 className="announcement-header">Homework # 2 available</h3>
-                      <p><span>Posted on: Sunday, February 25, 2018 7:35:34 PM EST</span></p>
-                      <div>
-                        <div class="announcement-body"><p>Hello everyone,</p>
-                          <br/>
-                          <p>Note that the Homework is Due on Tuesday March 06, 2018 at 12:20 PM. I recommend that you complete the homework before the first exam.</p>
-                          <br/>
-                          <p>Best,</p>
-                          <p>Prof. Jacobs</p>
-
-                          <br/>
-                        </div>
-                      </div>
-                      </li>
-                    </div>
+                    {this.state.announcementsHTML}
                   </ul>
                 </div>
               </div>
             </div>
           </div>
+
+          <div className="col s2">{this.renderTeacherActions()}</div>
         </div>
       </div>
     );
@@ -130,7 +104,7 @@ class Announcements extends Component {
 }
 
 const mapStateToProps = state => {
-  return {user: state.user};
+  return { user: state.user };
 };
 
 export default withRouter(connect(mapStateToProps)(Announcements));

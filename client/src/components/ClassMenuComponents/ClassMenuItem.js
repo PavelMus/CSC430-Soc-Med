@@ -33,7 +33,7 @@ class ClassMenuItem extends Component {
         </a>
         <ul id={this.props.class._id} className="class-item">
           <li>
-            <Link to={`${"/announcements"}/${this.props.class._id}`}>Announcements</Link>
+            <Link to={`${"/ClassAnnouncements"}/${this.props.class._id}`}>Announcements</Link>
           </li>
           <li>
             <Link to={`${"/ClassContent"}/${this.props.class._id}`}>Content</Link>

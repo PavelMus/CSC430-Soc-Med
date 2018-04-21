@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import tempimg from '../../img/temp-user-img.jpg';
 import axios from 'axios';
-import marked from 'marked'
+import marked from 'marked';
 class FeedPost extends Component {
   constructor(props){
     super(props);
@@ -19,8 +19,6 @@ class FeedPost extends Component {
 
   showCommentSection = (e) => {
     e.preventDefault();
-    console.log(e.target.parentNode.target);
-
     let element = document.getElementById(e.target.parentNode.target);
     if(!element.classList.contains('show')){
       element.classList.add("show");
@@ -28,13 +26,6 @@ class FeedPost extends Component {
       element.classList.remove("show");
     }
 
-  }
-
-
-  giveLog = (e) =>{
-    //e.preventDefault();
-    axios.get(`${this.state.feedURL}/${this.props.feed_id}`)
-    .then(res => console.log(res.data));
   }
 
   renderContent = () =>{

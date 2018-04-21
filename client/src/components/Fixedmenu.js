@@ -115,7 +115,7 @@ class Fixedmenu extends Component {
           <ClassList user={this.props.user} />
           <div>
             <span>
-              <Link class="select-class" to="/selectClasses">Select Classes</Link>
+              <Link className="select-class" to="/selectClasses">Select Classes</Link>
             </span>
           </div>
         </div>

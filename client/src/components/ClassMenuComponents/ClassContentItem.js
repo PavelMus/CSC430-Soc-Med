@@ -26,9 +26,9 @@ class ClassContentItem extends Component {
         return (
           <div className="user-col col s6 m6 l2 xl2">
             <div className="user-info">
-              <div class="user-pic-wrapper">
+              <div className="user-pic-wrapper">
                 <img
-                  class="user-pic"
+                  className="user-pic"
                   src={this.state.content.avatar}
                   width="64"
                 />
@@ -53,9 +53,9 @@ class ClassContentItem extends Component {
         readOnly: true,
         theme: "snow"
       });
-      quillInit.setContents(post.delta);
-      console.log(this.state.content.date);
       
+      quillInit.setContents(post.delta);
+
       let date = new Date(this.state.content.date);
       this.setState({ quill: quillInit, date: date.toLocaleString('en-US', {timeZone: "America/New_York"}) });
     }

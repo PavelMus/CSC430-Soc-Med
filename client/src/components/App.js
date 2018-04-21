@@ -22,6 +22,7 @@ import ClassContent  from "./ClassMenuComponents/ClassContent";
 import ComposeClassContent from './ClassMenuComponents/ComposeClassContent';
 import ClassContentItem from './ClassMenuComponents/ClassContentItem';
 import Announcements from "./ClassMenuComponents/Announcements";
+import ComposeClassAnnouncements from "./ClassMenuComponents/ComposeClassAnnouncements";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -44,7 +45,8 @@ class App extends Component {
           <Route path="/ClassContent" component={ClassContent} />
           <Route path="/ContentItem" component={ClassContentItem} />
           <Route path="/ComposeClassContent" component={ComposeClassContent} />
-          <Route path="/Announcements" component={Announcements} />
+          <Route path="/ClassAnnouncements" component={Announcements} />
+          <Route path="/ComposeClassAnnouncement" component={ComposeClassAnnouncements} />
           <Route exact path="/VerifyTeacher" component={VerifyTeacher} />
           <Route exact path="/newClassSection" component={ComposeClass} />
           <Route exact path="/selectClasses" component={SelectClasses} />

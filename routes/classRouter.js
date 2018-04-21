@@ -38,12 +38,24 @@ classRouter.route("/class/:class_id").get((req, res) => {
 });
 
 //Finding a class based on its id and grab the announcements
-classRouter.route("/class/announcements/:class_id").get((req, res) => {
+classRouter.route("/ClassAnnouncements/:class_id").get((req, res) => {
   Class.findById(req.params.class_id, function(err, _class) {
     if (err) res.send(err);
-    res.json(_class.announcements);
+    res.json(_class);
   });
 });
+
+classRouter.route("/ComposeClassAnnouncement/:class_id").put((req, res) => {
+  Class.findById(req.params.class_id, (err, _class) => {
+    if (err) res.send(err);
+    _class.announcements.push(req.body);
+    _class.save( err => {
+      if(err) res.send(err);
+      res.json({id: _class._id, message: "New Announcement Posted"});
+    });
+  });
+});
+
 //Finding a class based on its id and grab the content
 classRouter.route("/ClassContent/:class_id").get((req, res) => {
   Class.findById(req.params.class_id, function(err, _class) {
