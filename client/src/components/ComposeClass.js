@@ -168,6 +168,13 @@ class ComposeClass extends Component {
       teacher: _class.teacherSelected
     };
     axios.post("/api/create-class", new_class).then(res => {
+      let teacher = { 
+        classes: res.data.id, 
+        user: _class.teacherSelected
+      };
+      axios.put("/api/add_class_to_user", teacher).then(res => {
+        console.log(res.data.message);
+      });
       M.toast({html: res.data.message});
     });
   };

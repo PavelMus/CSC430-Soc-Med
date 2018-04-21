@@ -4,10 +4,15 @@ import { withRouter } from "react-router-dom";
 import Fixedmenu from "../Fixedmenu";
 import Newsfeed from "../FeedComponents/Newsfeed";
 import AlertSection from "../AlertSection";
+import Quill from 'quill';
 
 class Announcements extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      quill: null,
+      date: ""
+    }
   }
   renderFixedMenu = () => {
     switch (this.props.user) {
@@ -19,6 +24,25 @@ class Announcements extends Component {
         return <Fixedmenu user={this.props.user} />;
     }
   }
+
+  initQuill = () => {
+    if (this.state.content == null) {
+    } else {
+      let post = this.state.content;
+
+      let quillInit = new Quill("#quill", {
+        modules: {
+          toolbar: false
+        },
+        readOnly: true,
+        theme: "snow"
+      });
+      quillInit.setContents(post.delta);
+
+      let date = new Date(this.state.content.date);
+      this.setState({ quill: quillInit, date: date.toLocaleString('en-US', {timeZone: "America/New_York"}) });
+    }
+  };
 
   render() {
     return (

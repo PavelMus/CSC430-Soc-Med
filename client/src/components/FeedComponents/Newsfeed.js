@@ -13,7 +13,7 @@ class Newsfeed extends Component {
       loadSkip: 0
     };
 
-    this.pollInterval = null;
+    //this.pollInterval = null;
   }
 
   updateFeed = () => {
@@ -26,7 +26,6 @@ class Newsfeed extends Component {
   //loadFeed sends a get request to the database to grab the latests feed items
   //and then stores them in this components state
   loadFeed = () => {
-    console.log("loaded");
     axios.get(`${"api/main-feed"}/${this.state.loadSkip}`).then(res => {
       this.setState({ feed: res.data });
     });
@@ -34,10 +33,10 @@ class Newsfeed extends Component {
 
   onScroll = () => {
     if (
-      (window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 5
+      (window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 1
       && !this.state.isLoading
     ) {
-      this.setState({isLoading: true}, this.updateFeed());
+      this.setState({isLoading: true}, this.updateFeed);
     }
   }
 
@@ -50,11 +49,11 @@ class Newsfeed extends Component {
       () => window.requestAnimationFrame(this.onScroll), false);
 
     this.loadFeed();
-    if (!this.pollInterval)
+    /*if (!this.pollInterval)
     this.pollInterval = setInterval(
       this.loadFeed,
       this.props.pollInterval
-    );
+    );*/
   }
 
 
@@ -62,8 +61,8 @@ class Newsfeed extends Component {
   componentWillUnmount() {
     window.removeEventListener("scroll",
     () => window.requestAnimationFrame(this.onScroll), false);
-    this.pollInterval && clearInterval(this.pollInterval);
-    this.pollInterval = null;
+    /*this.pollInterval && clearInterval(this.pollInterval);
+    this.pollInterval = null;*/
   }
 
   render() {
@@ -96,8 +95,4 @@ class Newsfeed extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {user: state.auth};
-}
-
-export default connect(mapStateToProps)(Newsfeed);
+export default Newsfeed;

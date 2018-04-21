@@ -19,6 +19,8 @@ import chat  from "./Chat";
 import CreateClass from './developersOnly/CreateClass';
 import SelectClasses from './SelectClasses';
 import ClassContent  from "./ClassMenuComponents/ClassContent";
+import ComposeClassContent from './ClassMenuComponents/ComposeClassContent';
+import ClassContentItem from './ClassMenuComponents/ClassContentItem';
 import Announcements from "./ClassMenuComponents/Announcements";
 class App extends Component {
   constructor(props) {
@@ -40,6 +42,8 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/classDBInput" component={CreateClass} />
           <Route path="/ClassContent" component={ClassContent} />
+          <Route path="/ContentItem" component={ClassContentItem} />
+          <Route path="/ComposeClassContent" component={ComposeClassContent} />
           <Route path="/Announcements" component={Announcements} />
           <Route exact path="/VerifyTeacher" component={VerifyTeacher} />
           <Route exact path="/newClassSection" component={ComposeClass} />
@@ -50,8 +54,4 @@ class App extends Component {
   }
 }
 
-var mapStateToProps = state =>{
-  return {user: state.local};
-};
-
-export default connect(mapStateToProps, actions)(App);
+export default App;

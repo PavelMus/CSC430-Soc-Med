@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom'
 import ClassItem from "./ClassMenuItem";
 import axios from "axios";
 
@@ -12,9 +14,11 @@ class ClassList extends Component {
   }
 
   componentDidMount(){
-    this.setState({classes: this.props.user.classes}, this.generateClassList);
+    this.props.user.classes
+    ?this.setState({classes: this.props.user.classes}, this.generateClassList)
+    :'';
   }
-
+  
   generateClassList = () => {
     let classes = this.state.classes;
     let classList = classes.map(cls => {
@@ -30,4 +34,8 @@ class ClassList extends Component {
   }
 }
 
-export default ClassList;
+var mapStateToProps = state => {
+  return { user: state.user };
+};
+
+export default withRouter(connect(mapStateToProps)(ClassList));

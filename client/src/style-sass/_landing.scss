@@ -8,18 +8,16 @@ body {
   font-family: 'Exo 2', sans-serif;
 }
 
-#root {}
-
 #CSIBridge {
   background-color: $primarylight1;
-  height: 100vh;
+  height: 100%;
   overflow: auto;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #content-section-container {
-  padding-top: 84px;
+  //padding-top: 20px;
   //height: 100%;
   width: 100vh;
 }

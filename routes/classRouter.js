@@ -1,6 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var Class = require("../models/Class");
+var Users = require("../models/Users");
 var ClassTemplate = require("../models/ClassTemplate");
 
 var classRouter = express.Router();
@@ -47,9 +48,28 @@ classRouter.route("/class/announcements/:class_id").get((req, res) => {
 classRouter.route("/ClassContent/:class_id").get((req, res) => {
   Class.findById(req.params.class_id, function(err, _class) {
     if (err) res.send(err);
-    console.log(_class.content);
-    
     res.json(_class);
+  });
+});
+
+classRouter.route("/ContentItem/:class_id/:date").get((req, res) => {
+  Class.findById(req.params.class_id, function(err, _class) {
+    if (err) res.send(err);
+    let content = _class.content.find( item =>{
+      return item.date == req.params.date;
+    });
+    res.json(content);
+  });
+});
+
+classRouter.route("/ComposeClassContent/:class_id").put((req, res) => {
+  Class.findById(req.params.class_id, (err, _class) => {
+    if (err) res.send(err);
+    _class.content.push(req.body);
+    _class.save( err => {
+      if(err) res.send(err);
+      res.json({id: _class._id, message: "New Content Posted"});
+    });
   });
 });
 
@@ -69,7 +89,7 @@ classRouter.route("/create-class").post((req, res) => {
   _class.announcements = [];
   _class.save(err => {
     if (err) res.send(err);
-    res.json({ message: "Class Section Created" });
+    res.json({ id: _class, message: "Class Section Created" });
   });
 });
 

@@ -1,12 +1,14 @@
-//#header-div {
-//  height: 64px;
-//}
+#header-div {
+  height: 64px;
+  margin-bottom: 20px;
+  display: block;
+}
 
-//#header-div::after {
-//  content: "";
-//  clear: both;
-//  display: block;
-//}
+#header-div::after {
+  content: "";
+  clear: both;
+  display: block;
+}
 
 #header-nav {
   position: fixed;

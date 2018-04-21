@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
 import ClassItem from "./ClassMenuComponents/ClassMenuItem";
 import ClassList from "./ClassMenuComponents/ClassList";
 
@@ -101,27 +102,30 @@ class Fixedmenu extends Component {
         <h4 className="myclassesheader">My Classes</h4>
         <div className="divider" />
         <div className="dropdown">
-          <ClassList user={this.props.user} />
+          <ClassList />
           <Link to="/selectClasses">Select Classes</Link>
         </div>
       </React.Fragment>
     );
   };
   renderMenu = () => {
-    let user = this.props.user;
-    if (!(user.admin && user.teacher)) {
-      return this.renderClassList();
-    } else if (user.admin && user.teacher) {
-      return (
-        <React.Fragment>
-          {this.renderClassList()}
-          {this.renderAdminActions()}
-        </React.Fragment>
-      );
-    } else if (user.admin) {
-      return this.renderAdminActions();
-    } else if (user.teacher) {
-      return this.renderClassList();
+    if (this.props.user == null) {
+    } else {
+      let user = this.props.user;
+      if (!(user.admin && user.teacher)) {
+        return this.renderClassList();
+      } else if (user.admin && user.teacher) {
+        return (
+          <React.Fragment>
+            {this.renderClassList()}
+            {this.renderAdminActions()}
+          </React.Fragment>
+        );
+      } else if (user.admin) {
+        return this.renderAdminActions();
+      } else if (user.teacher) {
+        return this.renderClassList();
+      }
     }
   };
 
@@ -134,4 +138,8 @@ class Fixedmenu extends Component {
   }
 }
 
-export default Fixedmenu;
+var mapStateToProps = state => {
+  return { user: state.user };
+};
+
+export default withRouter(connect(mapStateToProps)(Fixedmenu));

@@ -61,11 +61,11 @@ renderUser = () => {
       return(
         <div className="user-col col s6 m6 l2 xl2">
           <div className="user-info">
-            <div class="user-pic-wrapper">
-              <img class="user-pic" src={this.state.feedItem.feedItem.authorAvatar} width="64"/>
+            <div className="user-pic-wrapper">
+              <img className="user-pic" src={this.state.feedItem.feedItem.authorAvatar} width="64"/>
             </div>
             <p className="user-name">{this.state.feedItem.feedItem.author}</p>
-            <p className="time">Dec 13, 2017</p>
+            <p className="time">{this.state.feedItem.feedItem.postDate}</p>
           </div>
         </div>
       );

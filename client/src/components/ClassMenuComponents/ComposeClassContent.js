@@ -1,13 +1,33 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import axios from 'axios';
+import { withRouter } from "react-router-dom";
+import FixedMenu from "../Fixedmenu";
 import Quill from "quill";
+import * as M from 'materialize-css';
 
-export default class ComposeClassContent extends Component {
+class ComposeClassContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        quill: ""
-    }
+      quill: "",
+      quillDelta: null,
+      deltaMarkup: null,
+      header: "",
+      redirectURL: "/"
+    };
   }
+
+  renderFixedMenu = () => {
+    switch (this.props.user) {
+      case null:
+        return "";
+      case false:
+        return "";
+      default:
+        return <FixedMenu user={this.props.user} />;
+    }
+  };
 
   componentDidMount() {
     //Setting up the Quill toolbar options
@@ -34,9 +54,92 @@ export default class ComposeClassContent extends Component {
     this.setState({ quill: quillInit });
   }
 
+  onHeaderChange = e => {
+    e.preventDefault();
+    this.setState({ header: e.target.value });
+  };
 
+  submitPost = () => {
+    //Grabs the delta from the quill state object
+    let delta = this.state.quill.getContents();
+    //Grabs the HTML from whithin the Quill edditor
+    let quill_innerHTML = document.getElementsByClassName("ql-editor")[0]
+      .innerHTML;
+    //Sets the states and calls upload event after
+    this.setState(
+      { deltaMarkup: quill_innerHTML, quillDelta: delta },
+      this.uploadPost
+    );
+  };
+
+  uploadPost = () => {
+    let post = {
+      author: this.props.user.displayName,
+      avatar: this.props.user.avatar,
+      header: this.state.header,
+      delta: this.state.quillDelta,
+      preview: this.state.deltaMarkup,
+      date: Date.now()
+    };
+
+    axios.put(`${"/api"}${this.props.location.pathname}`, post).then(res => {
+        M.toast({html: res.data.message});
+        this.setState({redirectURL: ("/ClassContent/" + res.data.id)}, this.redirectBack)
+    });
+  };
+
+  redirectBack = () => {
+      this.props.history.push(this.state.redirectURL)
+  }
 
   render() {
-    return <div />;
+    return (
+      <div className="container" style={style.container}>
+        <div className="row">
+          <div className="col s3">{this.renderFixedMenu()}</div>
+          <div id="event-editor-area" className="col s12 m7 l7 xl7">
+            <div className="event-editor-area-wrapper">
+              <div className="post-event-header">
+                <h4>Compose Post</h4>
+              </div>
+
+              <div className="post-event-body">
+                <form id="event-header">
+                  <input
+                    type="text"
+                    value={this.state.header}
+                    onChange={this.onHeaderChange}
+                    placeholder="Enter Post Header"
+                  />
+                </form>
+                <div id="quill-area">
+                  <div id="quill" />
+                  <button
+                    id="saveDelta"
+                    className="btn"
+                    onClick={this.submitPost}
+                  >
+                    SUBMIT
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
+
+const style = {
+  container: {
+    "min-height": "80vh",
+    "margin-top": "20px"
+  }
+};
+
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+export default withRouter(connect(mapStateToProps)(ComposeClassContent));
