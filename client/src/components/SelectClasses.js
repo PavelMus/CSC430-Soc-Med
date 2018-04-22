@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import axios from "axios";
 import * as M from "materialize-css";
+import Fixedmenu from "./Fixedmenu";
 
 class SelectClasses extends Component {
   constructor(props) {
@@ -185,7 +186,7 @@ class SelectClasses extends Component {
         return "";
       default:
         return (
-          <form className="col s8" onSubmit={this.onClassSubmit}>
+          <form className="col s8 m4 l6 xl6 offset-l1 offset-xl1" onSubmit={this.onClassSubmit}>
               <div className="col s12 input-field">
                 <select
                   defaultValue="1"
@@ -216,11 +217,14 @@ class SelectClasses extends Component {
 
   render() {
     return (
-      <div id="class-select-area" className="container">
-        <div id="class-select-wrap" className="row">
-          {this.renderForm()}
-
+      <div id="content-section-container" className="container">
+        <div className="row" id="content-area-row">
+          <div className="col s12 m2 l2 xl2">
+            <Fixedmenu />
+          </div>
+            {this.renderForm()}
           <div id="class-cart" className="col s3 l3 xl3">
+
             <h6>Selected Classes</h6>
             <div className="divider" />
             <ul className="col s12">
@@ -233,8 +237,8 @@ class SelectClasses extends Component {
           </div>
         </div>
         {this.state.renderModal?this.renderModal():""}
-
       </div>
+
     );
   }
 }
