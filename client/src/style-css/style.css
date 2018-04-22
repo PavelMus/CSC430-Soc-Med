@@ -486,10 +486,6 @@ body {
   margin-top: 20px;
   overflow: hidden; }
 
-#class-db-input {
-  width: 85%;
-  margin-top: 104px; }
-
 #verify-teacher-container {
   padding-top: 84px;
   max-width: 1240px;
@@ -501,15 +497,15 @@ body {
     border-bottom-left-radius: 1vh; }
 
 #class-select-area {
-  margin-top: 84px;
   min-height: 90vh;
   max-width: 1240px; }
   #class-select-area #class-select-wrap {
     padding: 20px;
     margin-bottom: 0;
-    background-color: white;
+    background-color: #c3ccd8;
     border-radius: 10px;
-    min-width: 798px; }
+    min-width: 798px;
+    min-height: 400px; }
     #class-select-area #class-select-wrap form {
       padding: 0; }
     #class-select-area #class-select-wrap #class-cart {
@@ -788,10 +784,14 @@ body {
           font-size: 12px; }
 
 #class-db-input {
-  margin-top: 140px;
+  position: relative;
+  top: 10%;
+  left: 5%;
   padding: 12px;
   border-radius: 5px;
-  border: 1px solid; }
+  border: 1px solid;
+  min-width: 500px;
+  max-width: 500px; }
   #class-db-input h3 {
     margin: 0;
     padding: 0;

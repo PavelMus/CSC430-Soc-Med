@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import axios from "axios";
 import * as M from "materialize-css";
+import Fixedmenu from "./Fixedmenu";
 
 class SelectClasses extends Component {
   constructor(props) {
@@ -232,30 +233,30 @@ class SelectClasses extends Component {
         return "";
       default:
         return (
-          <form className="col s8">
-            <div className="col s12 input-field">
-              <select
-                defaultValue="1"
-                id="cType"
-                onChange={this.selectedClassType}
-              >
-                <option disabled value="1">
-                  Select Class Type
-                </option>
-                <option value="CSC">CSC</option>
-                <option value="ENG">ENG</option>
-                <option value="MTH">MTH</option>
-              </select>
-              <label>Class Type</label>
-            </div>
-            <ul id="class-list" className="col s12">
-              <li className="col s2">Class</li>
-              <li className="col s4">Subject</li>
-              <li className="col s3">Instructor</li>
-              <li className="col s2">Section</li>
-              <div className="col s12 divider" />
-              {this.state.classList}
-            </ul>
+          <form className="col s8 m4 l6 xl6 offset-l1 offset-xl1" onSubmit={this.onClassSubmit}>
+              <div className="col s12 input-field">
+                <select
+                  defaultValue="1"
+                  id="cType"
+                  onChange={this.selectedClassType}
+                >
+                  <option disabled value="1">
+                    Select Class Type
+                  </option>
+                  <option value="CSC">CSC</option>
+                  <option value="ENG">ENG</option>
+                  <option value="MTH">MTH</option>
+                </select>
+                <label>Class Type</label>
+              </div>
+              <ul id="class-list" className="col s12">
+                <li className="col s2">Class</li>
+                <li className="col s4">Subject</li>
+                <li className="col s3">Instructor</li>
+                <li className="col s2">Section</li>
+                <div className="col s12 divider" />
+                {this.state.classList}
+              </ul>
           </form>
         );
     }
@@ -263,11 +264,14 @@ class SelectClasses extends Component {
 
   render() {
     return (
-      <div id="class-select-area" className="container">
-        <div id="class-select-wrap" className="row">
-          {this.renderForm()}
-
+      <div id="content-section-container" className="container">
+        <div className="row" id="content-area-row">
+          <div className="col s12 m2 l2 xl2">
+            <Fixedmenu />
+          </div>
+            {this.renderForm()}
           <div id="class-cart" className="col s3 l3 xl3">
+
             <h6>Selected Classes</h6>
             <div className="divider" />
 
@@ -283,8 +287,13 @@ class SelectClasses extends Component {
             </button>
           </div>
         </div>
+<<<<<<< HEAD
         {this.state.renderModal ? this.renderModal() : ""}
+=======
+        {this.state.renderModal?this.renderModal():""}
+>>>>>>> 62ca66e6110afb272bb1e2c673c9d8c921047cd7
       </div>
+
     );
   }
 }
