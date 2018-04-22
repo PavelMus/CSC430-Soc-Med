@@ -1,5 +1,6 @@
 #class-content-wrapper {
   height: 100vh;
+  padding: 0;
 }
 
 #class-content-section {
@@ -14,7 +15,7 @@
   overflow: auto;
   text-align: left;
   margin-top: 15px;
-  border-radius: 8px;
+  border-radius: 5px;
 
   .class-content-section-container {
     .content-header {

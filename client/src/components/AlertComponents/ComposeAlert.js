@@ -41,7 +41,25 @@ class ComposeAlert extends Component {
     let typePreview = document.querySelector('select');
     this.setState({previewType: typePreview.value})
   }
+  renderUser = () => {
+      switch (this.props.user) {
+        case null:
+          return "";
 
+        default:
+        return(
+          <div className="user-col col s6 m6 l1 xl1">
+            <div className="user-info">
+              <div class="user-pic-wrapper">
+                <img class="user-pic" src={this.props.user.avatar} width="64"/>
+              </div>
+                <p className="user-name">{this.props.user.displayName}</p>
+                <p className="time">Dec 13, 2017</p>
+            </div>
+          </div>
+        );
+      }
+  }
   render() {
     return (
       <div id="alert-section-container" className="container">
@@ -49,9 +67,12 @@ class ComposeAlert extends Component {
           <div className="col l3 lx3">
             <Fixedmenu user={this.props.user?this.props.user:""}/>
           </div>
+          {/* Here we are calling the renderUser function*/}
+          {this.renderUser()}
 
           <div id="alert-middle" className="col s12 m12 l7 xl7">
-            <div id="alert-left" className="col s12 m12 l2 xl2">
+
+            <div id="alert-type-selector" >
               <div className="input-field">
                   <select onChange={this.typeUpdate}>
                   <option value="1" disabled selected>Select Alert Type</option>
@@ -77,7 +98,6 @@ class ComposeAlert extends Component {
             </div>
             <a className="btn" onClick={this.submitAlert} href="#!">SUBMIT</a>
           </div>
-
         </div>
       </div>
     );

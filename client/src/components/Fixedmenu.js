@@ -20,7 +20,7 @@ class Fixedmenu extends Component {
         <li>
 
           <Link
-            className="waves-effect hoverable"
+            className="waves-effect menu-hoverable"
             onClick={this.props.close}
             to="/newNews"
           >
@@ -30,7 +30,7 @@ class Fixedmenu extends Component {
         </li>
         <li>
           <Link
-            className="waves-effect hoverable"
+            className="waves-effect menu-hoverable"
             onClick={this.props.close}
             to="/newEvent"
           >
@@ -40,7 +40,7 @@ class Fixedmenu extends Component {
         </li>
         <li>
           <Link
-            className="waves-effect hoverable"
+            className="waves-effect menu-hoverable"
             onClick={this.props.close}
             to="/newAlert"
           >
@@ -50,7 +50,7 @@ class Fixedmenu extends Component {
         </li>
 
         <li>
-          <Link className="waves-effect hoverable" onClick={this.props.close} to="/chat">
+          <Link className="waves-effect menu-hoverable" onClick={this.props.close} to="/chat">
             <i className="material-icons">chat</i>
             <span>Chat Testing</span>
           </Link>
@@ -65,35 +65,35 @@ class Fixedmenu extends Component {
         </li>
         <li>
           <Link
-            className="waves-effect hoverable"
+            className="admin-links waves-effect menu-hoverable"
             onClick={this.props.close}
             to="classDBInput"
           >
-            <i className="material-icons">input</i>
-            Input New Class
+            <i className=" material-icons">input</i>
+            <span>Input New Class</span>
           </Link>
         </li>
         <li>
           <Link
-            className="waves-effect hoverable"
+            className="admin-links waves-effect menu-hoverable"
             onClick={this.props.close}
             to="/VerifyTeacher"
           >
             <i className="material-icons">verified_user</i>
-            Verify Teacher
+            <span>Verify Teacher</span>
           </Link>
         </li>
         <li>
           <Link
-            className="waves-effect hoverable"
+            className="admin-links waves-effect menu-hoverable"
             onClick={this.props.close}
             to="/newClassSection"
           >
             <i className="material-icons">create_new_folder</i>
-              <div>
+
                 <span className="item-overflow">Create New Class Section</span>
 
-              </div>
+
           </Link>
         </li>
       </ul>
@@ -112,7 +112,7 @@ class Fixedmenu extends Component {
           />
           <div>
 
-              <Link className="select-class hoverable" to="/selectClasses">
+              <Link className="select-class menu-hoverable" to="/selectClasses">
                 <i className="material-icons">vertical_align_bottom</i>
               <span>Select Classes</span>
               </Link>

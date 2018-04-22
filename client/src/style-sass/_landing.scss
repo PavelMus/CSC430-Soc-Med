@@ -51,6 +51,7 @@ body {
   margin: 0 auto;
   width: 100%;
   text-align: center;
+  height: 100vh;
 }
 
 .middle-right-section {
@@ -67,4 +68,8 @@ body {
   .row {
     margin: 0;
   }
+}
+
+#event-section-container {
+  height: 100vh;
 }
