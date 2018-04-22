@@ -8,3 +8,20 @@ $primary-background: #1e88e5;
   //background-color: $primary-background;
   background-color: #3b5ca7;
 }
+
+.sidenav_avatars {
+  float: left;
+  top:auto;
+  bottom: auto;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+}
+
+.sidenav_username {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  top: 0;
+  bottom: 0;
+}

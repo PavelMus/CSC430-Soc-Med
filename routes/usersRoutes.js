@@ -29,6 +29,20 @@ router
       res.json(users);
     });
   });
+
+router
+  .route("/admin-list")
+  //retrieve all users from the database
+  .get(function(req, res) {
+    console.log("IN TEACHER LIST GET");
+    //looks at our Users Schema
+    Users.find({ admin: true }, (err, users) => {
+      if (err) res.send(err);
+      //responds with a json object of our database users.
+      res.json(users);
+    });
+  });
+
 router
   .route("/teacher-list/:class_type")
   //retrieve all users from the database

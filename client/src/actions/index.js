@@ -1,5 +1,6 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_TEACHERS, FETCH_POSTS, FETCH_CLASSES, FETCH_ANNOUNCEMENTS, SUBMIT_POST } from "./types";
+import { FETCH_USER, FETCH_TEACHERS, FETCH_ADMINS, FETCH_POSTS, 
+  FETCH_CLASSES, SUBMIT_POST } from "./types";
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/current_user");
@@ -16,14 +17,14 @@ export const fetchClasses = (userId) => async dispatch => {
   dispatch({ type: FETCH_CLASSES, classes: res.data });
 };
 
-export const fetchAnnouncements = (url) => async dispatch => {
-  const res = await axios.get(url);
-  dispatch({ type: FETCH_ANNOUNCEMENTS, announcements: res.data });
+export const fetchTeachers = () => async dispatch => {
+  const res = await axios.get("/api/teacher-list");
+  dispatch({ type: FETCH_TEACHERS, teachers: res.data });
 };
 
-export const fetchTeachers = (url) => async dispatch => {
-  const res = await axios.get(url);
-  dispatch({ type: FETCH_TEACHERS, teachers: res.data });
+export const fetchAdmins = () => async dispatch => {
+  const res = await axios.get("/api/admin-list");
+  dispatch({ type: FETCH_ADMINS, admins: res.data });
 };
 
 export const submitPost = (url, post) => async dispatch => {
