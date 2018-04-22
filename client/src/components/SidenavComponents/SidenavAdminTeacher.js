@@ -25,7 +25,7 @@ class SidenavAdminTeacher extends Component {
           <li key={admin._id + "admin"}>
             <a className="sidenav_username waves-effect" href="#!">
               <img src={admin.avatar}  alt="user avatar" className="sidenav_avatars" />
-              <p>{admin.displayName}</p>
+              <span>{admin.displayName}</span>
             </a>
           </li>
         );
@@ -42,7 +42,7 @@ class SidenavAdminTeacher extends Component {
           <li key={teacher._id + "teacher"}>
             <a className="sidenav_username waves-effect" href="#!">
               <img src={teacher.avatar}  alt="user avatar" className="sidenav_avatars" />
-              <p>{teacher.displayName}</p>
+              <span>{teacher.displayName}</span>
             </a>
           </li>
         );
