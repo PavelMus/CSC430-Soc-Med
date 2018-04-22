@@ -804,7 +804,7 @@ body {
     font-size: 14px;
     position: relative;
     display: block;
-    margin-bottom: 20px; }
+    margin-bottom: 5px; }
     #fixedmenu .dropdown .dropbtn {
       display: block;
       top: -4px;
@@ -924,10 +924,12 @@ body {
     display: block; }
     #fixedmenu .action-list .header-li {
       margin-left: 0;
-      height: 40px; }
+      height: 40px;
+      display: table; }
       #fixedmenu .action-list .header-li .subheader {
-        float: left;
-        font-size: 14px; }
+        font-size: 14px;
+        vertical-align: middle;
+        display: table-cell; }
         #fixedmenu .action-list .header-li .subheader .actions-header {
           color: black;
           font-size: 20px;

@@ -38,7 +38,7 @@
     font-size: 14px;
     position: relative;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 
     .dropbtn {
       //margin-bottom: 35px;
@@ -212,10 +212,12 @@
     .header-li {
       margin-left: 0;
       height: 40px;
+      display: table;
 
       .subheader {
-        float: left;
         font-size: 14px;
+        vertical-align: middle;
+        display: table-cell;
 
         .actions-header {
           color: black;

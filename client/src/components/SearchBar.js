@@ -6,7 +6,9 @@ class SearchBar extends Component {
       <div id="header-search-bar" className="col m4 l5 xl5">
         <form >
           <div className="input-field">
+            {/*
             <div className="input-field-wrapper">
+
               <label className="label-icon" htmlFor="search">
                 <i className="material-icons">search</i>
               </label>
@@ -14,6 +16,7 @@ class SearchBar extends Component {
 
                 <i className="material-icons">close</i>
             </div>
+            */}
           </div>
         </form>
       </div>
