@@ -64,11 +64,9 @@ class Fixedmenu extends Component {
             <span>Chat Testing</span>
           </Link>
         </li>
-        <li>
-          <div className="divider"></div>
-        </li>
 
-        <li>
+
+        <li className="header-li">
           <a className="subheader">
 
             <span>Admin Tools</span>
@@ -117,8 +115,8 @@ class Fixedmenu extends Component {
         <h4 className="myclassesheader">Classes</h4>
         <div className="divider" />
         <div className="dropdown">
-          <ClassList 
-          user={this.props.user} 
+          <ClassList
+          user={this.props.user}
           classes={this.props.classes}
           />
           <div>
