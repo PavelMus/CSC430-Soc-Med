@@ -56,7 +56,7 @@ class Announcements extends Component {
 
   renderContent = announcement =>{
     console.log(announcement);
-    
+
     let content = marked(announcement);
     return {__html: content};
   }
@@ -91,8 +91,8 @@ class Announcements extends Component {
             <Fixedmenu />
           </div>
 
-          <div id="class-content-wrapper" className="col s8 m8 l8 xl8 ">
-
+          <div id="class-content-wrapper" className="col s8 m8 l8 xl8 offset-l1 offset-xl1">
+              <div className="row">
               <div id="class-content-section" className="col s12 m3 l12 xl12 ">
                 <div className="class-content-section-container">
                   <div className="content-header">
@@ -103,7 +103,7 @@ class Announcements extends Component {
                   </ul>
                 </div>
               </div>
-
+              </div>
           </div>
 
           <div className="col s2">{this.renderTeacherActions()}</div>

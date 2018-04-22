@@ -8,25 +8,34 @@ class ClassMenuItem extends Component {
   }
   dropdownClick = e => {
     e.preventDefault();
+    console.log(e.target.target);
     if (e.target.target) {
       var element = document.getElementById(e.target.target);
+      var element_a = document.getElementById(e.target.target+"a_tag");
+      console.log(e.target);
     } else {
       var element = document.getElementById(e.target.parentElement.target);
+      //console.log(e.target.parentElement);
+      var element_a = document.getElementById(e.target.parentElement.target+"a_tag");
     }
 
+    //To show the Ul
     if (!element.classList.contains("show")) {
       element.classList.add("show");
+      element_a.classList.add("clicked");
     } else {
       element.classList.remove("show");
+      element_a.classList.remove("clicked");
     }
+
   };
   render() {
     return (
       <React.Fragment>
-        <a
+        <a id={this.props.class._id+"a_tag"}
           target={this.props.class._id}
           onClick={this.dropdownClick}
-          className="hoverable dropbtn"
+          className="menu-hoverable dropbtn"
         >
           <i className="left-icon material-icons">{iconType(this.props.class.type)}</i>
           <span>{this.props.class.type}{this.props.class.level}</span>
