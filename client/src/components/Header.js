@@ -102,6 +102,8 @@ class Header extends Component {
                   id="header-avatar"
                   className="circle z-depth-2"
                   src={this.props.user.avatar}
+                  height="50px"
+                  width="50px"
                 />
                 <span className="hide-on-med-and-down">
                   {this.props.user.displayName}
@@ -127,7 +129,7 @@ class Header extends Component {
                 </Link>
               </div>
               <SearchBar />
-              <div id="header-buttons" className="col m4 l4 xl4">
+              <div id="header-buttons" className="col m4 l5 xl5">
                 <ul className="right">{this.renderContent()}</ul>
               </div>
             </div>

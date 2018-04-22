@@ -67,8 +67,8 @@ class SelectClasses extends Component {
     let _s_index = _selected_classes.indexOf(_selected);
     _selected_classes.splice(_s_index, 1);
 
-    this.setState({class_cart: _class_cart, 
-      selected_classes: _selected_classes}, 
+    this.setState({class_cart: _class_cart,
+      selected_classes: _selected_classes},
       this.updateCartButton);
 
     let elem = document.getElementById(e.target.value);
@@ -102,8 +102,8 @@ class SelectClasses extends Component {
       );
     let selected = this.state.selected_classes;
     selected.push(class_id)
-    this.setState({class_cart: list, 
-      selected_classes: selected}, 
+    this.setState({class_cart: list,
+      selected_classes: selected},
       this.updateCartButton);
   }
 
@@ -217,21 +217,23 @@ class SelectClasses extends Component {
   render() {
     return (
       <div id="class-select-area" className="container">
-        <div className="row">
-          <div id="class-cart" className="col s4">
+        <div id="class-select-wrap" className="row">
+          {this.renderForm()}
+
+          <div id="class-cart" className="col s3 l3 xl3">
             <h6>Selected Classes</h6>
             <div className="divider" />
             <ul className="col s12">
               {this.state.class_cart}
             </ul>
-            <button id="checkout_button" 
+            <button id="checkout_button"
                     className="col s12 btn-small disabled"
                     onClick={this.submitClassRequest}
                     > submit request</button>
           </div>
-          {this.renderForm()}
         </div>
         {this.state.renderModal?this.renderModal():""}
+
       </div>
     );
   }

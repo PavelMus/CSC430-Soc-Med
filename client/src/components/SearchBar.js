@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class SearchBar extends Component {
   render() {
     return (
-      <div id="header-search-bar" className="col m4 l5 xl5">
+      <div id="header-search-bar" className="col m4 l4 xl4">
         <form >
           <div className="input-field">
             {/*

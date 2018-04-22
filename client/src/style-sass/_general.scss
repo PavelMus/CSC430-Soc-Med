@@ -1,73 +1,91 @@
-.ql-editor strong{
-    font-weight:bold;
+.ql-editor strong {
+  font-weight: bold;
 }
 
-#loading{
-    margin-top: 20px;
-    overflow: hidden;
+#loading {
+  margin-top: 20px;
+  overflow: hidden;
 }
 
-#class-db-input{
-    width: 85%;
-    margin-top: 104px;
+#class-db-input {
+  width: 85%;
+  margin-top: 104px;
 }
 
-#verify-teacher{
-    
-}
+#verify-teacher {}
 
 #verify-teacher-container {
-    padding-top: 84px;
-    max-width: 1240px;
-    width: 60%;
-    //margin-top: 22px;
-  
-    #verify-left {
-      background-color: $primarylight2;
-      height: 86vh;
-      border-top-left-radius: 1vh;
-      border-bottom-left-radius: 1vh;
+  padding-top: 84px;
+  max-width: 1240px;
+  width: 60%;
+  //margin-top: 22px;
+  #verify-left {
+    background-color: $primarylight2;
+    height: 86vh;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+  }
+}
+///Below we have the class section area
+
+#class-select-area {
+  margin-top: 84px;
+  min-height: 90vh;
+  max-width: 1240px;
+
+  #class-select-wrap {
+    padding: 20px;
+    margin-bottom: 0;
+    background-color: white;
+    border-radius: 10px;
+    min-width: 798px;
+
+    form {
+      padding: 0;
+    }
+
+    #class-cart {
+      border-style: solid;
+      border-width: 1px;
+      border-color: black;
+      border-radius: 0.66em;
+      margin-left: 20px;
+
+      h6 {
+        text-align: center;
+      }
+
+      li {
+        font-size: 0.82em;
+        text-align: center;
+      }
+
+      button {
+        padding: 0;
+        height: 18px;
+        line-height: inherit;
+        margin-bottom: 8px;
+      }
+    }
+
+    #class-list {
+      padding: 0;
+
+      li {
+        min-height: 24px;
+        margin-bottom: 8px;
+
+        button {
+          padding: 0 5px;
+          height: 20px;
+          line-height: inherit;
+          margin-bottom: 8px;
+        }
+      }
+
+      .divider {
+        margin-top: -10px;
+      }
     }
   }
-
-
-#class-select-area{
-    margin-top: 84px;
-    min-height: 90vh;
-    max-width: 1240px;
-    width: 60%;
-    #class-cart{
-        border-style: solid;
-        border-width: 1px;
-        border-color: black;
-        border-radius: 0.66em;
-        h6 {
-            text-align: center;
-        }
-        li {
-            font-size: 0.82em;
-            text-align: center;
-        }
-        button {
-            padding: 0px 0px;
-            height: 18px;
-            line-height: inherit;
-            margin-bottom: 8px;
-        }
-    }
-    #class-list {
-        li {
-            min-height: 24px;
-          margin-bottom: 8px;  
-          button {
-            padding: 0px 5px;
-            height: 20px;
-            line-height: inherit;
-            margin-bottom: 8px;
-          }
-        }
-        .divider {
-            margin-top: -10px;
-        }
-    }
 }

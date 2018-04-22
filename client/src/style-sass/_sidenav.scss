@@ -11,17 +11,31 @@ $primary-background: #1e88e5;
 
 .sidenav_avatars {
   float: left;
-  top:auto;
+  top: auto;
   bottom: auto;
   border-radius: 50%;
   width: 38px;
   height: 38px;
 }
 
-.sidenav_username {
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  top: 0;
-  bottom: 0;
+.sidenav {
+  li {
+    .subheader {
+      .material-icons {
+        margin-left: 5px;
+      }
+    }
+
+    .sidenav_username {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .sidenav_avatars {}
+
+      span {
+        margin-left: 12px;
+      }
+    }
+  }
 }
