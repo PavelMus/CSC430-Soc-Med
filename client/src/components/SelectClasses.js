@@ -22,7 +22,6 @@ class SelectClasses extends Component {
     let elem = document.getElementById("cType");
     let init = M.FormSelect.init(elem);
     this.setState({ formInit: init });
-    this.props.fetchTeachers("/api/teacher-list");
   }
 
   componentWillUnmount() {
@@ -30,7 +29,7 @@ class SelectClasses extends Component {
   }
 
   getTeacherName = id => {
-    let teacher = this.props.teachers.list.find(teacher => {
+    let teacher = this.props.teachers.find(teacher => {
       return teacher._id == id;
     });
     return teacher.displayName;
@@ -147,7 +146,7 @@ class SelectClasses extends Component {
     _classes.map(cls => {
       var i;
       for(i = 0; i < selected.length; i++){
-        if(cls._id === selected[i]) add_classes.push(cls._id);
+        if(cls._id === selected[i]) add_classes.push({classId: cls._id, verified: false});
       }
     });
     let data = {user: this.props.user._id, classes: add_classes};

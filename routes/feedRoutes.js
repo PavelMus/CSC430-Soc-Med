@@ -35,6 +35,13 @@ feedRouter
         
         res.json(feed);
       });
+    })
+    .delete((req, res) => {
+      Feed.remove({_id: req.params.feed_id}, (err, feed) => {
+        if (err)
+          res.send(err);
+        res.json({ message: 'Feed post has been deleted' });
+      });
     });
 
   /* This is the feed router for news posts, it is responsible for
