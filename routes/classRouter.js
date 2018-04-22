@@ -41,7 +41,7 @@ classRouter.route("/user_classes/:user_id").get((req, res) => {
   Users.findById(req.params.user_id, (err, user) => {
     if (err) res.send(err);
     let classes = user.classes.map( item => {
-      let x = Class.findById(item, (err, _class) => {
+      let x = Class.findById(item.class_id, (err, _class) => {
         if(err) throw(err);
         return _class;
       });

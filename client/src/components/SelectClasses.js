@@ -10,6 +10,7 @@ class SelectClasses extends Component {
     this.state = {
       classes: "",
       classList: "",
+      all_classes: null,
       class_cart: [],
       selected_classes: [],
       formInit: "",
@@ -21,7 +22,7 @@ class SelectClasses extends Component {
   componentDidMount() {
     let elem = document.getElementById("cType");
     let init = M.FormSelect.init(elem);
-    this.setState({ formInit: init });
+    this.setState({ formInit: init }, this.allClasses);
   }
 
   componentWillUnmount() {
@@ -40,9 +41,14 @@ class SelectClasses extends Component {
     this.setState({ selectedType: e.target.value }, this.loadClasses);
   };
 
+  allClasses = () => {
+    axios.get("/api/class-list").then(res => {
+      this.setState({ all_classes: res.data });
+    });
+  };
+
   loadClasses = () => {
-    axios.get(`${"/api/class-list"}/${this.state.selectedType}`)
-    .then(res => {
+    axios.get(`${"/api/class-list"}/${this.state.selectedType}`).then(res => {
       this.setState({ classes: res.data }, this.generateClassList);
     });
   };
@@ -58,106 +64,144 @@ class SelectClasses extends Component {
   removeFromCart = e => {
     e.preventDefault();
     let _class_cart = this.state.class_cart;
-    let _class = _class_cart.find(cls=>{return cls.key === e.target.value + "cart"});
+    let _class = _class_cart.find(cls => {
+      return cls.key === e.target.value + "cart";
+    });
     let index = _class_cart.indexOf(_class);
     _class_cart.splice(index, 1);
 
     let _selected_classes = this.state.selected_classes;
-    let _selected = _selected_classes.find(id => {return id === e.target.value});
+    let _selected = _selected_classes.find(id => {
+      return id === e.target.value;
+    });
     let _s_index = _selected_classes.indexOf(_selected);
     _selected_classes.splice(_s_index, 1);
 
-    this.setState({class_cart: _class_cart,
-      selected_classes: _selected_classes},
-      this.updateCartButton);
+    this.setState(
+      {
+        class_cart: _class_cart,
+        selected_classes: _selected_classes
+      },
+      this.updateCartButton
+    );
 
     let elem = document.getElementById(e.target.value);
-    elem.classList.remove("disabled");
-    elem.innerText = "select";
-  }
+    if (elem !== null) {
+      elem.classList.remove("disabled");
+      elem.innerText = "select";
+    }
+  };
 
   updateCartButton = () => {
     let elem = document.getElementById("checkout_button");
-    if(this.state.class_cart.length !== 0){
+    if (this.state.class_cart.length !== 0) {
       elem.classList.remove("disabled");
-    }else{
+    } else {
       elem.classList.add("disabled");
     }
-  }
+    this.generateClassList();
+  };
 
-  updateCart = class_id =>{
-    let _class = this.state.classes.find(_class =>{
-      return _class._id == class_id;
+  updateCart = class_id => {
+    let _class = this.state.classes.find(_class => {
+      return _class._id === class_id;
     });
     let list = this.state.class_cart;
     list.push(
-        <React.Fragment key={_class._id + "cart"}>
-          <li className="col s2">{_class.type}{_class.level}</li>
-          <li className="col s6">{_class.subject}</li>
-          <li className="col s2">{_class.section}</li>
-          <button className="col s2 btn-small" value={class_id} onClick={this.removeFromCart}>
-            <i className="material-icons">delete</i>
-          </button>
-        </React.Fragment>
-      );
+      <React.Fragment key={_class._id + "cart"}>
+        <li className="col s2">
+          {_class.type}
+          {_class.level}
+        </li>
+        <li className="col s6">{_class.subject}</li>
+        <li className="col s2">{_class.section}</li>
+        <button
+          className="col s2 btn-small"
+          value={_class._id}
+          onClick={this.removeFromCart}
+        >
+          <i className="material-icons">delete</i>
+        </button>
+      </React.Fragment>
+    );
     let selected = this.state.selected_classes;
-    selected.push(class_id)
-    this.setState({class_cart: list,
-      selected_classes: selected},
-      this.updateCartButton);
-  }
+    selected.push(class_id);
+    this.setState(
+      {
+        class_cart: list,
+        selected_classes: selected
+      },
+      this.updateCartButton
+    );
+  };
+
+  checkSelectedClasses = id => {
+    let x = {disabled: "", selected: "select"}
+    if (this.state.selected_classes === []) {
+      return x;
+    } else {
+      this.state.selected_classes.map(cls => {
+        if (cls === id) x = {disabled: "disabled", selected: "selected"};
+      });
+      return x;
+    }
+  };
 
   generateClassList = () => {
     let _classList = this.state.classes.map(_class => {
       let user_classes = this.props.user.classes;
-      if(user_classes.find(x => {
-        return x._id === _class._id;
-      })){}else{
-      return (
-        <React.Fragment key={_class._id}>
-          <li className="col s2">
-            {_class.type}
-            {_class.level}
-          </li>
-          <li className="col s4">{_class.subject}</li>
-          <li className="col s3">{this.getTeacherName(_class.teacher)}</li>
-          <li className="col s2">{_class.section}</li>
-          <li className="col s1">
-            <button
-              id={_class._id}
-              value={_class._id}
-              onClick={this.addClass}
-              className="waves-effect waves-light btn-small"
-            >
-              select
-            </button>
-          </li>
-        </React.Fragment>
-      );
-    }
+      if (
+        !user_classes.find(x => {
+          return x.class_id === _class._id;
+        })
+      ) {
+        let select_check = this.checkSelectedClasses(_class._id);
+        return (
+          <React.Fragment key={_class._id}>
+            <li className="col s2">
+              {_class.type}
+              {_class.level}
+            </li>
+            <li className="col s4">{_class.subject}</li>
+            <li className="col s3">{this.getTeacherName(_class.teacher)}</li>
+            <li className="col s2">{_class.section}</li>
+            <li className="col s1">
+              <button
+                id={_class._id}
+                value={_class._id}
+                onClick={this.addClass}
+                className={"waves-effect waves-light btn-small " + select_check.disabled}
+              >
+                {select_check.selected}
+              </button>
+            </li>
+          </React.Fragment>
+        );
+      }
     });
     this.setState({ classList: _classList });
   };
 
   submitClassRequest = () => {
-    let _classes = this.state.classes;
+    let _classes = this.state.all_classes;
     let selected = this.state.selected_classes;
     let add_classes = [];
     _classes.map(cls => {
       var i;
-      for(i = 0; i < selected.length; i++){
-        if(cls._id === selected[i]) add_classes.push({classId: cls._id, verified: false});
+      for (i = 0; i < selected.length; i++) {
+        if (cls._id === selected[i])
+          add_classes.push({ class_id: cls._id, verified: false });
       }
     });
-    let data = {user: this.props.user._id, classes: add_classes};
+    let data = { user: this.props.user._id, classes: add_classes };
     axios.put("/api/add_class_to_user", data).then(res => {
-      this.setState({renderModal: true});
+      this.setState({ renderModal: true });
     });
-  }
+  };
 
   backToFrontPage = () => {
     this.props.history.push("/");
-  }
+  };
 
   renderModal = () => {
     return (
@@ -166,7 +210,10 @@ class SelectClasses extends Component {
         <div className="modal">
           <div className="modal-content">
             <h5>Classes Added</h5>
-            <p>You will have to wait for a teacher or an administrator to verify your class selection.</p>
+            <p>
+              You will have to wait for a teacher or an administrator to verify
+              your class selection.
+            </p>
           </div>
           <div className="modal-footer">
             <button onClick={this.backToFrontPage}>close</button>
@@ -174,7 +221,7 @@ class SelectClasses extends Component {
         </div>
       </React.Fragment>
     );
-  }
+  };
 
   //The function waits for the fetchTeacher reducer to finish grabbing the data
   // of the teachers from the database before rendering out the form in order to prevent
@@ -185,30 +232,30 @@ class SelectClasses extends Component {
         return "";
       default:
         return (
-          <form className="col s8" onSubmit={this.onClassSubmit}>
-              <div className="col s12 input-field">
-                <select
-                  defaultValue="1"
-                  id="cType"
-                  onChange={this.selectedClassType}
-                >
-                  <option disabled value="1">
-                    Select Class Type
-                  </option>
-                  <option value="CSC">CSC</option>
-                  <option value="ENG">ENG</option>
-                  <option value="MTH">MTH</option>
-                </select>
-                <label>Class Type</label>
-              </div>
-              <ul id="class-list" className="col s12">
-                <li className="col s2">Class</li>
-                <li className="col s4">Subject</li>
-                <li className="col s3">Instructor</li>
-                <li className="col s2">Section</li>
-                <div className="col s12 divider" />
-                {this.state.classList}
-              </ul>
+          <form className="col s8">
+            <div className="col s12 input-field">
+              <select
+                defaultValue="1"
+                id="cType"
+                onChange={this.selectedClassType}
+              >
+                <option disabled value="1">
+                  Select Class Type
+                </option>
+                <option value="CSC">CSC</option>
+                <option value="ENG">ENG</option>
+                <option value="MTH">MTH</option>
+              </select>
+              <label>Class Type</label>
+            </div>
+            <ul id="class-list" className="col s12">
+              <li className="col s2">Class</li>
+              <li className="col s4">Subject</li>
+              <li className="col s3">Instructor</li>
+              <li className="col s2">Section</li>
+              <div className="col s12 divider" />
+              {this.state.classList}
+            </ul>
           </form>
         );
     }
@@ -223,17 +270,20 @@ class SelectClasses extends Component {
           <div id="class-cart" className="col s3 l3 xl3">
             <h6>Selected Classes</h6>
             <div className="divider" />
-            <ul className="col s12">
-              {this.state.class_cart}
-            </ul>
-            <button id="checkout_button"
-                    className="col s12 btn-small disabled"
-                    onClick={this.submitClassRequest}
-                    > submit request</button>
+
+            <ul className="col s12">{this.state.class_cart}</ul>
+
+            <button
+              id="checkout_button"
+              className="col s12 btn-small disabled"
+              onClick={this.submitClassRequest}
+            >
+              {" "}
+              submit request
+            </button>
           </div>
         </div>
-        {this.state.renderModal?this.renderModal():""}
-
+        {this.state.renderModal ? this.renderModal() : ""}
       </div>
     );
   }
