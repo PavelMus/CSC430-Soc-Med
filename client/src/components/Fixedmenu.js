@@ -27,18 +27,19 @@ class Fixedmenu extends Component {
           </a>
         </li>
         <li>
-          <i className="material-icons">public</i>
+
           <Link
-            className="waves-effect"
+            className="waves-effect hoverable"
             onClick={this.props.close}
             to="/newNews"
           >
+          <i className="material-icons">public</i>
             <span className="action">Post News Item</span>
           </Link>
         </li>
         <li>
           <Link
-            className="waves-effect"
+            className="waves-effect hoverable"
             onClick={this.props.close}
             to="/newEvent"
           >
@@ -48,7 +49,7 @@ class Fixedmenu extends Component {
         </li>
         <li>
           <Link
-            className="waves-effect"
+            className="waves-effect hoverable"
             onClick={this.props.close}
             to="/newAlert"
           >
@@ -58,46 +59,52 @@ class Fixedmenu extends Component {
         </li>
 
         <li>
-          <Link className="waves-effect" onClick={this.props.close} to="/chat">
+          <Link className="waves-effect hoverable" onClick={this.props.close} to="/chat">
             <i className="material-icons">chat</i>
             <span>Chat Testing</span>
           </Link>
         </li>
         <li>
-          <div className="divider" />
+          <div className="divider"></div>
         </li>
 
         <li>
           <a className="subheader">
-            
+
             <span>Admin Tools</span>
           </a>
         </li>
         <li>
           <Link
-            className="waves-effect"
+            className="waves-effect hoverable"
             onClick={this.props.close}
             to="classDBInput"
           >
+            <i className="material-icons">input</i>
             Input New Class
           </Link>
         </li>
         <li>
           <Link
-            className="waves-effect"
+            className="waves-effect hoverable"
             onClick={this.props.close}
             to="/VerifyTeacher"
           >
+            <i className="material-icons">verified_user</i>
             Verify Teacher
           </Link>
         </li>
         <li>
           <Link
-            className="waves-effect"
+            className="waves-effect hoverable"
             onClick={this.props.close}
             to="/newClassSection"
           >
-            Create A New Class Section
+            <i className="material-icons">create_new_folder</i>
+              <div>
+                <span className="item-overflow">Create New Class Section</span>
+
+              </div>
           </Link>
         </li>
       </ul>
@@ -115,9 +122,12 @@ class Fixedmenu extends Component {
           classes={this.props.classes}
           />
           <div>
-            <span>
-              <Link className="select-class" to="/selectClasses">Select Classes</Link>
-            </span>
+
+              <Link className="select-class hoverable" to="/selectClasses">
+                <i className="material-icons">vertical_align_bottom</i>
+              <span>Select Classes</span>
+              </Link>
+
           </div>
         </div>
       </React.Fragment>

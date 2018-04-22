@@ -76,7 +76,7 @@ class Newsfeed extends Component {
       default:
         let { feed } = this.state;
         return (
-          <div className="col s12 m4 l8 xl6" id="newsfeed">
+          <div className="col s12 m4 l8 xl6 offset-l1 offset-xl1" id="newsfeed">
             {feed.map( data => (
               <FeedPost
               author={data.feedItem.author}

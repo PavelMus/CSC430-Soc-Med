@@ -173,7 +173,8 @@
     height: 64px;
     margin: 0; }
     #header-nav #nav-wrapper #header-row #header-logo {
-      height: 64px; }
+      height: 64px;
+      padding: 0; }
       #header-nav #nav-wrapper #header-row #header-logo .brand-logo {
         height: 64px; }
         #header-nav #nav-wrapper #header-row #header-logo .brand-logo img {
@@ -182,7 +183,8 @@
       #header-nav #nav-wrapper #header-row #header-logo a {
         height: 64px; }
     #header-nav #nav-wrapper #header-row #header-search-bar {
-      height: 64px; }
+      height: 64px;
+      padding: 0; }
       #header-nav #nav-wrapper #header-row #header-search-bar .input-field {
         display: flex;
         align-items: center; }
@@ -291,6 +293,9 @@ body {
   #alert-section .btn {
     background-color: #1565c0;
     margin-bottom: 10px; }
+
+#alert-section-container {
+  padding-top: 0; }
 
 #newsfeed {
   min-width: 500px;
@@ -763,8 +768,9 @@ body {
 
 #fixedmenu {
   margin: 0;
-  padding: 0 10px 10px;
+  padding: 0;
   max-width: 200px;
+  width: 200px;
   margin: 0 auto;
   height: 600px;
   position: fixed;
@@ -776,19 +782,23 @@ body {
   /* Change color of dropdown links on hover */
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */ }
   #fixedmenu .fixedmenu-wrapper {
+    margin-left: 50px;
+    width: 200px;
     max-width: 200px;
-    padding: 8px; }
+    padding: 0; }
   #fixedmenu .fixedmenu-wrapper .myclassesheader {
+    color: #414750;
     margin: 0;
     padding: 0;
     text-align: left;
     font-size: 1.5rem; }
-    #fixedmenu .fixedmenu-wrapper .myclassesheader .divider {
-      height: 2px;
-      overflow: hidden;
-      border: black;
-      color: black;
-      background-color: black !important; }
+  #fixedmenu .fixedmenu-wrapper .divider {
+    margin-top: 8px;
+    height: 0;
+    overflow: hidden;
+    border: black;
+    color: black;
+    background-color: black !important; }
   #fixedmenu .dropdown {
     float: left;
     font-size: 14px;
@@ -809,6 +819,8 @@ body {
       z-index: auto;
       margin-top: 10px; }
       #fixedmenu .dropdown .dropbtn:focus, #fixedmenu .dropdown .dropbtn:hover {
+        border: 1px solid;
+        border-radius: 2px;
         background-color: #E0E7F9;
         color: #6694F8; }
       #fixedmenu .dropdown .dropbtn span {
@@ -825,21 +837,36 @@ body {
         margin-left: 8px;
         float: right;
         position: relative;
-        top: -8px;
+        top: -6px;
         left: 5px; }
     #fixedmenu .dropdown div {
       min-width: 140px; }
-      #fixedmenu .dropdown div span .select-class {
-        margin-top: 10px;
+      #fixedmenu .dropdown div .select-class {
         color: black;
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: flex-start; }
+        justify-content: center;
+        margin-top: 4px;
+        padding: 8px 8px 8px 4px; }
+        #fixedmenu .dropdown div .select-class:focus, #fixedmenu .dropdown div .select-class:hover {
+          border: 1px solid;
+          border-radius: 2px;
+          background-color: #E0E7F9;
+          color: #6694F8; }
+        #fixedmenu .dropdown div .select-class .material-icons {
+          font-size: 24px;
+          float: left;
+          position: relative;
+          top: 0;
+          left: -11px; }
+        #fixedmenu .dropdown div .select-class span {
+          margin-left: 0; }
   #fixedmenu .class-item {
     display: none;
     position: relative;
-    top: -5px;
+    margin-top: 0;
+    top: 0;
     background-color: #f1f1f1;
     color: black;
     min-width: 90px;
@@ -906,21 +933,25 @@ body {
           font-size: 20px;
           text-align: left; }
         #fixedmenu .action-list .header-li .subheader .material-icons {
-          float: left; }
+          float: left;
+          display: inline-block; }
           #fixedmenu .action-list .header-li .subheader .material-icons .actions {
             float: left;
             margin-left: 12px; }
+        #fixedmenu .action-list .header-li .subheader .running-link {
+          display: inline-block; }
         #fixedmenu .action-list .header-li .subheader span {
           display: flex;
-          align-items: flex-start; }
+          align-items: flex-start;
+          margin: 0; }
     #fixedmenu .action-list li {
+      padding: 0;
       height: 40px;
       width: 200px; }
       #fixedmenu .action-list li .subheader span {
         font-size: 18px;
         color: black;
-        display: flex;
-        align-items: flex-start; }
+        float: left; }
       #fixedmenu .action-list li .material-icons {
         font-size: 20px;
         color: black;
@@ -928,12 +959,29 @@ body {
         margin-right: 12px; }
       #fixedmenu .action-list li .waves-effect {
         color: black;
-        float: left; }
+        float: left;
+        padding: 10px 10px 10px 4px;
+        min-width: 138px; }
+        #fixedmenu .action-list li .waves-effect:focus, #fixedmenu .action-list li .waves-effect:hover {
+          border: 1px solid;
+          border-radius: 2px;
+          background-color: #E0E7F9;
+          color: #6694F8; }
         #fixedmenu .action-list li .waves-effect a {
           color: black;
           float: left; }
           #fixedmenu .action-list li .waves-effect a .action {
+            display: flex;
+            align-items: flex-start;
             color: black;
             font-size: 8px;
             padding-left: 12px;
             margin-left: 12px; }
+        #fixedmenu .action-list li .waves-effect span {
+          font-size: 13px;
+          display: flex;
+          align-items: flex-start; }
+        #fixedmenu .action-list li .waves-effect .item-overflow {
+          position: relative;
+          left: -7px;
+          margin: 0; }

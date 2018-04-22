@@ -17,7 +17,7 @@ class FrontPage extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="col s12 m2 l3 xl3">
+          <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
           <Newsfeed pollInterval = {5000}/>
@@ -27,9 +27,5 @@ class FrontPage extends Component {
     );
   }
 }
-
-//var mapStateToProps = state => {
-//  return { user: state.user };
-//};
 
 export default withRouter(connect(null, actions)(FrontPage));
