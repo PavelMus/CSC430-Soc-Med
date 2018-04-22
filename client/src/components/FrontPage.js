@@ -13,7 +13,7 @@ class FrontPage extends Component {
 
   //renderFixedMenu = () => {
   //  switch (this.props.user) {
-  //    case null:   
+  //    case null:
   //      return "";
   //    case false:
   //      return "";
@@ -28,7 +28,7 @@ class FrontPage extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="col s12 m2 l3 xl3">
+          <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
           <Newsfeed pollInterval = {5000}/>
