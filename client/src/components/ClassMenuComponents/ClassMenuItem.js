@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {iconType} from './iconTypes'
 
 class ClassMenuItem extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class ClassMenuItem extends Component {
           onClick={this.dropdownClick}
           className="hoverable dropbtn"
         >
-          <i className="left-icon material-icons">code</i>
+          <i className="left-icon material-icons">{iconType(this.props.class.type)}</i>
           <span>{this.props.class.type}{this.props.class.level}</span>
           <i className="right-icon material-icons">arrow_drop_down</i>
         </a>

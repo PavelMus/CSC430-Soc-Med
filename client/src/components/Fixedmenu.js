@@ -4,15 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 import ClassItem from "./ClassMenuComponents/ClassMenuItem";
 import ClassList from "./ClassMenuComponents/ClassList";
 
-//Below we have the corresopding icons for each type of class
-// Accounting ACC icon = account_balance
-// Business BUS 160 = business_center
-// English 111 = mode_edit
-// Astronomy AST 120 = wb_sunny
-// Biology BIO 170 = accessibility
-// History COR 100 = history
-// Computer Science CSC 126 = code
-// Math MTH = add_box
 class Fixedmenu extends Component {
   constructor(props) {
     super(props);
