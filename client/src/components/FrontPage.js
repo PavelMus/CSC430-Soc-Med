@@ -10,17 +10,6 @@ class FrontPage extends Component {
   constructor(props) {
     super(props);
   }
-
-  //renderFixedMenu = () => {
-  //  switch (this.props.user) {
-  //    case null:   
-  //      return "";
-  //    case false:
-  //      return "";
-  //    default:
-  //      return <Fixedmenu />;
-  //  }
-  //}
   componentDidMount(){
     this.props.fetchUser();
   }

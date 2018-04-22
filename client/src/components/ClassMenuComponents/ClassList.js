@@ -14,13 +14,12 @@ class ClassList extends Component {
   }
 
   componentDidMount(){
-    this.props.user.classes
-    ?this.setState({classes: this.props.user.classes}, this.generateClassList)
-    :'';
+    //this.setState({classes: this.props.classes}, this.generateClassList);
+    this.generateClassList();
   }
   
   generateClassList = () => {
-    let classes = this.state.classes;
+    let classes = this.props.classes;
     let classList = classes.map(cls => {
       return (
         <ClassItem key={cls._id} class={cls} />
@@ -34,8 +33,4 @@ class ClassList extends Component {
   }
 }
 
-var mapStateToProps = state => {
-  return { user: state.user };
-};
-
-export default withRouter(connect(mapStateToProps)(ClassList));
+export default ClassList;

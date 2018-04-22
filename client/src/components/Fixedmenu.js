@@ -110,7 +110,10 @@ class Fixedmenu extends Component {
         <h4 className="myclassesheader">Classes</h4>
         <div className="divider" />
         <div className="dropdown">
-          <ClassList user={this.props.user} />
+          <ClassList 
+          user={this.props.user} 
+          classes={this.props.classes}
+          />
           <div>
             <span>
               <Link className="select-class" to="/selectClasses">Select Classes</Link>
@@ -121,7 +124,7 @@ class Fixedmenu extends Component {
     );
   };
   renderMenu = () => {
-    if (this.props.user == null) {
+    if (this.props.user == null || this.props.classes == null) {
     } else {
       let user = this.props.user;
       if (!(user.admin && user.teacher)) {
@@ -153,7 +156,7 @@ class Fixedmenu extends Component {
 }
 
 var mapStateToProps = state => {
-  return { user: state.user };
+  return { user: state.user, classes: state.classes };
 };
 
 export default withRouter(connect(mapStateToProps)(Fixedmenu));

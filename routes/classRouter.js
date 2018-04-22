@@ -37,6 +37,20 @@ classRouter.route("/class/:class_id").get((req, res) => {
   });
 });
 
+classRouter.route("/user_classes/:user_id").get((req, res) => {
+  Users.findById(req.params.user_id, (err, user) => {
+    if (err) res.send(err);
+    let classes = user.classes.map( item => {
+      let x = Class.findById(item, (err, _class) => {
+        if(err) throw(err);
+        return _class;
+      });
+      return x;
+    });
+    Promise.all(classes).then(all_classes => res.json(all_classes));
+  });
+});
+
 //Finding a class based on its id and grab the announcements
 classRouter.route("/ClassAnnouncements/:class_id").get((req, res) => {
   Class.findById(req.params.class_id, function(err, _class) {

@@ -59,6 +59,7 @@ class Header extends Component {
               admin={user.admin}
               teacher={user.teacher}
               close={this.closeSideNav}
+              id={user._id}
             />
         );
     }

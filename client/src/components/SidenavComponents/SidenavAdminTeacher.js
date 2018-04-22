@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class SidenavAdminTeacher extends Component {
   render() {
@@ -7,11 +7,11 @@ export default class SidenavAdminTeacher extends Component {
         <li>
           <a className="subheader">
             <i className="material-icons">face</i>
-            TEACHERS
+            ADMINS
           </a>
         </li>
         <li>
-          <a className="waves-effect" href="#!">Teacher 1</a>
+          <a className="waves-effect" href="#!">{this.props.user.id}</a>
         </li>
         <li>
           <a className="waves-effect" href="#!">Teacher 2</a>
@@ -28,27 +28,53 @@ export default class SidenavAdminTeacher extends Component {
         <li>
           <a className="subheader">
             <i className="material-icons">school</i>
-            CLASSMATES
+            TEACHERS
           </a>
         </li>
         <li>
           <a className="waves-effect" href="#!">
-            Classmate 1
+            Teacher 1
           </a>
         </li>
         <li>
           <a className="waves-effect" href="#!">
-            Classmate 2
+          Teacher 2
           </a>
         </li>
         <li>
           <a className="waves-effect" href="#!">
-            Classmate 3
+          Teacher 3
           </a>
         </li>
         <li>
           <a className="waves-effect" href="#!">
-            Classmate 4
+          Teacher 4
+          </a>
+        </li>
+        <li>
+          <a className="subheader">
+            <i className="material-icons">school</i>
+            STUDENTS
+          </a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">
+            Student 1
+          </a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">
+            Student 2
+          </a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">
+            Student 3
+          </a>
+        </li>
+        <li>
+          <a className="waves-effect" href="#!">
+            Student 4
           </a>
         </li>
       </React.Fragment>

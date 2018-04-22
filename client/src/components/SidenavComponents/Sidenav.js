@@ -12,10 +12,14 @@ class Sidenav extends Component {
     super(props);
   }
 
+  componentDidMount(){
+    this.props.fetchClasses(this.props.id);
+  }
+
   renderContent = () => {
     let user = this.props;
     if(user.admin && user.teacher){
-      return <AdminTeacher/>;
+      return <AdminTeacher user={this.props}/>;
     } else if(user.admin){
       return <Admin close={this.props.close}/>;
     }else if(user.teacher){
@@ -54,4 +58,8 @@ class Sidenav extends Component {
   }
 }
 
-export default Sidenav;
+const mapStateToProps = state => {
+  return {classes: state.classes}
+}
+
+export default connect(mapStateToProps, actions)(Sidenav);

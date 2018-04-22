@@ -147,7 +147,7 @@ class SelectClasses extends Component {
     _classes.map(cls => {
       var i;
       for(i = 0; i < selected.length; i++){
-        if(cls._id === selected[i]) add_classes.push(cls);
+        if(cls._id === selected[i]) add_classes.push(cls._id);
       }
     });
     let data = {user: this.props.user._id, classes: add_classes};
