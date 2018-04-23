@@ -28,6 +28,17 @@
   .sidenav li .sidenav_username span {
     margin-left: 12px; }
 
+.hidden {
+  display: none !important; }
+
+.sidenav_subheader {
+  width: 100%; }
+  .sidenav_subheader .right-icon {
+    float: right !important; }
+
+.sidenav_subheader:hover {
+  background-color: #c3ccd8; }
+
 .alert-box {
   display: block;
   width: 100%;
@@ -673,8 +684,9 @@ body {
 
 #alert-preview {
   width: 50%;
-  display: block;
-  float: center; }
+  display: inline-block; }
+  #alert-preview h4 {
+    font-size: 16px; }
 
 .feed-item-container {
   background-color: #fff;
@@ -696,6 +708,47 @@ body {
     overflow: auto; }
     .feed-item-container .feed-item-body p {
       line-height: 1.8; }
+
+#alert-type-selector {
+  float: left;
+  top: 0;
+  width: 40%;
+  display: inline-block; }
+  #alert-type-selector .input-field label {
+    color: black; }
+
+.input-field .active {
+  color: black; }
+
+/* label color */
+.input-field label {
+  color: #000; }
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #000; }
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000; }
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000; }
+
+.btn {
+  background-color: #1565c0; }
 
 .user-col {
   text-align: right; }
@@ -798,6 +851,11 @@ body {
     font-size: 24px; }
   #class-db-input form {
     width: 80%; }
+
+.right-content-wrapper {
+  overflow: auto;
+  height: 600px;
+  min-height: 600px; }
 
 #fixedmenu {
   margin: 0;

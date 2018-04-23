@@ -233,7 +233,7 @@ class SelectClasses extends Component {
         return "";
       default:
         return (
-          <form className="col s8 m4 l6 xl6 offset-l1 offset-xl1" onSubmit={this.onClassSubmit}>
+          <form className="col s8 m4 l7 xl7" onSubmit={this.onClassSubmit}>
               <div className="col s12 input-field">
                 <select
                   defaultValue="1"
@@ -269,23 +269,27 @@ class SelectClasses extends Component {
           <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
+
+          <div className="right-content-wrapper col s8 m4 l9 xl9 offset-l1 offset-xl1">
             {this.renderForm()}
-          <div id="class-cart" className="col s3 l3 xl3">
+            <div id="class-cart" className="col s3 l3 xl3">
 
-            <h6>Selected Classes</h6>
-            <div className="divider" />
+              <h6>Selected Classes</h6>
+              <div className="divider" />
 
-            <ul className="col s12">{this.state.class_cart}</ul>
+              <ul className="col s12">{this.state.class_cart}</ul>
 
-            <button
-              id="checkout_button"
-              className="col s12 btn-small disabled"
-              onClick={this.submitClassRequest}
-            >
-              {" "}
-              submit request
-            </button>
+              <button
+                id="checkout_button"
+                className="col s12 btn-small disabled"
+                onClick={this.submitClassRequest}
+              >
+                {" "}
+                submit request
+              </button>
+            </div>
           </div>
+
         </div>
         {this.state.renderModal ? this.renderModal() : ""}
       </div>
