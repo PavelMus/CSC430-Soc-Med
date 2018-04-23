@@ -345,3 +345,12 @@
 .menu-hoverable:hover {
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+///Menu chips //
+.verify-chip {
+  display: inline;
+  position: relative;
+  font-size: 0.6em;
+  margin: 0;
+  padding: 0px 10px;
+}

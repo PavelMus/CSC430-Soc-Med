@@ -23,6 +23,7 @@ import ComposeClassContent from './ClassMenuComponents/ComposeClassContent';
 import ClassContentItem from './ClassMenuComponents/ClassContentItem';
 import Announcements from "./ClassMenuComponents/Announcements";
 import ComposeClassAnnouncements from "./ClassMenuComponents/ComposeClassAnnouncements";
+import VerifyStudents from './ClassMenuComponents/VerifyStudents'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +38,7 @@ class App extends Component {
           <Route exact path="/newNews" component={ComposeNews} />
           <Route exact path="/newAlert" component={ComposeAlert} />
           <Route exact path="/posts" component={PostIndex} />
-          <Route ecavt path="/chat" component={chat} />
+          <Route path="/chat" component={chat} />
           <Route path="/feed" component={FeedItem} />
           <Route exact path="/register" component={Registration} />
           <Route exact path="/login" component={Login} />
@@ -50,6 +51,7 @@ class App extends Component {
           <Route exact path="/VerifyTeacher" component={VerifyTeacher} />
           <Route exact path="/newClassSection" component={ComposeClass} />
           <Route exact path="/selectClasses" component={SelectClasses} />
+          <Route path="/VerifyStudents" component={VerifyStudents} />
         </div>
       </BrowserRouter>
     );

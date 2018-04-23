@@ -51,12 +51,29 @@ classRouter.route("/user_classes/:user_id").get((req, res) => {
   });
 });
 
-classRouter.route("/verify_user_of_class/:class_id").put((req, res)=>{
-  Class.findById(req.params.class_id, (err, _class)=>{
+classRouter.route("/verify_user_of_class").put((req, res)=>{
+  Class.findById(req.body.class_id, (err, _class)=>{
     if(err) throw err;
-    //_class.unverifiedStudents
-    //console.log(req.body.user);
-    
+    let index = _class.unverifiedStudents.indexOf(req.body.user_id);
+    let temp_user = _class.unverifiedStudents.splice(index, 1);
+    let temp_array = _class.studentList.concat(temp_user);
+    _class.studentList = temp_array;
+    _class.save(err => {
+      if(err) res.send(err);
+      Users.findById(req.body.user_id, (err, user) => {
+        let temp_class = user.classes.find(_class => {
+          return _class.class_id === req.body.class_id;
+        });
+        let index = user.classes.indexOf(temp_class);
+        user.classes.splice(index, 1);
+        temp_class.verified = true;
+        user.classes.push(temp_class);
+        user.save(err => {
+          if(err) throw err;
+        });
+      });
+      res.json({message: "Student verified!"});
+    });
   });
 });
 

@@ -31,14 +31,14 @@ class SidenavAdminTeacher extends Component {
       let adminList = admins.map(admin => {
         return (
           <li key={admin._id + "admin"}>
-            <a className="sidenav_username waves-effect" href="#!">
+            <Link onClick={this.props.close} className="sidenav_username waves-effect" to={`${"/chat"}/${admin._id}`}>
               <img
                 src={admin.avatar}
                 alt="user avatar"
                 className="sidenav_avatars"
               />
               <span>{admin.displayName}</span>
-            </a>
+            </Link>
           </li>
         );
       });

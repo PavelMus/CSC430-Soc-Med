@@ -27,6 +27,7 @@ class Sidenav extends Component {
             user={this.props}
             admins={this.props.admins}
             teachers={this.props.teachers}
+            close={this.props.close}
           />
         );
       } else if (user.admin) {
@@ -35,6 +36,7 @@ class Sidenav extends Component {
             user={this.props}
             admins={this.props.admins}
             teachers={this.props.teachers}
+            close={this.props.close}
           />
         );
       } else if (user.teacher) {
@@ -43,10 +45,11 @@ class Sidenav extends Component {
             user={this.props}
             admins={this.props.admins}
             teachers={this.props.teachers}
+            close={this.props.close}
           />
         );
       } else
-        return <Student user={this.props} teachers={this.props.teachers} />;
+        return <Student user={this.props} teachers={this.props.teachers} close={this.props.close} />;
     }
   };
 

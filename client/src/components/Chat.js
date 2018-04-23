@@ -6,45 +6,68 @@ class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "https://nameless-lake-54965.herokuapp.com",
+      endpoint: "http://localhost:5000",
       messages: [],
-      socketInterval: null,
       socket: null,
-      textbox: ""
+      textbox: "",
+      roomID: ''
     };
   }
   // https://nameless-lake-54965.herokuapp.com
 
-  socketInit = () =>{
-    if(this.state.socket == null){
-      let socket = socketIO(this.state.endpoint);
-      this.setState({socket: socket}, this.checkSockets);
-    }
-
-  }
   componentDidMount() {
-   // if (!this.state.socketInterval){
-     // let pollInterval = setInterval(
-     //   this.checkSockets,
-     //   1000
-      //);
-      this.socketInit();
-      //this.setState({socketInterval: pollInterval});
-  //  }
+    this.socketInit();
+    document.getElementById("sendmessage").addEventListener('keydown', e =>{
+      e.preventDefault();
+      if(e.keyCode == 13) this.sendText();
+    }, false);
   }
+
+  socketInit = () =>{
+    if(this.props.user == null){
+      setTimeout(this.socketInit, 100);
+    }
+    else if(this.state.socket === null){
+      let socket = socketIO(this.state.endpoint);
+      socket.on('private response', data => {
+        this.updateChat(data.message);
+      });
+      let new_roomID = this.generateRoomID();
+      this.setState({socket: socket, roomID: new_roomID}, this.connectToRoom);
+    }
+  }
+
+  connectToRoom = () => {
+    this.state.socket.emit('subscribe', this.state.roomID);
+  }
+
+  generateRoomID = () => {
+    let user1 = this.props.user._id;
+    let user2 = this.props.location.pathname.slice(6);
+    console.log(this.props.location.pathname.slice(6));
+    
+    let index = 0;
+    let roomId = "";
+    if(user1.length < user2.length){
+      index = user1.length;}
+      else{
+        index = user2.length;}
+    for(var i = 0; i < index; i++){
+      let temp1 = user1.slice(i,i+1);
+      let temp2 = user2.slice(i, i+1);
+      let tempRoomIdPart = String(parseInt(temp1, 16)+parseInt(temp2, 16));
+      roomId += tempRoomIdPart;
+    }
+    return roomId;
+  }
+
   componentWillUnmount() {
-    this.state.socketInterval && clearInterval(this.state.socketInterval);
-    this.setState({socketInterval: null});
+    console.log("UNMOUNT");
+    this.state.socket.disconnect();
   }
 
   updateChat = (msg) => {
-    let newChat = this.state.messages.concat(msg.message);
-    console.log(this.state.textbox);
-
-    console.log(msg);
-    console.log(this.state.messages);
-
-
+    let newChat = this.state.messages.concat(msg);
     this.setState({messages: newChat});
   }
 
@@ -63,32 +86,18 @@ class Chat extends Component {
     }
   }
 
-  checkSockets = () => {
-    this.state.socket.on("text", message => {
-      console.log(message);
-      this.updateChat(message);
-    });
-    this.state.socket.on('socket-data', (data) =>{
-      console.log(data);
-    });
-  }
-
   sendText = (e) => {
-    e.preventDefault();
-    //const socket = socketIO(this.state.endpoint);
-    //console.log(e.taget);
-
+    e.preventDefault()
     // this emits an event to the socket (your server) with an argument of 'red'
     // you can make the argument any color you would like, or any kind of data you want to send.
-
-    this.state.socket.emit("text", {message: this.state.textbox});
-
-    // socket.emit('change color', 'red', 'yellow') | you can have multiple arguments
+    let temp_message = this.state.textbox;
+    this.state.socket.emit('private message', {
+      room: this.state.roomID, 
+      message: temp_message
+    });
+    this.setState({textbox:""});
   };
-  // adding the function
-  setColor = color => {
-    this.setState({ color });
-  };
+
   onTextChange = (e) => {
     e.preventDefault();
     this.setState({textbox: e.target.value});
@@ -104,11 +113,13 @@ class Chat extends Component {
             <div id="chat-box">
                 {this.renderChat()}
             </div>
-            <div className="input-field col s12">
-            <form id="textarea1" onSubmit={this.sendText}>
-                  <input type="text" onChange={this.onTextChange} value={this.state.textbox} className="materialize-textarea"></input>
-            </form>
-                  <button className="btn" form="textarea1" type="submit">SUBMIT</button>
+            <div className="input-field col s10">
+              <form id="textarea1" onSubmit={this.sendText}>
+                    <input type="text" onChange={this.onTextChange} value={this.state.textbox} className="materialize-textarea"></input>
+              </form>
+            </div>
+            <div className="col s2">
+              <button id="sendmessage" className="btn" form="textarea1" type="submit">SUBMIT</button>
             </div>
           </div>
 
@@ -119,7 +130,7 @@ class Chat extends Component {
 }
 
 var mapStateToProps = state =>{
-  return {user: state.auth}
+  return {user: state.user}
 }
 
 export default connect(mapStateToProps)(Chat);

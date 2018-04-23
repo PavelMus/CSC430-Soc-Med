@@ -92,6 +92,28 @@ class ComposeClassContent extends Component {
       this.props.history.push(this.state.redirectURL)
   }
 
+  logtest = () => {
+    let user1 = "5acea765be510d39f0244899";
+    let user2 = "5ad0e42892074431f48da49b";
+    let index = 0;
+    let roomId = "";
+    if(user1.length < user2.length){
+      index = user1.length;}
+      else{
+        index = user2.length;}
+    for(var i = 0; i < index; i++){
+      let temp1 = user1.slice(i,i+1);
+      //console.log(temp1);
+      let temp2 = user2.slice(i, i+1);
+      let tempRoomIdPart = String(parseInt(temp1, 16)+parseInt(temp2, 16));
+      roomId += tempRoomIdPart;
+    }
+    console.log(roomId);
+    
+    //console.log(parseInt("A",16));
+    
+  }
+
   render() {
     return (
       <div className="container">
@@ -121,6 +143,7 @@ class ComposeClassContent extends Component {
                   >
                     SUBMIT
                   </button>
+                  <button className="btn" onClick={this.logtest}>LOOOOOOOG</button>
                 </div>
               </div>
             </div>

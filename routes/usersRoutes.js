@@ -5,6 +5,13 @@ var Classes = require("../models/Class");
 
 var router = express.Router();
 
+router.route("/user/:user_id").get((req, res) => {
+  Users.findById(req.params.user_id, (err, user)=> {
+    if(err) throw err;
+    res.json(user);
+  });
+});
+
 router
   .route("/users-list")
   //retrieve all users from the database
