@@ -51,6 +51,15 @@ classRouter.route("/user_classes/:user_id").get((req, res) => {
   });
 });
 
+classRouter.route("/verify_user_of_class/:class_id").put((req, res)=>{
+  Class.findById(req.params.class_id, (err, _class)=>{
+    if(err) throw err;
+    //_class.unverifiedStudents
+    //console.log(req.body.user);
+    
+  });
+});
+
 //Finding a class based on its id and grab the announcements
 classRouter.route("/ClassAnnouncements/:class_id").get((req, res) => {
   Class.findById(req.params.class_id, function(err, _class) {
@@ -115,7 +124,7 @@ classRouter.route("/create-class").post((req, res) => {
   _class.announcements = [];
   _class.save(err => {
     if (err) res.send(err);
-    res.json({ id: _class, message: "Class Section Created" });
+    res.json({ id: _class._id, message: "Class Section Created" });
   });
 });
 

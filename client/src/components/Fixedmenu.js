@@ -67,7 +67,7 @@ class Fixedmenu extends Component {
           <Link
             className="admin-links waves-effect menu-hoverable"
             onClick={this.props.close}
-            to="classDBInput"
+            to="/classDBInput"
           >
             <i className=" material-icons">input</i>
             <span>Input New Class</span>

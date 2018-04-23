@@ -55,8 +55,6 @@ class Announcements extends Component {
   };
 
   renderContent = announcement =>{
-    console.log(announcement);
-
     let content = marked(announcement);
     return {__html: content};
   }

@@ -1,6 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var Users = require("../models/Users");
+var Classes = require("../models/Class");
 
 var router = express.Router();
 
@@ -21,7 +22,17 @@ router
   .route("/teacher-list")
   //retrieve all users from the database
   .get(function(req, res) {
-    console.log("IN TEACHER LIST GET");
+    //looks at our Users Schema
+    Users.find({ teacher: true }, (err, users) => {
+      if (err) res.send(err);
+      //responds with a json object of our database users.
+      res.json(users);
+    });
+  });
+router
+  .route("/teachers-only-list")
+  //retrieve all users from the database
+  .get(function(req, res) {
     //looks at our Users Schema
     Users.find({ teacher: true, admin: false }, (err, users) => {
       if (err) res.send(err);
@@ -65,8 +76,6 @@ router
       if (err) res.send(err);
       //Setting the Users teacher flag to true
       user.teacher = true;
-      console.log(req.params.class_type);
-
       user.teacherSubject = req.params.class_type;
       //Saving the user
       user.save(function(err) {
@@ -76,18 +85,40 @@ router
     });
   });
 
-router.route("/add_class_to_user").put((req, res)=>{
+
+// This route takes the user and of their submitted class and adds the classes
+// to their User data object, then updates all the Classes data objects with the
+// users id to the unverified student list
+router.route("/add_class_to_user/:user_type").put((req, res)=>{
   Users.findById(req.body.user, (err, user)=>{
     if(err) res.send(err);
-    console.log(req.body.classes);
-    console.log(user.classes);
     user.classes = user.classes.concat(req.body.classes);
-
     user.save( err => {
       if(err) res.send(err);
       res.json({message: "Classes were added"})
     });
-  });
-});
+    
+    if(req.params.user_type == "student"){
+      let class_ids = user.classes.map(cls => { return cls.class_id});
+
+      let classPromises = class_ids.map( cls =>{
+        let x = Classes.findById(cls, (err, _class)=>{
+          if(err) throw err;
+          return _class;
+        });
+        return x;
+      });
+      Promise.all(classPromises).then(all_classes =>{
+        all_classes.map(cls =>{
+          if(!cls.unverifiedStudents.find(usr=> {return usr === user._id.toString()})
+          && !cls.studentList.find(usr=> {return usr === user._id.toString()})
+        ){
+          cls.unverifiedStudents.push(user._id.toString());
+          cls.save();
+        }
+      });
+      });
+    }}
+  )});
 
 module.exports = router;

@@ -39,3 +39,24 @@ $primary-background: #1e88e5;
     }
   }
 }
+
+.hidden{
+    display: none !important;
+  }
+
+#sidenav_admin_list,
+#sidenav_teacher_list,
+#sidenav_student_list {
+  //color: red;
+}
+
+.sidenav_subheader{
+  width: 100%;
+
+  .right-icon{
+    float: right !important;
+  }
+}
+.sidenav_subheader:hover {
+  background-color: $primarylight2;
+}
