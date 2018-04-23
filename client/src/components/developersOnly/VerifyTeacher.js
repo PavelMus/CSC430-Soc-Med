@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as M from "materialize-css";
 import axios from "axios";
+import Fixedmenu from "../Fixedmenu";
 
 class VerifyTeacher extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class VerifyTeacher extends Component {
   mapUserList = () => {
     let users = this.state.user_list;
     console.log(this.state.user_list);
-      
+
     let options = users.map(user => {
       return <option key={user._id} value={user._id}>{user.displayName} EMPLID: {user.EMPLID}</option>;
     });
@@ -64,31 +65,38 @@ class VerifyTeacher extends Component {
 
   render() {
     return (
-      <div id="verify-teacher-container" className="container">
+      <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div id="verify-left" className="col s8">
-            <div className="input-field">
-              <select id="teacherName" onChange={this.selectedTeacher}>
-                <option value="">Select Teacher</option>
-                {this.state.user_options}
-              </select>
-              <label>User Selector</label>
-              <a className="btn" onClick={this.verifyTeacher} href="#!">
-                SUBMIT
-              </a>
-            </div>
+          <div className="col s12 m2 l2 xl2">
+            <Fixedmenu />
           </div>
-          <div className="col s4 input-field">
-            <select id="cType" onChange={this.selectedClassType}>
-              <option value="">Select Subject</option>
-              <option value="CSC">CSC</option>
-              <option value="ENG">ENG</option>
-              <option value="MTH">MTH</option>
-            </select>
-            <label>Class Type</label>
-          </div>
+
+              <div id="verify-left" className="col s8 m4 l4 xl4 offset-l1 offset-xl1">
+                <div className="input-field">
+                  <select id="teacherName" onChange={this.selectedTeacher}>
+                    <option value="">Select Teacher</option>
+                    {this.state.user_options}
+                  </select>
+                  <label>User Selector</label>
+                  <a className="btn" onClick={this.verifyTeacher} href="#!">
+                    SUBMIT
+                  </a>
+                </div>
+              </div>
+              <div className="col s8 m4 l4 xl4 input-field">
+                <select id="cType" onChange={this.selectedClassType}>
+                  <option value="">Select Subject</option>
+                  <option value="CSC">CSC</option>
+                  <option value="ENG">ENG</option>
+                  <option value="MTH">MTH</option>
+                </select>
+                <label>Class Type</label>
+              </div>
+
+
         </div>
       </div>
+
     );
   }
 }

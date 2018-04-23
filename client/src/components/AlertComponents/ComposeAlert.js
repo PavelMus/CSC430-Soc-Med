@@ -77,8 +77,8 @@ class ComposeAlert extends Component {
                   <select onChange={this.typeUpdate}>
                   <option value="1" disabled selected>Select Alert Type</option>
                   <option value={WEATHER_ALERT}>Weather Alert</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                  <option value="2">Closing Alert</option>
+                  <option value="3">Assignment Due Alert</option>
                   </select>
                   <label>Alert Type Selector</label>
               </div>

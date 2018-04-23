@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import * as M from "materialize-css";
+import Fixedmenu from "./Fixedmenu";
 
 class ComposeClass extends Component {
   constructor(props) {
@@ -73,7 +74,7 @@ class ComposeClass extends Component {
     let _class = this.state.classes.find(des =>{
         return des._id == e.target.value;
     });
-    this.setState({levelSelected: _class.level, 
+    this.setState({levelSelected: _class.level,
       classDescription: _class.description,
     classSubject: _class.subject
   });
@@ -168,8 +169,8 @@ class ComposeClass extends Component {
       teacher: _class.teacherSelected
     };
     axios.post("/api/create-class", new_class).then(res => {
-      let teacher = { 
-        classes: res.data.id, 
+      let teacher = {
+        classes: res.data.id,
         user: _class.teacherSelected
       };
       axios.put("/api/add_class_to_user", teacher).then(res => {
@@ -181,68 +182,75 @@ class ComposeClass extends Component {
 
   render() {
     return (
-      <div id="class-db-input" className="row">
-        <h3>Create a new class section</h3>
-        <form className="col s12" onSubmit={this.onClassSubmit}>
-          <div className="row">
-            <div className="col s3 input-field">
-              <select defaultValue="1" id="cType" onChange={this.selectedClassType}>
-                <option disabled value="1">Select Class Type</option>
-                <option value="CSC">CSC</option>
-                <option value="ENG">ENG</option>
-                <option value="MTH">MTH</option>
-              </select>
-              <label>Class Type</label>
-            </div>
-            <div className="col s3 input-field">
-              <select defaultValue="1" id="cNum" onChange={this.selectedClassLevel}>
-                <option disabled value="1">Select Class Level</option>
-                {this.state.classLevelList}
-              </select>
-              <label>Class Level</label>
-            </div>
-            <div className="input-field col s6">
-              <input
-                required
-                value={this.state.classSection}
-                id="class_description"
-                onChange={this.onSectionChange}
-                type="text"
-              />
-              <label>Class Section #</label>
-            </div>
-            <div className="col s12 input-field">
-              <select defaultValue="1" id="teachers" onChange={this.selectedTeacher}>
-                <option disabled value="1">Select Teacher</option>
-                  {this.state.teacherList}
-              </select>
-              <label>Teacher</label>
-            </div>
+      <div id="content-section-container" className="container">
+        <div className="row" id="content-area-row">
+          <div className="col s12 m2 l2 xl2">
+            <Fixedmenu />
           </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <h6>Class Subject</h6>
-              <input
-                value={this.state.classSubject}
-                id="class_subject"
-                onChange={this.onSubjectChange}
-                type="text"
-              />
-            </div>
-            <div className="input-field col s12">
-              <h6>Class Description</h6>
-              <input
-                value={this.state.classDescription}
-                id="class_description"
-                onChange={this.onDescriptionChange}
-                type="text"
-              />
-            </div>
+          <div id="class-db-input" className="col s12 m6 l8 xl8 offset-l1 offset-xl1">
+            <h3>Create a new class section</h3>
+            <form className="col s12" onSubmit={this.onClassSubmit}>
+              <div className="row">
+                <div className="col s3 input-field">
+                  <select defaultValue="1" id="cType" onChange={this.selectedClassType}>
+                    <option disabled value="1">Select Class Type</option>
+                    <option value="CSC">CSC</option>
+                    <option value="ENG">ENG</option>
+                    <option value="MTH">MTH</option>
+                  </select>
+                  <label>Class Type</label>
+                </div>
+                <div className="col s3 input-field">
+                  <select defaultValue="1" id="cNum" onChange={this.selectedClassLevel}>
+                    <option disabled value="1">Select Class Level</option>
+                    {this.state.classLevelList}
+                  </select>
+                  <label>Class Level</label>
+                </div>
+                <div className="input-field col s6">
+                  <input
+                    required
+                    value={this.state.classSection}
+                    id="class_description"
+                    onChange={this.onSectionChange}
+                    type="text"
+                  />
+                  <label>Class Section #</label>
+                </div>
+                <div className="col s12 input-field">
+                  <select defaultValue="1" id="teachers" onChange={this.selectedTeacher}>
+                    <option disabled value="1">Select Teacher</option>
+                      {this.state.teacherList}
+                  </select>
+                  <label>Teacher</label>
+                </div>
+              </div>
+              <div className="row">
+                <div className="input-field col s12">
+                  <h6>Class Subject</h6>
+                  <input
+                    value={this.state.classSubject}
+                    id="class_subject"
+                    onChange={this.onSubjectChange}
+                    type="text"
+                  />
+                </div>
+                <div className="input-field col s12">
+                  <h6>Class Description</h6>
+                  <input
+                    value={this.state.classDescription}
+                    id="class_description"
+                    onChange={this.onDescriptionChange}
+                    type="text"
+                  />
+                </div>
+              </div>
+              <button type="submit" className="btn">
+                Create Class section
+              </button>
+            </form>
           </div>
-          <button type="submit" className="btn">
-            Create Class section
-          </button>
-        </form>
+        </div>
       </div>
     );
   }
