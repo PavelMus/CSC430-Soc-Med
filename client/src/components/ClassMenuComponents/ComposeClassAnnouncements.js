@@ -79,7 +79,7 @@ class ComposeClassAnnouncements extends Component {
 
   render() {
     return (
-      <div className="container" style={style.container}>
+      <div className="container">
         <div className="row">
           <div className="col s3"><FixedMenu/></div>
           <div id="event-editor-area" className="col s12 m7 l7 xl7">
@@ -115,13 +115,6 @@ class ComposeClassAnnouncements extends Component {
     );
   }
 }
-
-const style = {
-  container: {
-    "min-height": "80vh",
-    "margin-top": "20px"
-  }
-};
 
 const mapStateToProps = state => {
   return { user: state.user };
