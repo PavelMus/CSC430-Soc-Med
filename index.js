@@ -11,11 +11,13 @@ require("./models/Feed");
 require("./models/Class");
 require("./models/ClassTemplate");
 require("./services/passport");
+require("./models/ChatHistory");
 var posts = require("./routes/postsRoutes");
 var users = require("./routes/usersRoutes");
 var feed = require("./routes/feedRoutes");
 var alerts = require("./routes/alertRoutes");
 var class_template = require("./routes/classRouter");
+var chatHistory = require("./routes/chatRoutes");
 
 mongoose.connect(keys.mongoURI);
 
@@ -64,6 +66,7 @@ app.use("/api/", users);
 app.use("/api", feed);
 app.use("/api", alerts);
 app.use('/api/', class_template);
+app.use('/api/', chatHistory);
 require("./routes/localAuthRoutes")(app);
 require("./routes/authRoutes")(app);
 
@@ -99,18 +102,18 @@ io.on('connection', socket => {
   });
   socket.on('private message', data => {
     console.log('sending room post', data.room);
-    io.sockets.to(data.room).emit('private response', {
-      message: data.message
-    });
+    io.sockets.to(data.room).emit('private response', 
+      {displayName: data.displayName, message: data.message, date: data.date}
+    );
   });
   
-  socket.on('text', (text) => {
-    let { message } = text;
-    // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
-    // we make use of the socket.emit method again with the argument given to use from the callback function above
-    console.log(message);
-    io.sockets.emit('socket-data', message);
-  })
+  //socket.on('text', (text) => {
+  //  let { message } = text;
+  //  // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+  //  // we make use of the socket.emit method again with the argument given to use from the callback function above
+  //  console.log(message);
+  //  io.sockets.emit('socket-data', message);
+  //})
    socket.on('disconnect', () => {
      delete clients[socket.id];
      console.log(socket.id + ": DISCONNECTED");

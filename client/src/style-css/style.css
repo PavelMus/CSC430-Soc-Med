@@ -550,7 +550,7 @@ body {
 
 #event-section-container {
   max-width: 1240px;
-  width: 90%; }
+  width: 100%; }
   #event-section-container #content-area-row {
     height: 100%; }
     #event-section-container #content-area-row .user-col {
@@ -635,7 +635,7 @@ body {
 
 #news-section-container {
   max-width: 1240px;
-  width: 90%; }
+  width: 100%; }
   #news-section-container #content-area-row .user-col {
     text-align: right; }
     #news-section-container #content-area-row .user-col .user-pic-wrapper {
@@ -1103,3 +1103,10 @@ body {
 
 .menu-hoverable:hover {
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.verify-chip {
+  display: inline;
+  position: relative;
+  font-size: 0.6em;
+  margin: 0;
+  padding: 0px 10px; }
