@@ -15,17 +15,23 @@ module.exports = io => {
         socket.on('subscribe', room => {
           console.log("joining room: " + room);
           socket.join(room);
-          ChatHistory.findOne({chat_id: room}, (err, chat) =>{
-              console.log("IN CHAT HISTORY FROM SOCKET");
-              console.log(chat);
-              //chat[0].content.push({displayName: "TEST", date: "23456789", message: "TESTING TESTING"});
-              //chat[0].save();
           });
-        });
+
         socket.on('private message', data => {
+          let chat = new ChatHistory({
+            chat_id: data.room,
+            user_id: data.user_id,
+            user_name: data.user_name,
+            key: data.key,
+            message: data.message,
+            date: data.date
+          });
+          chat.save();
+
           console.log('sending room post', data.room);
           io.sockets.to(data.room).emit('private response', 
-            {displayName: data.displayName, message: data.message, date: data.date}
+            {key: data.key, user_name: data.user_name, 
+              message: data.message, date: data.date}
           );
         });
         
