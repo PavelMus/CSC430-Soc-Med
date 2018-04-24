@@ -9,7 +9,7 @@ class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "https://nameless-lake-54965.herokuapp.com",
+      endpoint: "https://csibridge.herokuapp.com/",
       socket: null,
       textbox: "",
       roomID: "",
@@ -20,7 +20,7 @@ class Chat extends Component {
     };
     this.unregisterLeaveHook = null;
   }
-  // Heroku deployment endpoint string "https://nameless-lake-54965.herokuapp.com"
+  // Heroku deployment endpoint string "https://csibridge.herokuapp.com/"
   // Local chat endpoint string "http://localhost:5000"
   componentDidMount() {
     this.socketInit();
