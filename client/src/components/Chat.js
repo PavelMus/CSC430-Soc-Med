@@ -4,22 +4,24 @@ import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import Fixedmenu from "./Fixedmenu";
 import axios from "axios";
+import uuid from 'uuid'
 class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "http://localhost:5000",
+      endpoint: "https://csibridge.herokuapp.com/",
       socket: null,
       textbox: "",
       roomID: "",
       chatLog: [],
       currentChat: [],
-      users: []
-      //uploadInterval: null
+      users: [],
+      skip: 0
     };
+    this.unregisterLeaveHook = null;
   }
-  // https://nameless-lake-54965.herokuapp.com
-
+  // Heroku deployment endpoint string "https://csibridge.herokuapp.com/"
+  // Local chat endpoint string "http://localhost:5000"
   componentDidMount() {
     this.socketInit();
     document.getElementById("sendmessage").addEventListener(
@@ -30,18 +32,7 @@ class Chat extends Component {
       },
       false
     );
-    //if (!this.state.uploadInterval)
-    //this.state.uploadInterval = setInterval(
-    //  this.uploadCurrentChat,
-    //  10000
-    //);
   }
-
-  uploadCurrentChat = (data) => {
-    console.log("UPLOADING ON: " + data.date);
-    axios
-      .put(`${"/api/chat_history_save"}/${this.state.roomID}`, data);
-  };
 
   socketInit = () => {
     if (this.props.user == null) {
@@ -87,32 +78,28 @@ class Chat extends Component {
   };
 
   loadChatHistory = () => {
-    axios.get(`${"/api/chat_history"}/${this.state.roomID}`).then(res => {
-      let msg = res.data.message;
-      if (msg == "NOT FOUND") {
-        axios
-          .post(
-            `${"/api/chat_history"}/${this.state.roomID}/${
-              this.state.users[0]
-            }/${this.state.users[1]}`
-          )
-          .then(res => {
-            this.loadChatHistory();
-          });
-      } else {
-        console.log(res.data);
-
+    let skip = this.calculateSkip();
+    axios.get(`${"/api/chat_history"}/${this.state.roomID}/${skip}`).then(res => {
         this.mapChatHistory(res.data);
-      }
     });
   };
 
+  calculateSkip = () => {
+    let skip = this.state.skip;
+    if(skip == 0){
+      this.setState({skip: skip + 20});
+      return 0;
+    } else {
+      this.setState({skip: skip + 20});
+      return skip;
+    }
+  }
+
   mapChatHistory = data => {
-    let chat_data = data.content.map(text => {
-      console.log(text.date);
+    let chat_data = data.map(chat => {
       return (
-          <p key={text.date}>
-            {text.displayName}: {text.message}
+          <p key={chat.key}>
+            {chat.user_name}: {chat.message}
           </p>
       );
     });
@@ -147,8 +134,8 @@ class Chat extends Component {
           <React.Fragment>
             {this.state.currentChat.map(data => {
               return (
-                <p key={data.date}>
-                  {data.displayName}: {data.message}
+                <p key={data.key}>
+                  {data.user_name}: {data.message}
                 </p>
               );
             })}
@@ -159,19 +146,22 @@ class Chat extends Component {
 
   sendText = e => {
     e.preventDefault();
-    let data = {
-      displayName: this.props.user.displayName,
-      message: this.state.textbox,
-      date: Date.now()
-    };
+    //let data = {
+    //  key: uuid(),
+    //  displayName: this.props.user.displayName,
+    //  message: this.state.textbox,
+    //  date: Date.now()
+    //};
 
-    this.uploadCurrentChat(data);
+    //this.uploadCurrentChat(data);
 
     this.state.socket.emit("private message", {
       room: this.state.roomID,
-      displayName: this.props.user.displayName,
+      user_id: this.props.user._id,
+      user_name: this.props.user.displayName,
+      key: uuid(),
       message: this.state.textbox,
-      date: data.date
+      date: Date.now()
     });
 
     this.setState({ textbox: "" });

@@ -4,8 +4,11 @@ const { Schema } = mongoose;
 
 const ChatHistory = new Schema({
   chat_id: String,
-  content: Array,
-  user_ids: Array
+  user_id: String,
+  user_name: String,
+  key: String,
+  message: String,
+  date: String
 });
 
 module.exports = mongoose.model("chat-history", ChatHistory);
