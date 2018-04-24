@@ -10,8 +10,8 @@ chatRouter
   .get((req, res) => {
     ChatHistory.find({chat_id: req.params.chat_id})
     .exec( (err, chat) => {
-        console.log("IN CHAT HISTORY");
-        console.log(chat);
+        //console.log("IN CHAT HISTORY");
+        //console.log(chat);
         if(err) throw err;
         if(!chat.length){
             res.send({message: "NOT FOUND"});
@@ -31,7 +31,7 @@ chatRouter.route("/chat_history/:chat_id/:user1/:user2").post((req, res) => {
     });
 });
 chatRouter.route("/chat_history_save/:chat_id").put((req, res) => {
-    console.log("IN SAVE CHAT");
+    //console.log("IN SAVE CHAT");
     ChatHistory.find({chat_id: req.params.chat_id}, (err, chat) => {
         if(err) console.log(err);
         chat[0].content.push(req.body);
