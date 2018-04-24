@@ -116,10 +116,8 @@ class ComposeEvent extends Component {
   render() {
     return (
       <div id="event-section-container" className="container">
-
-
         <div className="row" id="content-area-row">
-        <div className="col l3 xl3">
+        <div className="col l2 xl2">
           <Fixedmenu user={this.props.user?this.props.user:""}/>
         </div>
           {this.renderUser()} {/* Here we are calling the renderUser function*/}
@@ -145,10 +143,8 @@ class ComposeEvent extends Component {
                   <button id="saveDelta" className="btn" onClick={this.initEventPreview}>Preview</button>
                 </div>
               </div>
-
             </div>
           </div>
-
           {this.state.showPreview ? this.eventPreview(): ""}
         </div>
       </div>

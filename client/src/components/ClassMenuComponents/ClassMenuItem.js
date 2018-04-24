@@ -51,7 +51,14 @@ class ClassMenuItem extends Component {
           <Link to={`${"/ClassContent"}/${this.props.class._id}`}>Content</Link>
         </li>
         <li>
-          Verify Students
+          <Link to={`${"/VerifyStudents"}/${this.props.class._id}`}>
+          Verify Students 
+          {
+            this.props.class.unverifiedStudents.length?
+            <div className="verify-chip chip">{this.props.class.unverifiedStudents.length}</div>:
+            ""
+          }
+          </Link>
         </li>
       </React.Fragment>
     );

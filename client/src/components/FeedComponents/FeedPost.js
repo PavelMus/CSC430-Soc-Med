@@ -36,7 +36,7 @@ class FeedPost extends Component {
   render() {
     return (
         <div className="feed-post hoverable">
-          <h3><a href="">{this.props.title}</a></h3>
+          <h3><Link to={`${this.state.feedItemURL}/${this.props.feed_id}`} >{this.props.title}</Link></h3>
             <div className="divider"></div>
             <div className="feed-item-body">
               <div className="inputed-post" dangerouslySetInnerHTML={this.renderContent()}>
