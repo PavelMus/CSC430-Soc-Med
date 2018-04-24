@@ -333,7 +333,7 @@ body {
 #newsfeed {
   min-width: 500px;
   max-width: 500px;
-  background-color: #c3ccd8;
+  background-color: #e9ebee;
   overflow-y: auto;
   color: black;
   padding: 0 !important;
@@ -347,7 +347,7 @@ body {
   #newsfeed .feed-post {
     overflow: auto;
     background-color: #f5f5f5;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     padding: 18px 18px 0;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;

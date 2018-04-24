@@ -2,7 +2,7 @@
   //height: 100vh;
   min-width: 500px;
   max-width: 500px;
-  background-color: $primarylight2;
+  background-color: $primarylight1;
   overflow-y: auto;
   color: $textcolor;
   padding: 0 !important;
@@ -21,7 +21,7 @@
   .feed-post {
     overflow: auto;
     background-color: $feedbackgroundcolor;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     padding: 18px 18px 0;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
