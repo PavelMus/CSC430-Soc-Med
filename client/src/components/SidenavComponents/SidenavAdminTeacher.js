@@ -29,19 +29,20 @@ class SidenavAdminTeacher extends Component {
     if (this.props.admins !== null) {
       let admins = this.props.admins;
       let adminList = admins.map(admin => {
-        return (
-          <li key={admin._id + "admin"}>
-            <Link onClick={this.props.close} className="sidenav_username waves-effect" to={`${"/chat"}/${admin._id}`}>
-              <img
-                src={admin.avatar}
-                alt="user avatar"
-                className="sidenav_avatars"
-              />
-              <span>{admin.displayName}</span>
-            </Link>
-          </li>
-        );
-      });
+        if(admin._id !== this.props.user.id){
+          return (
+            <li key={admin._id + "admin"}>
+              <Link onClick={this.props.close} className="sidenav_username waves-effect" to={`${"/chat"}/${admin._id}`}>
+                <img
+                  src={admin.avatar}
+                  alt="user avatar"
+                  className="sidenav_avatars"
+                />
+                <span>{admin.displayName}</span>
+              </Link>
+            </li>
+          );
+      }});
       this.setState({ adminList: adminList });
     }
   };

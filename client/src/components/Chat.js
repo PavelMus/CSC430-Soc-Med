@@ -114,9 +114,6 @@ class Chat extends Component {
     console.log("UNMOUNT");
     window.removeEventListener("sendmessage",
     () => window.requestAnimationFrame(this.sendText), false);
-    //this.uploadCurrentChat();
-    //this.state.uploadInterval && clearInterval(this.state.uploadInterval);
-    //this.setState({uploadInterval: null});
     this.state.socket.disconnect();
   }
 

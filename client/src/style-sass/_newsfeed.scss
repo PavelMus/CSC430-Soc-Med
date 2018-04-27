@@ -175,6 +175,9 @@
 
     .comments-container {
       display: none;
+      .comments {
+        min-height: 12vh;
+      }
     }
 
     .show {
