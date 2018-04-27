@@ -15,7 +15,6 @@ chatRouter.route("/chat_history/:chat_id/:skip").get((req, res) => {
     .exec((err, chat) => {
       if (err) throw err;
       res.json(chat);
-
     });
 });
 

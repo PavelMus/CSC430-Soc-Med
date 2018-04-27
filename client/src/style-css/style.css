@@ -270,9 +270,6 @@ body {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
 
 #content-section-container {
-  width: 100vh; }
-
-#content-section-container {
   margin: 0 auto;
   max-width: 1280px;
   width: 92%; }
@@ -308,7 +305,7 @@ body {
     margin: 0; }
 
 #event-section-container {
-  height: 100vh; }
+  height: 80vh; }
 
 #alert-section {
   min-height: 5vmax;
@@ -464,7 +461,6 @@ body {
       padding: 5px 0; }
       #newsfeed .feed-post .new-comment form .input-comment-section .user-pic-wrapper {
         padding: 8px 0 0 8px;
-        display: inline-block;
         float: left; }
         #newsfeed .feed-post .new-comment form .input-comment-section .user-pic-wrapper .user-pic {
           display: inline-block;
@@ -476,6 +472,23 @@ body {
         float: left;
         display: inline-block;
         width: 80%; }
+
+.new-comment .input-comment-form img {
+  display: inline-block;
+  width: 5%;
+  vertical-align: bottom; }
+
+.new-comment .input-comment-form input {
+  display: inline-block;
+  width: 85%;
+  margin: 0 12px; }
+
+.new-comment .input-comment-form button {
+  vertical-align: bottom;
+  background: #005cb2; }
+  .new-comment .input-comment-form button i {
+    vertical-align: bottom;
+    color: #e3f2fd; }
 
 #newsfeed .card-top {
   height: 55px;
@@ -553,81 +566,79 @@ body {
 #event-section-container {
   max-width: 1240px;
   width: 100%; }
-  #event-section-container #content-area-row {
-    height: 100%; }
-    #event-section-container #content-area-row .user-col {
-      text-align: right; }
-      #event-section-container #content-area-row .user-col .user-pic-wrapper {
-        width: 100%;
-        overflow: auto; }
-        #event-section-container #content-area-row .user-col .user-pic-wrapper .user-pic {
-          border-radius: 50%;
+  #event-section-container #content-area-row .user-col {
+    text-align: right; }
+    #event-section-container #content-area-row .user-col .user-pic-wrapper {
+      width: 100%;
+      overflow: auto; }
+      #event-section-container #content-area-row .user-col .user-pic-wrapper .user-pic {
+        border-radius: 50%;
+        float: right; }
+      #event-section-container #content-area-row .user-col .user-pic-wrapper .user-name {
+        margin: 0 !important;
+        text-align: right; }
+      #event-section-container #content-area-row .user-col .user-pic-wrapper .time {
+        margin: 0 !important;
+        text-align: right; }
+  #event-section-container #content-area-row #event-editor-area {
+    background-color: #FFFFFF;
+    -webkit-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+    box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0; }
+    #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header {
+      background-color: #c3ccd8;
+      height: 70px;
+      padding: 16px 30px; }
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header h4 {
+        margin: 0;
+        padding: 0;
+        font-size: 25px;
+        text-align: left;
+        display: flex;
+        align-items: center; }
+    #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body {
+      background-color: #c3ccd8;
+      padding: 0 30px 16px;
+      height: 500px;
+      overflow: auto; }
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header {
+        text-align: left;
+        font-size: 1.4em;
+        background-color: #c3ccd8;
+        border-color: #DEDEDE; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input {
+          background-color: white;
+          margin-top: 10px;
+          -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+          -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+          box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 6px;
+          height: 38px; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input::-webkit-input-placeholder {
+          /* WebKit, Blink, Edge */
+          color: #808080; }
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area {
+        height: 83vh;
+        display: block;
+        margin-top: 26px; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-toolbar {
+          background-color: white;
+          border-radius: 0.6em;
+          margin-bottom: 10px; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
+          background-color: white;
+          font-size: 1.2em; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area #saveDelta {
+          background-color: #1565c0;
+          margin-top: 5px;
+          margin-left: 10px;
           float: right; }
-        #event-section-container #content-area-row .user-col .user-pic-wrapper .user-name {
-          margin: 0 !important;
-          text-align: right; }
-        #event-section-container #content-area-row .user-col .user-pic-wrapper .time {
-          margin: 0 !important;
-          text-align: right; }
-    #event-section-container #content-area-row #event-editor-area {
-      background-color: #FFFFFF;
-      -webkit-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-      -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-      box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
-      border: 1px solid #aaa;
-      border-radius: 4px;
-      margin: 0;
-      padding: 0; }
-      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header {
-        background-color: #c3ccd8;
-        height: 70px;
-        padding: 16px 30px; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header h4 {
-          margin: 0;
-          padding: 0;
-          font-size: 25px;
-          text-align: left;
-          display: flex;
-          align-items: center; }
-      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body {
-        background-color: #c3ccd8;
-        padding: 0 30px 16px;
-        height: 500px;
-        overflow: auto; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header {
-          text-align: left;
-          font-size: 1.4em;
-          background-color: #c3ccd8;
-          border-color: #DEDEDE; }
-          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input {
-            background-color: white;
-            margin-top: 10px;
-            -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-            -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-            box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            border-radius: 6px;
-            height: 38px; }
-          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input::-webkit-input-placeholder {
-            /* WebKit, Blink, Edge */
-            color: #808080; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area {
-          height: 83vh;
-          display: block;
-          margin-top: 26px; }
-          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-toolbar {
-            background-color: white;
-            border-radius: 0.6em;
-            margin-bottom: 10px; }
-          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
-            background-color: white;
-            font-size: 1.2em; }
-          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area #saveDelta {
-            background-color: #1565c0;
-            margin-top: 5px;
-            margin-left: 10px;
-            float: right; }
   #event-section-container #preview {
     margin-top: 22px;
     margin-bottom: 30px;
@@ -766,6 +777,47 @@ body {
     .user-col .user-pic-wrapper .time {
       margin: 0 !important;
       text-align: right; }
+
+.comments ul li {
+  opacity: 0; }
+  .comments ul li:nth-child(1) {
+    animation-name: comments;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; }
+  .comments ul li:nth-child(2) {
+    animation-name: comments;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; }
+  .comments ul li:nth-child(3) {
+    animation-name: comments;
+    animation-duration: 900ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; }
+  .comments ul li:nth-child(4) {
+    animation-name: comments;
+    animation-duration: 1200ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; }
+  .comments ul li:nth-child(5) {
+    animation-name: comments;
+    animation-duration: 1500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; }
+  .comments ul li:nth-child(6) {
+    animation-name: comments;
+    animation-duration: 1800ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; }
+
+@keyframes comments {
+  0% {
+    opacity: 0;
+    transform: translateX(300px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0px); } }
 
 #chat-box {
   width: 100%;

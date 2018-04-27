@@ -17,15 +17,8 @@ body {
 }
 
 #content-section-container {
-  //padding-top: 20px;
-  //height: 100%;
-  width: 100vh;
-}
-
-#content-section-container {
   margin: 0 auto;
   max-width: 1280px;
-  //max-width: 1440px;
   width: 92%;
 }
 @media only screen and (min-width: 601px) {
@@ -71,5 +64,5 @@ body {
 }
 
 #event-section-container {
-  height: 100vh;
+  height: 80vh;
 }

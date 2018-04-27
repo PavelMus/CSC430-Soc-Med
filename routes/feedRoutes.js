@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var Feed = require("../models/Feed");
 var News = require("../models/NewsPost");
 var Events = require("../models/EventPost");
+var Comment = require("../models/Comment");
 var moment = require("moment-timezone");
 
 var feedRouter = express.Router();
@@ -93,7 +94,6 @@ feedRouter
             res.json({message: 'event item successfully posted'});
         });
     });
-
 /*
 
 

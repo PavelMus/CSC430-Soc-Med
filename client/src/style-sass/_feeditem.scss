@@ -21,3 +21,32 @@
     }
   }
 }
+
+.comments {
+  ul{
+    li{
+      opacity: 0;
+
+      @for $i from 1 through 6{
+        &:nth-child(#{$i}){
+          animation: {
+            name: comments;
+            duration: 300ms *$i;
+            timing-function: ease-in-out;
+            fill-mode: forwards;
+          }
+        }
+      }
+      @keyframes comments{
+        0%{
+          opacity: 0;
+          transform: translateX(300px);
+        }
+        100%{
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
+    }
+  }
+}

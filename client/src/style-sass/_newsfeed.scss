@@ -206,9 +206,7 @@
 
           .user-pic-wrapper {
             padding: 8px 0 0 8px;
-            display: inline-block;
             float: left;
-
             .user-pic {
               display: inline-block;
               height: 34px;
@@ -230,6 +228,31 @@
     }
   }
 }
+
+.new-comment{
+  .input-comment-form{
+    img{
+      display: inline-block;
+      width: 5%;
+      vertical-align: bottom;
+    }
+    input{
+      display: inline-block;
+      width: 85%;
+      margin: 0 12px;
+    }
+    button{
+      vertical-align: bottom;
+      background: #005cb2;
+      i {
+        vertical-align: bottom;
+        color: #e3f2fd
+      }
+    }
+  }
+}
+
+
 //////////////////////Old cart styles below
 
 #newsfeed .card-top {
