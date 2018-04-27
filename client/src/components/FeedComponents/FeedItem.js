@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AlertSection from "../AlertSection";
 import FeedPost from "./FeedPost";
+import FixedMenu from '../Fixedmenu';
 import Loading from "../Loading";
 import axios from "axios";
 import Quill from "quill";
@@ -85,13 +86,13 @@ class FeedItem extends Component {
         return "";
       default:
         return (
-          <div class="col s12 m7">
-    <div class="card horizontal">
-      <div class="card-image">
+          <div className="col s12 m7">
+    <div className="card horizontal">
+      <div className="card-image">
         <img src={this.state.feedItem.feedItem.authorAvatar} />
       </div>
-      <div class="card-stacked">
-        <div class="card-content">
+      <div className="card-stacked">
+        <div className="card-content">
           <p>I am a very simple card. I am good at containing small bits of information.</p>
         </div>
       </div>
@@ -106,9 +107,10 @@ class FeedItem extends Component {
       <div id="content-section-container" className="container">
         <div className="event-editor-area-wrapper">
           <div className="row" id="content-area-row">
-            {this.renderUser()}{" "}
-            {/* Here we are calling the renderUser function*/}
-            <div className="middle-right-section col s12 m10 l8 xl8">
+            <div className="col s12 m2 l2 xl2">
+              <FixedMenu />
+            </div>
+            <div className="middle-right-section col s12 m10 l7 xl7">
               <div className="feed-item-container">
                 {this.state.feedItem ? this.renderContent() : ""}
                 <div className="feed-item-body">
@@ -116,10 +118,9 @@ class FeedItem extends Component {
                 </div>
               </div>
             </div>
-            <div className="col l2 xl2">
-              <a href="" className="btn-small" onClick={this.deleteFromFeed}>
-                Delete Post
-              </a>
+            <div className="col l3 xl3">
+              {this.renderUser()}{" "}
+              {/* Here we are calling the renderUser function*/}
             </div>
             {this.renderComments()}
           </div>

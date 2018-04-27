@@ -14,11 +14,8 @@ chatRouter.route("/chat_history/:chat_id/:skip").get((req, res) => {
     .skip(skip)
     .exec((err, chat) => {
       if (err) throw err;
-      if (!chat.length) {
-        res.send({ message: "NOT FOUND" });
-      } else {
-        res.json(chat);
-      }
+      res.json(chat);
+
     });
 });
 

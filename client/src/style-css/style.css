@@ -442,6 +442,8 @@ body {
             vertical-align: middle; }
     #newsfeed .feed-post .comments-container {
       display: none; }
+      #newsfeed .feed-post .comments-container .comments {
+        min-height: 12vh; }
     #newsfeed .feed-post .show {
       display: block !important; }
     #newsfeed .feed-post .input-comment-header {
