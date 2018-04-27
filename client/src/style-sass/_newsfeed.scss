@@ -1,10 +1,11 @@
 #newsfeed {
   //height: 100vh;
-  min-width: 500px;
-  max-width: 500px;
-  background-color: $primarylight2;
+  min-width: 525px;
+  max-width: 525px;
+  background-color: $primarylight1;
   overflow-y: auto;
   color: $textcolor;
+  margin-top: 15px;
   padding: 0 !important;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -21,7 +22,7 @@
   .feed-post {
     overflow: auto;
     background-color: $feedbackgroundcolor;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     padding: 18px 18px 0;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -175,6 +176,7 @@
 
     .comments-container {
       display: none;
+
       .comments {
         min-height: 12vh;
       }

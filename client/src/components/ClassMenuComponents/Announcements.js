@@ -89,7 +89,7 @@ class Announcements extends Component {
             <Fixedmenu />
           </div>
 
-          <div id="class-content-wrapper" className="col s8 m8 l8 xl8 offset-l1 offset-xl1">
+          <div id="class-content-wrapper" className="col s8 m8 l8 xl8">
               <div className="row">
               <div id="class-content-section" className="col s12 m3 l12 xl12 ">
                 <div className="class-content-section-container">
