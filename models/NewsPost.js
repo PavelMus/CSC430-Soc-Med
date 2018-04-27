@@ -8,7 +8,8 @@ const newsSchema = new Schema({
   title: String,
   postDate: String,
   delta: Object,
-  preview: String
+  preview: String,
+  comments: Array
 });
 
 module.exports = mongoose.model("news", newsSchema);

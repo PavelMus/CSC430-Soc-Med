@@ -49,14 +49,6 @@ class Fixedmenu extends Component {
           </Link>
         </li>
 
-        <li>
-          <Link className="waves-effect menu-hoverable" onClick={this.props.close} to="/chat">
-            <i className="material-icons">chat</i>
-            <span>Chat Testing</span>
-          </Link>
-        </li>
-
-
         <li className="header-li">
           <a className="subheader">
 

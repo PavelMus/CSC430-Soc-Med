@@ -57,6 +57,7 @@ feedRouter
         news.postDate = moment().tz("America/New_York").format('ddd, Do MMM YYYY hh:mm a');
         news.delta = req.body.delta;
         news.preview = req.body.preview;
+        news.comments = [];
 
         var feed = new Feed();
         feed.type = "news";
@@ -81,6 +82,7 @@ feedRouter
         event.postDate = moment().tz("America/New_York").format('ddd, Do MMM YYYY hh:mm a');
         event.delta = req.body.delta;
         event.preview = req.body.preview;
+        event.comments = [];
 
         var feed = new Feed();
         feed.type = "event";
