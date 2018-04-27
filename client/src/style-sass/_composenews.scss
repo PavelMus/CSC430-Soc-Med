@@ -1,11 +1,11 @@
 #news-section-container {
-  max-width: 1240px;
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 92%;
   //margin-top: 22px;
-
   #content-area-row {
     .user-col {
-      text-align: right;
+      text-align: left;
 
       .user-pic-wrapper {
         width: 100%;
@@ -13,17 +13,17 @@
 
         .user-pic {
           border-radius: 50%;
-          float: right;
+          float: left;
         }
 
         .user-name {
           margin: 0 !important;
-          text-align: right;
+          text-align: left;
         }
 
         .time {
           margin: 0 !important;
-          text-align: right;
+          text-align: left;
         }
       }
     }

@@ -119,12 +119,12 @@ class ComposeNews extends Component {
 
 
         <div className="row" id="content-area-row">
-        <div className="col l3 xl3">
+        <div className="col s2 m2 l2 xl2">
           <Fixedmenu user={this.props.user?this.props.user:""}/>
         </div>
-          {this.renderUser()} {/* Here we are calling the renderUser function*/}
 
-          <div id="event-editor-area" className="col s12 m12 l7 xl7">
+
+          <div id="event-editor-area" className="col s12 m12 l7 xl7 offset-l1 offset-xl">
             <div className="event-editor-area-wrapper">
               <div className="post-event-header">
                 <h4>Create News Post</h4>
@@ -148,7 +148,7 @@ class ComposeNews extends Component {
 
             </div>
           </div>
-
+          {this.renderUser()} {/* Here we are calling the renderUser function*/}
           {this.state.showPreview ? this.newsPreview(): ""}
         </div>
       </div>

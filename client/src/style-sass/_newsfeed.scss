@@ -5,6 +5,7 @@
   background-color: $primarylight1;
   overflow-y: auto;
   color: $textcolor;
+  margin-top: 15px;
   padding: 0 !important;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -175,6 +176,7 @@
 
     .comments-container {
       display: none;
+
       .comments {
         min-height: 12vh;
       }

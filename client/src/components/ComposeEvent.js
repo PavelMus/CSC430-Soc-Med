@@ -120,8 +120,6 @@ class ComposeEvent extends Component {
         <div className="col l2 xl2">
           <Fixedmenu user={this.props.user?this.props.user:""}/>
         </div>
-          {this.renderUser()} {/* Here we are calling the renderUser function*/}
-
           <div id="event-editor-area" className="col s12 m12 l7 xl7">
             <div className="event-editor-area-wrapper">
               <div className="post-event-header">
@@ -145,6 +143,7 @@ class ComposeEvent extends Component {
               </div>
             </div>
           </div>
+          {this.renderUser()} {/* Here we are calling the renderUser function*/}
           {this.state.showPreview ? this.eventPreview(): ""}
         </div>
       </div>

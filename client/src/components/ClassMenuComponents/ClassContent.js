@@ -69,7 +69,7 @@ class ClassContent extends Component {
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
           <div className="col s12 m2 l2 xl2"><Fixedmenu /></div>
-          <div id="class-content-wrapper" className="col s12 m6 l8 xl8 offset-l1 offset-xl1">
+          <div id="class-content-wrapper" className="col s12 m6 l8 xl8">
             <div className="row">
               <div id="class-content-section" className="col s12 m3 l12 xl12">
                 <div className="class-content-section-container">

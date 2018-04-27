@@ -177,7 +177,7 @@ class Chat extends Component {
             <Fixedmenu />
           </div>
           <div
-            className="col s12 m2 l8 xl8 offset-l1 offset-xl1"
+            className="col s12 m2 l8 xl8"
             style={{ textAlign: "center" }}
           >
             <div id="chat-box">

@@ -67,8 +67,6 @@ class ComposeAlert extends Component {
           <div className="col l3 lx3">
             <Fixedmenu user={this.props.user?this.props.user:""}/>
           </div>
-          {/* Here we are calling the renderUser function*/}
-          {this.renderUser()}
 
           <div id="alert-middle" className="col s12 m12 l7 xl7">
 
@@ -98,6 +96,8 @@ class ComposeAlert extends Component {
             </div>
             <a className="btn" onClick={this.submitAlert} href="#!">SUBMIT</a>
           </div>
+          {/* Here we are calling the renderUser function*/}
+          {this.renderUser()}
         </div>
       </div>
     );

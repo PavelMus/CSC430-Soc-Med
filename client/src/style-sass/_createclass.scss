@@ -19,8 +19,42 @@
   }
 }
 
+#class-list {
+  margin: 0;
+
+  .col {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+}
+
+#class-cart {
+  margin-left: 5%;
+  padding: 0;
+}
+//Below we change the color of the selection button
+
+.btn-small {
+  background-color: #1565c0 !important;
+}
+
+.select-wrapper input.select-dropdown:focus {
+  border-bottom: 1px solid #E0E7F9;
+}
+
+.input-field li span {
+  color: #1565c0;
+}
+
 .right-content-wrapper {
   overflow: auto;
-  height: 600px;
+  height: 500px;
+  margin-top: 15px;
+  border: 1px black solid;
+  border-radius: 4px;
   min-height: 600px;
+
+  form {
+    margin: 10px 0 0;
+  }
 }

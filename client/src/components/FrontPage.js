@@ -17,7 +17,7 @@ class FrontPage extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="col s12 m2 l2 xl2">
+          <div className="col s2 m2 l2 xl2">
             <Fixedmenu />
           </div>
           <Newsfeed pollInterval = {5000}/>
