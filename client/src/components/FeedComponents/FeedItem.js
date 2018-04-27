@@ -95,7 +95,7 @@ class FeedItem extends Component {
     this.setState({
       all_comments: comments.map(cmt => {
         return (
-          <li key={uuid()}>
+          <li key={cmt.key}>
             <div className="card horizontal">
               <div className="card-image">
                 <img src={cmt.user_avatar} />
@@ -166,7 +166,8 @@ class FeedItem extends Component {
       user_name: this.props.user.displayName,
       user_avatar: this.props.user.avatar,
       content: this.state.new_comment,
-      postDate: date.toLocaleString()
+      postDate: date.toLocaleString(),
+      key: uuid()
     };
     axios.post(`${"/api/new-comment"}/${feed_id}`, comment).then(res => {
       M.toast({ html: res.data.message });
