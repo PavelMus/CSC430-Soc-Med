@@ -15,6 +15,7 @@ comments.route("/get-comments/:feed_id").get((req, res) => {
 
 comments.route("/new-comment/:feed_id").post((req, res) => {
   let comment = new Comment();
+  comment.key = req.body.key;
   comment.feedItem_id = req.params.feed_id;
   comment.user_name = req.body.user_name;
   comment.user_avatar = req.body.user_avatar;
