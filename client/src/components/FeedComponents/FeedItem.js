@@ -78,6 +78,29 @@ class FeedItem extends Component {
         );
     }
   };
+
+  renderComments = () => {
+    switch (this.state.feedItem) {
+      case false:
+        return "";
+      default:
+        return (
+          <div class="col s12 m7">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src={this.state.feedItem.feedItem.authorAvatar} />
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+        )
+    }
+  }
+
   render() {
     return (
       <div id="content-section-container" className="container">
@@ -97,7 +120,8 @@ class FeedItem extends Component {
               <a href="" className="btn-small" onClick={this.deleteFromFeed}>
                 Delete Post
               </a>
-            </div>`
+            </div>
+            {this.renderComments()}
           </div>
         </div>
       </div>
