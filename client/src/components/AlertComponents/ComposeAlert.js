@@ -64,7 +64,7 @@ class ComposeAlert extends Component {
     return (
       <div id="alert-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="col l3 lx3">
+          <div className="col l2 lx2">
             <Fixedmenu user={this.props.user?this.props.user:""}/>
           </div>
 
