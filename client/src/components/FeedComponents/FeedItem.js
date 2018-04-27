@@ -16,8 +16,9 @@ class FeedItem extends Component {
     this.state = {
       feedItem: false,
       quill: "",
-      all_comments: "",
-      new_comment: ""
+      all_comments: [],
+      new_comment: "",
+      skip: 0
     };
   }
 
@@ -84,31 +85,39 @@ class FeedItem extends Component {
     }
   };
 
+  loadMoreComments = e => {
+    e.preventDefault();
+    let skip = this.state.skip + 5;
+    this.setState({skip: skip}, this.loadComments);
+  }
+
   loadComments = () => {
     let feed_id = this.props.location.pathname.slice(6);
-    axios.get(`${"/api/get-comments"}/${feed_id}`).then(res => {
+    axios.get(`${"/api/get-comments"}/${feed_id}/${this.state.skip}`).then(res => {
       this.mapComments(res.data);
     });
   };
 
   mapComments = comments => {
-    this.setState({
-      all_comments: comments.map(cmt => {
-        return (
-          <li key={cmt.key}>
-            <div className="card horizontal">
-              <div className="card-image">
-                <img src={cmt.user_avatar} />
-              </div>
-              <div className="card-stacked">
-                <div className="card-content">
-                  <p>{cmt.content}</p>
-                </div>
+    let all_comments = comments.map(cmt => {
+      return (
+        <li key={cmt.key}>
+          <div className="card horizontal">
+            <div className="card-image">
+              <img src={cmt.user_avatar} />
+            </div>
+            <div className="card-stacked">
+              <div className="card-content">
+                <p>{cmt.content}</p>
               </div>
             </div>
-          </li>
-        );
-      })
+          </div>
+        </li>
+      );
+    });
+
+    this.setState({
+      all_comments: this.state.all_comments.concat(all_comments)
     });
   };
 
@@ -120,6 +129,7 @@ class FeedItem extends Component {
         return (
           <ul>
             {this.state.all_comments}
+            <a href="#" onClick={this.loadMoreComments}>Load more..</a>
           </ul>
         );
     }
@@ -191,10 +201,14 @@ class FeedItem extends Component {
                   <div id="quill" />
                 </div>
               </div>
-              <div className="comments">{this.renderComments()}</div>
+              <div className="comments">
+                <i className="material-icons">comment</i>
+                <h6>Comments</h6>
+                {this.renderComments()}
+              </div>
               {this.renderNewCommentForm()}
             </div>
-            <div className="col l3 xl3">{this.renderUser()}</div>
+            {this.renderUser()}
           </div>
         </div>
       </div>

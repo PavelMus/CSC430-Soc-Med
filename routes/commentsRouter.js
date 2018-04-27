@@ -6,10 +6,23 @@ var comments = express.Router();
 
 comments.route("/get-comments/:feed_id").get((req, res) => {
   Comment.find({ feedItem_id: req.params.feed_id })
+    .sort({ _id: -1 })
+    .exec((err, comments) => {
+      if (err) console.log(err);
+      res.send(comments);
+    });
+});
+
+comments.route("/get-comments/:feed_id/:skip").get((req, res) => {
+  let query = 5;
+  let skip = Number(req.params.skip);
+  Comment.find({ feedItem_id: req.params.feed_id })
+    .limit(query)
+    .skip(skip)
     .sort({ _id: 1 })
     .exec((err, comments) => {
-        if(err) console.log(err);
-        res.send(comments);
+      if (err) console.log(err);
+      res.send(comments);
     });
 });
 

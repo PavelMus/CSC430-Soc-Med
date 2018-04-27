@@ -23,19 +23,36 @@
 }
 
 .comments {
+  margin-top: 12px;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.5em;
+  padding: 0 12px;
+  align-items: baseline;
+  align-content: center;
+
+  i {
+    display: inline-block;
+    color: blue;
+  }
+  h6{
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: bottom;
+  }
   ul{
     li{
-      opacity: 0;
+      .card-content{
+        padding: 15px 8px;
+      }
 
-      @for $i from 1 through 6{
-        &:nth-child(#{$i}){
-          animation: {
-            name: comments;
-            duration: 300ms *$i;
-            timing-function: ease-in-out;
-            fill-mode: forwards;
-          }
-        }
+      opacity: 0;
+      animation: {
+        name: comments;
+        duration: 200ms;
+        timing-function: ease-in-out;
+        fill-mode: forwards;
       }
       @keyframes comments{
         0%{

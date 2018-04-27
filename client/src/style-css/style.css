@@ -779,38 +779,30 @@ body {
       margin: 0 !important;
       text-align: left; }
 
-.comments ul li {
-  opacity: 0; }
-  .comments ul li:nth-child(1) {
+.comments {
+  margin-top: 12px;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.5em;
+  padding: 0 12px;
+  align-items: baseline;
+  align-content: center; }
+  .comments i {
+    display: inline-block;
+    color: blue; }
+  .comments h6 {
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: bottom; }
+  .comments ul li {
+    opacity: 0;
     animation-name: comments;
-    animation-duration: 300ms;
+    animation-duration: 200ms;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards; }
-  .comments ul li:nth-child(2) {
-    animation-name: comments;
-    animation-duration: 600ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards; }
-  .comments ul li:nth-child(3) {
-    animation-name: comments;
-    animation-duration: 900ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards; }
-  .comments ul li:nth-child(4) {
-    animation-name: comments;
-    animation-duration: 1200ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards; }
-  .comments ul li:nth-child(5) {
-    animation-name: comments;
-    animation-duration: 1500ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards; }
-  .comments ul li:nth-child(6) {
-    animation-name: comments;
-    animation-duration: 1800ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards; }
+    .comments ul li .card-content {
+      padding: 15px 8px; }
 
 @keyframes comments {
   0% {
