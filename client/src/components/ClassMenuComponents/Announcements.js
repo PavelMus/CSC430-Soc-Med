@@ -90,7 +90,7 @@ class Announcements extends Component {
           </div>
 
           <div id="class-content-wrapper" className="col s8 m8 l8 xl8">
-              <div className="row">
+            
               <div id="class-content-section" className="col s12 m3 l12 xl12 ">
                 <div className="class-content-section-container">
                   <div className="content-header">
@@ -101,7 +101,7 @@ class Announcements extends Component {
                   </ul>
                 </div>
               </div>
-              </div>
+
           </div>
 
           <div className="col s2">{this.renderTeacherActions()}</div>
