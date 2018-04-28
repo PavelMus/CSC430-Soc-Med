@@ -32,6 +32,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div id="CSIBridge">
+          <div id="page-background"></div>
           <Header />
           <Route exact={true} path="/" component={FrontPage} />
           <Route exact path="/newEvent" component={ComposeEvent} />
