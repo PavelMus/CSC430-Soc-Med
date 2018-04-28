@@ -37,11 +37,6 @@
     margin-top: 5px;
   }
 }
-
-#class-cart {
-  margin-left: 5%;
-  padding: 0;
-}
 //Below we change the color of the selection button
 
 .btn-small {
@@ -71,12 +66,10 @@
 
 .right-content-wrapper {
   overflow: auto;
-  height: 500px;
+  height: 88vh;
   margin-top: 15px;
   border: 1px black solid;
   border-radius: 4px;
-  min-height: 600px;
-
   form {
     margin: 10px 0 0;
   }

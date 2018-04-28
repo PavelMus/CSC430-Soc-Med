@@ -115,7 +115,7 @@ class SelectClasses extends Component {
     });
     let list = this.state.class_cart;
     list.push(
-      <React.Fragment key={_class._id + "cart"}>
+      <div style={{"font-size": "0.7em"}} className="col s12" key={_class._id + "cart"}>
         <li className="col s2">
           {_class.type}
           {_class.level}
@@ -124,12 +124,13 @@ class SelectClasses extends Component {
         <li className="col s2">{_class.section}</li>
         <button
           className="col s2 btn-small"
+          style={{"font-size": "0.6em", padding: "0px 4px", height: "20px", "line-height": "20px"}}
           value={_class._id}
           onClick={this.removeFromCart}
         >
           <i className="material-icons">delete</i>
         </button>
-      </React.Fragment>
+      </div>
     );
     let selected = this.state.selected_classes;
     selected.push(class_id);
@@ -169,12 +170,13 @@ class SelectClasses extends Component {
               {_class.type}
               {_class.level}
             </li>
-            <li className="col s4">{_class.subject}</li>
+            <li className="col s3">{_class.subject}</li>
             <li className="col s3">{this.getTeacherName(_class.teacher)}</li>
             <li className="col s2">{_class.section}</li>
-            <li className="col s1">
+            <li className="col s2">
               <button
                 id={_class._id}
+                style={{"font-size": "0.7em", padding: "0px 4px", height: "26px", "line-height": "26px"}}
                 value={_class._id}
                 onClick={this.addClass}
                 className={"waves-effect waves-light btn-small " + select_check.disabled}
@@ -239,7 +241,7 @@ class SelectClasses extends Component {
         return "";
       default:
         return (
-          <form className="col s8 m8 l8 xl8" onSubmit={this.onClassSubmit}>
+          <form className="col xs12 s12 m8 l8 xl8" onSubmit={this.onClassSubmit}>
               <div className="col s12 input-field">
                 <select
                   defaultValue="1"
@@ -256,9 +258,9 @@ class SelectClasses extends Component {
                 <label>Class Type</label>
               </div>
               <div className="row">
-              <ul id="class-list" className="col s12">
-                <li className="col s1">Class</li>
-                <li className="col s4">Subject</li>
+              <ul id="class-list" className="col s13">
+                <li className="col s2">Class</li>
+                <li className="col s3">Subject</li>
                 <li className="col s3">Instructor</li>
                 <li className="col s2">Section</li>
                 <div className="col s12 divider" />
@@ -280,7 +282,7 @@ class SelectClasses extends Component {
 
           <div className="right-content-wrapper col s12 m12 l10 xl10">
             {this.renderForm()}
-            <div id="class-cart" className="col l3 xl3">
+            <div id="class-cart" className="col xs12 s12 m4 l4 xl4">
               <h6>Selected Classes</h6>
               <div className="divider" />
               <ul className="col s12">
@@ -288,6 +290,7 @@ class SelectClasses extends Component {
               </ul>
               <button
                 id="checkout_button"
+                style={{"font-size": "0.7em", padding: "0px 4px", height: "26px", "line-height": "26px"}}
                 className="col s12 btn-small disabled"
                 onClick={this.submitClassRequest}
               >
