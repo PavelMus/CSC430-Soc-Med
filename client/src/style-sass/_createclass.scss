@@ -13,11 +13,19 @@
     margin: 0 0 5px;
     padding: 0;
     font-size: 24px;
+    width: 100%;
+    display: block;
   }
 
   form {
     margin: 0 auto;
     width: 80%;
+
+    .btn {
+      &:hover {
+        background-color: #1565c0;
+      }
+    }
   }
 }
 
@@ -60,6 +68,7 @@
 //////Below is used to change the default color of the input fields
 /* label color */
 //////Above is used to change the default color of the input fields
+
 .right-content-wrapper {
   overflow: auto;
   height: 500px;

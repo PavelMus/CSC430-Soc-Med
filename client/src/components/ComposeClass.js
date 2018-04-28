@@ -189,11 +189,11 @@ class ComposeClass extends Component {
           </div>
           <div id="class-db-input" className="col s12 m6 l8 xl8">
             <h3>Create a new class section</h3>
-            <form className="col s12" onSubmit={this.onClassSubmit}>
+            <form id="create-section"className="" onSubmit={this.onClassSubmit}>
               <div className="row">
                 <div className="col s3 input-field">
                   <select defaultValue="1" id="cType" onChange={this.selectedClassType}>
-                    <option disabled value="1">Select Class Type</option>
+                    <option disabled value="1">Class Type</option>
                     <option value="CSC">CSC</option>
                     <option value="ENG">ENG</option>
                     <option value="MTH">MTH</option>
@@ -202,7 +202,7 @@ class ComposeClass extends Component {
                 </div>
                 <div className="col s3 input-field">
                   <select defaultValue="1" id="cNum" onChange={this.selectedClassLevel}>
-                    <option disabled value="1">Select Class Level</option>
+                    <option disabled value="1">Class Level</option>
                     {this.state.classLevelList}
                   </select>
                   <label>Class Level</label>

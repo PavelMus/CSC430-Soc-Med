@@ -1,4 +1,5 @@
 .user-col {
+  margin-top: 15px;
   text-align: left;
 
   .user-pic-wrapper {
@@ -36,20 +37,23 @@
     display: inline-block;
     color: blue;
   }
-  h6{
+
+  h6 {
     margin-left: 8px;
     display: inline-block;
     vertical-align: bottom;
   }
-  ul{
-    li{
-      img{
+
+  ul {
+    li {
+      img {
         border-radius: 50% !important;
         display: inline-block;
         margin-bottom: 15px;
         width: 7%;
       }
-      .card{
+
+      .card {
         display: inline-block;
         border-radius: 0.5em;
         margin-left: 20px;
@@ -57,7 +61,8 @@
         vertical-align: bottom;
         box-shadow: 0 0 0 0;
       }
-      .card::after{
+
+      .card::after {
         content: '';
         position: absolute;
         left: 0;
@@ -71,27 +76,30 @@
         margin-top: -0.562em;
         margin-left: -1.125em;
       }
-      .card-content{
-        padding: 3px 8px 10px 8px;
+
+      .card-content {
+        padding: 3px 8px 10px;
         min-height: 40px;
-        h6{
+
+        h6 {
           display: inline-block;
-          margin: 0 0 8px 0;
+          margin: 0 0 8px;
           border-radius: 0.3em;
           font-style: italic;
           font-weight: bold;
         }
-        p{
+
+        p {
           vertical-align: bottom;
           margin-left: 12px;
         }
-        .comment-post-date{
+
+        .comment-post-date {
           float: right;
           font-style: italic;
           font-size: 0.6em;
         }
       }
-
       opacity: 0;
       animation: {
         name: comments;
@@ -99,12 +107,13 @@
         timing-function: ease-in-out;
         fill-mode: forwards;
       }
-      @keyframes comments{
-        0%{
+      @keyframes comments {
+        0% {
           opacity: 0;
           transform: translateX(300px);
         }
-        100%{
+
+        100% {
           opacity: 1;
           transform: translateX(0px);
         }

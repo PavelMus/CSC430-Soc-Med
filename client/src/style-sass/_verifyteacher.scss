@@ -5,7 +5,7 @@
 #verifyteacher-container {
   background-color: $primarylight2;
   position: relative;
-  top: 18%;
+  top: 12%;
   left: 6%;
   max-width: 1240px;
   width: 60%;
@@ -13,11 +13,16 @@
   border: 1px solid;
   height: 250px;
   text-align: center;
+  padding: 12px;
   //margin-top: 22px;
   #verify-left {
     border-top-left-radius: 1vh;
     border-bottom-left-radius: 1vh;
   }
 
-  .btn {}
+  .btn {
+    &:hover {
+      background-color: #1565c0;
+    }
+  }
 }
