@@ -32,6 +32,9 @@ class ClassMenuItem extends Component {
   };
 
   renderMenu = () => {
+    console.log(this.props.user._id);
+    console.log(this.props.class.teacher);
+    console.log(this.props.class._id);
     if(this.props.user._id === this.props.class.teacher){
       return this.teacherMenu();
     }else {
@@ -52,7 +55,7 @@ class ClassMenuItem extends Component {
         </li>
         <li>
           <Link to={`${"/VerifyStudents"}/${this.props.class._id}`}>
-          Verify Students 
+          Verify Students
           {
             this.props.class.unverifiedStudents.length?
             <div className="verify-chip chip">{this.props.class.unverifiedStudents.length}</div>:

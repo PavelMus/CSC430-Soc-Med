@@ -1,20 +1,22 @@
 #class-db-input {
   position: relative;
-  top: 10%;
-  left: 5%;
+  top: 12%;
+  left: 12%;
   padding: 12px;
   border-radius: 5px;
   border: 1px solid;
   min-width: 500px;
   max-width: 500px;
+  background-color: #c3ccd8;
 
   h3 {
-    margin: 0;
+    margin: 0 0 5px;
     padding: 0;
     font-size: 24px;
   }
 
   form {
+    margin: 0 auto;
     width: 80%;
   }
 }
@@ -46,6 +48,18 @@
   color: #1565c0;
 }
 
+.input-field .validate {
+  color: #1565c0;
+  border-bottom: #1565c0;
+}
+
+.input-field .active {
+  color: #1565c0 !important;
+  border-bottom: #1565c0;
+}
+//////Below is used to change the default color of the input fields
+/* label color */
+//////Above is used to change the default color of the input fields
 .right-content-wrapper {
   overflow: auto;
   height: 500px;
