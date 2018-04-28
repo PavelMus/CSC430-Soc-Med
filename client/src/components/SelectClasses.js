@@ -35,7 +35,7 @@ class SelectClasses extends Component {
       return teacher._id == id;
     });
     console.log(teacher);
-    
+
     if(teacher){
       return teacher.displayName;
     } else {
