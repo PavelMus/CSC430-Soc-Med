@@ -102,8 +102,8 @@ class ComposeEvent extends Component {
         return(
           <div className="user-col col s6 m6 l1 xl1">
             <div className="user-info">
-              <div class="user-pic-wrapper">
-                <img class="user-pic" src={this.props.user.avatar} width="64"/>
+              <div className="user-pic-wrapper">
+                <img className="user-pic" src={this.props.user.avatar} width="64"/>
               </div>
                 <p className="user-name">{this.props.user.displayName}</p>
                 <p className="time">Dec 13, 2017</p>

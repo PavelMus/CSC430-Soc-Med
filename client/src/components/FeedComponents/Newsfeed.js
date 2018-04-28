@@ -6,20 +6,20 @@ import axios from "axios";
 class Newsfeed extends Component {
   constructor(props) {
     super(props);
-
+    this.onScroll = this.onScroll.bind(this);
     this.state = {
       feed: null,
       isLoading: false,
       loadSkip: 0
     };
-
-    //this.pollInterval = null;
   }
 
   updateFeed = () => {
     axios.get(`${"api/main-feed"}/${(this.state.loadSkip+6)}`).then(res => {
+      if(this.state.feed){
       let updatedFeed = this.state.feed.concat(res.data);
       this.setState({ feed: updatedFeed, loadSkip: (this.state.loadSkip+6), isLoading: false});
+      }
     });
   }
 
@@ -31,7 +31,7 @@ class Newsfeed extends Component {
     });
   };
 
-  onScroll = () => {
+  onScroll(){
     if (
       (window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 1
       && !this.state.isLoading
@@ -44,25 +44,14 @@ class Newsfeed extends Component {
   //items from the database, then it sets an interval to send another request to
   //the database, the interval is set in the props of this component
   componentDidMount() {
-    window.addEventListener(
-      "scroll",
-      () => window.requestAnimationFrame(this.onScroll), false);
-
+    window.addEventListener( "scroll", this.onScroll, false);
     this.loadFeed();
-    /*if (!this.pollInterval)
-    this.pollInterval = setInterval(
-      this.loadFeed,
-      this.props.pollInterval
-    );*/
   }
 
 
   //When the component unmounts this will reset the interval
   componentWillUnmount() {
-    window.removeEventListener("scroll",
-    () => window.requestAnimationFrame(this.onScroll), false);
-    /*this.pollInterval && clearInterval(this.pollInterval);
-    this.pollInterval = null;*/
+    window.removeEventListener("scroll", this.onScroll, false);
   }
 
   render() {

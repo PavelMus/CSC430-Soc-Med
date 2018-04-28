@@ -8,11 +8,9 @@ class ClassMenuItem extends Component {
   }
   dropdownClick = e => {
     e.preventDefault();
-    console.log(e.target.target);
     if (e.target.target) {
       var element = document.getElementById(e.target.target);
       var element_a = document.getElementById(e.target.target + "a_tag");
-      console.log(e.target);
     } else {
       var element = document.getElementById(e.target.parentElement.target);
       //console.log(e.target.parentElement);
@@ -32,9 +30,6 @@ class ClassMenuItem extends Component {
   };
 
   renderMenu = () => {
-    console.log(this.props.user._id);
-    console.log(this.props.class.teacher);
-    console.log(this.props.class._id);
     if(this.props.user._id === this.props.class.teacher){
       return this.teacherMenu();
     }else {

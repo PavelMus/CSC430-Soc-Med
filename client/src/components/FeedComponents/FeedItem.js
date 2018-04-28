@@ -16,9 +16,12 @@ class FeedItem extends Component {
     this.state = {
       feedItem: false,
       quill: "",
+      all_comments_data: [],
+      incoming_comments: [],
       all_comments: [],
       new_comment: "",
-      skip: 0
+      skip: 0,
+      loadMore: false
     };
   }
 
@@ -88,18 +91,47 @@ class FeedItem extends Component {
   loadMoreComments = e => {
     e.preventDefault();
     let skip = this.state.skip + 5;
-    this.setState({skip: skip}, this.loadComments);
-  }
+    this.setState({ skip: skip, loadMore: true }, this.loadComments);
+  };
 
   loadComments = () => {
     let feed_id = this.props.location.pathname.slice(6);
-    axios.get(`${"/api/get-comments"}/${feed_id}/${this.state.skip}`).then(res => {
-      this.mapComments(res.data);
-    });
+    axios
+      .get(`${"/api/get-comments"}/${feed_id}/${this.state.skip}`)
+      .then(res => {
+          if (res.data.length > 0) {
+          this.setState({incoming_comments: res.data}, this.filterRawComments);
+        } else if(this.state.loadMore) {
+          let skip = this.state.skip - 5;
+          this.setState({ skip: skip, loadMore: false });
+        }
+      });
   };
 
-  mapComments = comments => {
-    let all_comments = comments.map(cmt => {
+  filterRawComments = () => {
+    let all = this.state.all_comments_data;
+    let incoming = this.state.incoming_comments;
+    let dupe = 0;
+    for(var i = 0; i < incoming.length; i++){
+      for(var j = 0; j < all.length; j++){
+        if(all[j].key === incoming[i].key){
+          dupe = 1;
+        }
+      }
+      if(!dupe){
+        all.push(incoming[i]);
+      } else{
+        dupe = 0;
+      }
+    }
+    if(all.length === 0){
+      all = incoming;
+    }
+    this.setState({all_comments_data: all, incoming_comments: []}, this.mapComments)
+  }
+
+  mapComments = () => {
+    let all_comments = this.state.all_comments_data.map(cmt => {
       return (
         <li key={cmt.key}>
           <img src={cmt.user_avatar} />
@@ -115,11 +147,8 @@ class FeedItem extends Component {
         </li>
       );
     });
-
-    this.setState({
-      all_comments: this.state.all_comments.concat(all_comments)
-    });
-  }
+    this.setState({all_comments:all_comments});
+  };
 
   renderComments = () => {
     switch (this.state.all_comments) {
@@ -129,7 +158,9 @@ class FeedItem extends Component {
         return (
           <ul>
             {this.state.all_comments}
-            <a href="#" onClick={this.loadMoreComments}>Load more..</a>
+            <a href="#" onClick={this.loadMoreComments}>
+              Load more..
+            </a>
           </ul>
         );
     }
@@ -182,7 +213,7 @@ class FeedItem extends Component {
     axios.post(`${"/api/new-comment"}/${feed_id}`, comment).then(res => {
       M.toast({ html: res.data.message });
       this.loadComments();
-      this.setState({new_comment: ""});
+      this.setState({ new_comment: "" });
     });
   };
 

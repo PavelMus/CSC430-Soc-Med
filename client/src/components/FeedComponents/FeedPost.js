@@ -23,7 +23,14 @@ class FeedPost extends Component {
   showCommentSection = (e) => {
     e.preventDefault();
     this.loadComments();
-    let element = document.getElementById(e.target.parentNode.target);
+    console.log(e.target);
+    let element;
+    if(e.target.target){
+      element = document.getElementById(e.target.target);
+    }else{
+      element = document.getElementById(e.target.parentNode.target);
+    }
+    
     if(!element.classList.contains('show')){
       element.classList.add("show");
     }else{
@@ -121,7 +128,7 @@ class FeedPost extends Component {
                 <form onSubmit={this.submitNewComment}>
                     <div className="input-comment-section">
                       <div className="user-pic-wrapper">
-                        <img className="user-pic" src={this.props.authorAvatar} width="64"/>
+                        <img className="user-pic" src={this.props.user.avatar} width="64"/>
                       </div>
                       <div className="input-comment-body">
                         <input value={this.state.new_comment} onChange={this.onCommentChange} placeholder="Leave a comment"></input>
