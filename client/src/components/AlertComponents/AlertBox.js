@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import AlertModal from "./AlertModal";
 import { WEATHER_ALERT } from "./types";
+import { ASSIGNMENT_DUE } from "./types";
+import { CLOSED } from "./types";
 import * as anime from "animejs";
 
 class AlertBox extends Component {
@@ -15,6 +17,10 @@ class AlertBox extends Component {
     switch (this.props.type) {
       case WEATHER_ALERT:
         return "Weather Alert";
+      case CLOSED:
+        return "School Closed Alert";
+      case ASSIGNMENT_DUE:
+        return "Assignment Alert";
       default:
         return "Alert";
     }

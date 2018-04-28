@@ -6,8 +6,8 @@ import axios from "axios";
 import * as M from 'materialize-css';
 import AlertPreview from './AlertBox'
 import {WEATHER_ALERT} from './types';
-
-
+import {ASSIGNMENT_DUE} from './types';
+import {CLOSED} from './types';
 class ComposeAlert extends Component {
   constructor(props) {
     super(props);
@@ -75,8 +75,8 @@ class ComposeAlert extends Component {
                   <select onChange={this.typeUpdate}>
                   <option value="1" disabled selected>Select Alert Type</option>
                   <option value={WEATHER_ALERT}>Weather Alert</option>
-                  <option value="2">Closing Alert</option>
-                  <option value="3">Assignment Due Alert</option>
+                  <option value={CLOSED}>Closing Alert</option>
+                  <option value={ASSIGNMENT_DUE}>Assignment Due Alert</option>
                   </select>
                   <label>Alert Type Selector</label>
               </div>

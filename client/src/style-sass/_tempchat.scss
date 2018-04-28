@@ -1,7 +1,15 @@
-#chat-box{
-    width: 100%;
-    height: 60vh;
-    border-style: solid;
-    border-color: black;
-    text-align: left;
+#chat-box {
+  margin-top: 15px;
+  width: 100%;
+  height: 60vh;
+  border: 1px solid black;
+  border-radius: 3px;
+  text-align: left;
+}
+
+.input-field {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+
+  #textarea1 {}
 }
