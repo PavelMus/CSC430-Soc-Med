@@ -555,6 +555,12 @@ body {
   max-width: 85%;
   max-height: 85%; }
 
+#page-background {
+  float: left;
+  z-index: -20;
+  height: 100vh;
+  background-color: #e9ebee; }
+
 .ql-editor strong {
   font-weight: bold; }
 

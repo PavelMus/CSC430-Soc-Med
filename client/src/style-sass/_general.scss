@@ -1,3 +1,12 @@
+body {}
+
+#page-background {
+  float: left;
+  z-index: -20;
+  height: 100vh;
+  background-color: #e9ebee;
+}
+
 .ql-editor strong {
   font-weight: bold;
 }
@@ -32,6 +41,7 @@
       border-color: black;
       border-radius: 0.66em;
       margin-bottom: 12px;
+
       h6 {
         text-align: center;
       }
