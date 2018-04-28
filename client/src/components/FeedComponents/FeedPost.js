@@ -30,7 +30,7 @@ class FeedPost extends Component {
     }else{
       element = document.getElementById(e.target.parentNode.target);
     }
-    
+
     if(!element.classList.contains('show')){
       element.classList.add("show");
     }else{
@@ -131,7 +131,9 @@ class FeedPost extends Component {
                         <img className="user-pic" src={this.props.user.avatar} width="64"/>
                       </div>
                       <div className="input-comment-body">
-                        <input value={this.state.new_comment} onChange={this.onCommentChange} placeholder="Leave a comment"></input>
+
+                          <input value={this.state.new_comment} onChange={this.onCommentChange} placeholder="Leave a comment"></input>
+          
                       </div>
                     </div>
                   </form>

@@ -22,20 +22,26 @@
     }
   }
 }
+///////////////////////////////////////
 
 .comments {
-  margin-top: 12px;
   border: 1px;
+  border-top: 0;
   border-style: solid;
-  border-color: black;
-  border-radius: 0.5em;
+  border: 1px solid #aaa;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
   padding: 0 12px;
   align-items: baseline;
   align-content: center;
 
   i {
     display: inline-block;
-    color: blue;
+    color: #1565c0;
   }
 
   h6 {
@@ -45,19 +51,28 @@
   }
 
   ul {
+    a {
+      color: #1565c0;
+    }
+
     li {
+      display: flex;
+      align-items: center;
+
       img {
         border-radius: 50% !important;
         display: inline-block;
         margin-bottom: 15px;
-        width: 7%;
+        width: 20%;
+        width: 44px;
+        height: 44px;
       }
 
       .card {
         display: inline-block;
         border-radius: 0.5em;
         margin-left: 20px;
-        width: 90%;
+        width: 80%;
         vertical-align: bottom;
         box-shadow: 0 0 0 0;
       }
@@ -118,6 +133,50 @@
           transform: translateX(0px);
         }
       }
+    }
+  }
+}
+/////////////////////////////////////////////////////
+
+.new-comment {
+  .input-comment-form {
+    .input-comment-body {
+      display: flex;
+      padding: 10px 5px;
+      align-items: center;
+      justify-content: flex-start;
+
+      .circle {
+        width: 44px;
+        height: 44px;
+      }
+
+      .input-wrapper {
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 35px;
+        overflow: auto;
+        border-radius: 16px;
+        border: 1px solid grey;
+        width: 80%;
+
+        input {
+          position: relative;
+          top: -6px;
+          left: 5px;
+          margin: 0 12px;
+        }
+
+        input::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: black;
+          opacity: 0.55;
+          font-size: 15px;
+          /* Firefox */
+        }
+      }
+
+      .btn-small {}
     }
   }
 }

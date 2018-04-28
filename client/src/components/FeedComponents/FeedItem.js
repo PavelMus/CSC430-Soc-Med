@@ -179,11 +179,14 @@ class FeedItem extends Component {
             >
               <div className="input-comment-body">
                 <img className="circle" src={this.props.user.avatar} />
-                <input
-                  onChange={this.onCommentChange}
-                  value={this.state.new_comment}
-                  placeholder="Leave a comment"
-                />
+                <div className="input-wrapper">
+                  <input
+                    onChange={this.onCommentChange}
+                    value={this.state.new_comment}
+                    placeholder="Leave a comment"
+                  />
+                </div>
+
                 <button className="btn-small">
                   <i className="material-icons">send</i>
                 </button>
