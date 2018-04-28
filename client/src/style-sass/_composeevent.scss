@@ -129,10 +129,8 @@
     height: 25vh;
   }
 }
-
-#quill {
-  .ql-container {}
-
-  .ql-editor .ql-blank {}
-}
 ////////////////////////////////////
+
+#event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
+  height: 250px;
+}

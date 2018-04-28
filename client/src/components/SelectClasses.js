@@ -35,7 +35,7 @@ class SelectClasses extends Component {
       return teacher._id == id;
     });
     console.log(teacher);
-    
+
     if(teacher){
       return teacher.displayName;
     } else {
@@ -169,10 +169,10 @@ class SelectClasses extends Component {
               {_class.type}
               {_class.level}
             </li>
-            <li className="col s4">{_class.subject}</li>
+            <li className="col s3">{_class.subject}</li>
             <li className="col s3">{this.getTeacherName(_class.teacher)}</li>
             <li className="col s2">{_class.section}</li>
-            <li className="col s1">
+            <li className="col s2">
               <button
                 id={_class._id}
                 value={_class._id}
