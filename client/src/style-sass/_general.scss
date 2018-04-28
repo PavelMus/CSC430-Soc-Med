@@ -26,29 +26,6 @@
       padding: 0;
     }
 
-    #class-cart {
-      border-style: solid;
-      border-width: 1px;
-      border-color: black;
-      border-radius: 0.66em;
-      margin-bottom: 12px;
-      h6 {
-        text-align: center;
-      }
-
-      li {
-        font-size: 0.82em;
-        text-align: center;
-      }
-
-      button {
-        padding: 0;
-        height: 18px;
-        line-height: inherit;
-        margin-bottom: 8px;
-      }
-    }
-
     #class-list {
       padding: 0;
 
@@ -68,5 +45,29 @@
         margin-top: -10px;
       }
     }
+  }
+}
+
+#class-cart {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 0.66em;
+  margin-bottom: 12px;
+  background-color: aqua;
+  h6 {
+    text-align: center;
+  }
+
+  li {
+    font-size: 0.82em;
+    text-align: center;
+  }
+
+  button {
+    padding: 0;
+    height: 18px;
+    line-height: inherit;
+    margin-bottom: 8px;
   }
 }

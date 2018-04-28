@@ -33,7 +33,7 @@ class Newsfeed extends Component {
 
   onScroll(){
     if (
-      (window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 1
+      (window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 20
       && !this.state.isLoading
     ) {
       this.setState({isLoading: true}, this.updateFeed);
