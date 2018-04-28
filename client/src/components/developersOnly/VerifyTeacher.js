@@ -70,20 +70,20 @@ class VerifyTeacher extends Component {
           <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
-          <div id="verifyteacher-container" className="col s12 m12 l10 xl10">
-            <div id="verify-left" className="col s8 m4 l4 xl4">
+          <div id="verifyteacher-container" className="col s12 m12 l3 xl3">
+          <div className="row">
+
+            <div id="verify-left" className="col s8 m4 l6 xl6">
               <div className="input-field">
                 <select id="teacherName" onChange={this.selectedTeacher}>
                   <option value="">Select Teacher</option>
                   {this.state.user_options}
                 </select>
                 <label>User Selector</label>
-                <a className="btn" onClick={this.verifyTeacher} href="#!">
-                  SUBMIT
-                </a>
+
               </div>
             </div>
-            <div className="col s8 m4 l4 xl4 input-field">
+            <div className="col s8 m4 l6 xl6 input-field">
               <select id="cType" onChange={this.selectedClassType}>
                 <option value="">Select Subject</option>
                 <option value="CSC">CSC</option>
@@ -92,6 +92,11 @@ class VerifyTeacher extends Component {
               </select>
               <label>Class Type</label>
             </div>
+            <a className="btn" onClick={this.verifyTeacher} href="#!">
+              SUBMIT
+            </a>
+          </div>
+
           </div>
         </div>
       </div>
