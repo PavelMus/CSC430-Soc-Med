@@ -34,7 +34,13 @@ class SelectClasses extends Component {
     let teacher = this.props.teachers.find(teacher => {
       return teacher._id == id;
     });
-    return teacher.displayName;
+    console.log(teacher);
+    
+    if(teacher){
+      return teacher.displayName;
+    } else {
+      return "Staff";
+    }
   };
 
   selectedClassType = e => {

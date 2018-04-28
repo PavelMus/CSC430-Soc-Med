@@ -13,19 +13,46 @@ class FeedPost extends Component {
       author: "",
       title: "",
       postDate:"",
-      content: ""
+      content: "",
+      comments: ""
    };
   }
 
   showCommentSection = (e) => {
     e.preventDefault();
+    this.loadComments();
     let element = document.getElementById(e.target.parentNode.target);
     if(!element.classList.contains('show')){
       element.classList.add("show");
     }else{
       element.classList.remove("show");
     }
+  }
 
+  loadComments = () => {
+    axios.get(`${"/api/get-comments/"}/${this.props.feed_id}/${0}`).then(res => {
+      this.mapComments(res.data);
+    });
+  }
+
+  mapComments = comments => {
+    let mappedComments = comments.map(cmt => {
+      return (
+        <li key={cmt.key}>
+            <img src={cmt.user_avatar} />
+          <div className="card horizontal">
+            <div className="card-stacked">
+              <div className="card-content">
+                <h6>{cmt.user_name}:</h6>
+                <p>{cmt.content}</p>
+                <p className="comment-post-date">Posted on: {cmt.postDate}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      );
+    });
+    this.setState({ comments: mappedComments });
   }
 
   renderContent = () =>{
@@ -63,6 +90,9 @@ class FeedPost extends Component {
 
             <div id={this.props.feed_id} className="comments-container">
               <div className="comments">
+              <ul>
+                {this.state.comments}
+              </ul>
               </div>
               <div className="new-comment">
                 <form >

@@ -450,7 +450,69 @@ body {
     #newsfeed .feed-post .comments-container {
       display: none; }
       #newsfeed .feed-post .comments-container .comments {
-        min-height: 12vh; }
+        margin-top: 6px;
+        border: 1px;
+        border-style: solid;
+        border-color: black;
+        border-radius: 0.5em;
+        padding: 0 12px;
+        align-items: baseline;
+        align-content: center; }
+        #newsfeed .feed-post .comments-container .comments ul li {
+          opacity: 0;
+          animation-name: comments;
+          animation-duration: 200ms;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards; }
+          #newsfeed .feed-post .comments-container .comments ul li img {
+            border-radius: 100% !important;
+            display: inline-block;
+            margin-bottom: 15px;
+            width: 8%; }
+          #newsfeed .feed-post .comments-container .comments ul li .card {
+            display: inline-block;
+            border-radius: 0.5em;
+            margin-left: 12px;
+            width: 80%;
+            vertical-align: bottom;
+            box-shadow: 0 0 0 0; }
+          #newsfeed .feed-post .comments-container .comments ul li .card::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 40%;
+            width: 0;
+            height: 0;
+            border: 1.125em solid transparent;
+            border-right-color: white;
+            border-left: 0;
+            border-bottom: 0;
+            margin-top: -0.562em;
+            margin-left: -1.125em; }
+          #newsfeed .feed-post .comments-container .comments ul li .card-content {
+            padding: 3px 8px 10px 8px;
+            min-height: 40px;
+            text-align: left; }
+            #newsfeed .feed-post .comments-container .comments ul li .card-content h6 {
+              font-size: 0.8em;
+              margin: 0 0 3px 0;
+              border-radius: 0.3em;
+              font-style: italic;
+              font-weight: bold; }
+            #newsfeed .feed-post .comments-container .comments ul li .card-content p {
+              margin-left: 12px; }
+            #newsfeed .feed-post .comments-container .comments ul li .card-content .comment-post-date {
+              float: right;
+              font-style: italic;
+              font-size: 0.6em; }
+
+@keyframes comments {
+  0% {
+    opacity: 0;
+    transform: translateX(300px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0px); } }
     #newsfeed .feed-post .show {
       display: block !important; }
     #newsfeed .feed-post .input-comment-header {
@@ -472,26 +534,8 @@ body {
           border-radius: 50%; }
       #newsfeed .feed-post .new-comment form .input-comment-section .input-comment-body input {
         margin-left: 15px;
-        float: left;
         display: inline-block;
         width: 80%; }
-
-.new-comment .input-comment-form img {
-  display: inline-block;
-  width: 5%;
-  vertical-align: bottom; }
-
-.new-comment .input-comment-form input {
-  display: inline-block;
-  width: 85%;
-  margin: 0 12px; }
-
-.new-comment .input-comment-form button {
-  vertical-align: bottom;
-  background: #005cb2; }
-  .new-comment .input-comment-form button i {
-    vertical-align: bottom;
-    color: #e3f2fd; }
 
 #newsfeed .card-top {
   height: 55px;
@@ -806,8 +850,47 @@ body {
     animation-duration: 200ms;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards; }
+    .comments ul li img {
+      border-radius: 50% !important;
+      display: inline-block;
+      margin-bottom: 15px;
+      width: 7%; }
+    .comments ul li .card {
+      display: inline-block;
+      border-radius: 0.5em;
+      margin-left: 20px;
+      width: 90%;
+      vertical-align: bottom;
+      box-shadow: 0 0 0 0; }
+    .comments ul li .card::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 40%;
+      width: 0;
+      height: 0;
+      border: 1.125em solid transparent;
+      border-right-color: white;
+      border-left: 0;
+      border-bottom: 0;
+      margin-top: -0.562em;
+      margin-left: -1.125em; }
     .comments ul li .card-content {
-      padding: 15px 8px; }
+      padding: 3px 8px 10px 8px;
+      min-height: 40px; }
+      .comments ul li .card-content h6 {
+        display: inline-block;
+        margin: 0 0 8px 0;
+        border-radius: 0.3em;
+        font-style: italic;
+        font-weight: bold; }
+      .comments ul li .card-content p {
+        vertical-align: bottom;
+        margin-left: 12px; }
+      .comments ul li .card-content .comment-post-date {
+        float: right;
+        font-style: italic;
+        font-size: 0.6em; }
 
 @keyframes comments {
   0% {

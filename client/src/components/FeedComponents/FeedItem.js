@@ -102,13 +102,13 @@ class FeedItem extends Component {
     let all_comments = comments.map(cmt => {
       return (
         <li key={cmt.key}>
+          <img src={cmt.user_avatar} />
           <div className="card horizontal">
-            <div className="card-image">
-              <img src={cmt.user_avatar} />
-            </div>
             <div className="card-stacked">
               <div className="card-content">
+                <h6>{cmt.user_name}:</h6>
                 <p>{cmt.content}</p>
+                <p className="comment-post-date">Posted on: {cmt.postDate}</p>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ class FeedItem extends Component {
     this.setState({
       all_comments: this.state.all_comments.concat(all_comments)
     });
-  };
+  }
 
   renderComments = () => {
     switch (this.state.all_comments) {
