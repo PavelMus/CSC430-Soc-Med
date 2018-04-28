@@ -164,7 +164,7 @@ class SelectClasses extends Component {
       ) {
         let select_check = this.checkSelectedClasses(_class._id);
         return (
-          <React.Fragment key={_class._id}>
+          <div className="col s12" style={{padding: "0px"}} key={_class._id}>
             <li className="col s2">
               {_class.type}
               {_class.level}
@@ -182,7 +182,7 @@ class SelectClasses extends Component {
                 {select_check.selected}
               </button>
             </li>
-          </React.Fragment>
+          </div>
         );
       }
     });
@@ -239,7 +239,7 @@ class SelectClasses extends Component {
         return "";
       default:
         return (
-          <form className="col s8 m4 l8 xl8" onSubmit={this.onClassSubmit}>
+          <form className="col s8 m8 l8 xl8" onSubmit={this.onClassSubmit}>
               <div className="col s12 input-field">
                 <select
                   defaultValue="1"
@@ -255,14 +255,16 @@ class SelectClasses extends Component {
                 </select>
                 <label>Class Type</label>
               </div>
+              <div className="row">
               <ul id="class-list" className="col s12">
-                <li className="col s2">Class</li>
+                <li className="col s1">Class</li>
                 <li className="col s4">Subject</li>
                 <li className="col s3">Instructor</li>
                 <li className="col s2">Section</li>
                 <div className="col s12 divider" />
-                {this.state.classList}
+                  {this.state.classList}
               </ul>
+              </div>
           </form>
         );
     }
@@ -272,19 +274,18 @@ class SelectClasses extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
-          <div className="col s12 m2 l2 xl2">
+          <div className="col l2 xl2 hide-on-med-and-down">
             <Fixedmenu />
           </div>
 
-          <div className="right-content-wrapper col s8 m4 l9 xl9">
+          <div className="right-content-wrapper col s12 m12 l10 xl10">
             {this.renderForm()}
-            <div id="class-cart" className="col s3 l4 xl3 offset-xl1">
-
+            <div id="class-cart" className="col l3 xl3">
               <h6>Selected Classes</h6>
               <div className="divider" />
-
-              <ul className="col s12">{this.state.class_cart}</ul>
-
+              <ul className="col s12">
+                {this.state.class_cart}
+              </ul>
               <button
                 id="checkout_button"
                 className="col s12 btn-small disabled"
