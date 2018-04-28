@@ -169,8 +169,8 @@ class ComposeClass extends Component {
       teacher: _class.teacherSelected
     };
     axios.post("/api/create-class", new_class).then(res => {
-      let teacher = { 
-        classes: {class_id: res.data.id, verified: true}, 
+      let teacher = {
+        classes: {class_id: res.data.id, verified: true},
         user: _class.teacherSelected
       };
       axios.put("/api/add_class_to_user/teacher", teacher).then(res => {
@@ -187,7 +187,7 @@ class ComposeClass extends Component {
           <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
-          <div id="class-db-input" className="col s12 m6 l8 xl8 offset-l1 offset-xl1">
+          <div id="class-db-input" className="col s12 m6 l8 xl8">
             <h3>Create a new class section</h3>
             <form className="col s12" onSubmit={this.onClassSubmit}>
               <div className="row">

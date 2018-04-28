@@ -70,30 +70,29 @@ class VerifyTeacher extends Component {
           <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
-
-              <div id="verify-left" className="col s8 m4 l4 xl4 offset-l1 offset-xl1">
-                <div className="input-field">
-                  <select id="teacherName" onChange={this.selectedTeacher}>
-                    <option value="">Select Teacher</option>
-                    {this.state.user_options}
-                  </select>
-                  <label>User Selector</label>
-                  <a className="btn" onClick={this.verifyTeacher} href="#!">
-                    SUBMIT
-                  </a>
-                </div>
-              </div>
-              <div className="col s8 m4 l4 xl4 input-field">
-                <select id="cType" onChange={this.selectedClassType}>
-                  <option value="">Select Subject</option>
-                  <option value="CSC">CSC</option>
-                  <option value="ENG">ENG</option>
-                  <option value="MTH">MTH</option>
+          <div id="verifyteacher-container" className="col s12 m12 l10 xl10">
+            <div id="verify-left" className="col s8 m4 l4 xl4">
+              <div className="input-field">
+                <select id="teacherName" onChange={this.selectedTeacher}>
+                  <option value="">Select Teacher</option>
+                  {this.state.user_options}
                 </select>
-                <label>Class Type</label>
+                <label>User Selector</label>
+                <a className="btn" onClick={this.verifyTeacher} href="#!">
+                  SUBMIT
+                </a>
               </div>
-
-
+            </div>
+            <div className="col s8 m4 l4 xl4 input-field">
+              <select id="cType" onChange={this.selectedClassType}>
+                <option value="">Select Subject</option>
+                <option value="CSC">CSC</option>
+                <option value="ENG">ENG</option>
+                <option value="MTH">MTH</option>
+              </select>
+              <label>Class Type</label>
+            </div>
+          </div>
         </div>
       </div>
 

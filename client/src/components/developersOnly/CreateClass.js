@@ -55,9 +55,9 @@ class CreateClass extends Component {
             <Fixedmenu />
           </div>
 
-          <div id="class-db-input" className="col s8 m4 l6 xl6 offset-l1 offset-xl1">
-            <h3>CLASS DATABASE INPUT</h3>
-            <form className="col s12" onSubmit={this.onClassSubmit}>
+          <div id="class-db-input" className="col s8 m4 l6 xl6">
+            <h3>Input Class to Database</h3>
+            <form className="" onSubmit={this.onClassSubmit}>
               <div className="row">
                 <div className="input-field col s3">
                   <input value={this.state.type} id="clas_type" onChange={this.onTypeChange} type="text" className="validate" />

@@ -559,16 +559,6 @@ body {
   margin-top: 20px;
   overflow: hidden; }
 
-#verify-teacher-container {
-  padding-top: 84px;
-  max-width: 1240px;
-  width: 60%; }
-  #verify-teacher-container #verify-left {
-    background-color: #c3ccd8;
-    height: 86vh;
-    border-top-left-radius: 1vh;
-    border-bottom-left-radius: 1vh; }
-
 #class-select-area {
   min-height: 90vh;
   max-width: 1240px; }
@@ -973,18 +963,20 @@ body {
 
 #class-db-input {
   position: relative;
-  top: 10%;
-  left: 5%;
+  top: 12%;
+  left: 12%;
   padding: 12px;
   border-radius: 5px;
   border: 1px solid;
   min-width: 500px;
-  max-width: 500px; }
+  max-width: 500px;
+  background-color: #c3ccd8; }
   #class-db-input h3 {
-    margin: 0;
+    margin: 0 0 5px;
     padding: 0;
     font-size: 24px; }
   #class-db-input form {
+    margin: 0 auto;
     width: 80%; }
 
 #class-list {
@@ -1006,6 +998,15 @@ body {
 .input-field li span {
   color: #1565c0; }
 
+.input-field .validate {
+  color: #1565c0;
+  border-bottom: #1565c0; }
+
+.input-field .active {
+  color: #1565c0 !important;
+  border-bottom: #1565c0; }
+
+/* label color */
 .right-content-wrapper {
   overflow: auto;
   height: 500px;
@@ -1268,3 +1269,18 @@ body {
   font-size: 0.6em;
   margin: 0;
   padding: 0 10px; }
+
+#verify-teacher {
+  overflow: auto; }
+
+#verifyteacher-container {
+  background-color: #c3ccd8;
+  position: relative;
+  top: 6%;
+  left: 6%;
+  max-width: 1240px;
+  width: 60%; }
+  #verifyteacher-container #verify-left {
+    height: 86vh;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh; }
