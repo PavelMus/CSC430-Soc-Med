@@ -240,14 +240,14 @@
             opacity: 0;
             animation: {
               name: comments;
-              duration: 200ms;
+              duration: 100ms;
               timing-function: ease-in-out;
               fill-mode: forwards;
             }
             @keyframes comments{
               0%{
                 opacity: 0;
-                transform: translateX(300px);
+                transform: translateX(100px);
               }
               100%{
                 opacity: 1;

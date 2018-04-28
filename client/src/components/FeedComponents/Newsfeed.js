@@ -79,6 +79,7 @@ class Newsfeed extends Component {
           <div className="col s12 m4 l8 xl6" id="newsfeed">
             {feed.map( data => (
               <FeedPost
+              user={this.props.user}
               author={data.feedItem.author}
               authorAvatar={data.feedItem.authorAvatar}
               title={data.feedItem.title}
@@ -95,4 +96,8 @@ class Newsfeed extends Component {
   }
 }
 
-export default Newsfeed;
+const mapStateToProps = state => {
+  return {user: state.user};
+}
+
+export default connect(mapStateToProps)(Newsfeed);

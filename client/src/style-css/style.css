@@ -461,7 +461,7 @@ body {
         #newsfeed .feed-post .comments-container .comments ul li {
           opacity: 0;
           animation-name: comments;
-          animation-duration: 200ms;
+          animation-duration: 100ms;
           animation-timing-function: ease-in-out;
           animation-fill-mode: forwards; }
           #newsfeed .feed-post .comments-container .comments ul li img {
@@ -509,7 +509,7 @@ body {
 @keyframes comments {
   0% {
     opacity: 0;
-    transform: translateX(300px); }
+    transform: translateX(100px); }
   100% {
     opacity: 1;
     transform: translateX(0px); } }

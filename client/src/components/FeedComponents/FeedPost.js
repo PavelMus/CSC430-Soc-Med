@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import tempimg from '../../img/temp-user-img.jpg';
+import uuid from 'uuid';
 import axios from 'axios';
 import marked from 'marked';
+import * as M from 'materialize-css';
 class FeedPost extends Component {
   constructor(props){
     super(props);
@@ -14,7 +15,8 @@ class FeedPost extends Component {
       title: "",
       postDate:"",
       content: "",
-      comments: ""
+      comments: "",
+      new_comment: ""
    };
   }
 
@@ -34,6 +36,27 @@ class FeedPost extends Component {
       this.mapComments(res.data);
     });
   }
+
+  onCommentChange = e => {
+    this.setState({ new_comment: e.target.value });
+  };
+
+  submitNewComment = e => {
+    e.preventDefault();
+    let date = new Date();
+    let comment = {
+      user_name: this.props.user.displayName,
+      user_avatar: this.props.user.avatar,
+      content: this.state.new_comment,
+      postDate: date.toLocaleString(),
+      key: uuid()
+    };
+    axios.post(`${"/api/new-comment"}/${this.props.feed_id}`, comment).then(res => {
+      M.toast({ html: res.data.message });
+      this.loadComments();
+      this.setState({new_comment: ""});
+    });
+  };
 
   mapComments = comments => {
     let mappedComments = comments.map(cmt => {
@@ -95,13 +118,13 @@ class FeedPost extends Component {
               </ul>
               </div>
               <div className="new-comment">
-                <form >
+                <form onSubmit={this.submitNewComment}>
                     <div className="input-comment-section">
                       <div className="user-pic-wrapper">
                         <img className="user-pic" src={this.props.authorAvatar} width="64"/>
                       </div>
                       <div className="input-comment-body">
-                        <input placeholder="Leave a comment"/>
+                        <input value={this.state.new_comment} onChange={this.onCommentChange} placeholder="Leave a comment"></input>
                       </div>
                     </div>
                   </form>
