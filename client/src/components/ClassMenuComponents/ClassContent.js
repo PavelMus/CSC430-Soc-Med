@@ -70,7 +70,7 @@ class ClassContent extends Component {
         <div className="row" id="content-area-row">
           <div className="col s12 m2 l2 xl2"><Fixedmenu /></div>
           <div id="class-content-wrapper" className="col s12 m6 l8 xl8">
-      
+
               <div id="class-content-section" className="col s12 m3 l12 xl12">
                 <div className="class-content-section-container">
                   <div className="content-header">
@@ -83,7 +83,7 @@ class ClassContent extends Component {
               </div>
 
           </div>
-          <div className="col s2">{this.renderTeacherActions()}</div>
+          <div id="post-content" className="col s2">{this.renderTeacherActions()}</div>
         </div>
       </div>
     );

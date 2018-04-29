@@ -25,6 +25,7 @@
 ///////////////////////////////////////
 
 .comments {
+  background-color: #c3ccd8;
   border: 1px;
   border-top: 0;
   border-style: solid;
@@ -52,7 +53,11 @@
 
   ul {
     a {
-      color: #1565c0;
+      color: black;
+
+      &:hover {
+        color: #1565c0;
+      }
     }
 
     li {
@@ -158,7 +163,7 @@
         overflow: auto;
         border-radius: 16px;
         border: 1px solid grey;
-        width: 80%;
+        width: 90%;
 
         input {
           position: relative;

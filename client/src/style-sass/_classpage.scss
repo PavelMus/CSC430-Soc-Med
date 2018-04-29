@@ -17,7 +17,8 @@
     .content-header {
       border-bottom: 1px solid;
       padding-left: 24px;
-      background-color: #c3ccd8;
+      background-color: $postitemcolor;
+      color: $white;
 
       h2 {
         font-weight: bold;
@@ -68,5 +69,12 @@
         }
       }
     }
+  }
+}
+////////////////////////
+
+#content-area-row {
+  #post-content {
+    margin-top: 30px;
   }
 }
