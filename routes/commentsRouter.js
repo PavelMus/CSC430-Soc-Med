@@ -13,6 +13,15 @@ comments.route("/get-comments/:feed_id").get((req, res) => {
     });
 });
 
+comments.route("/get-comment-number/:feed_id").get((req, res) => {
+  Comment.find({ feedItem_id: req.params.feed_id })
+    .sort({ _id: -1 })
+    .exec((err, comments) => {
+      if (err) console.log(err);
+      res.send({total_comments: comments.length});
+    });
+});
+
 comments.route("/get-comments/:feed_id/:skip").get((req, res) => {
   let query = 5;
   let skip = Number(req.params.skip);

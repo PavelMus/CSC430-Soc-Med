@@ -178,20 +178,21 @@
 
       .comments {
         margin-top: 6px;
-        border: 1px;
-        border-style: solid;
-        border-color: black;
-        border-radius: 0.5em;
-        padding: 0 12px;
+        border: none;
+        //border-style: solid;
+        //border-color: black;
+        //border-radius: 0.5em;
+        padding: 0 0;
         align-items: baseline;
         align-content: center;
         ul{
           li{
+            border: none;
             img{
               border-radius: 100% !important;
               display: inline-block;
               margin-bottom: 15px;
-              width: 8%;
+              //width: 8%;
             }
             .card{
               display: inline-block;
@@ -287,9 +288,16 @@
           }
           .input-comment-body {
             input {
-              margin-left: 15px;
               display: inline-block;
-              width: 80%;
+              width: 86%;
+              border-bottom: none!important;
+              //box-shadow: none!important;
+            }
+            input:focus{
+              border-bottom: 1px solid black;
+              -webkit-box-shadow: 0 1px 0 0 black;
+              -moz-box-shadow: 0 1px 0 0 black;
+              box-shadow: 0 1px 0 0 black;
             }
           }
         }

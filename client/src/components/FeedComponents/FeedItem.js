@@ -16,6 +16,7 @@ class FeedItem extends Component {
     this.state = {
       feedItem: false,
       quill: "",
+      total_comments: 0,
       all_comments_data: [],
       incoming_comments: [],
       all_comments: [],
@@ -51,8 +52,16 @@ class FeedItem extends Component {
 
   componentDidMount() {
     this.loadComments();
+    this.getCommentAmmout();
     axios.get(`${"/api"}${this.props.location.pathname}`).then(res => {
       this.setState({ feedItem: res.data }, this.initQuill);
+    });
+  }
+
+  getCommentAmmout = () => {
+    let feed_id = this.props.location.pathname.slice(6);
+    axios.get(`${"/api/get-comment-number"}/${feed_id}`).then( res => {
+      this.setState({total_comments: res.data.total_comments});
     });
   }
 
@@ -133,7 +142,7 @@ class FeedItem extends Component {
   mapComments = () => {
     let all_comments = this.state.all_comments_data.map(cmt => {
       return (
-        <li key={cmt.key}>
+        <li className="z-depth-1" key={cmt.key}>
           <img src={cmt.user_avatar} />
           <div className="card horizontal">
             <div className="card-stacked">
@@ -156,7 +165,7 @@ class FeedItem extends Component {
         return "";
       default:
         return (
-          <ul>
+          <ul id="all-comment-list" className="hidden">
             {this.state.all_comments}
             <a href="#" onClick={this.loadMoreComments}>
               Load more..
@@ -220,6 +229,19 @@ class FeedItem extends Component {
     });
   };
 
+  showComments = e => {
+    e.preventDefault();
+    let comment_list = document.getElementById("all-comment-list");
+    let show_hide = document.getElementById("show-hide-btn");
+    if(comment_list.classList.contains("hidden")){
+      comment_list.classList.remove("hidden");
+      show_hide.innerHTML = "Hide";
+    } else {
+      comment_list.classList.add("hidden");
+      show_hide.innerHTML = "Show";
+    }
+  }
+
   render() {
     return (
       <div id="content-section-container" className="container">
@@ -237,7 +259,8 @@ class FeedItem extends Component {
               </div>
               <div className="comments">
                 <i className="material-icons">comment</i>
-                <h6>Comments</h6>
+                <h6>Comments ({this.state.total_comments})</h6>
+                {this.state.total_comments?<a id="show-hide-btn" href="" onClick={this.showComments}>Show</a>:""}
                 {this.renderComments()}
               </div>
               {this.renderNewCommentForm()}

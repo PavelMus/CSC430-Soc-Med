@@ -68,7 +68,7 @@ class FeedPost extends Component {
   mapComments = comments => {
     let mappedComments = comments.map(cmt => {
       return (
-        <li key={cmt.key}>
+        <li className="z-depth-1" key={cmt.key}>
             <img src={cmt.user_avatar} />
           <div className="card horizontal">
             <div className="card-stacked">

@@ -15,7 +15,8 @@ class Profile extends Component {
       instagram: "",
       linkedIn: "",
       gitHub: "",
-      tooltip_avatar: ""
+      tooltip_avatar: "",
+      social_media_eddit: ""
     };
   }
 
@@ -23,6 +24,7 @@ class Profile extends Component {
     this.checkUser();
     this.loadUserProfile();
     this.initTooltips();
+    this.initSocialMediaEddit();
   }
 
   checkUser = () => {
@@ -33,6 +35,20 @@ class Profile extends Component {
       if (this.props.user._id === url_id) {
         this.setState({ edditable: true });
       }
+    }
+  };
+
+  initSocialMediaEddit = () => {
+    let elem = document.getElementById("edit-social-media-links");
+    if (elem) {
+      let instance = M.FloatingActionButton.init(elem, {
+        direction: "right",
+        hoverEnabled: false,
+        toolbarEnabled: true
+      });
+      this.setState({ social_media_eddit: instance });
+    } else {
+      setTimeout(this.initSocialMediaEddit, 200);
     }
   };
 
@@ -105,7 +121,7 @@ class Profile extends Component {
     }
     if (social_media.gitHub) {
       gitHub = (
-        <div className="giHub-link">
+        <div className="gitHub-link">
           <a href={social_media.gitHub}>
             <i class="fab fa-github-square" />
           </a>
@@ -122,7 +138,46 @@ class Profile extends Component {
   };
 
   renderSocialMediaLinks = () => {
-    return <div className="social-media-links">{}</div>;
+    return (
+      <div className="social-media-links">
+        {this.state.facebook}
+        {this.state.twitter}
+        {this.state.instagram}
+        {this.state.linkedIn}
+        {this.state.gitHub}
+        {this.state.edditable ? (
+          <div id="edit-social-media-links" className="fixed-action-btn toolbar">
+            <a className="btn-floating btn-large red">
+              <i className="large material-icons">mode_edit</i>
+            </a>
+            <ul>
+              <li>
+                <a className="btn-floating red">
+                  <i className="material-icons">insert_chart</i>
+                </a>
+              </li>
+              <li>
+                <a className="btn-floating yellow darken-1">
+                  <i className="material-icons">format_quote</i>
+                </a>
+              </li>
+              <li>
+                <a className="btn-floating green">
+                  <i className="material-icons">publish</i>
+                </a>
+              </li>
+              <li>
+                <a className="btn-floating blue">
+                  <i className="material-icons">attach_file</i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+    );
   };
 
   renderProfile = () => {
@@ -141,7 +196,7 @@ class Profile extends Component {
                     id="edit-user-avatar"
                     className="btn-floating btn-small waves-effect waves-light"
                   >
-                    <i class="material-icons">add</i>
+                    <i className="material-icons">add</i>
                   </a>
                 ) : (
                   ""
