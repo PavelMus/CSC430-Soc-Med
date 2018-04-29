@@ -1,7 +1,4 @@
 #alert-section {
-  //height: 100vh;
-  //width:100%;
-  //Comment these below if you want to change back to the grid view
   min-height: 5vmax;
   min-width: 250px;
   width: 250px;
@@ -9,12 +6,6 @@
   -webkit-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
   -moz-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
   box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-  //-webkit-border-radius: 7px;
-  //-moz-border-radius: 7px;
-  //border-radius: 7px;
-  //border-style: solid;
-  //border-width: 2px;
-  //border-color: grey;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -27,7 +18,8 @@
     margin-bottom: 10px;
   }
 }
-
+//////////////////////
+//////////////////////
 #alert-section-container {
   margin: 0 auto;
   max-width: 1280px;
