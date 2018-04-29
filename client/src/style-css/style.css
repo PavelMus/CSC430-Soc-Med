@@ -632,13 +632,29 @@ body {
     -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
     box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
     border: 1px solid #aaa;
-    border-radius: 3px;
+    border-radius: 10px 10px 0 0;
     margin: 0;
     padding: 0; }
     #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header {
-      background-color: #a76b3b;
+      background: -moz-radial-gradient(center, ellipse cover, #d1930d 0%, #d1930d 11%, #ad751f 56%, #ad751f 100%);
+      /* ff3.6+ */
+      background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #d1930d), color-stop(11%, #d1930d), color-stop(56%, #ad751f), color-stop(100%, #ad751f));
+      /* safari4+,chrome */
+      background: -webkit-radial-gradient(center, ellipse cover, #d1930d 0%, #d1930d 11%, #ad751f 56%, #ad751f 100%);
+      /* safari5.1+,chrome10+ */
+      background: -o-radial-gradient(center, ellipse cover, #d1930d 0%, #d1930d 11%, #ad751f 56%, #ad751f 100%);
+      /* opera 11.10+ */
+      background: -ms-radial-gradient(center, ellipse cover, #d1930d 0%, #d1930d 11%, #ad751f 56%, #ad751f 100%);
+      /* ie10+ */
+      background: radial-gradient(ellipse at center, #d1930d 0%, #d1930d 11%, #ad751f 56%, #ad751f 100%);
+      /* w3c */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#D1930D', endColorstr='#AD751F',GradientType=1 );
+      /* ie6-9 */
       height: 70px;
-      padding: 16px 30px; }
+      padding: 16px 30px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      align-items: center; }
       #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header h4 {
         color: #F5F5F5;
         margin: 0;
@@ -652,22 +668,11 @@ body {
       padding: 0 30px 16px;
       height: 500px;
       overflow: auto; }
-      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header {
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body .event-header-wrapper #event-header {
         text-align: left;
         font-size: 1.4em;
-        background-color: #c3ccd8;
-        border-color: #DEDEDE; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input {
-          background-color: white;
-          margin-top: 10px;
-          -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
-          border-radius: 6px;
-          height: 38px; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input::-webkit-input-placeholder {
+        background-color: #c3ccd8; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body .event-header-wrapper #event-header input::-webkit-input-placeholder {
           /* WebKit, Blink, Edge */
           color: #808080; }
       #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area {
@@ -695,7 +700,7 @@ body {
     height: 25vh; }
 
 #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
-  height: 250px; }
+  height: 300px; }
 
 #news-section-container {
   max-width: 1280px;
@@ -771,9 +776,10 @@ body {
     -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
     box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
     border: 1px solid #aaa;
-    border-radius: 3px;
+    border-radius: 10px;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    border-radius: 10px 10px 0 0; }
     #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-news-header {
       background: -moz-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
       /* ff3.6+ */
@@ -790,7 +796,10 @@ body {
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#3661B5', endColorstr='#25477A',GradientType=1 );
       /* ie6-9 */
       height: 70px;
-      padding: 16px 30px; }
+      padding: 16px 30px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      align-items: center; }
       #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-news-header h4 {
         color: #F5F5F5;
         margin: 0;
@@ -798,39 +807,45 @@ body {
         font-size: 25px;
         text-align: left;
         display: flex;
-        align-items: center; }
+        align-items: center;
+        text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0 -5px 35px rgba(255, 255, 255, 0.3); }
     #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body {
       background-color: #c3ccd8;
       padding: 0 30px 16px;
       height: 500px;
       overflow: auto; }
-      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header {
-        margin-top: 10px;
-        text-align: left;
-        font-size: 1.4em;
+      #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body .event-header-wrapper {
         background-color: #c3ccd8;
-        border-color: #DEDEDE; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input {
-          background-color: white;
-          margin-top: 10px;
-          -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px;
+        border-color: #DEDEDE;
+        border-radius: 6px;
+        height: 38px;
+        background-color: #fffff9; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body .event-header-wrapper #event-header {
           border-radius: 6px;
-          height: 38px; }
-        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input::-webkit-input-placeholder {
-          /* WebKit, Blink, Edge */
-          color: #808080; }
+          margin: 22px 0 12px;
+          text-align: left;
+          font-size: 1.4em;
+          background-color: #c3ccd8;
+          height: 38px;
+          background-color: #fffff9; }
+          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body .event-header-wrapper #event-header input {
+            border-radius: 6px;
+            background-color: #fffff9;
+            margin: 0;
+            box-sizing: border-box; }
+          #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body .event-header-wrapper #event-header input::-webkit-input-placeholder {
+            /* WebKit, Blink, Edge */
+            color: #808080; }
       #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area {
         max-height: 500px;
         display: block;
         margin-top: 8px; }
         #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-toolbar {
-          background-color: white;
+          background-color: #fffff9;
           border-radius: 6px;
           margin-bottom: 10px; }
+        #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area #quill {
+          background-color: #fffff9; }
         #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
           border-radius: 6px;
           background-color: white;
@@ -1570,3 +1585,73 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
       opacity: 0.4; }
   .profile-container .profile-name {
     margin-left: 20px; }
+
+#event-editor-area {
+  background-color: #FFFFFF;
+  -webkit-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+  box-shadow: -1px 1px 25px -9px rgba(0, 0, 0, 0.7);
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0; }
+  #event-editor-area .event-editor-area-wrapper .post-news-header {
+    background: -moz-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* ff3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #3661B5), color-stop(46%, #2E5599), color-stop(75%, #294D88), color-stop(100%, #25477A));
+    /* safari4+,chrome */
+    background: -webkit-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* safari5.1+,chrome10+ */
+    background: -o-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* opera 11.10+ */
+    background: -ms-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* ie10+ */
+    background: radial-gradient(ellipse at center, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#3661B5', endColorstr='#25477A',GradientType=1 );
+    /* ie6-9 */
+    height: 70px;
+    padding: 16px 30px; }
+    #event-editor-area .event-editor-area-wrapper .post-news-header h4 {
+      color: #F5F5F5;
+      margin: 0;
+      padding: 0;
+      font-size: 25px;
+      text-align: left;
+      display: flex;
+      align-items: center; }
+  #event-editor-area .event-editor-area-wrapper .post-event-body {
+    background-color: #c3ccd8;
+    padding: 0 30px 16px;
+    height: 500px;
+    overflow: auto; }
+    #event-editor-area .event-editor-area-wrapper .post-event-body #event-header {
+      margin-top: 10px;
+      text-align: left;
+      font-size: 1.4em;
+      background-color: #c3ccd8;
+      border-color: #DEDEDE; }
+      #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input {
+        background-color: white;
+        margin-top: 10px;
+        height: 38px; }
+      #event-editor-area .event-editor-area-wrapper .post-event-body #event-header input::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: #808080; }
+    #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area {
+      max-height: 500px;
+      display: block;
+      margin-top: 8px; }
+      #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-toolbar {
+        background-color: white;
+        border-radius: 6px;
+        margin-bottom: 10px; }
+      #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
+        border-radius: 6px;
+        background-color: white;
+        font-size: 1.2em; }
+      #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area #saveDelta {
+        background-color: #1565c0;
+        margin-top: 5px;
+        margin-left: 10px;
+        float: right; }

@@ -131,14 +131,16 @@ class ComposeNews extends Component {
               </div>
 
               <div className="post-event-body">
-                <form id="event-header">
+                <div className="event-header-wrapper">
+                  <form id="event-header">
+                    <input type="text"
+                    value={this.state.header}
+                    onChange={this.headerChange}
+                    placeholder="Enter header here">
+                    </input>
+                  </form>
+                </div>
 
-                  <input type="text"
-                  value={this.state.header}
-                  onChange={this.headerChange}
-                  placeholder="Enter header here">
-                  </input>
-                </form>
                 <div id="quill-area">
                   <div id="quill" />
                   <button id="saveDelta" className="btn" onClick={this.submitNews}>SUBMIT</button>

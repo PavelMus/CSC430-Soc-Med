@@ -114,9 +114,10 @@
       -moz-box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
       box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
       border: 1px solid #aaa;
-      border-radius: 3px;
+      border-radius: 10px;
       margin: 0;
       padding: 0;
+      border-radius: 10px 10px 0 0;
 
       .event-editor-area-wrapper {
         .post-news-header {
@@ -140,6 +141,9 @@
           /////Above is the gradient for the even header
           height: 70px;
           padding: 16px 30px;
+          border-radius: 10px 10px 0 0;
+          display: flex;
+          align-items: center;
 
           h4 {
             color: $white;
@@ -149,6 +153,7 @@
             text-align: left;
             display: flex;
             align-items: center;
+            text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0 -5px 35px rgba(255,255,255,0.3);
           }
         }
 
@@ -158,28 +163,33 @@
           height: 500px;
           overflow: auto;
 
-          #event-header {
-            margin-top: 10px;
-            text-align: left;
-            font-size: 1.4em;
+          .event-header-wrapper {
             background-color: $primarylight2;
             border-color: #DEDEDE;
+            border-radius: 6px;
+            height: 38px;
+            background-color: #fffff9;
 
-            input {
-              background-color: white;
-              margin-top: 10px;
-              -webkit-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-              -moz-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-              box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-              -webkit-border-radius: 10px;
-              -moz-border-radius: 10px;
+            #event-header {
               border-radius: 6px;
+              margin: 22px 0 12px;
+              text-align: left;
+              font-size: 1.4em;
+              background-color: $primarylight2;
               height: 38px;
-            }
+              background-color: #fffff9;
 
-            input::-webkit-input-placeholder {
-              /* WebKit, Blink, Edge */
-              color: #808080;
+              input {
+                border-radius: 6px;
+                background-color: #fffff9;
+                margin: 0;
+                box-sizing: border-box;
+              }
+
+              input::-webkit-input-placeholder {
+                /* WebKit, Blink, Edge */
+                color: #808080;
+              }
             }
           }
 
@@ -189,7 +199,7 @@
             margin-top: 8px;
 
             .ql-toolbar {
-              background-color: white;
+              background-color: #fffff9;
               border-radius: 6px;
               margin-bottom: 10px;
 
@@ -198,6 +208,10 @@
                   svg {}
                 }
               }
+            }
+
+            #quill {
+              background-color: #fffff9;
             }
 
             .ql-container {

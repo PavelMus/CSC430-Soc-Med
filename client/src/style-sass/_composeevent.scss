@@ -34,7 +34,7 @@
       -moz-box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
       box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
       border: 1px solid #aaa;
-      border-radius: 3px;
+      border-radius: 10px 10px 0 0;
       margin: 0;
       padding: 0;
 
@@ -42,10 +42,26 @@
         .post-event-header {
           //background-color: $primarylight2;
           /////////
-          background-color: #a76b3b;
+          background: -moz-radial-gradient(center, ellipse cover, rgba(209,147,13,1) 0%, rgba(209,147,13,1) 11%, rgba(173,117,31,1) 56%, rgba(173,117,31,1) 100%);
+          /* ff3.6+ */
+          background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(209,147,13,1)), color-stop(11%, rgba(209,147,13,1)), color-stop(56%, rgba(173,117,31,1)), color-stop(100%, rgba(173,117,31,1)));
+          /* safari4+,chrome */
+          background: -webkit-radial-gradient(center, ellipse cover, rgba(209,147,13,1) 0%, rgba(209,147,13,1) 11%, rgba(173,117,31,1) 56%, rgba(173,117,31,1) 100%);
+          /* safari5.1+,chrome10+ */
+          background: -o-radial-gradient(center, ellipse cover, rgba(209,147,13,1) 0%, rgba(209,147,13,1) 11%, rgba(173,117,31,1) 56%, rgba(173,117,31,1) 100%);
+          /* opera 11.10+ */
+          background: -ms-radial-gradient(center, ellipse cover, rgba(209,147,13,1) 0%, rgba(209,147,13,1) 11%, rgba(173,117,31,1) 56%, rgba(173,117,31,1) 100%);
+          /* ie10+ */
+          background: radial-gradient(ellipse at center, rgba(209,147,13,1) 0%, rgba(209,147,13,1) 11%, rgba(173,117,31,1) 56%, rgba(173,117,31,1) 100%);
+          /* w3c */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#D1930D', endColorstr='#AD751F',GradientType=1 );
+          /* ie6-9 */
           /////Above is the gradient for the even header
           height: 70px;
           padding: 16px 30px;
+          border-radius: 10px 10px 0 0;
+          display: flex;
+          align-items: center;
 
           h4 {
             color: $white;
@@ -64,27 +80,18 @@
           height: 500px;
           overflow: auto;
 
-          #event-header {
-            text-align: left;
-            font-size: 1.4em;
-            background-color: $primarylight2;
-            border-color: #DEDEDE;
+          .event-header-wrapper {
+            #event-header {
+              text-align: left;
+              font-size: 1.4em;
+              background-color: $primarylight2;
 
-            input {
-              background-color: white;
-              margin-top: 10px;
-              -webkit-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-              -moz-box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-              box-shadow: 0 0 18px -5px rgba(0,0,0,0.65);
-              -webkit-border-radius: 10px;
-              -moz-border-radius: 10px;
-              border-radius: 6px;
-              height: 38px;
-            }
+              input {}
 
-            input::-webkit-input-placeholder {
-              /* WebKit, Blink, Edge */
-              color: #808080;
+              input::-webkit-input-placeholder {
+                /* WebKit, Blink, Edge */
+                color: #808080;
+              }
             }
           }
 
@@ -134,5 +141,5 @@
 ////////////////////////////////////
 
 #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-body #quill-area .ql-container {
-  height: 250px;
+  height: 300px;
 }
