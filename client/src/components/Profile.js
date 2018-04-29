@@ -10,13 +10,15 @@ class Profile extends Component {
     this.state = {
       edditable: false,
       profile: "",
+      user_status: "",
       facebook: "",
       twitter: "",
       instagram: "",
       linkedIn: "",
       gitHub: "",
       tooltip_avatar: "",
-      social_media_eddit: ""
+      social_media_eddit: "",
+      social_media_eddit_tooltip: ""
     };
   }
 
@@ -25,6 +27,11 @@ class Profile extends Component {
     this.loadUserProfile();
     this.initTooltips();
     this.initSocialMediaEddit();
+  }
+
+  edditPicture = (e) => {
+    e.preventDefault();
+
   }
 
   checkUser = () => {
@@ -44,32 +51,38 @@ class Profile extends Component {
       let instance = M.FloatingActionButton.init(elem, {
         direction: "right",
         hoverEnabled: false,
-        toolbarEnabled: true
+        toolbarEnabled: false
       });
       this.setState({ social_media_eddit: instance });
     } else {
-      setTimeout(this.initSocialMediaEddit, 200);
+      setTimeout(this.initSocialMediaEddit, 50);
     }
   };
 
   initTooltips = () => {
-    let elem = document.getElementById("edit-user-avatar");
-    if (elem) {
-      let instance = M.Tooltip.init(elem, {
+    let edit_avatar = document.getElementById("edit-user-avatar");
+    let edit_soc_med = document.getElementById("social-media-eddit-button");
+    if (edit_avatar && edit_soc_med) {
+      let instance = M.Tooltip.init(edit_avatar, {
         html: "Edit Picture",
         position: "left"
       });
-      this.setState({ tooltip_avatar: instance });
+      let instance1 = M.Tooltip.init(edit_soc_med, {
+        html: "Edit Social Media links",
+        position: "top"
+      });
+      this.setState({
+        tooltip_avatar: instance,
+        social_media_eddit_tooltip: edit_soc_med
+      });
     } else {
-      setTimeout(this.initTooltips, 200);
+      setTimeout(this.initTooltips, 50);
     }
   };
 
   loadUserProfile = () => {
     let url_id = this.props.location.pathname.slice(9);
     axios.get(`${"/api/user-profile"}/${url_id}`).then(res => {
-      console.log(res.data);
-
       this.setState({ profile: res.data }, this.mapSocialMediaLinks);
     });
   };
@@ -85,8 +98,8 @@ class Profile extends Component {
     } = this.state.profile.social_media;
     if (social_media.facebook) {
       facebook = (
-        <div className="facebook-link">
-          <a href={social_media.facebook}>
+        <div id="facebook-link">
+          <a href={social_media.facebook} style={{ color: "#01579b" }}>
             <i class="fab fa-facebook-square" />
           </a>
         </div>
@@ -94,8 +107,8 @@ class Profile extends Component {
     }
     if (social_media.twitter) {
       twitter = (
-        <div className="twitter-link">
-          <a href={social_media.twitter}>
+        <div id="twitter-link">
+          <a href={social_media.twitter} style={{ color: "#03a9f4" }}>
             <i class="fab fa-twitter-square" />
           </a>
         </div>
@@ -103,8 +116,8 @@ class Profile extends Component {
     }
     if (social_media.instagram) {
       instagram = (
-        <div className="instagram-link">
-          <a href={social_media.instagram}>
+        <div id="instagram-link">
+          <a href={social_media.instagram} style={{ color: "#d81b60" }}>
             <i class="fab fa-instagram" />
           </a>
         </div>
@@ -112,8 +125,8 @@ class Profile extends Component {
     }
     if (social_media.linkedIn) {
       linkedIn = (
-        <div className="linkedIn-link">
-          <a href={social_media.linkedIn}>
+        <div id="linkedIn-link">
+          <a href={social_media.linkedIn} style={{ color: "#2196f3" }}>
             <i class="fab fa-linkedin" />
           </a>
         </div>
@@ -121,8 +134,8 @@ class Profile extends Component {
     }
     if (social_media.gitHub) {
       gitHub = (
-        <div className="gitHub-link">
-          <a href={social_media.gitHub}>
+        <div id="gitHub-link">
+          <a href={social_media.gitHub} style={{ color: "#424242" }}>
             <i class="fab fa-github-square" />
           </a>
         </div>
@@ -145,37 +158,43 @@ class Profile extends Component {
         {this.state.instagram}
         {this.state.linkedIn}
         {this.state.gitHub}
-        {this.state.edditable ? (
-          <div id="edit-social-media-links" className="fixed-action-btn toolbar">
-            <a className="btn-floating btn-large red">
-              <i className="large material-icons">mode_edit</i>
+      </div>
+    );
+  };
+
+  renderSocialMediaEddit = () => {
+    return (
+      <div id="edit-social-media-links" className="fixed-action-btn">
+        <a id="social-media-eddit-button"className="btn-floating btn blue darken-4">
+          <i className="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+          <li>
+            <a className="btn-floating btn-small grey darken-3">
+              <i class="fab fa-github" />
             </a>
-            <ul>
-              <li>
-                <a className="btn-floating red">
-                  <i className="material-icons">insert_chart</i>
-                </a>
-              </li>
-              <li>
-                <a className="btn-floating yellow darken-1">
-                  <i className="material-icons">format_quote</i>
-                </a>
-              </li>
-              <li>
-                <a className="btn-floating green">
-                  <i className="material-icons">publish</i>
-                </a>
-              </li>
-              <li>
-                <a className="btn-floating blue">
-                  <i className="material-icons">attach_file</i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          ""
-        )}
+          </li>
+          <li>
+            <a className="btn-floating btn-small pink darken-1">
+              <i class="fab fa-instagram" />
+            </a>
+          </li>
+          <li>
+            <a className="btn-floating btn-small light-blue">
+              <i class="fab fa-twitter" />
+            </a>
+          </li>
+          <li>
+            <a className="btn-floating btn-small blue">
+              <i class="fab fa-linkedin-in" />
+            </a>
+          </li>
+          <li>
+            <a className="btn-floating btn-small light-blue darken-4">
+              <i class="fab fa-facebook-f" />
+            </a>
+          </li>
+        </ul>
       </div>
     );
   };
@@ -187,9 +206,10 @@ class Profile extends Component {
       default:
         let profile = this.state.profile;
         return (
-          <div className="profile-container">
-            <div className="profile-left-section">
-              <div className="profile-avatar z-depth-3">
+          <div className="row profile-container">
+            <div className="col s3 m4">
+            <div className="profile-left-section z-depth-3">
+              <div className="profile-avatar">
                 <img className="" src={profile.avatar} />
                 {this.state.edditable ? (
                   <a
@@ -202,19 +222,59 @@ class Profile extends Component {
                   ""
                 )}
               </div>
-              <div className="divider" />
               {this.renderSocialMediaLinks()}
-              <div className="profile-contact-info" />
+              <div className="social-media-FAB">
+                {this.state.edditable ? this.renderSocialMediaEddit() : ""}
+              </div>
+              <div className="profile-contact-info">
+                <p>{profile.displayName}</p>
+                {this.renderUserStatus()}
+                <p>Majoring in: {profile.major}</p>
+                <div id="profile-contact-info">
+                  <h6>Contact Info</h6>
+                  <p>Email: {profile.email}</p>
+                  <p>Phone: </p>
+                  <p>Address: </p>
+                </div>
+              </div>
             </div>
-
-            <div className="profile-name">
-              <h5>{profile.displayName}</h5>
             </div>
-            <div />
+            <div className="col s9 m8">
+              <div className="profile-name">
+              <h5>
+                {profile.displayName} ({this.renderUserStatus()})
+              </h5>
+            </div>
+            <div className="bio">
+                <h6>Bio</h6>
+            </div>
+            <div className="resume">
+                resume
+            </div>
+            <div className="research">
+                research
+            </div>
+            <div className="projects">
+                projects
+            </div>
+            
+            </div>
+            
           </div>
         );
     }
   };
+  renderUserStatus = () => {
+    let user = this.state.profile;
+    if (user.admin) {
+      return <p>Administrator</p>;
+    } else if (user.teacher) {
+      return <p>Professor</p>;
+    } else {
+      return <p>Student</p>;
+    }
+  };
+
   render() {
     return (
       <div id="content-section-container" className="container">
