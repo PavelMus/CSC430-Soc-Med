@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const keys = require("../config/keys");
 
 const User = mongoose.model("users");
+const Profile = require("../models/Profile");
 
 passport.serializeUser((user, done) => {
   console.log("Serialize user!");
@@ -41,34 +42,60 @@ passport.use(
           email: profile.emails[0].value,
           teacher: false,
           admin: false
-        }).save();
+        }).save((err, user)=>{
+          let profile = new Profile();
+          profile.user_id = user._id;
+          profile.displayName = user.displayName;
+          profile.name = user.name;
+          profile.email = user.email;
+          profile.avatar = user.avatar;
+          profile.admin = user.admin;
+          profile.teacher = user.teacher;
+          profile.classes = [];
+          profile.major = "";
+          profile.social_media = {
+            facebook: "",
+            twitter: "",
+            instagram: "",
+            linkedIn: "",
+            gitHub: ""
+          };
+          profile.save(err => {
+            if (err) console.log(err);
+          });
+
+        });
         done(null, user);
       }
     }
   )
 );
-passport.use("local",
-  new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password',
-    passReqToCallback: true
-  },(req, email, password, done) => {
-    let query = { email: email };
-    console.log(query);
-    User.findOne(query, (err, user) => {
-      if (err) return done(err);
-      if (!user) {
-        return done(null, false, { message: "No user found" });
-      }
-      // Matching Password
-      bcrypt.compare(password, user.password, (err, isMatch) => {
-        if (err) throw err;
-        if (isMatch) {
-          return done(null, user);
-        } else {
-          return done(null, false, { message: "Wrong password" });
+passport.use(
+  "local",
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+      passReqToCallback: true
+    },
+    (req, email, password, done) => {
+      let query = { email: email };
+      console.log(query);
+      User.findOne(query, (err, user) => {
+        if (err) return done(err);
+        if (!user) {
+          return done(null, false, { message: "No user found" });
         }
+        // Matching Password
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+          if (err) throw err;
+          if (isMatch) {
+            return done(null, user);
+          } else {
+            return done(null, false, { message: "Wrong password" });
+          }
+        });
       });
-    });
-  })
+    }
+  )
 );

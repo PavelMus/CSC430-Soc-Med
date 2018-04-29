@@ -23,7 +23,8 @@ import ComposeClassContent from './ClassMenuComponents/ComposeClassContent';
 import ClassContentItem from './ClassMenuComponents/ClassContentItem';
 import Announcements from "./ClassMenuComponents/Announcements";
 import ComposeClassAnnouncements from "./ClassMenuComponents/ComposeClassAnnouncements";
-import VerifyStudents from './ClassMenuComponents/VerifyStudents'
+import VerifyStudents from './ClassMenuComponents/VerifyStudents';
+import Profile from './Profile';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -53,6 +54,7 @@ class App extends Component {
           <Route exact path="/newClassSection" component={ComposeClass} />
           <Route exact path="/selectClasses" component={SelectClasses} />
           <Route path="/VerifyStudents" component={VerifyStudents} />
+          <Route path="/profile" component={Profile} />
         </div>
       </BrowserRouter>
     );

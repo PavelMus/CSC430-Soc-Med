@@ -65,12 +65,10 @@
 //////Above is used to change the default color of the input fields
 
 .right-content-wrapper {
-  overflow: auto;
-  height: 88vh;
-  margin-top: 15px;
-  border: 1px black solid;
+  height: 100%;
+  border: 1px $primarylight1 solid;
   border-radius: 4px;
-
+  background-color: #e2f1f8;
   form {
     margin: 10px 0 0;
   }

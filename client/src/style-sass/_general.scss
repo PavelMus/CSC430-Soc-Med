@@ -58,12 +58,9 @@ body {}
 }
 
 #class-cart {
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 0.66em;
+  //border-radius: 0.66em;
   margin-bottom: 12px;
-  background-color: aqua;
+  background-color: $primarylight1;
   h6 {
     text-align: center;
   }
@@ -77,6 +74,6 @@ body {}
     padding: 0;
     height: 18px;
     line-height: inherit;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 }

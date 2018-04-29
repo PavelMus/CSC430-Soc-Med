@@ -104,7 +104,6 @@
       padding: 0;
       width: 20%;
       overflow: auto;
-      float: right;
       margin-right: 10px; }
       .alert-box .alert-footer .btn-wrapper .btn {
         background-color: #1565c0;
@@ -112,10 +111,10 @@
         display: inline-block;
         margin: 0 !important;
         padding: 0;
-        font-size: 0.75em;
         max-height: 25px;
         z-index: auto; }
         .alert-box .alert-footer .btn-wrapper .btn #expand {
+          font-size: 0.5em;
           margin: 0;
           position: relative;
           top: -5px;
@@ -261,7 +260,6 @@ body {
   line-height: 1.2em;
   display: flex;
   flex-direction: column;
-  background-color: #e9ebee;
   font-family: 'Exo 2', sans-serif; }
 
 #CSIBridge {
@@ -312,7 +310,6 @@ body {
   min-height: 5vmax;
   min-width: 250px;
   width: 250px;
-  margin-top: 15px;
   -webkit-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
   box-shadow: 0 0 18px -5px rgba(0, 0, 0, 0.65);
@@ -338,7 +335,6 @@ body {
   background-color: #e9ebee;
   overflow-y: auto;
   color: black;
-  margin-top: 15px;
   padding: 0 !important;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -594,12 +590,8 @@ body {
         margin-top: -10px; }
 
 #class-cart {
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 0.66em;
   margin-bottom: 12px;
-  background-color: aqua; }
+  background-color: #e9ebee; }
   #class-cart h6 {
     text-align: center; }
   #class-cart li {
@@ -609,14 +601,13 @@ body {
     padding: 0;
     height: 18px;
     line-height: inherit;
-    margin-bottom: 8px; }
+    margin-bottom: 6px; }
 
 #event-section-container {
   margin: 0 auto;
   max-width: 1280px;
   width: 92%; }
   #event-section-container #content-area-row .user-col {
-    margin-top: 15px;
     text-align: left; }
     #event-section-container #content-area-row .user-col .user-pic-wrapper {
       width: 100%;
@@ -638,8 +629,7 @@ body {
     border: 1px solid #aaa;
     border-radius: 3px;
     margin: 0;
-    padding: 0;
-    margin-top: 15px; }
+    padding: 0; }
     #event-section-container #content-area-row #event-editor-area .event-editor-area-wrapper .post-event-header {
       background-color: #c3ccd8;
       height: 70px;
@@ -706,7 +696,6 @@ body {
   margin: 0 auto;
   width: 92%; }
   #news-section-container #content-area-row .user-col {
-    margin-top: 15px;
     text-align: left; }
     #news-section-container #content-area-row .user-col .user-pic-wrapper {
       width: 100%;
@@ -1084,11 +1073,10 @@ body {
 
 /* label color */
 .right-content-wrapper {
-  overflow: auto;
-  height: 88vh;
-  margin-top: 15px;
-  border: 1px black solid;
-  border-radius: 4px; }
+  height: 100%;
+  border: 1px #e9ebee solid;
+  border-radius: 4px;
+  background-color: #e2f1f8; }
   .right-content-wrapper form {
     margin: 10px 0 0; }
 

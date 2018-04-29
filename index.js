@@ -13,6 +13,7 @@ require("./models/Class");
 require("./models/ClassTemplate");
 require("./services/passport");
 require("./models/ChatHistory");
+require("./models/Profile");
 var posts = require("./routes/postsRoutes");
 var users = require("./routes/usersRoutes");
 var feed = require("./routes/feedRoutes");

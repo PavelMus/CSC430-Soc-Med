@@ -6,6 +6,7 @@ import Admin from "./SidenavAdmin";
 import AdminTeacher from "./SidenavAdminTeacher";
 import * as actions from "../../actions";
 import * as M from "materialize-css";
+import { Link } from "react-router-dom";
 
 class Sidenav extends Component {
   constructor(props) {
@@ -60,15 +61,16 @@ class Sidenav extends Component {
         <li>
           <div className="user-view">
             <div className="background" id="sidenav-background" />
-            <a href="#!user">
+            <a>
               <img className="circle" src={user.avatar} alt="user avatar" />
             </a>
-            <a href="#!name">
+            <a>
               <span className="black-text name">{user.name}</span>
             </a>
-            <a href="#!email">
+            <a>
               <span className="white-text email">{user.email}</span>
             </a>
+            <Link to={`${"/profile"}/${user.id}`} onClick={this.props.close}>Go to Profile</Link>
           </div>
         </li>
         {this.renderContent()}
