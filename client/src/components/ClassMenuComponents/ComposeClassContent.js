@@ -109,47 +109,47 @@ class ComposeClassContent extends Component {
       roomId += tempRoomIdPart;
     }
     console.log(roomId);
-    
+
     //console.log(parseInt("A",16));
-    
+
   }
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col s3">{this.renderFixedMenu()}</div>
-          <div id="event-editor-area" className="col s12 m7 l7 xl7">
-            <div className="event-editor-area-wrapper">
-              <div className="post-event-header">
-                <h4>Compose Post</h4>
-              </div>
-
-              <div className="post-event-body">
-                <form id="event-header">
-                  <input
-                    type="text"
-                    value={this.state.header}
-                    onChange={this.onHeaderChange}
-                    placeholder="Enter Post Header"
-                  />
-                </form>
-                <div id="quill-area">
-                  <div id="quill" />
-                  <button
-                    id="saveDelta"
-                    className="btn"
-                    onClick={this.submitPost}
-                  >
-                    SUBMIT
-                  </button>
-                  <button className="btn" onClick={this.logtest}>LOOOOOOOG</button>
+    <div id="content-section-container" className="container">
+        <div className="row" id="content-area-row">
+            <div className="col s3">{this.renderFixedMenu()}</div>
+            <div id="event-editor-area" className="col s12 m7 l7 xl7">
+              <div className="event-editor-area-wrapper">
+                <div className="post-event-header">
+                  <h4>Compose Post</h4>
                 </div>
-              </div>
+
+                <div className="post-event-body">
+                  <form id="event-header">
+                    <input
+                      type="text"
+                      value={this.state.header}
+                      onChange={this.onHeaderChange}
+                      placeholder="Enter Post Header"
+                    />
+                  </form>
+                  <div id="quill-area">
+                    <div id="quill" />
+                    <button
+                      id="saveDelta"
+                      className="btn"
+                      onClick={this.submitPost}
+                    >
+                      SUBMIT
+                    </button>
+                    <button className="btn" onClick={this.logtest}>LOOOOOOOG</button>
+                  </div>
+                </div>
+              </div> 
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }

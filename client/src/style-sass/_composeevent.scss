@@ -40,11 +40,15 @@
 
       .event-editor-area-wrapper {
         .post-event-header {
-          background-color: $primarylight2;
+          //background-color: $primarylight2;
+          /////////
+          background-color: #a76b3b;
+          /////Above is the gradient for the even header
           height: 70px;
           padding: 16px 30px;
 
           h4 {
+            color: $white;
             margin: 0;
             padding: 0;
             font-size: 25px;
