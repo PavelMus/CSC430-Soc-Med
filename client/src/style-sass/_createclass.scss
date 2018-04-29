@@ -5,6 +5,7 @@
   padding: 12px;
   border-radius: 5px;
   border: 1px solid;
+  margin-top: 15px;
   min-width: 500px;
   max-width: 500px;
   background-color: #c3ccd8;
@@ -61,12 +62,16 @@
   border-bottom: #1565c0;
 }
 //////Below is used to change the default color of the input fields
-/* label color */
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #1565c0;
+  box-shadow: 0 0 0 0 #1565c0;
+}
 //////Above is used to change the default color of the input fields
 
 .right-content-wrapper {
   overflow: auto;
-  height: 88vh;
+  height: 61vh;
   margin-top: 15px;
   border: 1px black solid;
   border-radius: 4px;

@@ -26,6 +26,8 @@ $border-color: #608d8b;
     }
 
     h5 {
+      position: relative;
+      top: 1.2px;
       font-size: 1.5rem;
       min-height: 30px;
       float: left;
@@ -88,7 +90,7 @@ $border-color: #608d8b;
 
       .btn {
         background-color: $primarycolor;
-        width: 75%;
+        width: 100%;
         display: inline-block;
         margin: 0 !important;
         padding: 0;
@@ -100,7 +102,7 @@ $border-color: #608d8b;
           margin: 0;
           position: relative;
           top: -5px;
-          left: 4px;
+          left: 3px;
         }
       }
     }
@@ -156,6 +158,10 @@ $border-color: #608d8b;
   margin-left: auto;
   margin-right: auto;
 
+  h4 {
+    font-size: 16px;
+  }
+
   .alert-message {
     min-height: 10vh;
     overflow: auto;
@@ -176,8 +182,9 @@ $border-color: #608d8b;
 
   #alert-middle {
     background-color: $primarylight2;
-    height: 600px;
+    height: 500px;
     border-radius: 1vh;
     margin-top: 15px;
+    padding: 20px 30px;
   }
 }

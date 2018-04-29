@@ -184,26 +184,34 @@ class Chat extends Component {
               {this.state.chatLog}
               {this.renderChat()}
             </div>
-            <div className="input-field col s10">
-              <form id="textarea1" onSubmit={this.sendText}>
-                <input
-                  type="text"
-                  onChange={this.onTextChange}
-                  value={this.state.textbox}
-                  className="materialize-textarea"
-                />
-              </form>
+
+            <div className="send-container">
+              <img className="circle" src="https://lh6.googleusercontent.com/-VD5JpTewnHM/AAAAAAAAAAI/AAAAAAAABNg/-z2kK6eqD6k/photo.jpg?sz=50"/>
+
+              <div className="input-wrapper">
+                <form id="textarea1" onSubmit={this.sendText}>
+                  <input
+                    type="text"
+                    onChange={this.onTextChange}
+                    value={this.state.textbox}
+                    
+                    placeholder="Input message here"
+                  />
+                </form>
+                </div>
+
+                <button
+                  id="sendmessage"
+                  className="btn"
+                  form="textarea1"
+                  type="submit"
+                >
+                  SUBMIT
+                </button>
+
+
             </div>
-            <div className="col s2">
-              <button
-                id="sendmessage"
-                className="btn"
-                form="textarea1"
-                type="submit"
-              >
-                SUBMIT
-              </button>
-            </div>
+
           </div>
         </div>
       </div>
