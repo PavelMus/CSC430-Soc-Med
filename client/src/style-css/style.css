@@ -1423,3 +1423,26 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     border-bottom-left-radius: 1vh; }
   #verifyteacher-container .btn:hover {
     background-color: #1565c0; }
+
+.profile-container {
+  display: flex;
+  justify-content: right; }
+  .profile-container .profile-left-section {
+    height: 80vh; }
+    .profile-container .profile-left-section .profile-avatar {
+      border: 0.05em solid grey;
+      width: 200px; }
+      .profile-container .profile-left-section .profile-avatar img {
+        width: 100%;
+        vertical-align: middle; }
+      .profile-container .profile-left-section .profile-avatar a {
+        float: right;
+        position: relative;
+        bottom: 37px;
+        right: 5px; }
+    .profile-container .profile-left-section .divider {
+      margin: 10px 0 0 0;
+      background-color: white;
+      opacity: 0.4; }
+  .profile-container .profile-name {
+    margin-left: 20px; }

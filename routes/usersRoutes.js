@@ -2,6 +2,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var Users = require("../models/Users");
 var Classes = require("../models/Class");
+var Profile = require("../models/Profile");
 
 var router = express.Router();
 
@@ -24,6 +25,13 @@ router
       res.json(users);
     });
   });
+
+router.route("/user-profile/:user_id").get((req, res) => {
+  Profile.findOne({user_id: req.params.user_id}, (err, profile) =>{
+    if(err) console.log(err);
+    res.json(profile);
+  });
+});
 
 router
   .route("/teacher-list")
@@ -127,5 +135,7 @@ router.route("/add_class_to_user/:user_type").put((req, res)=>{
       });
     }}
   )});
+
+
 
 module.exports = router;

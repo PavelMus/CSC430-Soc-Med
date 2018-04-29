@@ -1,0 +1,29 @@
+.profile-container{
+    display: flex;
+    justify-content: right;
+    .profile-left-section{
+        height: 80vh;
+        .profile-avatar{
+            border: 0.05em solid grey;
+            width: 200px;
+            img{
+                width: 100%;
+                vertical-align: middle;
+            }
+            a{
+                float: right;
+                position: relative;
+                bottom: 37px;
+                right: 5px;
+            }
+        }
+        .divider{
+            margin: 10px 0 0 0;
+            background-color: white;
+            opacity: 0.4;
+        }
+    }
+    .profile-name{
+        margin-left: 20px;
+    }
+}

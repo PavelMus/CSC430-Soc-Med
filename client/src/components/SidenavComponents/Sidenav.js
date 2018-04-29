@@ -11,7 +11,20 @@ import { Link } from "react-router-dom";
 class Sidenav extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      tooltips: null
+    }
   }
+
+  componentDidMount() {
+    this.initToolTips();
+  }
+
+  initToolTips = () => {
+    let elem = document.getElementById("profile-link");
+    let instance = M.Tooltip.init(elem, {position: "right", html: "Go to profile page", outDuration: 100});
+    this.setState({tooltips: instance});
+  } 
 
   componentWillMount() {
     this.props.fetchClasses(this.props.id);
@@ -70,7 +83,7 @@ class Sidenav extends Component {
             <a>
               <span className="white-text email">{user.email}</span>
             </a>
-            <Link to={`${"/profile"}/${user.id}`} onClick={this.props.close}>Go to Profile</Link>
+            <Link to={`${"/profile"}/${user.id}`} onClick={this.props.close}><i id="profile-link" className="material-icons">perm_identity</i></Link>
           </div>
         </li>
         {this.renderContent()}
