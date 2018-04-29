@@ -6,6 +6,7 @@ $border-color: #608d8b;
   min-height: 5vmax;
   min-width: 250px;
   border-radius: 5px;
+  border: 1px solid grey;
   margin: 0 0 10px;
   background-color: $feedbackgroundcolor;
   overflow: hidden;
@@ -88,8 +89,9 @@ $border-color: #608d8b;
       margin-right: 10px;
 
       .btn {
-        background-color: $primarycolor;
+        background-color: #3A5BA6;
         width: 100%;
+        border-radius: 5px;
         display: inline-block;
         margin: 0 !important;
         padding: 0;
@@ -97,7 +99,7 @@ $border-color: #608d8b;
         z-index: auto;
 
         #expand {
-          font-size: 0.5em;
+          font-size: 11px;
           margin: 0;
           position: relative;
           top: -5px;
@@ -130,7 +132,7 @@ $border-color: #608d8b;
   left: 0;
   right: 0;
   top: 35%;
-  background-color: $primarydark;
+  background-color: #3A5BA6;
   overflow: hidden;
   z-index: 1;
 
@@ -147,6 +149,8 @@ $border-color: #608d8b;
     height: 3vh;
 
     p {
+      position: relative;
+      top: -5px;
       margin: 0 10px 0 0;
     }
   }

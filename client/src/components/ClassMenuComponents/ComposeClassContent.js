@@ -114,18 +114,41 @@ class ComposeClassContent extends Component {
 
   }
 
+  renderUser = () => {
+      switch (this.props.user) {
+        case null:
+          return "";
+
+        default:
+        return(
+          <div className="user-col col s6 m6 l1 xl1">
+            <div className="user-info">
+              <div className="user-pic-wrapper">
+                <img className="user-pic" src={this.props.user.avatar} width="64"/>
+              </div>
+                <p className="user-name">{this.props.user.displayName}</p>
+                <p className="time">Dec 13, 2017</p>
+            </div>
+          </div>
+        );
+      }
+  }
+
   render() {
     return (
-    <div id="content-section-container" className="container">
+
+    ///////////////////////////////////////
+    <div id="event-section-container" className="container">
         <div className="row" id="content-area-row">
-            <div className="col s3">{this.renderFixedMenu()}</div>
+            <div className="col s2">{this.renderFixedMenu()}</div>
             <div id="event-editor-area" className="col s12 m7 l7 xl7">
               <div className="event-editor-area-wrapper">
                 <div className="post-event-header">
-                  <h4>Compose Post</h4>
+                  <h4>Submit content</h4>
                 </div>
 
                 <div className="post-event-body">
+                  <div className="event-header-wrapper">
                   <form id="event-header">
                     <input
                       type="text"
@@ -134,6 +157,7 @@ class ComposeClassContent extends Component {
                       placeholder="Enter Post Header"
                     />
                   </form>
+                  </div>
                   <div id="quill-area">
                     <div id="quill" />
                     <button
@@ -141,13 +165,15 @@ class ComposeClassContent extends Component {
                       className="btn"
                       onClick={this.submitPost}
                     >
-                      SUBMIT
+                      Submit
                     </button>
-                    <button className="btn" onClick={this.logtest}>LOOOOOOOG</button>
+                    {/* <button className="btn" onClick={this.logtest}>LOOOOOOOG</button>
+                    */}
                   </div>
                 </div>
-              </div> 
+              </div>
             </div>
+                      {this.renderUser()} {/* Here we are calling the renderUser function*/}
           </div>
         </div>
     );

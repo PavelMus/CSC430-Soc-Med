@@ -24,7 +24,7 @@ class ClassContentItem extends Component {
         return "";
       default:
         return (
-          <div className="user-col col s6 m6 l2 xl2">
+          <div className="user-col col s2 m2 l2 xl2">
             <div className="user-info">
               <div className="user-pic-wrapper">
                 <img
@@ -53,7 +53,7 @@ class ClassContentItem extends Component {
         readOnly: true,
         theme: "snow"
       });
-      
+
       quillInit.setContents(post.delta);
 
       let date = new Date(this.state.content.date);

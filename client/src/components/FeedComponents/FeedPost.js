@@ -126,16 +126,20 @@ class FeedPost extends Component {
               </div>
               <div className="new-comment">
                 <form onSubmit={this.submitNewComment}>
-                    <div className="input-comment-section">
-                      <div className="user-pic-wrapper">
-                        <img className="user-pic" src={this.props.user.avatar} width="64"/>
-                      </div>
-                      <div className="input-comment-body">
+                <div className="input-comment-body">
+                  <img className="circle" src={this.props.user.avatar} />
+                  <div className="input-wrapper">
+                    <input
+                      onChange={this.onCommentChange}
+                      value={this.state.new_comment}
+                      placeholder="Leave a comment"
+                    />
+                  </div>
 
-                          <input value={this.state.new_comment} onChange={this.onCommentChange} placeholder="Leave a comment"></input>
-          
-                      </div>
-                    </div>
+                  <button className="btn-small">
+                    <i className="material-icons">send</i>
+                  </button>
+                </div>
                   </form>
                 </div>
               </div>

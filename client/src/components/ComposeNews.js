@@ -124,7 +124,7 @@ class ComposeNews extends Component {
         </div>
 
 
-          <div id="event-editor-area" className="col s12 m12 l7 xl7 offset-l1 offset-xl">
+          <div id="event-editor-area" className="col s12 m12 l7 xl7">
             <div className="event-editor-area-wrapper">
               <div className="post-news-header">
                 <h4>Create News Post</h4>
