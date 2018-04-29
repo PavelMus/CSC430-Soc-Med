@@ -115,7 +115,7 @@
       box-shadow: -1px 1px 25px -9px rgba(0,0,0,0.7);
       border: 1px solid #aaa;
       border-radius: 10px;
-      margin: 0;
+      margin: 15px 0 0;
       padding: 0;
       border-radius: 10px 10px 0 0;
 
@@ -153,7 +153,6 @@
             text-align: left;
             display: flex;
             align-items: center;
-            text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0 -5px 35px rgba(255,255,255,0.3);
           }
         }
 
@@ -221,7 +220,8 @@
             }
 
             #saveDelta {
-              background-color: $primarycolor;
+              //background-color: $primarycolor;
+              background-color: #3661b5;
               margin-top: 5px;
               margin-left: 10px;
               float: right;

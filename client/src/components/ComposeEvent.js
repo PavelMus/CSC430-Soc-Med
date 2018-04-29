@@ -124,13 +124,12 @@ class ComposeEvent extends Component {
             <div className="event-editor-area-wrapper">
 
               <div className="post-event-header">
-                <h4>Create New Event</h4>
+                <h4>Create Event Post</h4>
               </div>
 
               <div className="post-event-body">
                 <div className="event-header-wrapper">
                   <form id="event-header">
-
                     <input type="text"
                     value={this.state.header}
                     onChange={this.headerChange}

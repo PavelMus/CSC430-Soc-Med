@@ -24,7 +24,7 @@ class ClassContent extends Component {
         return (
           <React.Fragment>
             <Link
-              className="btn-small"
+              className="post-content btn-small"
               to={"/ComposeClassContent/" + _class._id}
             >
               New Post

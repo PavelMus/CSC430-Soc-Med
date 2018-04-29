@@ -198,14 +198,14 @@ class ComposeClass extends Component {
                     <option value="ENG">ENG</option>
                     <option value="MTH">MTH</option>
                   </select>
-                  <label>Class Type</label>
+                   <label>Class Type</label>
                 </div>
                 <div className="col s3 input-field">
                   <select defaultValue="1" id="cNum" onChange={this.selectedClassLevel}>
                     <option disabled value="1">Class Level</option>
                     {this.state.classLevelList}
                   </select>
-                  <label>Class Level</label>
+                    <label>Class Level</label>
                 </div>
                 <div className="input-field col s6">
                   <input

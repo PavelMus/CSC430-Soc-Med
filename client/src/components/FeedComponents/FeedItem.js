@@ -258,9 +258,11 @@ class FeedItem extends Component {
                 </div>
               </div>
               <div className="comments">
-                <i className="material-icons">comment</i>
-                <h6>Comments ({this.state.total_comments})</h6>
-                {this.state.total_comments?<a id="show-hide-btn" href="" onClick={this.showComments}>Show</a>:""}
+                <div className="comments-header">
+                  <i className="material-icons">comment</i>
+                  <h6>Comments ({this.state.total_comments})</h6>
+                  {this.state.total_comments?<a id="show-hide-btn" href="" onClick={this.showComments}>Show</a>:""}
+                </div>
                 {this.renderComments()}
               </div>
               {this.renderNewCommentForm()}

@@ -6,8 +6,8 @@
   border-radius: 5px;
   border: 1px solid;
   margin-top: 15px;
-  min-width: 500px;
-  max-width: 500px;
+  min-width: 525px;
+  max-width: 525px;
   background-color: #c3ccd8;
 
   h3 {
@@ -32,6 +32,10 @@
 
 #class-list {
   margin: 0;
+
+  .divider {
+    background-color: black;
+  }
 
   .col {
     font-size: 14px;
@@ -69,12 +73,80 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
 }
 //////Above is used to change the default color of the input fields
 
-.right-content-wrapper {
+.selectclasses-wrapper {
+  margin-top: 15px;
+  padding: 0 !important;
   height: 100%;
-  border: 1px $primarylight1 solid;
-  border-radius: 4px;
+  height: 600px;
+  overflow: auto;
+  border: 0.8px solid black;
   background-color: #e2f1f8;
+  background-color: #c3ccd8;
+  border-radius: 10px 10px 0 0;
+
+  .selectclasses-header {
+    background: -moz-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* ff3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #3661B5), color-stop(46%, #2E5599), color-stop(75%, #294D88), color-stop(100%, #25477A));
+    /* safari4+,chrome */
+    background: -webkit-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* safari5.1+,chrome10+ */
+    background: -o-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* opera 11.10+ */
+    background: -ms-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* ie10+ */
+    background: radial-gradient(ellipse at center, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+    /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#3661B5', endColorstr='#25477A',GradientType=1 );
+    /* ie6-9 */
+    /////Above is the gradient for the even header
+    height: 70px;
+    padding: 16px 20px;
+    border-radius: 10px 10px 0 0;
+    //border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    h4 {
+      color: $white;
+      margin: 0;
+      padding: 0;
+      font-size: 25px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .selectclasses-body {
+    padding: 5px 20px;
+  }
+
   form {
     margin: 10px 0 0;
+  }
+
+  #class-cart {
+    //border-radius: 0.66em;
+    margin-bottom: 12px;
+    margin-top: 30px;
+    background-color: $primarylight1;
+
+    h6 {
+      text-align: center;
+    }
+
+    li {
+      font-size: 0.82em;
+      text-align: center;
+    }
+
+    button {
+      padding: 0;
+      height: 18px;
+      line-height: inherit;
+      margin-bottom: 6px;
+    }
   }
 }

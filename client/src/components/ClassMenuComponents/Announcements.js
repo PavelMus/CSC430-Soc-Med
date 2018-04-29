@@ -43,7 +43,8 @@ class Announcements extends Component {
         return (
           <React.Fragment>
             <Link
-              className="btn-small"
+
+              className="post-content btn-small"
               to={"/ComposeClassAnnouncement/" + _class._id}
             >
               New Post
@@ -90,7 +91,7 @@ class Announcements extends Component {
           </div>
 
           <div id="class-content-wrapper" className="col s8 m8 l8 xl8">
-            
+
               <div id="class-content-section" className="col s12 m3 l12 xl12 ">
                 <div className="class-content-section-container">
                   <div className="content-header">

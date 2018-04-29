@@ -280,23 +280,29 @@ class SelectClasses extends Component {
             <Fixedmenu />
           </div>
 
-          <div className="right-content-wrapper col s12 m12 l10 xl10">
-            {this.renderForm()}
-            <div id="class-cart" className="col xs12 s12 m4 l4 xl4">
-              <h6>Selected Classes</h6>
-              <div className="divider" />
-              <ul className="col s12">
-                {this.state.class_cart}
-              </ul>
-              <button
-                id="checkout_button"
-                style={{"font-size": "0.7em", padding: "0px 4px", height: "26px", "line-height": "26px"}}
-                className="col s12 btn-small disabled"
-                onClick={this.submitClassRequest}
-              >
-                {" "}
-                submit request
-              </button>
+          <div className="selectclasses-wrapper col s12 m12 l8 xl8">
+            <div class="selectclasses-header">
+              <h4>Select Classes</h4>
+            </div>
+
+            <div class="selectclasses-body">
+              {this.renderForm()}
+              <div id="class-cart" className="col xs12 s12 m4 l4 xl4">
+                <h6>Selected Classes</h6>
+                <div className="divider" />
+                <ul className="col s12">
+                  {this.state.class_cart}
+                </ul>
+                <button
+                  id="checkout_button"
+                  style={{"font-size": "0.7em", padding: "0px 4px", height: "26px", "line-height": "26px"}}
+                  className="col s12 btn-small disabled"
+                  onClick={this.submitClassRequest}
+                >
+                  {" "}
+                  submit request
+                </button>
+              </div>
             </div>
           </div>
         </div>
