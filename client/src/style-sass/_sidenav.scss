@@ -30,11 +30,12 @@ $primary-background: #1e88e5;
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      ;
+
       .sidenav_avatars {
         margin-left: 25px;
       }
-      i{
+
+      i {
         position: relative;
         left: 50px;
         float: right;
@@ -44,27 +45,48 @@ $primary-background: #1e88e5;
       span {
         margin-left: 12px;
       }
+
+      a {
+        flex-grow: 300px;
+        color: #3A5BA6;
+        position: absolute;
+        left: 205px;
+
+        .material-icons {
+          margin-left: 0;
+          position: absolute;
+          left: 5px;
+          top: -10px;
+        }
+
+        .fas.fa-user {
+          position: absolute;
+          left: 35px;
+          top: -6px;
+        }
+      }
     }
   }
 }
 
-.hidden{
-    display: none !important;
-  }
+.hidden {
+  display: none !important;
+}
 
 #sidenav_admin_list,
-#sidenav_teacher_list,
-#sidenav_student_list {
+#sidenav_student_list,
+#sidenav_teacher_list {
   //color: red;
 }
 
-.sidenav_subheader{
+.sidenav_subheader {
   width: 100%;
 
-  .right-icon{
+  .right-icon {
     float: right !important;
   }
 }
+
 .sidenav_subheader:hover {
   background-color: $primarylight2;
 }

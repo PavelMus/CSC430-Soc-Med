@@ -32,6 +32,7 @@ class SidenavAdminTeacher extends Component {
         if(admin._id !== this.props.user.id){
           return (
             <li key={admin._id + "admin"}>
+
               <div className="sidenav_username waves-effect" to={`${"/chat"}/${admin._id}`}>
                 <img
                   src={admin.avatar}
@@ -42,6 +43,7 @@ class SidenavAdminTeacher extends Component {
                 <Link onClick={this.props.close} to={`${"/chat"}/${admin._id}`}><i className="material-icons">chat</i></Link>
                 <Link onClick={this.props.close} to={`${"/profile"}/${admin._id}`}><i className="fas fa-user"></i></Link>
               </div>
+
             </li>
           );
       }});

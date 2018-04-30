@@ -34,6 +34,20 @@
     margin-left: 12px; }
   .sidenav li .sidenav_username span {
     margin-left: 12px; }
+  .sidenav li .sidenav_username a {
+    flex-grow: 300px;
+    color: #3A5BA6;
+    position: absolute;
+    left: 205px; }
+    .sidenav li .sidenav_username a .material-icons {
+      margin-left: 0;
+      position: absolute;
+      left: 5px;
+      top: -10px; }
+    .sidenav li .sidenav_username a .fas.fa-user {
+      position: absolute;
+      left: 35px;
+      top: -6px; }
 
 .hidden {
   display: none !important; }
