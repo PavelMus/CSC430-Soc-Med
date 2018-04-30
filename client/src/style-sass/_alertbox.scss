@@ -186,8 +186,12 @@ $border-color: #608d8b;
   #alert-middle {
     background-color: $primarylight2;
     height: 500px;
-    border-radius: 1vh;
+    border-radius: 10px 10px 0 0;
     margin-top: 15px;
-    padding: 20px 30px;
+    padding: 0;
+
+    .post-alert-body {
+      padding: 15px 30px;
+    }
   }
 }

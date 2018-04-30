@@ -2,8 +2,8 @@
   position: relative;
   top: 12%;
   left: 12%;
-  padding: 12px;
-  border-radius: 5px;
+  padding: 0;
+  border-radius: 10px 10px 0 0;
   border: 1px solid;
   min-width: 525px;
   max-width: 525px;
@@ -17,10 +17,18 @@
     display: block;
   }
 
+  .create-section-body {
+    padding: 16px 30px;
+  }
+
   #create-section {
-    padding: 20px;
+    padding: 0;
     margin: 0 auto;
     width: 100%;
+
+    .row {
+      margin: 0;
+    }
 
     label {}
   }

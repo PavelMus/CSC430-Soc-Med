@@ -65,6 +65,7 @@ class VerifyStudents extends Component {
     return (
       <div id="content-section-container" className="container">
         <div className="row" id="content-area-row">
+
           <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>

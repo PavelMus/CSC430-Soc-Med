@@ -18,9 +18,14 @@
     display: block;
   }
 
+  .row {
+    margin-bottom: 0;
+  }
+
   form {
     margin: 0 auto;
     width: 80%;
+    padding-bottom: 20px;
 
     .btn {
       &:hover {

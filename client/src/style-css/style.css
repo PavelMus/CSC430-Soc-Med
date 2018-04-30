@@ -182,9 +182,11 @@
   #alert-section-container #alert-middle {
     background-color: #c3ccd8;
     height: 500px;
-    border-radius: 1vh;
+    border-radius: 10px 10px 0 0;
     margin-top: 15px;
-    padding: 20px 30px; }
+    padding: 0; }
+    #alert-section-container #alert-middle .post-alert-body {
+      padding: 15px 30px; }
 
 #header-div {
   height: 64px;
@@ -1216,18 +1218,45 @@ textarea.materialize-textarea:focus:not([readonly]) {
     margin-left: 10px; }
 
 #register-form {
-  width: 50%;
+  width: 75%;
   height: 93vh;
-  background-color: white;
-  margin: 0 auto 0 auto;
-  padding-top: 104px; }
+  background-color: #c3ccd8;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding-top: 0; }
+  #register-form .reusable-header {
+    display: flex;
+    justify-content: center; }
+  #register-form .register-input-fields {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%; }
 
-#login-form {
-  width: 50%;
-  height: 93vh;
-  background-color: white;
-  margin: 0 auto 0 auto;
-  padding-top: 104px; }
+.container .row #login-form {
+  background-color: #c3ccd8;
+  margin: 0 auto;
+  text-align: center;
+  width: 75%;
+  max-width: 835px;
+  height: 70vh;
+  max-height: 400px;
+  border-radius: 10px; }
+  .container .row #login-form .reusable-header {
+    display: flex;
+    justify-content: center; }
+  .container .row #login-form .login-input-fields {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .container .row #login-form #login {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    width: 400px; }
+    .container .row #login-form #login .row {
+      margin: 0; }
 
 #class-content-wrapper {
   height: 100vh;
@@ -1313,9 +1342,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
     font-size: 24px;
     width: 100%;
     display: block; }
+  #class-db-input .row {
+    margin-bottom: 0; }
   #class-db-input form {
     margin: 0 auto;
-    width: 80%; }
+    width: 80%;
+    padding-bottom: 20px; }
     #class-db-input form .btn:hover {
       background-color: #1565c0; }
 
@@ -1410,8 +1442,8 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   position: relative;
   top: 12%;
   left: 12%;
-  padding: 12px;
-  border-radius: 5px;
+  padding: 0;
+  border-radius: 10px 10px 0 0;
   border: 1px solid;
   min-width: 525px;
   max-width: 525px;
@@ -1422,10 +1454,14 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     font-size: 24px;
     width: 100%;
     display: block; }
+  #class-db-input .create-section-body {
+    padding: 16px 30px; }
   #class-db-input #create-section {
-    padding: 20px;
+    padding: 0;
     margin: 0 auto;
     width: 100%; }
+    #class-db-input #create-section .row {
+      margin: 0; }
 
 #fixedmenu {
   margin: 0;
@@ -1680,9 +1716,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   margin: 0;
   padding: 0 10px; }
 
-#verify-teacher {
-  overflow: auto; }
-
 #verifyteacher-container {
   background-color: #c3ccd8;
   position: relative;
@@ -1691,13 +1724,20 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   min-width: 525px;
   max-width: 525px;
   width: 60%;
-  border-radius: 5px;
+  border-radius: 10px 10px 0 0;
   border: 1px solid;
   height: 250px;
   text-align: center;
-  padding: 12px;
-  margin-top: 15px; }
+  margin-top: 15px;
+  padding: 0 12px 12px; }
+  #verifyteacher-container .verifyteacher-body {
+    padding: 16px 30px; }
   #verifyteacher-container #verify-left {
+    padding: 0 11.25px 0 0;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh; }
+  #verifyteacher-container #verify-right {
+    padding: 0 11.25px 0 0;
     border-top-left-radius: 1vh;
     border-bottom-left-radius: 1vh; }
   #verifyteacher-container .btn:hover {

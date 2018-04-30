@@ -56,7 +56,10 @@ class CreateClass extends Component {
           </div>
 
           <div id="class-db-input" className="col s8 m4 l6 xl6">
-            <h3>Input Class to Database</h3>
+            <div className="reusable-header">
+              <h4>Input Class to Database</h4>
+            </div>
+
             <form className="" onSubmit={this.onClassSubmit}>
               <div className="row">
                 <div className="input-field col s3">
