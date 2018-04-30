@@ -1704,28 +1704,31 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     background-color: #1565c0; }
 
 .profile-container .profile-left-section {
-  height: 80vh;
-  width: 200px; }
+  height: 80vh; }
   .profile-container .profile-left-section .profile-avatar {
-    border: 0.05em solid grey;
-    width: 200px;
-    height: 200px; }
+    border: 0.05em solid grey; }
     .profile-container .profile-left-section .profile-avatar img {
       width: 100%;
       vertical-align: middle; }
-    .profile-container .profile-left-section .profile-avatar a {
+    .profile-container .profile-left-section .profile-avatar #edit-user-avatar {
       float: right;
       position: relative;
       bottom: 37px;
       right: 5px; }
-  .profile-container .profile-left-section .divider {
-    margin: 10px 0 0 0;
-    background-color: white;
-    opacity: 0.4; }
+    .profile-container .profile-left-section .profile-avatar #edit-user-avatar-input {
+      margin: 0 0 0 3px !important;
+      width: 75%;
+      position: relative;
+      float: left;
+      top: -35px;
+      background: white;
+      height: 26px;
+      border-bottom: none !important;
+      box-shadow: none !important; }
   .profile-container .profile-left-section .social-media-links {
     display: flex;
-    justify-content: baseline;
-    margin-top: 12px; }
+    align-items: center;
+    width: 100%; }
     .profile-container .profile-left-section .social-media-links #facebook-link,
     .profile-container .profile-left-section .social-media-links #twitter-link,
     .profile-container .profile-left-section .social-media-links #instagram-link,
@@ -1753,30 +1756,63 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
       margin: 0; }
 
 .profile-container .profile-name {
-  display: inline-block;
+  display: block;
   margin-left: 20px;
   width: 100%;
   height: 50px; }
   .profile-container .profile-name p {
     display: inline; }
 
-.profile-container .bio {
-  border: black solid 1px;
-  width: 80%;
-  height: 40vh; }
-
-.profile-container .research {
-  width: 20%;
-  border: black solid 1px; }
-
-.profile-container .projects {
-  width: 20%;
-  border: black solid 1px; }
-
-.profile-container .resume {
-  display: inline-block;
-  width: 10%;
-  border: black solid 1px; }
+.profile-container .profile-right-section {
+  display: flex; }
+  .profile-container .profile-right-section .bio {
+    border: black solid 1px;
+    width: 60%;
+    height: 40vh; }
+    .profile-container .profile-right-section .bio h6 {
+      margin-top: 0;
+      color: white;
+      background-color: blue; }
+  .profile-container .profile-right-section .resume-research-projects {
+    width: 40%; }
+    .profile-container .profile-right-section .resume-research-projects .resume {
+      margin-bottom: 10px;
+      border: black solid 1px;
+      border-top-right-radius: 1em;
+      border-top-left-radius: 1em; }
+      .profile-container .profile-right-section .resume-research-projects .resume h6 {
+        color: white;
+        margin-top: 0;
+        border: none;
+        border-top-right-radius: 0.9em;
+        border-top-left-radius: 0.9em;
+        background-color: red; }
+      .profile-container .profile-right-section .resume-research-projects .resume a {
+        margin-bottom: 5px; }
+    .profile-container .profile-right-section .resume-research-projects .research {
+      margin-bottom: 10px;
+      border: black solid 1px;
+      border-top-right-radius: 1em;
+      border-top-left-radius: 1em; }
+      .profile-container .profile-right-section .resume-research-projects .research h6 {
+        color: white;
+        margin-top: 0;
+        border: none;
+        border-top-right-radius: 0.9em;
+        border-top-left-radius: 0.9em;
+        background-color: red; }
+    .profile-container .profile-right-section .resume-research-projects .projects {
+      margin-bottom: 10px;
+      border: black solid 1px;
+      border-top-right-radius: 1em;
+      border-top-left-radius: 1em; }
+      .profile-container .profile-right-section .resume-research-projects .projects h6 {
+        color: white;
+        margin-top: 0;
+        border: none;
+        border-top-right-radius: 0.9em;
+        border-top-left-radius: 0.9em;
+        background-color: red; }
 
 #event-editor-area {
   background-color: #FFFFFF;

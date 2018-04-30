@@ -26,13 +26,6 @@ router
     });
   });
 
-router.route("/user-profile/:user_id").get((req, res) => {
-  Profile.findOne({user_id: req.params.user_id}, (err, profile) =>{
-    if(err) console.log(err);
-    res.json(profile);
-  });
-});
-
 router
   .route("/teacher-list")
   //retrieve all users from the database

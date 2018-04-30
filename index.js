@@ -21,6 +21,7 @@ var comments = require("./routes/commentsRouter");
 var alerts = require("./routes/alertRoutes");
 var class_template = require("./routes/classRouter");
 var chatHistory = require("./routes/chatRoutes");
+var profile = require("./routes/profileRoutes");
 
 mongoose.connect(keys.mongoURI);
 
@@ -66,6 +67,7 @@ app.use(function(req, res, next) {
 
 app.use("/api", posts);
 app.use("/api/", users);
+app.use("/api", profile);
 app.use("/api", feed);
 app.use("/api", comments);
 app.use("/api", alerts);

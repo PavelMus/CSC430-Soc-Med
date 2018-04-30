@@ -21,7 +21,10 @@ const profileSchema = new Schema({
     instagram: String,
     linkedIn: String,
     gitHub: String
-  }
+  },
+  resume: String,
+  research: Array,
+  projects: Array
 });
 
 module.exports = mongoose.model("user-profile", profileSchema);

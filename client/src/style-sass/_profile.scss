@@ -1,91 +1,142 @@
-.profile-container{
-    //display: flex;
-    //justify-content: right;
-    .profile-left-section{
-        height: 80vh;
-        width: 200px;
-        .profile-avatar{
-            border: 0.05em solid grey;
-            width: 200px;
-            height: 200px;
-            img{
-                width: 100%;
-                vertical-align: middle;
-            }
-            a{
-                float: right;
-                position: relative;
-                bottom: 37px;
-                right: 5px;
-            }
-        }
-        .divider{
-            margin: 10px 0 0 0;
-            background-color: white;
-            opacity: 0.4;
-        }
-        .social-media-links{
-            display: flex;
-            justify-content: baseline;
-            margin-top: 12px;
-            #facebook-link,
-            #twitter-link,
-            #instagram-link,
-            #linkedIn-link,
-            #gitHub-link{
-                margin: 0 5px;
-                font-size: 2em;
-            }
-        }
-        .social-media-FAB{
-            display: flex;
-            position: relative;
-            height: 50px;
-            width: 100%;
-            overflow: visible;
-            margin-top: 10px;
-            #edit-social-media-links{
-                position: static;
-                ul{
-                    left: 40px;
-                    top: 22px;
-                }
-            }
-        }
-        .profile-contact-info{
-            display: block;
-            word-wrap: break-word;
-            font-size: 0.8em;
-            p{
-                margin: 0;
-            }
-        }
-    }
-    .profile-name{
-        display:inline-block;
-        margin-left: 20px;
+.profile-container {
+  //display: flex;
+  //justify-content: right;
+  .profile-left-section {
+    height: 80vh;
+    //width: 200px;
+    .profile-avatar {
+      border: 0.05em solid grey;
+      //width: 200px;
+      //height: 200px;
+      img {
         width: 100%;
-        height:50px;
-        p{
-            display: inline;
+        vertical-align: middle;
+      }
+      #edit-user-avatar {
+        float: right;
+        position: relative;
+        bottom: 37px;
+        right: 5px;
+      }
+      #edit-user-avatar-input {
+        margin: 0 0 0 3px !important;
+        width: 75%;
+        position: relative;
+        float: left;
+        top: -35px;
+        background: white;
+        height: 26px;
+        border-bottom: none!important;
+        box-shadow: none!important;
+      }
+    }
+    .social-media-links {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      #facebook-link,
+      #twitter-link,
+      #instagram-link,
+      #linkedIn-link,
+      #gitHub-link {
+        margin: 0 5px;
+        font-size: 2em;
+      }
+    }
+    .social-media-FAB {
+      display: flex;
+      position: relative;
+      height: 50px;
+      width: 100%;
+      overflow: visible;
+      margin-top: 10px;
+      #edit-social-media-links {
+        position: static;
+        ul {
+          left: 40px;
+          top: 22px;
         }
+      }
     }
-    .bio{
+    .profile-contact-info {
+      display: block;
+      word-wrap: break-word;
+      font-size: 0.8em;
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .profile-name {
+    display: block;
+    margin-left: 20px;
+    width: 100%;
+    height: 50px;
+    p {
+      display: inline;
+    }
+  }
+
+  .profile-right-section {
+    display: flex;
+    .bio {
+      border: black solid 1px;
+      width: 60%;
+      height: 40vh;
+      h6 {
+        margin-top: 0;
+        color: white;
+        background-color: blue;
+      }
+    }
+    .resume-research-projects {
+      width: 40%;
+      .resume {
+        margin-bottom: 10px;
         border: black solid 1px;
-        width: 80%;
-        height: 40vh;
-    }
-    .research{
-        width: 20%;
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+        h6 {
+          color: white;
+          margin-top: 0;
+          border: none;
+          border-top-right-radius: 0.9em;
+          border-top-left-radius: 0.9em;
+          background-color: red;
+        }
+        a {
+          margin-bottom: 5px;
+        }
+      }
+      .research {
+        margin-bottom: 10px;
         border: black solid 1px;
-    }
-    .projects{
-        width: 20%;
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+        h6 {
+          color: white;
+          margin-top: 0;
+          border: none;
+          border-top-right-radius: 0.9em;
+          border-top-left-radius: 0.9em;
+          background-color: red;
+        }
+      }
+      .projects {
+        margin-bottom: 10px;
         border: black solid 1px;
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+        h6 {
+          color: white;
+          margin-top: 0;
+          border: none;
+          border-top-right-radius: 0.9em;
+          border-top-left-radius: 0.9em;
+          background-color: red;
+        }
+      }
     }
-    .resume{
-        display: inline-block;
-        width:10%;
-        border: black solid 1px;
-    }
+  }
 }

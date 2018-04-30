@@ -18,7 +18,8 @@ class Profile extends Component {
       gitHub: "",
       tooltip_avatar: "",
       social_media_eddit: "",
-      social_media_eddit_tooltip: ""
+      social_media_eddit_tooltip: "",
+      new_picture_url: ""
     };
   }
 
@@ -29,10 +30,9 @@ class Profile extends Component {
     this.initSocialMediaEddit();
   }
 
-  edditPicture = (e) => {
+  edditPicture = e => {
     e.preventDefault();
-
-  }
+  };
 
   checkUser = () => {
     if (this.props.user == null) {
@@ -162,10 +162,13 @@ class Profile extends Component {
     );
   };
 
-  renderSocialMediaEddit = () => {
+  renderSocialMediaEdditButton = () => {
     return (
       <div id="edit-social-media-links" className="fixed-action-btn">
-        <a id="social-media-eddit-button"className="btn-floating btn blue darken-4">
+        <a
+          id="social-media-eddit-button"
+          className="btn-floating btn blue darken-4"
+        >
           <i className="large material-icons">mode_edit</i>
         </a>
         <ul>
@@ -199,6 +202,30 @@ class Profile extends Component {
     );
   };
 
+  showPictureInput = e => {
+    e.preventDefault();
+    let elem = document.getElementById("edit-user-avatar-input");
+    if (elem.classList.contains("scale-in")) {
+      elem.classList.remove("scale-in");
+    } else {
+      elem.classList.add("scale-in");
+    }
+  };
+
+  onPictureUrlChange = e => {
+    this.setState({new_picture_url: e.target.value});
+  };
+
+  uploadUpdatedPicture = e => {
+    if (e.key === "Enter"){
+      let new_url = this.state.new_picture_url;
+      axios.put(`${"/api/profile-update-picture"}/${this.state.profile._id}`, {new_url: new_url}).then( res => {
+        M.toast({html: res.data.message});
+        this.loadUserProfile();
+      });
+    }
+  };
+
   renderProfile = () => {
     switch (this.state.profile) {
       case null:
@@ -207,59 +234,75 @@ class Profile extends Component {
         let profile = this.state.profile;
         return (
           <div className="row profile-container">
-            <div className="col s3 m4">
-            <div className="profile-left-section z-depth-3">
-              <div className="profile-avatar">
-                <img className="" src={profile.avatar} />
-                {this.state.edditable ? (
-                  <a
-                    id="edit-user-avatar"
-                    className="btn-floating btn-small waves-effect waves-light"
-                  >
-                    <i className="material-icons">add</i>
-                  </a>
-                ) : (
-                  ""
-                )}
-              </div>
-              {this.renderSocialMediaLinks()}
-              <div className="social-media-FAB">
-                {this.state.edditable ? this.renderSocialMediaEddit() : ""}
-              </div>
-              <div className="profile-contact-info">
-                <p>{profile.displayName}</p>
-                {this.renderUserStatus()}
-                <p>Majoring in: {profile.major}</p>
-                <div id="profile-contact-info">
-                  <h6>Contact Info</h6>
-                  <p>Email: {profile.email}</p>
-                  <p>Phone: </p>
-                  <p>Address: </p>
+            <div className="col xs12 s12 m4 l3 xl3">
+              <div className="profile-left-section z-depth-3">
+                <div className="profile-avatar">
+                  <img className="" src={profile.avatar} />
+                  <input
+                    id="edit-user-avatar-input"
+                    value={this.state.new_picture_url}
+                    onChange={this.onPictureUrlChange}
+                    onKeyPress={this.uploadUpdatedPicture}
+                    className="z-depth-1 scale-transition scale-out"
+                    placeholder="Enter Url"
+                  />
+                  {this.state.edditable ? (
+                    <a
+                      id="edit-user-avatar"
+                      className="btn-floating btn-small waves-effect waves-light"
+                      onClick={this.showPictureInput}
+                    >
+                      <i className="material-icons">add</i>
+                    </a>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                {this.renderSocialMediaLinks()}
+                <div className="social-media-FAB">
+                  {this.state.edditable
+                    ? this.renderSocialMediaEdditButton()
+                    : ""}
+                </div>
+                <div className="profile-contact-info">
+                  <p>{profile.displayName}</p>
+                  {this.renderUserStatus()}
+                  <p>Majoring in: {profile.major}</p>
+                  <div id="profile-contact-info">
+                    <h6>Contact Info</h6>
+                    <p>Email: {profile.email}</p>
+                    <p>Phone: </p>
+                    <p>Address: </p>
+                  </div>
                 </div>
               </div>
             </div>
-            </div>
-            <div className="col s9 m8">
+            <div className="col xs12 s12 m8 l9 xl9">
               <div className="profile-name">
-              <h5>
-                {profile.displayName} ({this.renderUserStatus()})
-              </h5>
+                <h5>
+                  {profile.displayName} ({this.renderUserStatus()})
+                </h5>
+              </div>
+              <div className="profile-right-section">
+                <div className="bio">
+                  <h6>Bio</h6>
+                </div>
+                <div className="resume-research-projects">
+                  <div className="resume">
+                    <h6>Resume</h6>
+                    <a href="">{profile.displayName}'s Resume</a>
+                  </div>
+                  <div className="research">
+                    <h6>Research</h6>
+                    <a href="">{profile.displayName}'s Resume</a>
+                  </div>
+                  <div className="projects">
+                    <h6>Projects</h6>
+                    <a href="">{profile.displayName}'s Resume</a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bio">
-                <h6>Bio</h6>
-            </div>
-            <div className="resume">
-                resume
-            </div>
-            <div className="research">
-                research
-            </div>
-            <div className="projects">
-                projects
-            </div>
-            
-            </div>
-            
           </div>
         );
     }
