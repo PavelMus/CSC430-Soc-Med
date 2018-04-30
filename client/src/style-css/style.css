@@ -48,6 +48,8 @@
       position: absolute;
       left: 35px;
       top: -6px; }
+  .sidenav li .sidenav_username a:hover {
+    color: #039be5; }
 
 .hidden {
   display: none !important; }
