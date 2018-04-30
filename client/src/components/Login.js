@@ -57,7 +57,7 @@ class Login extends Component {
                         onChange={this.onEmailChange}
                         required
                       />
-                      <label htmlFor="email">Email</label>
+                      <label className="register-login-labels " htmlFor="email">Email</label>
                     </div>
                   </div>
                   <div className="row">
@@ -70,7 +70,7 @@ class Login extends Component {
                         onChange={this.onPasswordChange}
                         required
                       />
-                      <label htmlFor="password">Password</label>
+                      <label className="register-login-labels" htmlFor="password">Password</label>
                     </div>
                   </div>
                   <div className="">
