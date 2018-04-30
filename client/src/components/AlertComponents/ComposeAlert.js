@@ -69,33 +69,38 @@ class ComposeAlert extends Component {
           </div>
 
           <div id="alert-middle" className="col s12 m12 l7 xl7">
-
-            <div id="alert-type-selector" >
-              <div className="input-field">
-                  <select onChange={this.typeUpdate}>
-                  <option value="1" disabled selected>Select Alert Type</option>
-                  <option value={WEATHER_ALERT}>Weather Alert</option>
-                  <option value={CLOSED}>Closing Alert</option>
-                  <option value={ASSIGNMENT_DUE}>Assignment Due Alert</option>
-                  </select>
-                  <label>Alert Type Selector</label>
+            <div className="reusable-header">
+              <h4>Post an Alert Item</h4>
+            </div>
+            <div className="post-alert-body">
+              <div id="alert-type-selector" >
+                <div className="input-field">
+                    <select onChange={this.typeUpdate}>
+                    <option value="1" disabled selected>Select Alert Type</option>
+                    <option value={WEATHER_ALERT}>Weather Alert</option>
+                    <option value={CLOSED}>Closing Alert</option>
+                    <option value={ASSIGNMENT_DUE}>Assignment Due Alert</option>
+                    </select>
+                    <label>Alert Type Selector</label>
+                </div>
               </div>
-            </div>
 
 
-            <div id="alert-preview">
-            <h4>This is a live preview of the outgoing alert</h4>
-                <AlertPreview
-                  type={this.state.previewType}
-                  content={this.state.content}
-                />
-            </div>
-            <div className="input-field col s12">
-              <textarea id="textarea1" onChange={this.onTextChange} value={this.state.content} className="materialize-textarea"></textarea>
-              <label htmlFor="textarea1">Text</label>
-            </div>
-            <a className="btn" onClick={this.submitAlert} href="#!">SUBMIT</a>
+              <div id="alert-preview">
+              <h4>This is a live preview of the outgoing alert</h4>
+                  <AlertPreview
+                    type={this.state.previewType}
+                    content={this.state.content}
+                  />
+              </div>
+              <div className="input-field col s12">
+                <textarea id="textarea1" onChange={this.onTextChange} value={this.state.content} className="materialize-textarea"></textarea>
+                <label htmlFor="textarea1">Text</label>
+              </div>
+              <a className="btn" onClick={this.submitAlert} href="#!">SUBMIT</a>
           </div>
+            </div>
+
           {/* Here we are calling the renderUser function*/}
           {this.renderUser()}
         </div>

@@ -24,7 +24,7 @@ class Sidenav extends Component {
     let elem = document.getElementById("profile-link");
     let instance = M.Tooltip.init(elem, {position: "right", html: "Go to profile page", outDuration: 100});
     this.setState({tooltips: instance});
-  } 
+  }
 
   componentWillMount() {
     this.props.fetchClasses(this.props.id);

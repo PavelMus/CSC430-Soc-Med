@@ -33,45 +33,55 @@ class Login extends Component {
   }
   render() {
     return (
-      <div id="login-form">
+
+      <div className="container">
         <div className="row">
-          <form
-            id="login"
-            className="col s12"
-            onSubmit={this.loginSubmit}
-          >
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  name="email"
-                  type="email"
-                  className="validate"
-                  value={this.state.email}
-                  onChange={this.onEmailChange}
-                  required
-                />
-                <label htmlFor="email">Email</label>
+          <div id="login-form">
+              <div className="reusable-header">
+                <h4>Login to CSI Bridge</h4>
               </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  name="password"
-                  type="password"
-                  className="validate"
-                  value={this.state.password}
-                  onChange={this.onPasswordChange}
-                  required
-                />
-                <label htmlFor="password">Password</label>
+
+              <div className="login-input-fields">
+                <form
+                  id="login"
+                  className=""
+                  onSubmit={this.loginSubmit}
+                >
+                  <div className="row">
+                    <div className="input-field">
+                      <input
+                        name="email"
+                        type="email"
+                        className="validate"
+                        value={this.state.email}
+                        onChange={this.onEmailChange}
+                        required
+                      />
+                      <label htmlFor="email">Email</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-field">
+                      <input
+                        name="password"
+                        type="password"
+                        className="validate"
+                        value={this.state.password}
+                        onChange={this.onPasswordChange}
+                        required
+                      />
+                      <label htmlFor="password">Password</label>
+                    </div>
+                  </div>
+                  <div className="">
+                    <input type="submit" value="Log in" className="btn" />
+                  </div>
+                </form>
               </div>
-            </div>
-            <div className="col s12 m6 l6 lx6">
-              <input type="submit" value="LOGIN" className="btn" />
-            </div>
-          </form>
+          </div>
         </div>
       </div>
+
     );
   }
 }

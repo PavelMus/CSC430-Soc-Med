@@ -65,105 +65,114 @@ export default class Register extends Component {
   };
   render() {
     return (
-      <div id="register-form">
+      <div className="container">
         <div className="row">
-          <form
-            id="registarion"
-            className="col s12"
-            onSubmit={this.registrationSubmit}
-          >
-            <div className="row">
-              <div className="input-field col s6">
-                <input
-                  placeholder="Placeholder"
-                  name="first_name"
-                  type="text"
-                  className="validate"
-                  value={this.state.first_name}
-                  onChange={this.onFirstNameChange}
-                  required
-                />
-                <label htmlFor="first_name">First Name</label>
-              </div>
-              <div className="input-field col s6">
-                <input
-                  name="last_name"
-                  type="text"
-                  className="validate"
-                  value={this.state.last_name}
-                  onChange={this.onLastNameChange}
-                  required
-                />
-                <label htmlFor="last_name">Last Name</label>
-              </div>
+          <div id="register-form">
+            <div className="reusable-header">
+              <h4>Create an account for CSI Bridge</h4>
             </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  name="email"
-                  type="email"
-                  className="validate"
-                  value={this.state.email}
-                  onChange={this.onEmailChange}
-                  required
-                />
-                <label htmlFor="email">Email</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  name="password"
-                  type="password"
-                  className="validate"
-                  value={this.state.password}
-                  onChange={this.onPasswordChange}
-                  required
-                />
-                <label htmlFor="password">Password</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  name="password2"
-                  type="password"
-                  className="validate"
-                  value={this.state.password2}
-                  onChange={this.onPassword2Change}
-                  required
-                />
-                <label htmlFor="password2">Confirm Password</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12 m6 l6 lx6">
-                <div className="input-field inline">
-                  <input
-                    name="EMPLID"
-                    type="text"
-                    className="validate"
-                    value={this.state.EMPLID}
-                    onChange={this.onEMPLIDChange}
-                    required
-                  />
-                  <label htmlFor="EMPLID">EMPLID</label>
-                  <span
-                    className="helper-text"
-                    data-error="required"
-                    data-success="right"
-                  >
-                    Enter your 9 digit EMPLID
-                  </span>
+            <div className="register-input-fields">
+              <form
+                id="registration"
+                className=""
+                onSubmit={this.registrationSubmit}
+              >
+                <div className="row">
+                  <div className="input-field col s6">
+                    <input
+                      placeholder="Placeholder"
+                      name="first_name"
+                      type="text"
+                      className="validate"
+                      value={this.state.first_name}
+                      onChange={this.onFirstNameChange}
+                      required
+                    />
+                    <label htmlFor="first_name">First Name</label>
+                  </div>
+                  <div className="input-field col s6">
+                    <input
+                      name="last_name"
+                      type="text"
+                      className="validate"
+                      value={this.state.last_name}
+                      onChange={this.onLastNameChange}
+                      required
+                    />
+                    <label htmlFor="last_name">Last Name</label>
+                  </div>
                 </div>
-              </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input
+                      name="email"
+                      type="email"
+                      className="validate"
+                      value={this.state.email}
+                      onChange={this.onEmailChange}
+                      required
+                    />
+                    <label htmlFor="email">Email</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input
+                      name="password"
+                      type="password"
+                      className="validate"
+                      value={this.state.password}
+                      onChange={this.onPasswordChange}
+                      required
+                    />
+                    <label htmlFor="password">Password</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input
+                      name="password2"
+                      type="password"
+                      className="validate"
+                      value={this.state.password2}
+                      onChange={this.onPassword2Change}
+                      required
+                    />
+                    <label htmlFor="password2">Confirm Password</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col s12 m6 l6 lx6">
+                    <div className="input-field inline">
+                      <input
+                        name="EMPLID"
+                        type="text"
+                        className="validate"
+                        value={this.state.EMPLID}
+                        onChange={this.onEMPLIDChange}
+                        required
+                      />
+                      <label htmlFor="EMPLID">EMPLID</label>
+                      <span
+                        className="helper-text"
+                        data-error="required"
+                        data-success="right"
+                      >
+                        Enter your 9 digit EMPLID
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col s12 m6 l6 lx6">
+                  <input type="submit" value="REGISTER" className="btn" />
+                </div>
+              </form>
+
             </div>
-            <div className="col s12 m6 l6 lx6">
-              <input type="submit" value="REGISTER" className="btn" />
-            </div>
-          </form>
+          </div>
         </div>
       </div>
+
     );
   }
 }

@@ -71,31 +71,35 @@ class VerifyTeacher extends Component {
             <Fixedmenu />
           </div>
           <div id="verifyteacher-container" className="col s12 m12 l3 xl3">
-          <div className="row">
+            <div className="row">
+              <div className="reusable-header">
+                <h4>Verify a Teacher</h4>
+              </div>
 
-            <div id="verify-left" className="col s8 m4 l6 xl6">
-              <div className="input-field">
-                <select id="teacherName" onChange={this.selectedTeacher}>
-                  <option value="">Select Teacher</option>
-                  {this.state.user_options}
-                </select>
-                <label>User Selector</label>
-
+              <div className="verifyteacher-body">
+                <div id="verify-left" className="col s8 m4 l6 xl6">
+                  <div className="input-field">
+                    <select id="teacherName" onChange={this.selectedTeacher}>
+                      <option value="">Select Teacher</option>
+                      {this.state.user_options}
+                    </select>
+                    <label>User Selector</label>
+                  </div>
+                </div>
+                <div className="col s8 m4 l6 xl6 input-field">
+                  <select id="cType" onChange={this.selectedClassType}>
+                    <option value="">Select Subject</option>
+                    <option value="CSC">CSC</option>
+                    <option value="ENG">ENG</option>
+                    <option value="MTH">MTH</option>
+                  </select>
+                  <label>Class Type</label>
+                </div>
+                <a className="btn" onClick={this.verifyTeacher} href="#!">
+                  SUBMIT
+                </a>
               </div>
             </div>
-            <div className="col s8 m4 l6 xl6 input-field">
-              <select id="cType" onChange={this.selectedClassType}>
-                <option value="">Select Subject</option>
-                <option value="CSC">CSC</option>
-                <option value="ENG">ENG</option>
-                <option value="MTH">MTH</option>
-              </select>
-              <label>Class Type</label>
-            </div>
-            <a className="btn" onClick={this.verifyTeacher} href="#!">
-              SUBMIT
-            </a>
-          </div>
 
           </div>
         </div>
