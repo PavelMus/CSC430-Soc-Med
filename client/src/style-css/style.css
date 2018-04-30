@@ -25,6 +25,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center; }
+  .sidenav li .sidenav_username .sidenav_avatars {
+    margin-left: 25px; }
+  .sidenav li .sidenav_username i {
+    position: relative;
+    left: 50px;
+    float: right;
+    margin-left: 12px; }
   .sidenav li .sidenav_username span {
     margin-left: 12px; }
 
@@ -1783,6 +1790,32 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     width: 100%;
     overflow: visible;
     margin-top: 10px; }
+    .profile-container .profile-left-section .social-media-FAB #social-media-edit-input {
+      display: flex;
+      position: relative;
+      align-items: baseline;
+      justify-content: flex-start;
+      vertical-align: bottom;
+      right: 5px;
+      top: 3px; }
+      .profile-container .profile-left-section .social-media-FAB #social-media-edit-input input {
+        width: 95%;
+        right: 10px;
+        top: 5px;
+        background-color: white;
+        height: 30px;
+        margin-bottom: 0;
+        border-bottom: none !important;
+        box-shadow: none !important; }
+      .profile-container .profile-left-section .social-media-FAB #social-media-edit-input .btn-small {
+        position: relative;
+        height: 30px;
+        padding: 0px 4px;
+        top: 2px;
+        box-shadow: none !important;
+        margin-left: 3px; }
+        .profile-container .profile-left-section .social-media-FAB #social-media-edit-input .btn-small i {
+          font-size: 1.2em; }
     .profile-container .profile-left-section .social-media-FAB #edit-social-media-links {
       position: static; }
       .profile-container .profile-left-section .social-media-FAB #edit-social-media-links ul {

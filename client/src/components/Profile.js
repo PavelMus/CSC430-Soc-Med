@@ -19,13 +19,19 @@ class Profile extends Component {
       tooltip_avatar: "",
       social_media_eddit: "",
       social_media_eddit_tooltip: "",
-      new_picture_url: ""
+      new_picture_url: "",
+      new_social_media_url: "",
+      new_social_media_url_flag: ""
     };
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.loadUserProfile(nextProps.location.pathname);
   }
 
   componentDidMount() {
     this.checkUser();
-    this.loadUserProfile();
+    this.loadUserProfile(this.props.location.pathname);
     this.initTooltips();
     this.initSocialMediaEddit();
   }
@@ -80,8 +86,8 @@ class Profile extends Component {
     }
   };
 
-  loadUserProfile = () => {
-    let url_id = this.props.location.pathname.slice(9);
+  loadUserProfile = (url) => {
+    let url_id = url.slice(9);
     axios.get(`${"/api/user-profile"}/${url_id}`).then(res => {
       this.setState({ profile: res.data }, this.mapSocialMediaLinks);
     });
@@ -100,7 +106,7 @@ class Profile extends Component {
       facebook = (
         <div id="facebook-link">
           <a href={social_media.facebook} style={{ color: "#01579b" }}>
-            <i class="fab fa-facebook-square" />
+            <i className="fab fa-facebook-square" />
           </a>
         </div>
       );
@@ -109,7 +115,7 @@ class Profile extends Component {
       twitter = (
         <div id="twitter-link">
           <a href={social_media.twitter} style={{ color: "#03a9f4" }}>
-            <i class="fab fa-twitter-square" />
+            <i className="fab fa-twitter-square" />
           </a>
         </div>
       );
@@ -118,7 +124,7 @@ class Profile extends Component {
       instagram = (
         <div id="instagram-link">
           <a href={social_media.instagram} style={{ color: "#d81b60" }}>
-            <i class="fab fa-instagram" />
+            <i className="fab fa-instagram" />
           </a>
         </div>
       );
@@ -127,7 +133,7 @@ class Profile extends Component {
       linkedIn = (
         <div id="linkedIn-link">
           <a href={social_media.linkedIn} style={{ color: "#2196f3" }}>
-            <i class="fab fa-linkedin" />
+            <i className="fab fa-linkedin" />
           </a>
         </div>
       );
@@ -136,7 +142,7 @@ class Profile extends Component {
       gitHub = (
         <div id="gitHub-link">
           <a href={social_media.gitHub} style={{ color: "#424242" }}>
-            <i class="fab fa-github-square" />
+            <i className="fab fa-github-square" />
           </a>
         </div>
       );
@@ -174,27 +180,27 @@ class Profile extends Component {
         <ul>
           <li>
             <a className="btn-floating btn-small grey darken-3">
-              <i class="fab fa-github" />
+              <i className="fab fa-github" />
             </a>
           </li>
           <li>
             <a className="btn-floating btn-small pink darken-1">
-              <i class="fab fa-instagram" />
+              <i className="fab fa-instagram" />
             </a>
           </li>
           <li>
             <a className="btn-floating btn-small light-blue">
-              <i class="fab fa-twitter" />
+              <i className="fab fa-twitter" />
             </a>
           </li>
           <li>
             <a className="btn-floating btn-small blue">
-              <i class="fab fa-linkedin-in" />
+              <i className="fab fa-linkedin-in" />
             </a>
           </li>
           <li>
-            <a className="btn-floating btn-small light-blue darken-4">
-              <i class="fab fa-facebook-f" />
+            <a id="facebook" onClick={this.changeSocialMediaLink} className="btn-floating btn-small light-blue darken-4">
+              <i className="fab fa-facebook-f" />
             </a>
           </li>
         </ul>
@@ -215,16 +221,29 @@ class Profile extends Component {
   onPictureUrlChange = e => {
     this.setState({new_picture_url: e.target.value});
   };
+  onSocialMediaUrlChange = e => {
+    this.setState({new_social_media_url: e.target.value});
+  }
 
   uploadUpdatedPicture = e => {
     if (e.key === "Enter"){
       let new_url = this.state.new_picture_url;
       axios.put(`${"/api/profile-update-picture"}/${this.state.profile._id}`, {new_url: new_url}).then( res => {
         M.toast({html: res.data.message});
+        this.setState({new_picture_url: ""});
         this.loadUserProfile();
       });
     }
   };
+
+  changeSocialMediaLink = e => {
+    e.preventDefault();
+    console.log(e.target.parentNode.id);
+  }
+
+  uploadUpdatedSocialMediaUrl = e =>{
+
+  }
 
   renderProfile = () => {
     switch (this.state.profile) {
@@ -263,6 +282,10 @@ class Profile extends Component {
                   {this.state.edditable
                     ? this.renderSocialMediaEdditButton()
                     : ""}
+                    <div id="social-media-edit-input" className="scale-transition scale-out">
+                      <input value={this.state.new_social_media_url} onChange={this.onSocialMediaUrlChange} placeholder="Url" ></input>
+                      <button className="btn-small"><i className="material-icons">send</i></button>
+                    </div>
                 </div>
                 <div className="profile-contact-info">
                   <p>{profile.displayName}</p>

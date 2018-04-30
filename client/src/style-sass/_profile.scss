@@ -26,8 +26,8 @@
         top: -35px;
         background: white;
         height: 26px;
-        border-bottom: none!important;
-        box-shadow: none!important;
+        border-bottom: none !important;
+        box-shadow: none !important;
       }
     }
     .social-media-links {
@@ -50,6 +50,37 @@
       width: 100%;
       overflow: visible;
       margin-top: 10px;
+      #social-media-edit-input {
+          display: flex;
+          position: relative;
+          align-items: baseline;
+          justify-content: flex-start;
+          vertical-align: bottom;
+          right: 5px;
+          top: 3px;
+          input{
+            //position: relative;
+            width: 95%;
+            right: 10px;
+            top: 5px;
+            background-color: white;
+            height: 30px;
+            margin-bottom: 0;
+            border-bottom: none !important;
+            box-shadow: none !important;
+          }
+          .btn-small{
+              position: relative;
+              height: 30px;
+              padding: 0px 4px;
+              top: 2px;
+              box-shadow: none !important;
+              margin-left: 3px;
+              i{
+                  font-size: 1.2em;
+              }
+          }
+      }
       #edit-social-media-links {
         position: static;
         ul {
