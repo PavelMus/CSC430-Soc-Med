@@ -80,7 +80,7 @@ export default class Register extends Component {
                 <div className="row">
                   <div className="input-field col s6">
                     <input
-                      placeholder="Placeholder"
+                      placeholder="First Name"
                       name="first_name"
                       type="text"
                       className="validate"
@@ -88,7 +88,7 @@ export default class Register extends Component {
                       onChange={this.onFirstNameChange}
                       required
                     />
-                    <label htmlFor="first_name">First Name</label>
+                    {/* <label htmlFor="first_name">First Name</label>*/}
                   </div>
                   <div className="input-field col s6">
                     <input
@@ -142,7 +142,7 @@ export default class Register extends Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col s12 m6 l6 lx6">
+
                     <div className="input-field inline">
                       <input
                         name="EMPLID"
@@ -152,7 +152,7 @@ export default class Register extends Component {
                         onChange={this.onEMPLIDChange}
                         required
                       />
-                      <label htmlFor="EMPLID">EMPLID</label>
+                      <label className="register-login-labels"  htmlFor="EMPLID">EMPLID</label>
                       <span
                         className="helper-text"
                         data-error="required"
@@ -161,7 +161,7 @@ export default class Register extends Component {
                         Enter your 9 digit EMPLID
                       </span>
                     </div>
-                  </div>
+
                 </div>
                 <div className="col s12 m6 l6 lx6">
                   <input type="submit" value="REGISTER" className="btn" />

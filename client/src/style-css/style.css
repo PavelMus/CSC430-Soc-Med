@@ -1226,11 +1226,15 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 #register-form {
   width: 75%;
-  height: 93vh;
+  height: 75vh;
+  overflow: auto;
   background-color: #c3ccd8;
   border-radius: 10px;
   margin: 0 auto;
-  padding-top: 0; }
+  padding-top: 0;
+  -webkit-box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 4px -1px rgba(0, 0, 0, 0.75); }
   #register-form .reusable-header {
     display: flex;
     justify-content: center; }
@@ -1240,6 +1244,30 @@ textarea.materialize-textarea:focus:not([readonly]) {
     align-items: center;
     justify-content: center;
     width: 85%; }
+    #register-form .register-input-fields #registration {
+      width: 500px;
+      height: 300px;
+      margin-top: 15px; }
+      #register-form .register-input-fields #registration .row {
+        margin: 0 0 5px; }
+        #register-form .register-input-fields #registration .row .input-field .validate {
+          color: black;
+          box-shadow: inset 0 0 3px 0 #ABABAB;
+          -webkit-box-shadow: inset 0 0 3px 0 #ABABAB;
+          -moz-box-shadow: inset 0 0 3px 0 #ABABAB;
+          -o-box-shadow: inset 0 0 3px 0 #ABABAB;
+          background-color: white;
+          border: 1px solid #000;
+          border-radius: 5px;
+          height: 36px; }
+        #register-form .register-input-fields #registration .row .input-field .validate::placeholder {
+          color: #576781;
+          color: black;
+          font-size: 14px;
+          position: relative;
+          left: 10px; }
+        #register-form .register-input-fields #registration .row .input-field .register-login-labels {
+          margin-left: 12px; }
 
 .container .row #login-form {
   background-color: #c3ccd8;
@@ -1254,6 +1282,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     display: flex;
     justify-content: center; }
   .container .row #login-form .login-input-fields {
+    margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: center; }
@@ -1264,6 +1293,23 @@ textarea.materialize-textarea:focus:not([readonly]) {
     width: 400px; }
     .container .row #login-form #login .row {
       margin: 0; }
+      .container .row #login-form #login .row .input-field .validate {
+        box-shadow: inset 0 0 3px 0 #ABABAB;
+        -webkit-box-shadow: inset 0 0 3px 0 #ABABAB;
+        -moz-box-shadow: inset 0 0 3px 0 #ABABAB;
+        -o-box-shadow: inset 0 0 3px 0 #ABABAB;
+        background-color: white;
+        border: 1px solid #000;
+        border-radius: 5px;
+        height: 36px; }
+      .container .row #login-form #login .row .input-field .validate::placeholder {
+        color: #576781;
+        color: black;
+        font-size: 14px;
+        position: relative;
+        left: 10px; }
+      .container .row #login-form #login .row .input-field .register-login-labels {
+        margin-left: 12px; }
 
 #class-content-wrapper {
   height: 100vh;
