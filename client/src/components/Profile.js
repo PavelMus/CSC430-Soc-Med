@@ -4,10 +4,7 @@ import FixedMenu from "./Fixedmenu";
 import axios from "axios";
 import * as M from "materialize-css";
 
-class Profile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const initialState = {
       edditable: false,
       profile: "",
       user_status: "",
@@ -22,14 +19,25 @@ class Profile extends Component {
       new_picture_url: "",
       new_social_media_url: "",
       new_social_media_url_flag: ""
-    };
+}
+class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = initialState;
   }
 
   componentWillReceiveProps(nextProps) {
-    this.loadUserProfile(nextProps.location.pathname);
+    if(this.props.location.pathname !== nextProps.location.pathname){
+      this.setState(initialState, this.initComponent);
+    }
+    
   }
 
   componentDidMount() {
+    this.initComponent();
+  }
+
+  initComponent = () => {
     this.checkUser();
     this.loadUserProfile(this.props.location.pathname);
     this.initTooltips();
@@ -290,6 +298,7 @@ class Profile extends Component {
   uploadUpdatedSocialMediaUrl = e => {
     e.preventDefault();
     let new_url = this.state.new_social_media_url;
+    
     axios
       .put(
         `${"/api/profile-update-social-media-url"}/${this.state.profile._id}/${
@@ -300,6 +309,8 @@ class Profile extends Component {
       .then(res => {
         M.toast({html: res.data.message});
         this.setState({new_social_media_url: "", new_social_media_url_flag: ""});
+        let elem = document.getElementById("social-media-edit-input");
+        elem.classList.remove("scale-in");
         this.loadUserProfile(this.props.location.pathname);
       });
   };

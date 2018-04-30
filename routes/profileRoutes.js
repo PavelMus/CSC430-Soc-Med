@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var Users = require("../models/Users");
 var Classes = require("../models/Class");
 var Profile = require("../models/Profile");
+var img_to_base64 = require("image-to-base64");
 
 var router = express.Router();
 
@@ -16,13 +17,22 @@ router.route("/user-profile/:user_id").get((req, res) => {
 router.route("/profile-update-picture/:profile_id").put((req, res) => {
   Profile.findById(req.params.profile_id, (err, profile) => {
     Users.findById(profile.user_id, (err, user) => {
-      user.avatar = req.body.new_url;
-      user.save();
+      img_to_base64(req.body.new_url).then(response => {
+        user.avatar = "data:image/png;base64," + response;
+        user.save();
+      }).catch(error => {
+        console.log(error);
+      });
     });
-    profile.avatar = req.body.new_url;
-    profile.save(err => {
-      if (err) console.log(err);
-      res.send({ message: "User Picture changed!" });
+    img_to_base64(req.body.new_url).then(response => {
+      profile.avatar = "data:image/png;base64,"+response;
+      profile.save(err => {
+        if (err) console.log(err);
+        res.send({ message: "User Picture changed!" });
+      });
+    }).catch(error => {
+      console.log(error);
+      res.send({ message: "Something Went Wrong Sorry" });
     });
   });
 });

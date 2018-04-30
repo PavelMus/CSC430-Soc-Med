@@ -133,6 +133,7 @@ class ComposeEvent extends Component {
                     <input type="text"
                     value={this.state.header}
                     onChange={this.headerChange}
+                    required
                     placeholder="Enter header for event here">
                     </input>
                   </form>

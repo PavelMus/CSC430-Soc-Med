@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var Users = require("../models/Users");
 var ChatHistory = require("../models/ChatHistory");
+var img_to_base64 = require('image-to-base64');
 
 //////// SOCKET IO FUNCTIONS  ////////////////////
 var clients = {};
@@ -30,7 +31,7 @@ module.exports = io => {
 
           console.log('sending room post', data.room);
           io.sockets.to(data.room).emit('private response', 
-            {key: data.key, user_name: data.user_name, 
+            {key: data.key, user_name: data.user_name, user_id: data.user_id,
               message: data.message, date: data.date}
           );
         });
