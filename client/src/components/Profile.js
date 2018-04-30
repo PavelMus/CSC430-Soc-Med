@@ -25,7 +25,7 @@ class Profile extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     this.loadUserProfile(nextProps.location.pathname);
   }
 
@@ -86,7 +86,7 @@ class Profile extends Component {
     }
   };
 
-  loadUserProfile = (url) => {
+  loadUserProfile = url => {
     let url_id = url.slice(9);
     axios.get(`${"/api/user-profile"}/${url_id}`).then(res => {
       this.setState({ profile: res.data }, this.mapSocialMediaLinks);
@@ -179,27 +179,47 @@ class Profile extends Component {
         </a>
         <ul>
           <li>
-            <a className="btn-floating btn-small grey darken-3">
+            <a
+              target="gitHub"
+              onClick={this.changeSocialMediaLink}
+              className="btn-floating btn-small grey darken-3"
+            >
               <i className="fab fa-github" />
             </a>
           </li>
           <li>
-            <a className="btn-floating btn-small pink darken-1">
+            <a
+              target="instagram"
+              onClick={this.changeSocialMediaLink}
+              className="btn-floating btn-small pink darken-1"
+            >
               <i className="fab fa-instagram" />
             </a>
           </li>
           <li>
-            <a className="btn-floating btn-small light-blue">
+            <a
+              target="twitter"
+              onClick={this.changeSocialMediaLink}
+              className="btn-floating btn-small light-blue"
+            >
               <i className="fab fa-twitter" />
             </a>
           </li>
           <li>
-            <a className="btn-floating btn-small blue">
+            <a
+              target="linkedIn"
+              onClick={this.changeSocialMediaLink}
+              className="btn-floating btn-small blue"
+            >
               <i className="fab fa-linkedin-in" />
             </a>
           </li>
           <li>
-            <a id="facebook" onClick={this.changeSocialMediaLink} className="btn-floating btn-small light-blue darken-4">
+            <a
+              target="facebook"
+              onClick={this.changeSocialMediaLink}
+              className="btn-floating btn-small light-blue darken-4"
+            >
               <i className="fab fa-facebook-f" />
             </a>
           </li>
@@ -219,31 +239,70 @@ class Profile extends Component {
   };
 
   onPictureUrlChange = e => {
-    this.setState({new_picture_url: e.target.value});
+    this.setState({ new_picture_url: e.target.value });
   };
   onSocialMediaUrlChange = e => {
-    this.setState({new_social_media_url: e.target.value});
-  }
+    this.setState({ new_social_media_url: e.target.value });
+  };
 
   uploadUpdatedPicture = e => {
-    if (e.key === "Enter"){
+    if (e.key === "Enter") {
       let new_url = this.state.new_picture_url;
-      axios.put(`${"/api/profile-update-picture"}/${this.state.profile._id}`, {new_url: new_url}).then( res => {
-        M.toast({html: res.data.message});
-        this.setState({new_picture_url: ""});
-        this.loadUserProfile();
-      });
+      axios
+        .put(`${"/api/profile-update-picture"}/${this.state.profile._id}`, {
+          new_url: new_url
+        })
+        .then(res => {
+          M.toast({ html: res.data.message });
+          this.setState({ new_picture_url: "" });
+          this.loadUserProfile();
+        });
     }
   };
 
   changeSocialMediaLink = e => {
+    //e.preventDefault();
+    if (e.target.target) {
+      let elem = document.getElementById("social-media-edit-input");
+      if (elem.classList.contains("scale-in")) {
+        elem.classList.remove("scale-in");
+        this.setState({ new_social_media_url_flag: "" });
+      } else {
+        elem.classList.add("scale-in");
+        elem.firstChild.placeholder = e.target.target + " url";
+        this.setState({ new_social_media_url_flag: e.target.target });
+      }
+    } else {
+      let elem = document.getElementById("social-media-edit-input");
+      if (elem.classList.contains("scale-in")) {
+        elem.classList.remove("scale-in");
+        this.setState({ new_social_media_url_flag: "" });
+      } else {
+        elem.classList.add("scale-in");
+        elem.firstChild.placeholder = e.target.parentNode.target + " url";
+        this.setState({
+          new_social_media_url_flag: e.target.parentNode.target
+        });
+      }
+    }
+  };
+
+  uploadUpdatedSocialMediaUrl = e => {
     e.preventDefault();
-    console.log(e.target.parentNode.id);
-  }
-
-  uploadUpdatedSocialMediaUrl = e =>{
-
-  }
+    let new_url = this.state.new_social_media_url;
+    axios
+      .put(
+        `${"/api/profile-update-social-media-url"}/${this.state.profile._id}/${
+          this.state.new_social_media_url_flag
+        }`,
+        { new_url: new_url }
+      )
+      .then(res => {
+        M.toast({html: res.data.message});
+        this.setState({new_social_media_url: "", new_social_media_url_flag: ""});
+        this.loadUserProfile(this.props.location.pathname);
+      });
+  };
 
   renderProfile = () => {
     switch (this.state.profile) {
@@ -282,10 +341,22 @@ class Profile extends Component {
                   {this.state.edditable
                     ? this.renderSocialMediaEdditButton()
                     : ""}
-                    <div id="social-media-edit-input" className="scale-transition scale-out">
-                      <input value={this.state.new_social_media_url} onChange={this.onSocialMediaUrlChange} placeholder="Url" ></input>
-                      <button className="btn-small"><i className="material-icons">send</i></button>
-                    </div>
+                  <div
+                    id="social-media-edit-input"
+                    className="scale-transition scale-out"
+                  >
+                    <input
+                      value={this.state.new_social_media_url}
+                      onChange={this.onSocialMediaUrlChange}
+                      placeholder="Url"
+                    />
+                    <button
+                      onClick={this.uploadUpdatedSocialMediaUrl}
+                      className="btn-small"
+                    >
+                      <i className="material-icons">send</i>
+                    </button>
+                  </div>
                 </div>
                 <div className="profile-contact-info">
                   <p>{profile.displayName}</p>
