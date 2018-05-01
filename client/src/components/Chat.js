@@ -35,6 +35,7 @@ class Chat extends Component {
     this.socketInit();
     this.keyDownInit();
     this.getOtherUser(this.props.location.pathname);
+    this.scrollToBottom();
   }
 
   getOtherUser = url => {
@@ -56,6 +57,10 @@ class Chat extends Component {
       this.state.socket.disconnect();
       this.setState(initialState, this.initializeComponent);
     }
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
   }
 
   keyDownInit = () => {
@@ -278,6 +283,10 @@ class Chat extends Component {
     });
   };
 
+  scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  }
+
   render() {
     return ( 
     <div id = "content-section-container" className = "container">
@@ -292,6 +301,8 @@ class Chat extends Component {
           <div id = "chat-box" className="z-depth-1" > 
             {this.state.chatLog} 
             {this.renderChat()} 
+            <div style={{ float:"left", clear: "both" }}
+             ref={(el) => { this.messagesEnd = el; }}/>
           </div> 
           {this.renderChatInput()} 
         </div> 
