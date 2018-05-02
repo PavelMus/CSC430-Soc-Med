@@ -17,12 +17,26 @@ class SidenavAdminTeacher extends Component {
   componentDidMount() {
     this.mapAdmins();
     this.loadTeachers();
+    this.loadStudents();
   }
 
   loadTeachers = () => {
     axios.get("/api/teachers-only-list").then(res => {
       this.setState({teachers: res.data}, this.mapTeachers);
     });
+  }
+
+  loadStudents = () => {
+    console.log(this.props.user.classes);
+    //let students = this.props.user.classes.map(_class => {
+    //  return {class_tag: _class.type + _class.level + "Section: " + _class.section,
+    //            student_list: _class.studentList};
+    //});
+    console.log(this.props.user.classes[0].studentList);
+    
+    axios.get("/api/student-list", {list: this.props.user.classes[0].studentList}).then(res =>{
+      
+    })
   }
 
   mapAdmins = () => {
@@ -69,6 +83,27 @@ class SidenavAdminTeacher extends Component {
         );
       });
       this.setState({ teacherList: teacherList });
+    }
+  };
+
+  mapStudents = () => {
+    if (this.state.students !== null) {
+      let students = this.state.students;
+      let studentList = students.map(student => {
+        return (
+          <li key={student._id + "student"}>
+            <a className="sidenav_username waves-effect" href="#!">
+              <img
+                src={student.avatar}
+                alt="user avatar"
+                className="sidenav_avatars"
+              />
+              <span>{student.displayName}</span>
+            </a>
+          </li>
+        );
+      });
+      this.setState({ studentList: studentList });
     }
   };
 

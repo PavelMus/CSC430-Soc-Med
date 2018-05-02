@@ -155,13 +155,18 @@
           display: table;
 
           .i-wrapper {
-            display: inline-block;
+            display: flex;
             margin: auto 0;
 
             i {
               color: $primarycolor;
               margin-right: 10px;
               padding: 5px;
+              margin: 0;
+            }
+            span{
+              align-self: center;
+
             }
           }
 

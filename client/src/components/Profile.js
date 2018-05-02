@@ -79,7 +79,7 @@ class Profile extends Component {
     if (edit_avatar && edit_soc_med) {
       let instance = M.Tooltip.init(edit_avatar, {
         html: "Edit Picture",
-        position: "left"
+        position: "top"
       });
       let instance1 = M.Tooltip.init(edit_soc_med, {
         html: "Edit Social Media links",
@@ -298,7 +298,13 @@ class Profile extends Component {
   uploadUpdatedSocialMediaUrl = e => {
     e.preventDefault();
     let new_url = this.state.new_social_media_url;
+<<<<<<< HEAD
 
+=======
+    if(new_url.slice(0, 6) !== "https://" || new_url.slice(0, 5) !== "http://"){
+      new_url = "https://" + new_url;
+    }
+>>>>>>> c2d95a90ec4c5b8fc4eec4e8697f62b4568f385e
     axios
       .put(
         `${"/api/profile-update-social-media-url"}/${this.state.profile._id}/${
@@ -348,27 +354,27 @@ class Profile extends Component {
                   )}
                 </div>
                 {this.renderSocialMediaLinks()}
-                <div className="social-media-FAB">
-                  {this.state.edditable
-                    ? this.renderSocialMediaEdditButton()
-                    : ""}
-                  <div
-                    id="social-media-edit-input"
-                    className="scale-transition scale-out"
-                  >
-                    <input
-                      value={this.state.new_social_media_url}
-                      onChange={this.onSocialMediaUrlChange}
-                      placeholder="Url"
-                    />
-                    <button
-                      onClick={this.uploadUpdatedSocialMediaUrl}
-                      className="btn-small"
+                {this.state.edditable?
+                  <div className="social-media-FAB">
+                    {this.renderSocialMediaEdditButton()}
+                    <div
+                      id="social-media-edit-input"
+                      className="scale-transition scale-out"
                     >
-                      <i className="material-icons">send</i>
-                    </button>
-                  </div>
-                </div>
+                      <input
+                        value={this.state.new_social_media_url}
+                        onChange={this.onSocialMediaUrlChange}
+                        placeholder="Url"
+                      />
+                      <button
+                        onClick={this.uploadUpdatedSocialMediaUrl}
+                        className="btn-small"
+                      >
+                        <i className="material-icons">send</i>
+                      </button>
+                    </div>
+                  </div>:""}
+                <div className="divider"/>
                 <div className="profile-contact-info">
                   <p>{profile.displayName}</p>
                   {this.renderUserStatus()}

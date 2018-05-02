@@ -112,8 +112,9 @@ class FeedPost extends Component {
                 <div className="comment-button">
                   <a href="" target={this.props.feed_id} onClick={this.showCommentSection} className="i-wrapper">
                     <i className="material-icons">comment</i>
+                    <span>Comments</span>
                   </a>
-                  {/*  <span>Comment</span>*/}
+                  
                 </div>
               </div>
             </div>

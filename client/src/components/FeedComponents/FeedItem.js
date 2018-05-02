@@ -167,9 +167,9 @@ class FeedItem extends Component {
         return (
           <ul id="all-comment-list" className="hidden">
             {this.state.all_comments}
-            <a href="#" onClick={this.loadMoreComments}>
+            {this.state.total_comments > 5?<a href="#" onClick={this.loadMoreComments}>
               Load more..
-            </a>
+            </a>:""}
           </ul>
         );
     }
@@ -225,6 +225,7 @@ class FeedItem extends Component {
     axios.post(`${"/api/new-comment"}/${feed_id}`, comment).then(res => {
       M.toast({ html: res.data.message });
       this.loadComments();
+      this.getCommentAmmout();
       this.setState({ new_comment: "" });
     });
   };
