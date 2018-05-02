@@ -19,6 +19,9 @@ $primary-background: #1e88e5;
 }
 
 .sidenav {
+  .log_out{
+    margin-bottom: 80px;
+  }
   li {
     .subheader {
       .material-icons {
@@ -75,12 +78,6 @@ $primary-background: #1e88e5;
 
 .hidden {
   display: none !important;
-}
-
-#sidenav_admin_list,
-#sidenav_student_list,
-#sidenav_teacher_list {
-  //color: red;
 }
 
 .sidenav_subheader {

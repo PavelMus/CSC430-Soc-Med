@@ -6,7 +6,6 @@ import * as actions from "../actions";
 import FrontPage from "./FrontPage";
 import Header from "./Header";
 import PostIndex from "./PostComponents/PostIndex";
-import Footer from "./Footer";
 import ComposeEvent from './ComposeEvent';
 import ComposeNews from './ComposeNews';
 import ComposeAlert from './AlertComponents/ComposeAlert';

@@ -18,6 +18,9 @@
   width: 38px;
   height: 38px; }
 
+.sidenav .log_out {
+  margin-bottom: 80px; }
+
 .sidenav li .subheader .material-icons {
   margin-left: 5px; }
 
@@ -632,6 +635,9 @@ body {
           margin-bottom: 8px; }
       #class-select-area #class-select-wrap #class-list .divider {
         margin-top: -10px; }
+
+.unverified {
+  text-decoration: line-through; }
 
 .reusable-header {
   background: -moz-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
@@ -1349,6 +1355,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
           left: 10px; }
         #register-form .register-input-fields #registration .row .input-field .register-login-labels {
           margin-left: 12px; }
+        #register-form .register-input-fields #registration .row .input-field label {
+          width: auto; }
 
 .container .row #login-form {
   background-color: #c3ccd8;
@@ -1389,6 +1397,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
         font-size: 14px;
         position: relative;
         left: 10px; }
+      .container .row #login-form #login .row .input-field label {
+        width: auto; }
       .container .row #login-form #login .row .input-field .register-login-labels {
         margin-left: 12px; }
 

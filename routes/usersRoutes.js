@@ -14,13 +14,19 @@ router.route("/user/:user_id").get((req, res) => {
 });
 
 router.route("/student-list/:class_id").get((req, res) => {
-  
-  
-  
-  //Users.findById(req.params.class_id, (err, _class) => {
-  //  if(err) console.log(err);
-  //  
-  //});
+  Classes.findById(req.params.class_id, (err, _class)=> {
+    var students = [];
+    if(err) console.log(err);
+    for(let i = 0; i < _class.studentList.length; i++){
+      Users.findById(_class.studentList[i], (err, student) => {
+        if(err) console.log(err);
+        students.push(student);
+        if(_class.studentList.length == students.length){
+          res.json(students);
+        }
+      });
+    }
+  });
 });
 
 router

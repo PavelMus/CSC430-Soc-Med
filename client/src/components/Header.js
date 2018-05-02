@@ -13,6 +13,7 @@ class Header extends Component {
     this.state = {
       sidenavInst: "",
       sideNavInterval: "",
+      pollInterval: "",
       loggedIn: false
     };
   }
@@ -25,8 +26,21 @@ class Header extends Component {
   //and then set the interval id in to the state to clear it later.
   componentDidMount(){
     this.props.fetchUser();
-    let interval = setInterval(this.initSidenav, 100);
-    this.setState({ sideNavInterval: interval});
+    let sideNavInterval = setInterval(this.initSidenav, 100);
+    let pollInterval = setInterval(this.pollUsers_Classes, 5000);
+    this.setState({ sideNavInterval: sideNavInterval, pollInterval: pollInterval});
+  }
+  componentWillUnmount(){
+    clearInterval(this.state.pollInterval);
+    clearInterval(this.state.sideNavInterval);
+  }
+
+  pollUsers_Classes = () => {
+    if(this.props.user){
+      this.props.fetchClasses(this.props.user._id);
+      this.props.fetchUser();
+    }
+    console.log("Hello");
   }
 
   //Initializing Javascript variables for Materialize-CSS sidenav this function is on a small interval,
@@ -58,7 +72,7 @@ class Header extends Component {
               avatar={user.avatar}
               admin={user.admin}
               teacher={user.teacher}
-              classes={user.classes}
+              user_class_ids={user.classes}
               close={this.closeSideNav}
               id={user._id}
             />

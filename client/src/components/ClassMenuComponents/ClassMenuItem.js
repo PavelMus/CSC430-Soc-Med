@@ -82,30 +82,57 @@ class ClassMenuItem extends Component {
       </React.Fragment>
     );
   }
+  checkVerified = () =>{
+    let _class = this.props.user.classes.find(_class => {
+      return _class.class_id === this.props.class._id;
+    });
+    if(_class){
+      return _class.verified || this.props.user.teacher;
+    } else {
+      return this.props.user.teacher;
+    }
+    
+  }
 
   render() {
-    return (
-      <React.Fragment>
-        <a
-          id={this.props.class._id + "a_tag"}
-          target={this.props.class._id}
-          onClick={this.dropdownClick}
-          className="menu-hoverable dropbtn"
-        >
-          <i className="left-icon material-icons">
-            {iconType(this.props.class.type)}
-          </i>
-          <span>
-            {this.props.class.type}
-            {this.props.class.level}
-          </span>
-          <i className="right-icon material-icons">arrow_drop_down</i>
-        </a>
-        <ul id={this.props.class._id} className="class-item">
-          {this.renderMenu()}
-        </ul>
-      </React.Fragment>
-    );
+    if(this.checkVerified()){
+      return (
+        <React.Fragment>
+          <a
+            id={this.props.class._id + "a_tag"}
+            target={this.props.class._id}
+            onClick={this.dropdownClick}
+            className="menu-hoverable dropbtn"
+          >
+            <i className="left-icon material-icons">
+              {iconType(this.props.class.type)}
+            </i>
+            <span>
+              {this.props.class.type}
+              {this.props.class.level}
+            </span>
+            <i className="right-icon material-icons">arrow_drop_down</i>
+          </a>
+          <ul id={this.props.class._id} className="class-item">
+            {this.renderMenu()}
+          </ul>
+        </React.Fragment>
+      );
+    }else{
+      return (
+      <a
+        id={this.props.class._id + "a_tag"}
+        target={this.props.class._id}
+        className="menu-hoverable dropbtn"
+      >
+        <i className="left-icon material-icons">close</i>
+        <span className="unverified">
+          {this.props.class.type}
+          {this.props.class.level}
+        </span>
+      </a>)
+    }
+    
   }
 }
 

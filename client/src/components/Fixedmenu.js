@@ -101,12 +101,13 @@ class Fixedmenu extends Component {
           classes={this.props.classes}
           />
           <div>
-
+            {!(this.props.user.teacher || this.props.user.admin)?
               <Link className="select-class menu-hoverable" to="/selectClasses">
                 <i className="material-icons">vertical_align_bottom</i>
               <span>Select Classes</span>
-              </Link>
-
+              </Link>:
+              ""
+            }
           </div>
         </div>
       </React.Fragment>
