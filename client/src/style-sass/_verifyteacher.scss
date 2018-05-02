@@ -45,20 +45,24 @@
   background-color: #c3ccd8;
   min-width: 525px;
   max-width: 525px;
+  border: 1px solid #aaa;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
   .student-list-ul {
     margin: 0;
 
     .student-list-li {
       padding: 18px 14px;
+      border-bottom: 1px solid #aaa;
     }
   }
 
   .reusable-header {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 
     h4 {
-      text-align: center;
       color: white;
     }
   }

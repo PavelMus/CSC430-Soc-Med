@@ -1897,15 +1897,19 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   padding: 0;
   background-color: #c3ccd8;
   min-width: 525px;
-  max-width: 525px; }
+  max-width: 525px;
+  border: 1px solid #aaa;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }
   #student-list .student-list-ul {
     margin: 0; }
     #student-list .student-list-ul .student-list-li {
-      padding: 18px 14px; }
+      padding: 18px 14px;
+      border-bottom: 1px solid #aaa; }
   #student-list .reusable-header {
-    text-align: center; }
+    display: flex;
+    justify-content: center; }
     #student-list .reusable-header h4 {
-      text-align: center;
       color: white; }
 
 .profile-container .profile-left-section {
