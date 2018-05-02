@@ -31,7 +31,7 @@ class VerifyStudents extends Component {
     let promise_array = this.state._class.unverifiedStudents.map(student_id =>{
         var promise = axios.get(`${"/api/user"}/${student_id}`).then(res => {
           console.log(res.data);
-          
+
             return res.data;
         });
         return promise;
@@ -42,12 +42,12 @@ class VerifyStudents extends Component {
   mapStudents = () => {
     let list = this.state.studentData.map(student=>{
         return (
-            <li key={student._id}>
-                <div>
+            <li className="student-list-li" key={student._id}>
+
                     <img className="circle"src={student.avatar} width="50px" height="50px" />
                     <p>{student.displayName} <span>EMPLID: {student.EMPLID}</span></p>
                     <a target={student._id} onClick={this.verifyStudent} className="btn-small">verify</a>
-                </div>
+
             </li>
         );
     });
@@ -73,8 +73,11 @@ class VerifyStudents extends Component {
           <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
-          <div className="col s18 m8 l8 xl8">
-            <ul>
+          <div id="student-list"className="col s18 m8 l8 xl8">
+            <div className="reusable-header">
+              <h4 className="">Verify Students</h4>
+            </div>
+            <ul className="student-list-ul">
                 {this.state.studentList}
             </ul>
           </div>

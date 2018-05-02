@@ -35,3 +35,35 @@
     }
   }
 }
+////// Verify Students are below
+
+#student-list {
+  position: relative;
+  top: 12%;
+  left: 12%;
+  padding: 0;
+  background-color: #c3ccd8;
+  min-width: 525px;
+  max-width: 525px;
+  border: 1px solid #aaa;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  .student-list-ul {
+    margin: 0;
+
+    .student-list-li {
+      padding: 18px 14px;
+      border-bottom: 1px solid #aaa;
+    }
+  }
+
+  .reusable-header {
+    display: flex;
+    justify-content: center;
+
+    h4 {
+      color: white;
+    }
+  }
+}
