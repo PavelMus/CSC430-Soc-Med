@@ -298,13 +298,11 @@ class Profile extends Component {
   uploadUpdatedSocialMediaUrl = e => {
     e.preventDefault();
     let new_url = this.state.new_social_media_url;
-<<<<<<< HEAD
 
-=======
     if(new_url.slice(0, 6) !== "https://" || new_url.slice(0, 5) !== "http://"){
       new_url = "https://" + new_url;
     }
->>>>>>> c2d95a90ec4c5b8fc4eec4e8697f62b4568f385e
+]
     axios
       .put(
         `${"/api/profile-update-social-media-url"}/${this.state.profile._id}/${
