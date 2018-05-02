@@ -58,14 +58,14 @@ class Newsfeed extends Component {
     switch (this.state.feed) {
       case null:
         return (
-        <div className="col s12 m4 l8 xl6" id="newsfeed">
+        <div className="col s12 m4 l8 xl6 " id="newsfeed">
           <Loading/>
         </div>
       );
       default:
         let { feed } = this.state;
         return (
-          <div className="col s12 m4 l8 xl6" id="newsfeed">
+          <div className="col s12 m4 l8 xl6 offset-xl1" id="newsfeed">
             {feed.map( data => (
               <FeedPost
               user={this.props.user}

@@ -30,7 +30,7 @@ class Profile extends Component {
     if(this.props.location.pathname !== nextProps.location.pathname){
       this.setState(initialState, this.initComponent);
     }
-    
+
   }
 
   componentDidMount() {
@@ -298,7 +298,7 @@ class Profile extends Component {
   uploadUpdatedSocialMediaUrl = e => {
     e.preventDefault();
     let new_url = this.state.new_social_media_url;
-    
+
     axios
       .put(
         `${"/api/profile-update-social-media-url"}/${this.state.profile._id}/${
@@ -372,40 +372,69 @@ class Profile extends Component {
                 <div className="profile-contact-info">
                   <p>{profile.displayName}</p>
                   {this.renderUserStatus()}
-                  <p>Majoring in: {profile.major}</p>
+                  <p>Majoring in: Computer Science{profile.major}</p>
                   <div id="profile-contact-info">
                     <h6>Contact Info</h6>
                     <p>Email: {profile.email}</p>
-                    <p>Phone: </p>
-                    <p>Address: </p>
+                    <p>Phone: 646-879-4222</p>
+                    <p>Address: <span>72 Herberton ave</span></p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col xs12 s12 m8 l9 xl9">
+            <div id="profile-content" className="col xs12 s12 m8 l9 xl9">
               <div className="profile-name">
-                <h5>
-                  {profile.displayName} ({this.renderUserStatus()})
-                </h5>
-              </div>
-              <div className="profile-right-section">
-                <div className="bio">
-                  <h6>Bio</h6>
+                <div className="profile-name-header">
+                  <h5>
+                    {profile.displayName} ({this.renderUserStatus()})
+                  </h5>
                 </div>
+              </div>
+              <div className="profile-right-section ">
+
+                    <div className="bio">
+                      <div className="bio-header">
+                        <h6>Bio</h6>
+                      </div>
+
+                      <p></p>
+                    </div>
+
                 <div className="resume-research-projects">
+
                   <div className="resume">
-                    <h6>Resume</h6>
-                    <a href="">{profile.displayName}'s Resume</a>
+                    <div className="reusable-header">
+                      <h6>Resume</h6>
+                    </div>
+                    <div className="resume-research-projects-body">
+                      <a href="">{profile.displayName}'s Resume</a>
+                    </div>
                   </div>
                   <div className="research">
-                    <h6>Research</h6>
-                    <a href="">{profile.displayName}'s Resume</a>
+                    <div className="reusable-header">
+                      <h6>Research</h6>
+                    </div>
+                    <div className="resume-research-projects-body">
+                      <a href="">{profile.displayName}'s Resume</a>
+                    </div>
+
                   </div>
                   <div className="projects">
-                    <h6>Projects</h6>
-                    <a href="">{profile.displayName}'s Resume</a>
+                    <div className="reusable-header">
+                      <h6>Projects</h6>
+                    </div>
+                    <div className="resume-research-projects-body">
+                      <a href="">{profile.displayName}'s Resume</a>
+                    </div>
                   </div>
                 </div>
+
+              </div>
+              <div className="current-classes">
+                <div className="reusable-header">
+                  <h6>Aaron's Current Classes</h6>
+                </div>
+                <p>Yo hello hello hello</p>
               </div>
             </div>
           </div>

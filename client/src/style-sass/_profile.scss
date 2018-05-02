@@ -2,6 +2,7 @@
   //display: flex;
   //justify-content: right;
   .profile-left-section {
+    background-color: #c3ccd8;
     height: 80vh;
     //width: 200px;
     .profile-avatar {
@@ -12,12 +13,14 @@
         width: 100%;
         vertical-align: middle;
       }
+
       #edit-user-avatar {
         float: right;
         position: relative;
         bottom: 37px;
         right: 5px;
       }
+
       #edit-user-avatar-input {
         margin: 0 0 0 3px !important;
         width: 75%;
@@ -30,143 +33,269 @@
         box-shadow: none !important;
       }
     }
+
     .social-media-links {
       display: flex;
       align-items: center;
       width: 100%;
+      padding-left: 20px;
+
       #facebook-link,
-      #twitter-link,
+      #gitHub-link,
       #instagram-link,
       #linkedIn-link,
-      #gitHub-link {
+      #twitter-link {
         margin: 0 5px;
         font-size: 2em;
       }
     }
+
     .social-media-FAB {
       display: flex;
       position: relative;
       height: 50px;
+      padding-left: 20px;
       width: 100%;
       overflow: visible;
       margin-top: 10px;
+
       #social-media-edit-input {
-          display: flex;
+        display: flex;
+        position: relative;
+        align-items: baseline;
+        justify-content: flex-start;
+        vertical-align: bottom;
+        right: 5px;
+        top: 3px;
+
+        input {
+          //position: relative;
+          width: 95%;
+          right: 10px;
+          top: 5px;
+          background-color: white;
+          height: 30px;
+          margin-bottom: 0;
+          border-bottom: none !important;
+          box-shadow: none !important;
+        }
+
+        .btn-small {
           position: relative;
-          align-items: baseline;
-          justify-content: flex-start;
-          vertical-align: bottom;
-          right: 5px;
-          top: 3px;
-          input{
-            //position: relative;
-            width: 95%;
-            right: 10px;
-            top: 5px;
-            background-color: white;
-            height: 30px;
-            margin-bottom: 0;
-            border-bottom: none !important;
-            box-shadow: none !important;
+          height: 30px;
+          padding: 0 4px;
+          top: 2px;
+          box-shadow: none !important;
+          margin-left: 3px;
+
+          i {
+            font-size: 1.2em;
           }
-          .btn-small{
-              position: relative;
-              height: 30px;
-              padding: 0px 4px;
-              top: 2px;
-              box-shadow: none !important;
-              margin-left: 3px;
-              i{
-                  font-size: 1.2em;
-              }
-          }
+        }
       }
+
       #edit-social-media-links {
         position: static;
+
         ul {
           left: 40px;
           top: 22px;
         }
       }
     }
+
     .profile-contact-info {
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
       display: block;
       word-wrap: break-word;
       font-size: 0.8em;
+
       p {
-        margin: 0;
+        margin: 6px 10px;
+        font-size: 13px;
+      }
+
+      h6 {
+        margin: 20px 10px 14px;
+        font-size: 20px;
       }
     }
   }
 
   .profile-name {
-    display: block;
-    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 50px;
+    height: 6vh;
+
+    h5 {
+      margin: 0 0 15px;
+    }
+
     p {
       display: inline;
     }
   }
 
+  #profile-content {
+    height: 80vh;
+  }
+
   .profile-right-section {
     display: flex;
+    height: 44.3vh;
+
     .bio {
       border: black solid 1px;
       width: 60%;
-      height: 40vh;
-      h6 {
-        margin-top: 0;
-        color: white;
-        background-color: blue;
+
+      .bio-header {
+        padding: 12px;
+        background: -moz-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+        /* ff3.6+ */
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #3661B5), color-stop(46%, #2E5599), color-stop(75%, #294D88), color-stop(100%, #25477A));
+        /* safari4+,chrome */
+        background: -webkit-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+        /* safari5.1+,chrome10+ */
+        background: -o-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+        /* opera 11.10+ */
+        background: -ms-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+        /* ie10+ */
+        background: radial-gradient(ellipse at center, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+        /* w3c */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#3661B5', endColorstr='#25477A',GradientType=1 );
+
+        h6 {
+          font-size: 26px;
+          margin: 0;
+          color: white;
+        }
       }
     }
+
     .resume-research-projects {
+      margin-left: 40px;
       width: 40%;
+
       .resume {
+        height: $profileresumeresearchheight;
         margin-bottom: 10px;
         border: black solid 1px;
-        border-top-right-radius: 1em;
-        border-top-left-radius: 1em;
-        h6 {
-          color: white;
-          margin-top: 0;
-          border: none;
-          border-top-right-radius: 0.9em;
-          border-top-left-radius: 0.9em;
-          background-color: red;
+        border-radius: 0;
+
+        .reusable-header {
+          display: flex;
+          justify-content: center;
+          height: 50px;
+          border-radius: 0;
+
+          h6 {
+            color: white;
+            margin-top: 0;
+            border: none;
+            border-radius: 0;
+          }
         }
-        a {
-          margin-bottom: 5px;
+
+        .resume-research-projects-body {
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          a {
+            margin-bottom: 5px;
+          }
         }
       }
+
       .research {
+        height: $profileresumeresearchheight;
         margin-bottom: 10px;
         border: black solid 1px;
-        border-top-right-radius: 1em;
-        border-top-left-radius: 1em;
-        h6 {
-          color: white;
-          margin-top: 0;
-          border: none;
-          border-top-right-radius: 0.9em;
-          border-top-left-radius: 0.9em;
-          background-color: red;
+        border-radius: 0;
+
+        .reusable-header {
+          display: flex;
+          justify-content: center;
+          height: 50px;
+          border-radius: 0;
+
+          h6 {
+            color: white;
+            margin-top: 0;
+            border: none;
+            border-radius: 0;
+          }
+        }
+
+        .resume-research-projects-body {
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          a {
+            margin-bottom: 5px;
+          }
         }
       }
+
       .projects {
+        height: $profileresumeresearchheight;
         margin-bottom: 10px;
         border: black solid 1px;
-        border-top-right-radius: 1em;
-        border-top-left-radius: 1em;
-        h6 {
-          color: white;
-          margin-top: 0;
-          border: none;
-          border-top-right-radius: 0.9em;
-          border-top-left-radius: 0.9em;
-          background-color: red;
+        border-radius: 0;
+
+        .reusable-header {
+          display: flex;
+          justify-content: center;
+          height: 50px;
+          border-radius: 0;
+
+          h6 {
+            color: white;
+            margin-top: 0;
+            border: none;
+            border-radius: 0;
+          }
         }
+
+        .resume-research-projects-body {
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          a {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .current-classes {
+    margin-top: 22px;
+    border: 1px solid black;
+    width: 100%;
+    height: 27vh;
+    display: block;
+    border-radius: 0;
+    text-align: center;
+
+    .reusable-header {
+      border-radius: 0;
+      text-align: center;
+
+      h6 {
+        text-align: center;
+        color: white;
+        border-radius: 0;
       }
     }
   }
