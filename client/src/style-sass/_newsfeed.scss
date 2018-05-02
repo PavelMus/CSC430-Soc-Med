@@ -18,6 +18,18 @@
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
+  .news{
+    border-color: blue !important;
+    .divider{
+      background-color: blue !important;
+    }
+  }
+  .event{
+    border-color: orange !important;
+    .divider{
+      background-color: orange !important;
+    }
+  }
   .feed-post {
     overflow: auto;
     background-color: $feedbackgroundcolor;

@@ -6,6 +6,11 @@ class ClassMenuItem extends Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount(){
+    console.log(this.props.class);
+    
+  }
   dropdownClick = e => {
     e.preventDefault();
     if (e.target.target) {
@@ -74,7 +79,7 @@ class ClassMenuItem extends Component {
           <Link to={`${"/ClassContent"}/${this.props.class._id}`}>Content</Link>
         </li>
         <li>
-          <a href="#">Teacher</a>
+          <Link to={`${"/profile"}/${this.props.class.teacher}`}>Teacher</Link>
         </li>
         <li>
           <a href="#">Classmates</a>

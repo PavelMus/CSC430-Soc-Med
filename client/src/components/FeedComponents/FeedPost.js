@@ -92,7 +92,7 @@ class FeedPost extends Component {
 
   render() {
     return (
-        <div className="feed-post hoverable">
+        <div className={`${"feed-post hoverable "}${this.props.type}`}>
           <h3><Link to={`${this.state.feedItemURL}/${this.props.feed_id}`} >{this.props.title}</Link></h3>
             <div className="divider"></div>
             <div className="feed-item-body">

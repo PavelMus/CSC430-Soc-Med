@@ -374,6 +374,14 @@ body {
     transition: box-shadow 0.25s; }
   #newsfeed .myhoverable:hover {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  #newsfeed .news {
+    border-color: blue !important; }
+    #newsfeed .news .divider {
+      background-color: blue !important; }
+  #newsfeed .event {
+    border-color: orange !important; }
+    #newsfeed .event .divider {
+      background-color: orange !important; }
   #newsfeed .feed-post {
     overflow: auto;
     background-color: #f5f5f5;

@@ -13,10 +13,8 @@ router.route("/user/:user_id").get((req, res) => {
   });
 });
 
-router.route("/student-list").get((req, res) => {
-
-  let list = req.body.list;
-  console.log(list);
+router.route("/student-list/:class_id").get((req, res) => {
+  
   
   
   //Users.findById(req.params.class_id, (err, _class) => {

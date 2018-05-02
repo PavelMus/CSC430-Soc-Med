@@ -27,16 +27,11 @@ class SidenavAdminTeacher extends Component {
   }
 
   loadStudents = () => {
-    console.log(this.props.user.classes);
-    //let students = this.props.user.classes.map(_class => {
-    //  return {class_tag: _class.type + _class.level + "Section: " + _class.section,
-    //            student_list: _class.studentList};
-    //});
-    console.log(this.props.user.classes[0].studentList);
-    
-    axios.get("/api/student-list", {list: this.props.user.classes[0].studentList}).then(res =>{
-      
-    })
+  console.log(this.props.user);
+  
+  axios.get(`${"/api/student-list"}/$`).then(res =>{
+  
+  })
   }
 
   mapAdmins = () => {
