@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import ClassItem from "./ClassMenuComponents/ClassMenuItem";
 import ClassList from "./ClassMenuComponents/ClassList";
 
 class Fixedmenu extends Component {
   constructor(props) {
     super(props);
   }
-
   renderAdminActions = () => {
     return (
       <ul className="action-list">

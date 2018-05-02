@@ -51,11 +51,17 @@
     img {
       border-radius: 50%;
     }
+<<<<<<< HEAD
 
     p {
+=======
+    p{
+      text-align: center;
+>>>>>>> f9406c40fb683b4e3755591f9ece47e077c4a6a8
       word-wrap: break-word;
       word-break: break-all;
       width: fit-content;
+      min-width: 25px;
       height: fit-content;
       font-size: 1em;
       margin: 0 0 0 5px;
@@ -74,9 +80,11 @@
 
     p {
       color: white;
+      text-align: center;
       word-wrap: break-word;
       word-break: break-all;
       width: fit-content;
+      min-width: 25px;
       height: fit-content;
       font-size: 1em;
       margin: 0 0 0 5px;

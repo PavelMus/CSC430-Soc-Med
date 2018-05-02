@@ -64,8 +64,6 @@ class Newsfeed extends Component {
       );
       default:
         let { feed } = this.state;
-        console.log(feed);
-        
         return (
           <div className="col s12 m4 l8 xl6 offset-xl1" id="newsfeed">
             {feed.map( data => (

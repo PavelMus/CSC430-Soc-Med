@@ -1251,9 +1251,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
     #chat-box .other-messages img {
       border-radius: 50%; }
     #chat-box .other-messages p {
+      text-align: center;
       word-wrap: break-word;
       word-break: break-all;
       width: fit-content;
+      min-width: 25px;
       height: fit-content;
       font-size: 1em;
       margin: 0 0 0 5px;
@@ -1268,9 +1270,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
     flex-shrink: 0; }
     #chat-box .my-messages p {
       color: white;
+      text-align: center;
       word-wrap: break-word;
       word-break: break-all;
       width: fit-content;
+      min-width: 25px;
       height: fit-content;
       font-size: 1em;
       margin: 0 0 0 5px;

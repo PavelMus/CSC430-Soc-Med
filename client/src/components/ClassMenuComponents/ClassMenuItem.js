@@ -6,11 +6,6 @@ class ClassMenuItem extends Component {
   constructor(props) {
     super(props);
   }
-
-  componentDidMount(){
-    console.log(this.props.class);
-    
-  }
   dropdownClick = e => {
     e.preventDefault();
     if (e.target.target) {

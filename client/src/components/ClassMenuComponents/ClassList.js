@@ -17,15 +17,15 @@ class ClassList extends Component {
     //this.setState({classes: this.props.classes}, this.generateClassList);
     this.generateClassList();
   }
-  
+
   generateClassList = () => {
     let classes = this.props.classes;
     let classList = classes.map(cls => {
-      return (
-        <ClassItem key={cls._id} user={this.props.user} class={cls} />
-      );
-    });
-    this.setState({classList: classList});
+    return (
+      <ClassItem key={cls._id} user={this.props.user} class={cls} />
+    );
+  });
+  this.setState({classList: classList});
   }
 
   render() {
