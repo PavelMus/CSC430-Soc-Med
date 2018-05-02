@@ -84,7 +84,7 @@ class Sidenav extends Component {
             <a>
               <span className="white-text email">{user.email}</span>
             </a>
-            <Link to={`${"/profile"}/${user.id}`} onClick={this.props.close}><i id="profile-link" className="material-icons">perm_identity</i></Link>
+            <Link to={`${"/profile"}/${user.id}`} onClick={this.props.close}><i id="profile-link" className="fas fa-user"></i></Link>
           </div>
         </li>
         {this.renderContent()}

@@ -27,7 +27,7 @@ class ClassList extends Component {
         this.setState(initialState, this.generateClassList);
       } else {
         for(let i = 0; i < nextProps.user.classes.length; i++){
-          if(!this.props.user.teacher && nextProps.user.classes.length < this.props.user.classes.length){
+          if(!this.props.user.teacher && nextProps.user.classes.length == this.props.user.classes.length){
             if(nextProps.user.classes[i].verified !== this.props.user.classes[i].verified){
               this.setState(initialState, this.generateClassList);
             }

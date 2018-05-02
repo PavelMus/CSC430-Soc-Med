@@ -117,7 +117,7 @@ class Fixedmenu extends Component {
     if (this.props.user == null || this.props.classes == null) {
     } else {
       let user = this.props.user;
-      if (!(user.admin && user.teacher)) {
+      if (!user.admin && !user.teacher) {
         return this.renderClassList();
       } else if (user.admin && user.teacher) {
         return (
@@ -127,7 +127,11 @@ class Fixedmenu extends Component {
           </React.Fragment>
         );
       } else if (user.admin) {
-        return this.renderAdminActions();
+        return (
+          <React.Fragment>
+          {this.renderAdminActions()}
+          </React.Fragment>
+        );
       } else if (user.teacher) {
         return this.renderClassList();
       }

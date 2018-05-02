@@ -43,7 +43,6 @@ classRouter.route("/user_classes/:user_id").get((req, res) => {
     let classes = user.classes.map(item =>{
       return mongoose.Types.ObjectId(item.class_id);
     });
-    console.log(mongoose.Types.ObjectId('4ed3ede8844f0f351100000c'));
     Class.find({_id:{$in:classes}}, (err, _classes) =>{
       if(err) console.log(err); 
       res.json(_classes);
