@@ -302,7 +302,7 @@ class Profile extends Component {
     if(new_url.slice(0, 6) !== "https://" || new_url.slice(0, 5) !== "http://"){
       new_url = "https://" + new_url;
     }
-]
+
     axios
       .put(
         `${"/api/profile-update-social-media-url"}/${this.state.profile._id}/${
