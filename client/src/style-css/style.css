@@ -1874,6 +1874,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     background-color: #1565c0; }
 
 .profile-container .profile-left-section {
+  background-color: #c3ccd8;
   height: 80vh; }
   .profile-container .profile-left-section .profile-avatar {
     border: 0.05em solid grey; }
@@ -1898,18 +1899,20 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   .profile-container .profile-left-section .social-media-links {
     display: flex;
     align-items: center;
-    width: 100%; }
+    width: 100%;
+    padding-left: 20px; }
     .profile-container .profile-left-section .social-media-links #facebook-link,
-    .profile-container .profile-left-section .social-media-links #twitter-link,
+    .profile-container .profile-left-section .social-media-links #gitHub-link,
     .profile-container .profile-left-section .social-media-links #instagram-link,
     .profile-container .profile-left-section .social-media-links #linkedIn-link,
-    .profile-container .profile-left-section .social-media-links #gitHub-link {
+    .profile-container .profile-left-section .social-media-links #twitter-link {
       margin: 0 5px;
       font-size: 2em; }
   .profile-container .profile-left-section .social-media-FAB {
     display: flex;
     position: relative;
     height: 50px;
+    padding-left: 20px;
     width: 100%;
     overflow: visible;
     margin-top: 10px; }
@@ -1933,7 +1936,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
       .profile-container .profile-left-section .social-media-FAB #social-media-edit-input .btn-small {
         position: relative;
         height: 30px;
-        padding: 0px 4px;
+        padding: 0 4px;
         top: 2px;
         box-shadow: none !important;
         margin-left: 3px; }
@@ -1945,70 +1948,144 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
         left: 40px;
         top: 22px; }
   .profile-container .profile-left-section .profile-contact-info {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
     display: block;
     word-wrap: break-word;
     font-size: 0.8em; }
     .profile-container .profile-left-section .profile-contact-info p {
-      margin: 0; }
+      margin: 6px 10px;
+      font-size: 13px; }
+    .profile-container .profile-left-section .profile-contact-info h6 {
+      margin: 20px 10px 14px;
+      font-size: 20px; }
 
 .profile-container .profile-name {
-  display: block;
-  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 50px; }
+  height: 6vh; }
+  .profile-container .profile-name h5 {
+    margin: 0 0 15px; }
   .profile-container .profile-name p {
     display: inline; }
 
+.profile-container #profile-content {
+  height: 80vh; }
+
 .profile-container .profile-right-section {
-  display: flex; }
+  display: flex;
+  height: 44.3vh; }
   .profile-container .profile-right-section .bio {
     border: black solid 1px;
-    width: 60%;
-    height: 40vh; }
-    .profile-container .profile-right-section .bio h6 {
-      margin-top: 0;
-      color: white;
-      background-color: blue; }
+    width: 60%; }
+    .profile-container .profile-right-section .bio .bio-header {
+      padding: 12px;
+      background: -moz-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+      /* ff3.6+ */
+      background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #3661B5), color-stop(46%, #2E5599), color-stop(75%, #294D88), color-stop(100%, #25477A));
+      /* safari4+,chrome */
+      background: -webkit-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+      /* safari5.1+,chrome10+ */
+      background: -o-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+      /* opera 11.10+ */
+      background: -ms-radial-gradient(center, ellipse cover, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+      /* ie10+ */
+      background: radial-gradient(ellipse at center, #3661B5 0%, #2E5599 46%, #294D88 75%, #25477A 100%);
+      /* w3c */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#3661B5', endColorstr='#25477A',GradientType=1 ); }
+      .profile-container .profile-right-section .bio .bio-header h6 {
+        font-size: 26px;
+        margin: 0;
+        color: white; }
   .profile-container .profile-right-section .resume-research-projects {
+    margin-left: 40px;
     width: 40%; }
     .profile-container .profile-right-section .resume-research-projects .resume {
+      height: 27.5%;
       margin-bottom: 10px;
       border: black solid 1px;
-      border-top-right-radius: 1em;
-      border-top-left-radius: 1em; }
-      .profile-container .profile-right-section .resume-research-projects .resume h6 {
-        color: white;
-        margin-top: 0;
-        border: none;
-        border-top-right-radius: 0.9em;
-        border-top-left-radius: 0.9em;
-        background-color: red; }
-      .profile-container .profile-right-section .resume-research-projects .resume a {
-        margin-bottom: 5px; }
+      border-radius: 0; }
+      .profile-container .profile-right-section .resume-research-projects .resume .reusable-header {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        border-radius: 0; }
+        .profile-container .profile-right-section .resume-research-projects .resume .reusable-header h6 {
+          color: white;
+          margin-top: 0;
+          border: none;
+          border-radius: 0; }
+      .profile-container .profile-right-section .resume-research-projects .resume .resume-research-projects-body {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .profile-container .profile-right-section .resume-research-projects .resume .resume-research-projects-body a {
+          margin-bottom: 5px; }
     .profile-container .profile-right-section .resume-research-projects .research {
+      height: 27.5%;
       margin-bottom: 10px;
       border: black solid 1px;
-      border-top-right-radius: 1em;
-      border-top-left-radius: 1em; }
-      .profile-container .profile-right-section .resume-research-projects .research h6 {
-        color: white;
-        margin-top: 0;
-        border: none;
-        border-top-right-radius: 0.9em;
-        border-top-left-radius: 0.9em;
-        background-color: red; }
+      border-radius: 0; }
+      .profile-container .profile-right-section .resume-research-projects .research .reusable-header {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        border-radius: 0; }
+        .profile-container .profile-right-section .resume-research-projects .research .reusable-header h6 {
+          color: white;
+          margin-top: 0;
+          border: none;
+          border-radius: 0; }
+      .profile-container .profile-right-section .resume-research-projects .research .resume-research-projects-body {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .profile-container .profile-right-section .resume-research-projects .research .resume-research-projects-body a {
+          margin-bottom: 5px; }
     .profile-container .profile-right-section .resume-research-projects .projects {
+      height: 27.5%;
       margin-bottom: 10px;
       border: black solid 1px;
-      border-top-right-radius: 1em;
-      border-top-left-radius: 1em; }
-      .profile-container .profile-right-section .resume-research-projects .projects h6 {
-        color: white;
-        margin-top: 0;
-        border: none;
-        border-top-right-radius: 0.9em;
-        border-top-left-radius: 0.9em;
-        background-color: red; }
+      border-radius: 0; }
+      .profile-container .profile-right-section .resume-research-projects .projects .reusable-header {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        border-radius: 0; }
+        .profile-container .profile-right-section .resume-research-projects .projects .reusable-header h6 {
+          color: white;
+          margin-top: 0;
+          border: none;
+          border-radius: 0; }
+      .profile-container .profile-right-section .resume-research-projects .projects .resume-research-projects-body {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .profile-container .profile-right-section .resume-research-projects .projects .resume-research-projects-body a {
+          margin-bottom: 5px; }
+
+.profile-container .current-classes {
+  margin-top: 22px;
+  border: 1px solid black;
+  width: 100%;
+  height: 27vh;
+  display: block;
+  border-radius: 0;
+  text-align: center; }
+  .profile-container .current-classes .reusable-header {
+    border-radius: 0;
+    text-align: center; }
+    .profile-container .current-classes .reusable-header h6 {
+      text-align: center;
+      color: white;
+      border-radius: 0; }
 
 #event-editor-area {
   background-color: #FFFFFF;
