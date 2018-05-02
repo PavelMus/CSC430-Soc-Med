@@ -8,6 +8,12 @@ import AlertPreview from './AlertBox'
 import {WEATHER_ALERT} from './types';
 import {ASSIGNMENT_DUE} from './types';
 import {CLOSED} from './types';
+
+import {CLASS_CANCELED} from './types';
+import {SCHOOL_CLOSED} from './types';
+import {SAFETY_ALERT} from './types';
+import {AMBER_ALERT} from './types';
+
 class ComposeAlert extends Component {
   constructor(props) {
     super(props);
@@ -78,8 +84,10 @@ class ComposeAlert extends Component {
                     <select onChange={this.typeUpdate}>
                     <option value="1" disabled selected>Select Alert Type</option>
                     <option value={WEATHER_ALERT}>Weather Alert</option>
-                    <option value={CLOSED}>Closing Alert</option>
                     <option value={ASSIGNMENT_DUE}>Assignment Due Alert</option>
+                    <option value={SCHOOL_CLOSED}>School Closed</option>
+                    <option value={SAFETY_ALERT}>Safety Alert</option>
+                    <option value={AMBER_ALERT}>Amber Alert</option>
                     </select>
                     <label>Alert Type Selector</label>
                 </div>

@@ -35,3 +35,31 @@
     }
   }
 }
+////// Verify Students are below
+
+#student-list {
+  position: relative;
+  top: 12%;
+  left: 12%;
+  padding: 0;
+  background-color: #c3ccd8;
+  min-width: 525px;
+  max-width: 525px;
+
+  .student-list-ul {
+    margin: 0;
+
+    .student-list-li {
+      padding: 18px 14px;
+    }
+  }
+
+  .reusable-header {
+    text-align: center;
+
+    h4 {
+      text-align: center;
+      color: white;
+    }
+  }
+}

@@ -400,8 +400,20 @@ class Profile extends Component {
                       <div className="bio-header">
                         <h6>Bio</h6>
                       </div>
-
-                      <p></p>
+                      <ul className="bio-ul">
+                        <li className="bio-li">
+                          <h4 className="bio-li-header">About Me:</h4>
+                          <p> Hello, fellow students and Classmates. As you may know I'm Aaron and im a computer science major. I enjoy talking to people. I love to iquire about people way of life and to see their perspective on things.</p>
+                        </li>
+                        <li className="bio-li">
+                          <h4 className="bio-li-header">Interests:</h4>
+                          <p> Music Production, Coding, Reading, Basketball</p>
+                        </li>
+                        <li className="bio-li">
+                          <h4 className="bio-li-header">Skills:</h4>
+                          <p> Html,CSS & Javascript, C++, Java, Swift</p>
+                        </li>
+                      </ul>
                     </div>
 
                 <div className="resume-research-projects">
@@ -419,7 +431,15 @@ class Profile extends Component {
                       <h6>Research</h6>
                     </div>
                     <div className="resume-research-projects-body">
-                      <a href="">{profile.displayName}'s Resume</a>
+                      <ul>
+                        <li>
+                          <a href="">Maching learning Research</a>
+                        </li>
+                        <li>
+                          <a href="">Resume</a>
+                        </li>
+                      </ul>
+
                     </div>
 
                   </div>
@@ -428,7 +448,14 @@ class Profile extends Component {
                       <h6>Projects</h6>
                     </div>
                     <div className="resume-research-projects-body">
-                      <a href="">{profile.displayName}'s Resume</a>
+                      <ul>
+                        <li>
+                          <a href="">College Social Media Site</a>
+                        </li>
+                        <li>
+                          <a href="">Ecommerce Site</a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -438,7 +465,13 @@ class Profile extends Component {
                 <div className="reusable-header">
                   <h6>Aaron's Current Classes</h6>
                 </div>
-                <p>Yo hello hello hello</p>
+                <div className="current-classes-body">
+                  <span>CSC 430</span>
+                  <span>CSC 430</span>
+                  <span>CSC 430</span>
+                  <span>CSC 430</span>
+                </div>
+
               </div>
             </div>
           </div>
