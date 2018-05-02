@@ -13,6 +13,18 @@ router.route("/user/:user_id").get((req, res) => {
   });
 });
 
+router.route("/student-list").get((req, res) => {
+
+  let list = req.body.list;
+  console.log(list);
+  
+  
+  //Users.findById(req.params.class_id, (err, _class) => {
+  //  if(err) console.log(err);
+  //  
+  //});
+});
+
 router
   .route("/users-list")
   //retrieve all users from the database

@@ -29,6 +29,8 @@ class VerifyStudents extends Component {
   loadStudentsData = () => {
     let promise_array = this.state._class.unverifiedStudents.map(student_id =>{
         var promise = axios.get(`${"/api/user"}/${student_id}`).then(res => {
+          console.log(res.data);
+          
             return res.data;
         });
         return promise;

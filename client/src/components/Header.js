@@ -58,6 +58,7 @@ class Header extends Component {
               avatar={user.avatar}
               admin={user.admin}
               teacher={user.teacher}
+              classes={user.classes}
               close={this.closeSideNav}
               id={user._id}
             />

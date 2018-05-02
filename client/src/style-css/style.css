@@ -33,7 +33,7 @@
     float: right;
     margin-left: 12px; }
   .sidenav li .sidenav_username span {
-    margin-left: 12px; }
+    margin-left: 11px; }
   .sidenav li .sidenav_username a {
     flex-grow: 300px;
     color: #3A5BA6;
@@ -468,12 +468,15 @@ body {
           float: right;
           display: table; }
           #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button .i-wrapper {
-            display: inline-block;
+            display: flex;
             margin: auto 0; }
             #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button .i-wrapper i {
               color: #1565c0;
               margin-right: 10px;
-              padding: 5px; }
+              padding: 5px;
+              margin: 0; }
+            #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button .i-wrapper span {
+              align-self: center; }
           #newsfeed .feed-post .feed-item-footer .feed-item-footer-left .comment-button span {
             display: table-cell;
             vertical-align: middle; }
