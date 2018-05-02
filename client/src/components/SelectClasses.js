@@ -204,7 +204,9 @@ class SelectClasses extends Component {
     });
     let data = { user: this.props.user._id, classes: add_classes };
     axios.put("/api/add_class_to_user/student", data).then(res => {
-      this.setState({ renderModal: true });
+      this.setState({ renderModal: true }, () => {
+        this.props.fetchUser()
+        .then(this.props.fetchClasses(this.props.user._id))});
     });
   };
 

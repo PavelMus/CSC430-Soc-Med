@@ -36,9 +36,11 @@
       border-radius: 50%;
     }
     p{
+      text-align: center;
       word-wrap: break-word;
       word-break: break-all;
       width: fit-content;
+      min-width: 25px;
       height: fit-content;
       font-size: 0.9em;
       margin: 0px 0 0px 5px;
@@ -55,9 +57,11 @@
     flex-shrink: 0;
     p{
       color: white;
+      text-align: center;
       word-wrap: break-word;
       word-break: break-all;
       width: fit-content;
+      min-width: 25px;
       height: fit-content;
       font-size: 0.9em;
       margin: 0px 0 0px 5px;
