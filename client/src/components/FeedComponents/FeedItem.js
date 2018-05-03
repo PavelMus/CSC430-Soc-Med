@@ -194,6 +194,7 @@ class FeedItem extends Component {
                 <img className="circle" src={this.props.user.avatar} />
                 <div className="input-wrapper">
                   <input
+                    required
                     onChange={this.onCommentChange}
                     value={this.state.new_comment}
                     placeholder="Leave a comment"
@@ -216,22 +217,23 @@ class FeedItem extends Component {
 
   submitNewComment = e => {
     e.preventDefault();
-    let feed_id = this.props.location.pathname.slice(6);
-    let date = new Date();
-
-    let comment = {
-      user_name: this.props.user.displayName,
-      user_avatar: this.props.user.avatar,
-      content: this.state.new_comment,
-      postDate: date.toLocaleString(),
-      key: uuid()
-    };
-    axios.post(`${"/api/new-comment"}/${feed_id}`, comment).then(res => {
-      M.toast({ html: res.data.message });
-      this.loadComments();
-      this.getCommentAmmout();
-      this.setState({ new_comment: "" });
-    });
+    if(this.state.new_comment !==""){
+      let feed_id = this.props.location.pathname.slice(6);
+      let date = new Date();
+      let comment = {
+        user_name: this.props.user.displayName,
+        user_avatar: this.props.user.avatar,
+        content: this.state.new_comment,
+        postDate: date.toLocaleString(),
+        key: uuid()
+      };
+      axios.post(`${"/api/new-comment"}/${feed_id}`, comment).then(res => {
+        M.toast({ html: res.data.message });
+        this.loadComments();
+        this.getCommentAmmout();
+        this.setState({ new_comment: "" });
+      });
+  }
   };
 
   showComments = e => {

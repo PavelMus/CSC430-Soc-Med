@@ -30,3 +30,25 @@ export var iconType = icon => {
       return "";
   }
 };
+export var iconColor = icon => {
+  switch (icon) {
+    case "CSC":
+      return "code";
+    case "MTH":
+      return "add_box";
+    case "COR100":
+      return "history";
+    case "BIO":
+      return "accessibility";
+    case "AST":
+      return "wb_sunny";
+    case "ENG":
+      return "mode_edit";
+    case "BUS":
+      return "cobusiness_centerde";
+    case "ACC":
+      return "account_balance";
+    default:
+      return "";
+  }
+};

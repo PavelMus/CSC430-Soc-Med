@@ -166,7 +166,8 @@ class ComposeClass extends Component {
       level: _class.levelSelected,
       subject: _class.classSubject,
       section: _class.classSection,
-      teacher: _class.teacherSelected
+      teacher: _class.teacherSelected,
+      description: _class.classDescription
     };
     axios.post("/api/create-class", new_class).then(res => {
       let teacher = {
@@ -174,7 +175,6 @@ class ComposeClass extends Component {
         user: _class.teacherSelected
       };
       axios.put("/api/add_class_to_user/teacher", teacher).then(res => {
-        console.log(res.data.message);
       });
       M.toast({html: res.data.message});
     });
@@ -215,7 +215,7 @@ class ComposeClass extends Component {
                     <input
                       required
                       value={this.state.classSection}
-                      id="class_description"
+                      id="class_section"
                       onChange={this.onSectionChange}
                       type="text"
                     />

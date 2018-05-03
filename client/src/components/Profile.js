@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import FixedMenu from "./Fixedmenu";
 import axios from "axios";
 import * as M from "materialize-css";
+import uuid from 'uuid';
 
 const initialState = {
       edditable: false,
       profile: "",
+      profile_classes: "",
       user_status: "",
       facebook: "",
       twitter: "",
@@ -30,7 +32,6 @@ class Profile extends Component {
     if(this.props.location.pathname !== nextProps.location.pathname){
       this.setState(initialState, this.initComponent);
     }
-
   }
 
   componentDidMount() {
@@ -168,8 +169,25 @@ class Profile extends Component {
       instagram: instagram,
       linkedIn: linkedIn,
       gitHub: gitHub
-    });
+    }, this.mapProfileClasses);
   };
+
+  mapProfileClasses = () => {
+    let classes = this.state.profile.classes;
+    console.log(classes);
+    let profile_classes = <div className="current-classes-body">
+    {classes.map(_class => {
+      return (
+        <ul className="current-class-body" key={uuid()}>
+        <li className="profile_class_type">{_class.type}{_class.level}</li>
+        <li className="profile_class_subject">{_class.subject}</li>
+        <li className="profile_class_description">{_class.description}</li>
+        </ul>
+      );
+    })}
+    </div>;
+    this.setState({profile_classes: profile_classes});
+  }
 
   renderSocialMediaLinks = () => {
     return (
@@ -473,13 +491,7 @@ class Profile extends Component {
                 <div className="reusable-header">
                   <h6>Aaron's Current Classes</h6>
                 </div>
-                <div className="current-classes-body">
-                  <span>CSC 430</span>
-                  <span>CSC 430</span>
-                  <span>CSC 430</span>
-                  <span>CSC 430</span>
-                </div>
-
+                {this.state.profile_classes}
               </div>
             </div>
           </div>

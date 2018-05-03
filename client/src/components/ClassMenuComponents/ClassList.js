@@ -20,10 +20,7 @@ class ClassList extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    console.log(nextProps.classes.length);
-    console.log(this.props.classes.length);
       if(nextProps.classes.length > this.props.classes.length ||nextProps.classes.length < this.props.classes.length){
-        console.log("GENERATE CLASS LIST");
         this.setState(initialState, this.generateClassList);
       } else {
         for(let i = 0; i < nextProps.user.classes.length; i++){

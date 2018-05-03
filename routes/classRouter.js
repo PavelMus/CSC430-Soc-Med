@@ -150,6 +150,7 @@ classRouter.route("/create-class").post((req, res) => {
   _class.level = req.body.level;
   _class.subject = req.body.subject;
   _class.section = req.body.section;
+  _class.description = req.body.description;
   _class.teacher = req.body.teacher;
   _class.content = [];
   _class.unverifiedStudents = [];
