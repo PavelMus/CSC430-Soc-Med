@@ -53,6 +53,7 @@ feedRouter
     .post( (req, res) =>{
         var news = new News();
         news.author = req.body.author;
+        news.user_id = req.body.user_id;
         news.authorAvatar = req.body.avatar;
         news.title = req.body.title;
         news.postDate = moment().tz("America/New_York").format('ddd, Do MMM YYYY hh:mm a');
@@ -78,6 +79,7 @@ feedRouter
     .post( (req, res) => {
         var event = new Events();
         event.author = req.body.author;
+        event.user_id = req.body.user_id;
         event.authorAvatar = req.body.avatar;
         event.title = req.body.title;
         event.postDate = moment().tz("America/New_York").format('ddd, Do MMM YYYY hh:mm a');

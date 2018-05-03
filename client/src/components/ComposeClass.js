@@ -160,8 +160,9 @@ class ComposeClass extends Component {
 
   onClassSubmit = e => {
     e.preventDefault();
-    let _class = this.state;
-    let new_class = {
+    if(this.state.teacherSelected && this.state.levelSelected && this.state.typeSelected){
+      let _class = this.state;
+      let new_class = {
       type: _class.typeSelected,
       level: _class.levelSelected,
       subject: _class.classSubject,
@@ -178,6 +179,14 @@ class ComposeClass extends Component {
       });
       M.toast({html: res.data.message});
     });
+  } else if(!this.state.teacherSelected) {
+    M.toast({html: "Please select an instructor"});
+  } else if(!this.state.levelSelected) {
+    M.toast({html: "Please select class level"});
+  } else if(!this.state.typeSelected) {
+    M.toast({html: "Please select class type"});
+  }
+    
   };
 
   render() {
@@ -222,7 +231,7 @@ class ComposeClass extends Component {
                     <label>Class Section #</label>
                   </div>
                   <div className="col s12 input-field">
-                    <select defaultValue="1" id="teachers" onChange={this.selectedTeacher}>
+                    <select required defaultValue="1" id="teachers" onChange={this.selectedTeacher}>
                       <option disabled value="1">Select Teacher</option>
                         {this.state.teacherList}
                     </select>

@@ -22,7 +22,13 @@ class FeedItem extends Component {
       all_comments: [],
       new_comment: "",
       skip: 0,
-      loadMore: false
+      loadMore: false,
+      profile: null,
+      facebook: "",
+      twitter: "",
+      instagram: "",
+      linkedIn: "",
+      gitHub: ""
     };
   }
 
@@ -54,9 +60,97 @@ class FeedItem extends Component {
     this.loadComments();
     this.getCommentAmmout();
     axios.get(`${"/api"}${this.props.location.pathname}`).then(res => {
+      console.log(res.data);
+      
       this.setState({ feedItem: res.data }, this.initQuill);
     });
+    this.loadProfile();
   }
+
+  loadProfile = () => {
+    if(this.state.feedItem){
+      axios.get(`${"/api/user-profile"}/${this.state.feedItem.feedItem.user_id}`).then(res => {
+      this.setState({profile: res.data}, this.mapSocialMediaLinks);
+    });
+    } else{
+      setTimeout(this.loadProfile, 100);
+    }
+  }
+
+  mapSocialMediaLinks = () => {
+    let { social_media } = this.state.profile;
+    let {
+      facebook,
+      twitter,
+      instagram,
+      linkedIn,
+      gitHub
+    } = this.state.profile.social_media;
+    if (social_media.facebook) {
+      facebook = (
+        <div id="facebook-link">
+          <a href={social_media.facebook} style={{ color: "#01579b" }}>
+            <i className="fab fa-facebook-square" />
+          </a>
+        </div>
+      );
+    }
+    if (social_media.twitter) {
+      twitter = (
+        <div id="twitter-link">
+          <a href={social_media.twitter} style={{ color: "#03a9f4" }}>
+            <i className="fab fa-twitter-square" />
+          </a>
+        </div>
+      );
+    }
+    if (social_media.instagram) {
+      instagram = (
+        <div id="instagram-link">
+          <a href={social_media.instagram} style={{ color: "#d81b60" }}>
+            <i className="fab fa-instagram" />
+          </a>
+        </div>
+      );
+    }
+    if (social_media.linkedIn) {
+      linkedIn = (
+        <div id="linkedIn-link">
+          <a href={social_media.linkedIn} style={{ color: "#2196f3" }}>
+            <i className="fab fa-linkedin" />
+          </a>
+        </div>
+      );
+    }
+    if (social_media.gitHub) {
+      gitHub = (
+        <div id="gitHub-link">
+          <a href={social_media.gitHub} style={{ color: "#424242" }}>
+            <i className="fab fa-github-square" />
+          </a>
+        </div>
+      );
+    }
+    this.setState({
+      facebook: facebook,
+      twitter: twitter,
+      instagram: instagram,
+      linkedIn: linkedIn,
+      gitHub: gitHub
+    });
+  };
+
+  renderSocialMediaLinks = () => {
+    return (
+      <div className="social-media-links">
+        {this.state.facebook}
+        {this.state.twitter}
+        {this.state.instagram}
+        {this.state.linkedIn}
+        {this.state.gitHub}
+      </div>
+    );
+  };
 
   getCommentAmmout = () => {
     let feed_id = this.props.location.pathname.slice(6);
@@ -74,24 +168,30 @@ class FeedItem extends Component {
   };
 
   renderUser = () => {
-    switch (this.state.feedItem) {
-      case false:
+    switch (this.state.profile) {
+      case null:
         return "";
 
       default:
         return (
-          <div className="user-col col s12 m2 l2 xl2">
-            <div className="user-info">
-              <div className="user-pic-wrapper">
-                <img
-                  className="user-pic"
-                  src={this.state.feedItem.feedItem.authorAvatar}
-                  width="64"
-                />
+          <div className="user-col col l3 xl3">
+              <div className="profile-left-section z-depth-2">
+                <div className="profile-avatar">
+                  <img className="" src={this.state.profile.avatar} />
+                </div>
+                {this.renderSocialMediaLinks()}
+                <div className="divider"/>
+                <div className="profile-contact-info">
+                  <p>{this.state.profile.displayName}</p>
+                  <p>Posted on: {this.state.feedItem.feedItem.postDate}</p>
+                  <div id="profile-contact-info">
+                    <h6>Contact Info</h6>
+                    <p>Email: {this.state.profile.email}</p>
+                    <p>Phone: {this.state.profile.phone?this.state.profile.phone:"(555) 555-5555"}</p>
+                    <p>Address: {this.state.profile.address?this.state.profile.address: "Generic # generic blvd"}</p>
+                  </div>
+                </div>
               </div>
-              <p className="user-name">{this.state.feedItem.feedItem.author}</p>
-              <p className="time">{this.state.feedItem.feedItem.postDate}</p>
-            </div>
           </div>
         );
     }

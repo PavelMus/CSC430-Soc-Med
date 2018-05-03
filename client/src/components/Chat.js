@@ -7,7 +7,7 @@ import axios from "axios";
 import uuid from "uuid";
 
 const initialState = {
-  endpoint: "http://localhost:5000",
+  endpoint: "https://csibridge.herokuapp.com/",
   current_url: "",
   socket: null,
   textbox: "",

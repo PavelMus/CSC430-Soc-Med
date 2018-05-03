@@ -1,17 +1,152 @@
+#eddit-profile-btn{
+  position: relative;
+  top: 80px;
+  left: 5px;
+  padding: 0;
+  width: 30px;
+  border-radius: 50%;
+  background-color: tomato !important;
+}
+
+.modal-underlay{
+  z-index: 998;
+}
+.resume-modal{
+  max-height: none !important;
+  top: 120px !important;
+  z-index: 999;
+  width: 40% !important;
+  height: fit-content !important;
+  h4{
+    width: auto;
+    text-align: center;
+    align-content: center;
+    align-items: center; 
+    color: white;
+  }
+  .modal-content input{
+    background: white;
+    border-radius: 1em;
+    padding: 5px;
+    height: 30px;
+  }
+  .modal-footer{
+    height: 50px;
+    .btn-small{
+      margin-right: 20px;
+    }
+  }
+}
+.projects-modal{
+  max-height: none !important;
+  top: 120px !important;
+  display: flex;
+  flex-direction: column;
+  width: 40% !important;
+  height: fit-content;
+  h4{
+    width: auto;
+    margin: 10px auto 0 auto !important;
+    color: white;
+  }
+  .modal-content{
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%;
+    p{
+      width: 100%;
+    }
+    #projects-header-input{
+      max-height: 20px;
+      font-size: 11px;
+      border-radius: 0.2em;
+    }
+    input{
+      background: white;
+      border-radius: 1em;
+      padding: 5px;
+    }
+  }
+  .modal-footer{
+    height: 50px;
+    .btn-small{
+      margin-right: 20px;
+    }
+  }
+}
+.profile-modal{
+  width: 75%;
+  height: fit-content;
+  max-height: none;
+  top: 120px;
+  z-index: 999;
+  h4{
+    margin: 2% 0 0 2%;
+    text-align: center;
+    color: white;
+    width: fit-content;
+  }
+  .modal-content{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    .modal-left{
+      display: flex;
+      flex-flow: column;
+      width: 35%;
+      padding-right: 10px;
+      .modal-major{
+        display: flex;
+        input{
+          color: white;
+          margin-left: 10px;
+        }
+        p{
+          align-self: top;
+        }
+      }
+      input{
+        color: white;
+      }
+    }
+    .modal-right{
+      display: flex;
+      flex-flow: column;
+      width: 75%;
+      padding-left: 10px;
+      textarea{
+        border: white solid 1px;
+        border-radius: 0.6em;
+        padding: 5px;
+        color: white;
+        resize: none;
+        height: 120px;
+      }
+    }
+  }
+  .modal-footer{
+    height: 50px;
+    .btn-small{
+      margin-right: 20px;
+    }
+  }
+}
+
 .profile-container {
   //display: flex;
   //justify-content: right;
   .profile-left-section {
+    display: flex;
+    flex-direction: column;
     background-color: #c3ccd8;
     height: 700px;
     //width: 200px;
     .profile-avatar {
       border: 0.05em solid grey;
-      //width: 200px;
-      //height: 200px;
       img {
-        width: 100%;
-        vertical-align: middle;
+        margin-top: 2%;
+        width: 95%;
+        align-self: center;
       }
 
       #edit-user-avatar {
@@ -112,6 +247,10 @@
       display: block;
       word-wrap: break-word;
       font-size: 0.8em;
+
+      .major{
+      
+      }
 
       p {
         margin: 6px 10px;
@@ -216,6 +355,16 @@
       margin-left: 40px;
       width: 40%;
 
+      .btn-small{
+        position: relative;
+        font-size: 0.7em;
+        padding: 0 5px;
+        height: 20px;
+        line-height: 20px;
+        left: 126px;
+        top: 2px;
+      }
+
       .resume {
         background-color: #c3ccd8;
         height: 120px;
@@ -242,20 +391,6 @@
             margin-top: 0;
             border: none;
             border-radius: 0;
-          }
-        }
-
-        .resume-research-projects-body {
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          a {
-            list-style-type: square;
-            display: list-item;
-            color: black;
-            margin-bottom: 5px;
           }
         }
       }
@@ -290,31 +425,6 @@
             border-radius: 6px;
           }
         }
-
-        .resume-research-projects-body {
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          ul {
-            margin-top: 20px;
-            display: block;
-            list-style-type: square;
-            text-align: left;
-
-            li {
-              margin: 5px 0;
-              list-style-type: square;
-              display: list-item;
-            }
-          }
-
-          a {
-            color: black;
-            margin-bottom: 5px;
-          }
-        }
       }
 
       .projects {
@@ -346,27 +456,6 @@
           }
         }
 
-        .resume-research-projects-body {
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          ul {
-            list-style-type: none;
-            text-align: left;
-
-            li {
-              list-style-type: square;
-              display: list-item;
-            }
-          }
-
-          a {
-            color: black;
-            margin-bottom: 5px;
-          }
-        }
       }
     }
   }
@@ -423,5 +512,30 @@
         }
       }
     }
+  }
+}
+
+.resume-research-projects-body {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ul {
+    margin-top: 20px;
+    display: block;
+    list-style-type: square;
+    text-align: left;
+    li {
+      margin: 5px 0;
+      list-style-type: square;
+      display: list-item;
+    }
+  }
+
+  a {
+    list-style-type: square;
+    display: list-item;
+    color: black;
+    margin-bottom: 5px;
   }
 }

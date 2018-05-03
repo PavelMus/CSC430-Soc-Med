@@ -15,7 +15,13 @@ class ComposeNews extends Component {
       quillDelta: null,
       deltaMarkup: "",
       header: "",
-      showPreview: false
+      showPreview: false,
+      profile: null,
+      facebook: "",
+      twitter: "",
+      instagram: "",
+      linkedIn: "",
+      gitHub: ""
     };
   }
 
@@ -64,7 +70,18 @@ class ComposeNews extends Component {
       theme: "snow"
     });
     //Saving the Quill object in to the state
+    this.loadProfile();
     this.setState({ quill: quillInit });
+  }
+
+  loadProfile = () => {
+    if(this.props.user){
+      axios.get(`${"/api/user-profile"}/${this.props.user._id}`).then(res => {
+      this.setState({profile: res.data}, this.mapSocialMediaLinks);
+    });
+    } else{
+      setTimeout(this.loadProfile, 100);
+    }
   }
 
   headerChange = e => {
@@ -89,6 +106,7 @@ class ComposeNews extends Component {
     if(this.state.header){
       let newsPost = {
       author: this.props.user.displayName,
+      user_id: this.props.user._id,
       avatar: this.props.user.avatar,
       title: this.state.header,
       delta: this.state.quillDelta,
@@ -101,21 +119,105 @@ class ComposeNews extends Component {
     M.toast({html: "Header is Empty"});
   }
   };
+  mapSocialMediaLinks = () => {
+    let { social_media } = this.state.profile;
+    let {
+      facebook,
+      twitter,
+      instagram,
+      linkedIn,
+      gitHub
+    } = this.state.profile.social_media;
+    if (social_media.facebook) {
+      facebook = (
+        <div id="facebook-link">
+          <a href={social_media.facebook} style={{ color: "#01579b" }}>
+            <i className="fab fa-facebook-square" />
+          </a>
+        </div>
+      );
+    }
+    if (social_media.twitter) {
+      twitter = (
+        <div id="twitter-link">
+          <a href={social_media.twitter} style={{ color: "#03a9f4" }}>
+            <i className="fab fa-twitter-square" />
+          </a>
+        </div>
+      );
+    }
+    if (social_media.instagram) {
+      instagram = (
+        <div id="instagram-link">
+          <a href={social_media.instagram} style={{ color: "#d81b60" }}>
+            <i className="fab fa-instagram" />
+          </a>
+        </div>
+      );
+    }
+    if (social_media.linkedIn) {
+      linkedIn = (
+        <div id="linkedIn-link">
+          <a href={social_media.linkedIn} style={{ color: "#2196f3" }}>
+            <i className="fab fa-linkedin" />
+          </a>
+        </div>
+      );
+    }
+    if (social_media.gitHub) {
+      gitHub = (
+        <div id="gitHub-link">
+          <a href={social_media.gitHub} style={{ color: "#424242" }}>
+            <i className="fab fa-github-square" />
+          </a>
+        </div>
+      );
+    }
+    this.setState({
+      facebook: facebook,
+      twitter: twitter,
+      instagram: instagram,
+      linkedIn: linkedIn,
+      gitHub: gitHub
+    });
+  };
+
+  renderSocialMediaLinks = () => {
+    return (
+      <div className="social-media-links">
+        {this.state.facebook}
+        {this.state.twitter}
+        {this.state.instagram}
+        {this.state.linkedIn}
+        {this.state.gitHub}
+      </div>
+    );
+  };
+
   renderUser = () => {
-    switch (this.props.user) {
+    switch (this.state.profile) {
       case null:
         return "";
 
       default:
         return (
-          <div className="user-col col s6 m6 l1 xl1">
-            <div className="user-info">
-              <div class="user-pic-wrapper">
-                <img class="user-pic" src={this.props.user.avatar} width="64" />
+          <div className="user-col col l3 xl3">
+              <div className="profile-left-section z-depth-2">
+                <div className="profile-avatar">
+                  <img className="" src={this.state.profile.avatar} />
+                </div>
+                {this.renderSocialMediaLinks()}
+                <div className="divider"/>
+                <div className="profile-contact-info">
+                  <p>{this.state.profile.displayName}</p>
+                  <div id="profile-contact-info">
+                    <h6>Contact Info</h6>
+                    <p>Email: {this.state.profile.email}</p>
+                    <p>Phone: {this.state.profile.phone?this.state.profile.phone:"(555) 555-5555"}</p>
+                    <p>Address: {this.state.profile.address?this.state.profile.address: "Generic # generic blvd"}</p>
+                  </div>
+                </div>
               </div>
-              <p className="user-name">{this.props.user.displayName}</p>
-              <p className="time">May 4, 2018</p>
-            </div>
           </div>
         );
     }
@@ -133,7 +235,6 @@ class ComposeNews extends Component {
               <div className="post-news-header">
                 <h4>Create News Post</h4>
               </div>
-
               <div className="post-event-body">
                 <div className="event-header-wrapper">
                   <form id="event-header">
@@ -146,7 +247,6 @@ class ComposeNews extends Component {
                     />
                   </form>
                 </div>
-
                 <div id="quill-area">
                   <div id="quill" />
                   <button

@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const eventsSchema = new Schema({
   author: String,
+  user_id: String,
   authorAvatar: String,
   title: String,
   postDate: String,

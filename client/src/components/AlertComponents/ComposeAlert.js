@@ -80,7 +80,7 @@ class ComposeAlert extends Component {
             <Fixedmenu user={this.props.user?this.props.user:""}/>
           </div>
 
-          <div id="alert-middle" className="col s12 m12 l7 xl7">
+          <div id="alert-middle" className="col s12 m12 l10 xl10">
             <div className="reusable-header">
               <h4>Post an Alert Item</h4>
             </div>
@@ -120,7 +120,7 @@ class ComposeAlert extends Component {
             </div>
 
           {/* Here we are calling the renderUser function*/}
-          {this.renderUser()}
+          
         </div>
       </div>
     );

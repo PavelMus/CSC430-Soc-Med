@@ -70,4 +70,91 @@ router
     });
   });
 
+  router
+  .route("/profile-update/:profile_id")
+  .put((req, res) =>{
+    Profile.findById(req.params.profile_id, (err, profile) => {
+      if(req.body.profile_eddit.major){
+        profile.major = req.body.profile_eddit.major;
+      }
+      if(req.body.profile_eddit.phone)
+      profile.phone = req.body.profile_eddit.phone;
+      if(req.body.profile_eddit.address){
+      profile.address = req.body.profile_eddit.address;
+      }
+      if(req.body.profile_eddit.aboutMe){
+      profile.about_me = req.body.profile_eddit.aboutMe;
+      }
+      if(req.body.profile_eddit.interests){
+      profile.interests = req.body.profile_eddit.interests;
+      }
+      if(req.body.profile_eddit.skills){
+      profile.skills = req.body.profile_eddit.skills;
+      }
+      profile.save(err => {
+        if(err) console.log(err);
+        res.json({message: "Profile updated!"});
+      });
+    });
+  });
+
+  router
+  .route("/resume-update/:profile_id")
+  .put((req, res) =>{
+    Profile.findById(req.params.profile_id, (err, profile) => {
+      if(req.body.profile_eddit.resume){
+        profile.resume = req.body.profile_eddit.resume;
+      }
+      profile.save(err => {
+        if(err) console.log(err);
+        res.json({message: "Resume updated!"});
+      });
+    });
+  });
+  router
+  .route("/project-update/:profile_id")
+  .put((req, res) =>{
+    Profile.findById(req.params.profile_id, (err, profile) => {
+      if(req.body.profile_eddit.project_header && req.body.profile_eddit.project_link){
+        let project = req.body.profile_eddit;
+        let link_check = project.project_link.slice(8);
+        if(link_check !== "http://"){
+          project.project_link = "http://" + project.project_link;
+        }
+        profile.projects.push(project);
+        profile.save(err => {
+          if(err) console.log(err);
+          res.json({message: "Projects updated!"});
+        });
+      }else if(!req.body.profile_eddit.project_header){
+        res.json({message: "Error: Empty Header"});
+      } else if(!req.body.profile_eddit.project_link){
+        res.json({message: "Error: Empty Link"});
+      }
+    });
+  });
+
+  router
+  .route("/research-update/:profile_id")
+  .put((req, res) =>{
+    Profile.findById(req.params.profile_id, (err, profile) => {
+      if(req.body.profile_eddit.research_header && req.body.profile_eddit.research_link){
+        let research = req.body.profile_eddit;
+        let link_check = research.research_link.slice(8);
+        if(link_check !== "http://"){
+          research.research_link = "http://" + research.research_link;
+        }
+        profile.research.push(research);
+        profile.save(err => {
+          if(err) res.send(err);
+          res.json({message: "Projects updated!"});
+        });
+      }else if(!req.body.profile_eddit.research_header){
+        res.json({message: "Error: Empty Header"});
+      } else if(!req.body.profile_eddit.research_link){
+        res.json({message: "Error: Empty Link"});
+      }
+    });
+  });
+
 module.exports = router;

@@ -365,6 +365,9 @@ body {
   width: 92%;
   padding-top: 0; }
 
+.modal {
+  z-index: 999 !important; }
+
 #newsfeed {
   min-width: 525px;
   max-width: 525px;
@@ -674,6 +677,41 @@ body {
   margin: 0 auto;
   max-width: 1280px;
   width: 92%; }
+  #event-section-container #content-area-row .profile-left-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #c3ccd8;
+    height: 700px; }
+    #event-section-container #content-area-row .profile-left-section .profile-avatar {
+      border: 0.05em solid grey; }
+      #event-section-container #content-area-row .profile-left-section .profile-avatar img {
+        align-self: center; }
+    #event-section-container #content-area-row .profile-left-section .social-media-links {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding-left: 20px; }
+      #event-section-container #content-area-row .profile-left-section .social-media-links #facebook-link,
+      #event-section-container #content-area-row .profile-left-section .social-media-links #gitHub-link,
+      #event-section-container #content-area-row .profile-left-section .social-media-links #instagram-link,
+      #event-section-container #content-area-row .profile-left-section .social-media-links #linkedIn-link,
+      #event-section-container #content-area-row .profile-left-section .social-media-links #twitter-link {
+        margin: 0 5px;
+        font-size: 2em; }
+    #event-section-container #content-area-row .profile-left-section .profile-contact-info {
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      display: block;
+      word-wrap: break-word;
+      font-size: 0.8em; }
+      #event-section-container #content-area-row .profile-left-section .profile-contact-info p {
+        margin: 6px 10px;
+        font-size: 13px; }
+      #event-section-container #content-area-row .profile-left-section .profile-contact-info h6 {
+        margin: 20px 10px 14px;
+        font-size: 20px; }
   #event-section-container #content-area-row .user-col {
     text-align: left; }
     #event-section-container #content-area-row .user-col .user-pic-wrapper {
@@ -818,6 +856,41 @@ body {
   margin: 0 auto;
   max-width: 1280px;
   width: 92%; }
+  #event-section-container #content-area-row .profile-left-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #c3ccd8;
+    height: 700px; }
+    #event-section-container #content-area-row .profile-left-section .profile-avatar {
+      border: 0.05em solid grey; }
+      #event-section-container #content-area-row .profile-left-section .profile-avatar img {
+        align-self: center; }
+    #event-section-container #content-area-row .profile-left-section .social-media-links {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding-left: 20px; }
+      #event-section-container #content-area-row .profile-left-section .social-media-links #facebook-link,
+      #event-section-container #content-area-row .profile-left-section .social-media-links #gitHub-link,
+      #event-section-container #content-area-row .profile-left-section .social-media-links #instagram-link,
+      #event-section-container #content-area-row .profile-left-section .social-media-links #linkedIn-link,
+      #event-section-container #content-area-row .profile-left-section .social-media-links #twitter-link {
+        margin: 0 5px;
+        font-size: 2em; }
+    #event-section-container #content-area-row .profile-left-section .profile-contact-info {
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      display: block;
+      word-wrap: break-word;
+      font-size: 0.8em; }
+      #event-section-container #content-area-row .profile-left-section .profile-contact-info p {
+        margin: 6px 10px;
+        font-size: 13px; }
+      #event-section-container #content-area-row .profile-left-section .profile-contact-info h6 {
+        margin: 20px 10px 14px;
+        font-size: 20px; }
   #event-section-container #content-area-row .user-col {
     text-align: left; }
     #event-section-container #content-area-row .user-col .user-pic-wrapper {
@@ -1211,6 +1284,43 @@ textarea.materialize-textarea:focus:not([readonly]) {
       opacity: 0.55;
       font-size: 15px;
       /* Firefox */ }
+
+.profile-left-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #c3ccd8;
+  height: 700px; }
+  .profile-left-section .profile-avatar {
+    border: 0.05em solid grey; }
+    .profile-left-section .profile-avatar img {
+      width: 100%;
+      align-self: center; }
+  .profile-left-section .social-media-links {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 20px; }
+    .profile-left-section .social-media-links #facebook-link,
+    .profile-left-section .social-media-links #gitHub-link,
+    .profile-left-section .social-media-links #instagram-link,
+    .profile-left-section .social-media-links #linkedIn-link,
+    .profile-left-section .social-media-links #twitter-link {
+      margin: 0 5px;
+      font-size: 2em; }
+  .profile-left-section .profile-contact-info {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    display: block;
+    word-wrap: break-word;
+    font-size: 0.8em; }
+    .profile-left-section .profile-contact-info p {
+      margin: 6px 10px;
+      font-size: 13px; }
+    .profile-left-section .profile-contact-info h6 {
+      margin: 20px 10px 14px;
+      font-size: 20px; }
 
 #chat-header {
   display: flex;
@@ -1950,14 +2060,127 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     #student-list .reusable-header h4 {
       color: white; }
 
+#eddit-profile-btn {
+  position: relative;
+  top: 80px;
+  left: 5px;
+  padding: 0;
+  width: 30px;
+  border-radius: 50%;
+  background-color: tomato !important; }
+
+.modal-underlay {
+  z-index: 998; }
+
+.resume-modal {
+  max-height: none !important;
+  top: 120px !important;
+  z-index: 999;
+  width: 40% !important;
+  height: fit-content !important; }
+  .resume-modal h4 {
+    width: auto;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    color: white; }
+  .resume-modal .modal-content input {
+    background: white;
+    border-radius: 1em;
+    padding: 5px;
+    height: 30px; }
+  .resume-modal .modal-footer {
+    height: 50px; }
+    .resume-modal .modal-footer .btn-small {
+      margin-right: 20px; }
+
+.projects-modal {
+  max-height: none !important;
+  top: 120px !important;
+  display: flex;
+  flex-direction: column;
+  width: 40% !important;
+  height: fit-content; }
+  .projects-modal h4 {
+    width: auto;
+    margin: 10px auto 0 auto !important;
+    color: white; }
+  .projects-modal .modal-content {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%; }
+    .projects-modal .modal-content p {
+      width: 100%; }
+    .projects-modal .modal-content #projects-header-input {
+      max-height: 20px;
+      font-size: 11px;
+      border-radius: 0.2em; }
+    .projects-modal .modal-content input {
+      background: white;
+      border-radius: 1em;
+      padding: 5px; }
+  .projects-modal .modal-footer {
+    height: 50px; }
+    .projects-modal .modal-footer .btn-small {
+      margin-right: 20px; }
+
+.profile-modal {
+  width: 75%;
+  height: fit-content;
+  max-height: none;
+  top: 120px;
+  z-index: 999; }
+  .profile-modal h4 {
+    margin: 2% 0 0 2%;
+    text-align: center;
+    color: white;
+    width: fit-content; }
+  .profile-modal .modal-content {
+    display: flex;
+    flex-flow: row;
+    width: 100%; }
+    .profile-modal .modal-content .modal-left {
+      display: flex;
+      flex-flow: column;
+      width: 35%;
+      padding-right: 10px; }
+      .profile-modal .modal-content .modal-left .modal-major {
+        display: flex; }
+        .profile-modal .modal-content .modal-left .modal-major input {
+          color: white;
+          margin-left: 10px; }
+        .profile-modal .modal-content .modal-left .modal-major p {
+          align-self: top; }
+      .profile-modal .modal-content .modal-left input {
+        color: white; }
+    .profile-modal .modal-content .modal-right {
+      display: flex;
+      flex-flow: column;
+      width: 75%;
+      padding-left: 10px; }
+      .profile-modal .modal-content .modal-right textarea {
+        border: white solid 1px;
+        border-radius: 0.6em;
+        padding: 5px;
+        color: white;
+        resize: none;
+        height: 120px; }
+  .profile-modal .modal-footer {
+    height: 50px; }
+    .profile-modal .modal-footer .btn-small {
+      margin-right: 20px; }
+
 .profile-container .profile-left-section {
+  display: flex;
+  flex-direction: column;
   background-color: #c3ccd8;
   height: 700px; }
   .profile-container .profile-left-section .profile-avatar {
     border: 0.05em solid grey; }
     .profile-container .profile-left-section .profile-avatar img {
-      width: 100%;
-      vertical-align: middle; }
+      margin-top: 2%;
+      width: 95%;
+      align-self: center; }
     .profile-container .profile-left-section .profile-avatar #edit-user-avatar {
       float: right;
       position: relative;
@@ -2108,6 +2331,14 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   .profile-container .profile-right-section .resume-research-projects {
     margin-left: 40px;
     width: 40%; }
+    .profile-container .profile-right-section .resume-research-projects .btn-small {
+      position: relative;
+      font-size: 0.7em;
+      padding: 0 5px;
+      height: 20px;
+      line-height: 20px;
+      left: 126px;
+      top: 2px; }
     .profile-container .profile-right-section .resume-research-projects .resume {
       background-color: #c3ccd8;
       height: 120px;
@@ -2132,16 +2363,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
           margin-top: 0;
           border: none;
           border-radius: 0; }
-      .profile-container .profile-right-section .resume-research-projects .resume .resume-research-projects-body {
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-        .profile-container .profile-right-section .resume-research-projects .resume .resume-research-projects-body a {
-          list-style-type: square;
-          display: list-item;
-          color: black;
-          margin-bottom: 5px; }
     .profile-container .profile-right-section .resume-research-projects .research {
       background-color: #c3ccd8;
       height: 120px;
@@ -2168,23 +2389,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
           -webkit-border-radius: 6px;
           -moz-border-radius: 6px;
           border-radius: 6px; }
-      .profile-container .profile-right-section .resume-research-projects .research .resume-research-projects-body {
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-        .profile-container .profile-right-section .resume-research-projects .research .resume-research-projects-body ul {
-          margin-top: 20px;
-          display: block;
-          list-style-type: square;
-          text-align: left; }
-          .profile-container .profile-right-section .resume-research-projects .research .resume-research-projects-body ul li {
-            margin: 5px 0;
-            list-style-type: square;
-            display: list-item; }
-        .profile-container .profile-right-section .resume-research-projects .research .resume-research-projects-body a {
-          color: black;
-          margin-bottom: 5px; }
     .profile-container .profile-right-section .resume-research-projects .projects {
       background-color: #c3ccd8;
       height: 120px;
@@ -2209,20 +2413,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
           margin-top: 0;
           border: none;
           border-radius: 0; }
-      .profile-container .profile-right-section .resume-research-projects .projects .resume-research-projects-body {
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-        .profile-container .profile-right-section .resume-research-projects .projects .resume-research-projects-body ul {
-          list-style-type: none;
-          text-align: left; }
-          .profile-container .profile-right-section .resume-research-projects .projects .resume-research-projects-body ul li {
-            list-style-type: square;
-            display: list-item; }
-        .profile-container .profile-right-section .resume-research-projects .projects .resume-research-projects-body a {
-          color: black;
-          margin-bottom: 5px; }
 
 .profile-container .current-classes {
   margin-top: 55px;
@@ -2265,6 +2455,26 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
         word-break: break-all; }
       .profile-container .current-classes .current-classes-body .current-class-body li {
         margin: 0 10px; }
+
+.resume-research-projects-body {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .resume-research-projects-body ul {
+    margin-top: 20px;
+    display: block;
+    list-style-type: square;
+    text-align: left; }
+    .resume-research-projects-body ul li {
+      margin: 5px 0;
+      list-style-type: square;
+      display: list-item; }
+  .resume-research-projects-body a {
+    list-style-type: square;
+    display: list-item;
+    color: black;
+    margin-bottom: 5px; }
 
 #event-editor-area {
   background-color: #FFFFFF;
