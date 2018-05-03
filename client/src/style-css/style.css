@@ -1290,41 +1290,42 @@ textarea.materialize-textarea:focus:not([readonly]) {
   #chat-box .input-field {
     margin-left: 0 !important;
     padding-left: 0 !important; }
-  #chat-box .send-container {
-    margin-top: 14px;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; }
-    #chat-box .send-container .circle {
-      height: 44px;
-      width: 44px;
-      margin-right: 10px; }
-    #chat-box .send-container .input-wrapper {
-      width: 100%;
-      height: 35px;
-      overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid grey; }
-      #chat-box .send-container .input-wrapper #textarea1 {
-        height: 36px; }
-        #chat-box .send-container .input-wrapper #textarea1 input {
-          width: 95%;
-          margin: 0;
-          position: relative;
-          top: -5px;
-          border-bottom: none !important;
-          box-shadow: none !important; }
-        #chat-box .send-container .input-wrapper #textarea1 input::placeholder {
-          /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: black;
-          opacity: 0.55;
-          font-size: 15px;
-          /* Firefox */ }
-        #chat-box .send-container .input-wrapper #textarea1 input[type="text"]:not(.browser-default) {
-          border-bottom: 0 solid #000; }
-    #chat-box .send-container button {
-      margin-left: 10px; }
+
+.send-container {
+  margin-top: 14px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+  .send-container .circle {
+    height: 44px !important;
+    width: 44px !important;
+    margin-right: 10px; }
+  .send-container .input-wrapper {
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid grey; }
+    .send-container .input-wrapper #textarea1 {
+      height: 36px; }
+      .send-container .input-wrapper #textarea1 input {
+        width: 95%;
+        margin: 0;
+        position: relative;
+        top: -5px;
+        border-bottom: none !important;
+        box-shadow: none !important; }
+      .send-container .input-wrapper #textarea1 input::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: black;
+        opacity: 0.55;
+        font-size: 15px;
+        /* Firefox */ }
+      .send-container .input-wrapper #textarea1 input[type="text"]:not(.browser-default) {
+        border-bottom: 0 solid #000; }
+  .send-container button {
+    margin-left: 10px; }
 
 #register-form {
   width: 75%;
