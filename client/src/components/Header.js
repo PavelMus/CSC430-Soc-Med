@@ -102,11 +102,6 @@ class Header extends Component {
       default:
         return (
           <React.Fragment>
-            <li>
-              <a href="/posts" className="btn-floating btn-medium cyan pulse">
-                <i className="material-icons">comment</i>
-              </a>
-            </li>
             <li className="header-user-btn">
               <a
                 data-target="slide-out"
