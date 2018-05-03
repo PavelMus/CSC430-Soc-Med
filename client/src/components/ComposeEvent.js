@@ -6,6 +6,7 @@ import tempimg from '../img/temp-user-img.jpg';
 import Quill from "quill";
 import axios from "axios";
 import marked from "marked";
+import * as M from 'materialize-css';
 
 class ComposeEvent extends Component {
   constructor(props) {
@@ -72,9 +73,12 @@ class ComposeEvent extends Component {
     this.setState({header: e.target.value});
   }
 
-  submitEvent = () => {
+  submitEvent = (e) => {
+    //e.preventDefault();
     //Grabs the delta from the quill state object
     let delta = this.state.quill.getContents();
+    console.log(delta);
+    
     //Grabs the HTML from whithin the Quill edditor
     let quill_innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
     //Sets the states and calls upload event after
@@ -82,7 +86,9 @@ class ComposeEvent extends Component {
   }
 
   uploadEvent = () => {
-    let eventPost = {
+    if(this.state.header)
+    {
+      let eventPost = {
       author: this.props.user.displayName,
       avatar: this.props.user.avatar,
       title: this.state.header,
@@ -91,7 +97,13 @@ class ComposeEvent extends Component {
     }
     axios.post("api/feed/event-post", eventPost).catch(err => {
       console.error(err);
-    }).then(this.redirectBack())
+    }).then(this.redirectBack());
+  } 
+  else if(!this.state.header){ 
+    M.toast({html: "Header is Empty"});
+  }else{
+    M.toast({html: "Event post is Empty"})
+  }
   }
   renderUser = () => {
       switch (this.props.user) {
@@ -130,7 +142,9 @@ class ComposeEvent extends Component {
               <div className="post-event-body">
                 <div className="event-header-wrapper">
                   <form id="event-header">
-                    <input type="text"
+                    <input 
+                    required
+                    type="text"
                     value={this.state.header}
                     onChange={this.headerChange}
                     required
@@ -140,7 +154,7 @@ class ComposeEvent extends Component {
                 </div>
                 <div id="quill-area">
                   <div id="quill" />
-                  <button id="saveDelta" className="btn" onClick={this.submitEvent}>SUBMIT</button>
+                  <button id="saveDelta" className="btn" onClick={this.submitEvent}>Submit</button>
                 </div>
               </div>
             </div>

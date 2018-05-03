@@ -5,6 +5,7 @@ import Fixedmenu from "./Fixedmenu";
 import Quill from "quill";
 import axios from "axios";
 import marked from "marked";
+import * as M from 'materialize-css';
 
 class ComposeNews extends Component {
   constructor(props) {
@@ -85,7 +86,8 @@ class ComposeNews extends Component {
   };
 
   uploadNews = () => {
-    let newsPost = {
+    if(this.state.header){
+      let newsPost = {
       author: this.props.user.displayName,
       avatar: this.props.user.avatar,
       title: this.state.header,
@@ -95,8 +97,9 @@ class ComposeNews extends Component {
     axios.post("api/feed/news-post", newsPost).catch(err => {
       console.error(err);
     }).then(this.redirectBack())
-
-
+  } else {
+    M.toast({html: "Header is Empty"});
+  }
   };
   renderUser = () => {
     switch (this.props.user) {

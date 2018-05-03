@@ -27,12 +27,16 @@ class ComposeAlert extends Component {
   }
   submitAlert = (e) => {
     e.preventDefault();
-    let alertType = document.querySelector('select');
-    let alert = {
-      type: alertType.value,
-      content: this.state.content
-    }
+    if(this.state.content){
+      let alertType = document.querySelector('select');
+      let alert = {
+        type: alertType.value,
+        content: this.state.content
+      }
     axios.post("/api/new-alert/", alert).then(this.redirectBack())
+    } else {
+      M.toast({html: "Alert content is empty!"})
+    }
   }
 
   onTextChange = (e) => {
