@@ -62,7 +62,7 @@ class ComposeAlert extends Component {
                 <img class="user-pic" src={this.props.user.avatar} width="64"/>
               </div>
                 <p className="user-name">{this.props.user.displayName}</p>
-                <p className="time">Dec 13, 2017</p>
+                <p className="time">May 4, 2018</p>
             </div>
           </div>
         );
@@ -103,11 +103,15 @@ class ComposeAlert extends Component {
                     content={this.state.content}
                   />
               </div>
+              <form>
               <div className="input-field col s12">
-                <textarea id="textarea1" onChange={this.onTextChange} value={this.state.content} className="materialize-textarea"></textarea>
+
+                <textarea required id="textarea1" onChange={this.onTextChange} value={this.state.content} className="materialize-textarea"></textarea>
                 <label htmlFor="textarea1">Text</label>
               </div>
               <a className="btn" onClick={this.submitAlert} href="#!">SUBMIT</a>
+              </form>
+
           </div>
             </div>
 

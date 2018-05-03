@@ -64,21 +64,21 @@ class CreateClass extends Component {
             <form className="" onSubmit={this.onClassSubmit}>
               <div className="row">
                 <div className="input-field col s3">
-                  <input value={this.state.type} id="clas_type" onChange={this.onTypeChange} type="text" className="validate" />
+                  <input required value={this.state.type} id="clas_type" onChange={this.onTypeChange} type="text" className="validate" />
                   <label htmlFor="calss_type">Class Type</label>
                 </div>
                 <div className="input-field col s3">
-                  <input value={this.state.level} id="class_level" onChange={this.onLevelChange} type="text" className="validate" />
+                  <input required value={this.state.level} id="class_level" onChange={this.onLevelChange} type="text" className="validate" />
                   <label htmlFor="class_subject">Class Level</label>
                 </div>
                 <div className="input-field col s6">
-                  <input value={this.state.subject} id="class_subject" onChange={this.onSubjectChange} type="text" className="validate" />
+                  <input required value={this.state.subject} id="class_subject" onChange={this.onSubjectChange} type="text" className="validate" />
                   <label htmlFor="class_subject">Class Subject</label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">
-                  <input value={this.state.description} id="class_description" onChange={this.onDescriptionChange} type="text" className="validate" />
+                  <input required value={this.state.description} id="class_description" onChange={this.onDescriptionChange} type="text" className="validate" />
                   <label htmlFor="class_description">Class Description</label>
                 </div>
               </div>
