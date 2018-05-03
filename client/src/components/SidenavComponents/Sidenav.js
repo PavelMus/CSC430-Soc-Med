@@ -33,15 +33,16 @@ class Sidenav extends Component {
   }
 
   renderContent = () => {
-    if (this.props.admins && this.props.teachers) {
+    if (this.props.admins && this.props.teachers && this.props.classes) {
       let user = this.props;
-      if (user.admin && user.teacher) {
+      if (user.admin && user.teacher && user.classes) {
         return (
           <AdminTeacher
             user={this.props}
             admins={this.props.admins}
             teachers={this.props.teachers}
             close={this.props.close}
+            classes={this.props.classes}
           />
         );
       } else if (user.admin) {
@@ -58,12 +59,12 @@ class Sidenav extends Component {
           <Teacher
             user={this.props}
             admins={this.props.admins}
-            teachers={this.props.teachers}
             close={this.props.close}
+            classes={this.props.classes}
           />
         );
       } else
-        return <Student user={this.props} teachers={this.props.teachers} close={this.props.close} />;
+        return <Student user={this.props} teachers={this.props.teachers} classes={this.props.classes} close={this.props.close} />;
     }
   };
 
@@ -83,11 +84,11 @@ class Sidenav extends Component {
             <a>
               <span className="white-text email">{user.email}</span>
             </a>
-            <Link to={`${"/profile"}/${user.id}`} onClick={this.props.close}><i id="profile-link" className="material-icons">perm_identity</i></Link>
+            <Link to={`${"/profile"}/${user.id}`} onClick={this.props.close}><i id="profile-link" className="fas fa-user"></i></Link>
           </div>
         </li>
         {this.renderContent()}
-        <li>
+        <li className="waves-effect sidenav_subheader log_out">
           <a href="/api/logout">Logout</a>
         </li>
       </ul>

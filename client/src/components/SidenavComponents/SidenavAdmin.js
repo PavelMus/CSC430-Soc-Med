@@ -55,21 +55,23 @@ class SidenavAdmin extends Component {
       let teacherList = teachers.map(teacher => {
         return (
           <li key={teacher._id + "teacher"}>
-            <a className="sidenav_username waves-effect" href="#!">
+            <div className="sidenav_username waves-effect" to={`${"/chat"}/${teacher._id}`}>
               <img
                 src={teacher.avatar}
                 alt="user avatar"
                 className="sidenav_avatars"
               />
               <span>{teacher.displayName}</span>
-            </a>
+              <Link onClick={this.props.close} to={`${"/chat"}/${teacher._id}`}><i className="material-icons">chat</i></Link>
+                <Link onClick={this.props.close} to={`${"/profile"}/${teacher._id}`}><i className="fas fa-user"></i></Link>
+            </div>
           </li>
         );
       });
       this.setState({ teacherList: teacherList });
     }
   };
-
+  
   dropDown = id => {
     let elem = document.getElementById(id);
     if (elem.classList.contains("hidden")) elem.classList.remove("hidden");

@@ -40,14 +40,21 @@ classRouter.route("/class/:class_id").get((req, res) => {
 classRouter.route("/user_classes/:user_id").get((req, res) => {
   Users.findById(req.params.user_id, (err, user) => {
     if (err) res.send(err);
-    let classes = user.classes.map( item => {
-      let x = Class.findById(item.class_id, (err, _class) => {
-        if(err) throw(err);
-        return _class;
-      });
-      return x;
+    let classes = user.classes.map(item =>{
+      return mongoose.Types.ObjectId(item.class_id);
     });
-    Promise.all(classes).then(all_classes => res.json(all_classes));
+    Class.find({_id:{$in:classes}}, (err, _classes) =>{
+      if(err) console.log(err); 
+      res.json(_classes);
+    });
+    //let classes = user.classes.map( item => {
+    //  let x = Class.findById(item.class_id, (err, _class) => {
+    //    if(err) throw(err);
+    //    return _class;
+    //  });
+    //  return x;
+    //});
+    //Promise.all(classes).then(all_classes => res.json(all_classes));
   });
 });
 

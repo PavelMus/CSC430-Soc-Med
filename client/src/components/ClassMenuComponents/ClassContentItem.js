@@ -18,6 +18,7 @@ class ClassContentItem extends Component {
     });
   }
 
+
   renderUser = () => {
     switch (this.state.content) {
       case null:

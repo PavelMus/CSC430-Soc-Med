@@ -59,7 +59,9 @@
             margin-left: 12px;
           }
 
-          label {}
+          label {
+            width: auto;
+          }
         }
       }
     }
@@ -119,6 +121,9 @@
               font-size: 14px;
               position: relative;
               left: 10px;
+            }
+            label{
+              width: auto;
             }
 
             .register-login-labels {

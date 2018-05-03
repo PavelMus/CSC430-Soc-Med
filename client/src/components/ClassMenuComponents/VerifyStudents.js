@@ -4,6 +4,7 @@ import Fixedmenu from "../Fixedmenu";
 import axios from "axios";
 import Loading from '../Loading';
 import * as M from 'materialize-css';
+import * as actions from '../../actions';
 
 class VerifyStudents extends Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class VerifyStudents extends Component {
       axios.put("/api/verify_user_of_class", data).then(res=>{
         M.toast({html: res.data.message});
         this.loadClassData();
+        this.props.fetchClasses(this.props.user._id);
       });
   }
 
@@ -89,4 +91,4 @@ const mapStateToProps = state => {
   return { user: state.user };
 };
 
-export default connect(mapStateToProps)(VerifyStudents);
+export default connect(mapStateToProps, actions)(VerifyStudents);
