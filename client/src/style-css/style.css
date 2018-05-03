@@ -1268,65 +1268,63 @@ textarea.materialize-textarea:focus:not([readonly]) {
       padding: 6px;
       background-color: #eeeeee;
       border-radius: 1em; }
-  #chat-box .my-messages {
+    #chat-box .other-messages .my-messages {
+      display: flex;
+      align-self: flex-end;
+      min-height: 30px;
+      margin: 3px 0;
+      flex-shrink: 0; }
+      #chat-box .other-messages .my-messages p {
+        color: white;
+        text-align: center;
+        word-wrap: break-word;
+        word-break: break-all;
+        width: fit-content;
+        min-width: 25px;
+        height: fit-content;
+        font-size: 1em;
+        margin: 0 0 0 5px;
+        padding: 6px;
+        background-color: #1e88e5;
+        border-radius: 1em; }
+  #chat-box .input-field {
+    margin-left: 0 !important;
+    padding-left: 0 !important; }
+  #chat-box .send-container {
+    margin-top: 14px;
+    padding: 0 12px;
     display: flex;
-    align-self: flex-end;
-    min-height: 30px;
-    margin: 3px 0;
-    flex-shrink: 0; }
-    #chat-box .my-messages p {
-      color: white;
-      text-align: center;
-      word-wrap: break-word;
-      word-break: break-all;
-      width: fit-content;
-      min-width: 25px;
-      height: fit-content;
-      font-size: 1em;
-      margin: 0 0 0 5px;
-      padding: 6px;
-      background-color: #1e88e5;
-      border-radius: 1em; }
-
-.input-field {
-  margin-left: 0 !important;
-  padding-left: 0 !important; }
-
-.send-container {
-  margin-top: 14px;
-  padding: 0 12px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; }
-  .send-container .circle {
-    height: 44px;
-    width: 44px;
-    margin-right: 10px; }
-  .send-container .input-wrapper {
-    width: 100%;
-    height: 35px;
-    overflow: hidden;
-    border-radius: 16px;
-    border: 1px solid grey; }
-    .send-container .input-wrapper #textarea1 {
-      height: 36px; }
-      .send-container .input-wrapper #textarea1 input {
-        width: 95%;
-        margin: 0;
-        position: relative;
-        top: -5px;
-        border-bottom: none !important;
-        box-shadow: none !important; }
-      .send-container .input-wrapper #textarea1 input::placeholder {
-        /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: black;
-        opacity: 0.55;
-        font-size: 15px;
-        /* Firefox */ }
-      .send-container .input-wrapper #textarea1 input[type="text"]:not(.browser-default) {
-        border-bottom: 0 solid #000; }
-  .send-container button {
-    margin-left: 10px; }
+    align-items: center;
+    justify-content: flex-start; }
+    #chat-box .send-container .circle {
+      height: 44px;
+      width: 44px;
+      margin-right: 10px; }
+    #chat-box .send-container .input-wrapper {
+      width: 100%;
+      height: 35px;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid grey; }
+      #chat-box .send-container .input-wrapper #textarea1 {
+        height: 36px; }
+        #chat-box .send-container .input-wrapper #textarea1 input {
+          width: 95%;
+          margin: 0;
+          position: relative;
+          top: -5px;
+          border-bottom: none !important;
+          box-shadow: none !important; }
+        #chat-box .send-container .input-wrapper #textarea1 input::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: black;
+          opacity: 0.55;
+          font-size: 15px;
+          /* Firefox */ }
+        #chat-box .send-container .input-wrapper #textarea1 input[type="text"]:not(.browser-default) {
+          border-bottom: 0 solid #000; }
+    #chat-box .send-container button {
+      margin-left: 10px; }
 
 #register-form {
   width: 75%;
@@ -2037,6 +2035,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   height: 350px; }
   .profile-container .profile-right-section .bio {
     width: 60%;
+    min-width: 370px;
     height: 378px;
     background-color: #c3ccd8;
     box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
@@ -2098,6 +2097,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
         display: flex;
         justify-content: center;
         height: 50px;
+        margin-bottom: 5px;
         -webkit-border-top-left-radius: 6px;
         -webkit-border-top-right-radius: 6px;
         -moz-border-radius-topleft: 6px;
@@ -2115,6 +2115,8 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
         align-items: center;
         justify-content: center; }
         .profile-container .profile-right-section .resume-research-projects .resume .resume-research-projects-body a {
+          list-style-type: square;
+          display: list-item;
           color: black;
           margin-bottom: 5px; }
     .profile-container .profile-right-section .resume-research-projects .research {
@@ -2126,6 +2128,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
       border-radius: 6px;
       box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
       .profile-container .profile-right-section .resume-research-projects .research .reusable-header {
+        margin-bottom: 5px;
         display: flex;
         justify-content: center;
         height: 50px;
@@ -2155,7 +2158,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
           .profile-container .profile-right-section .resume-research-projects .research .resume-research-projects-body ul li {
             margin: 5px 0;
             list-style-type: square;
-            display: block; }
+            display: list-item; }
         .profile-container .profile-right-section .resume-research-projects .research .resume-research-projects-body a {
           color: black;
           margin-bottom: 5px; }
@@ -2171,6 +2174,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
         display: flex;
         justify-content: center;
         height: 50px;
+        margin-bottom: 5px;
         -webkit-border-top-left-radius: 6px;
         -webkit-border-top-right-radius: 6px;
         -moz-border-radius-topleft: 6px;
@@ -2192,7 +2196,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
           text-align: left; }
           .profile-container .profile-right-section .resume-research-projects .projects .resume-research-projects-body ul li {
             list-style-type: square;
-            display: block; }
+            display: list-item; }
         .profile-container .profile-right-section .resume-research-projects .projects .resume-research-projects-body a {
           color: black;
           margin-bottom: 5px; }

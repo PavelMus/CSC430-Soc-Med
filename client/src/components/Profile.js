@@ -335,7 +335,7 @@ class Profile extends Component {
         return (
           <div className="row profile-container">
             <div className="col xs12 s12 m4 l3 xl3">
-              <div className="profile-left-section z-depth-3">
+              <div className="profile-left-section z-depth-2">
                 <div className="profile-avatar">
                   <img className="" src={profile.avatar} />
                   <input
@@ -404,7 +404,7 @@ class Profile extends Component {
               </div>
               <div className="profile-right-section ">
 
-                    <div className="bio">
+                    <div className="bio z-depth-2">
                       <div className="bio-header">
                         <h6>Bio</h6>
                       </div>
@@ -426,7 +426,7 @@ class Profile extends Component {
 
                 <div className="resume-research-projects">
 
-                  <div className="resume">
+                  <div className="resume z-depth-2">
                     <div className="reusable-header">
                       <h6>Resume</h6>
                     </div>
@@ -434,7 +434,7 @@ class Profile extends Component {
                       <a href="">{profile.displayName}'s Resume</a>
                     </div>
                   </div>
-                  <div className="research">
+                  <div className="research z-depth-2">
                     <div className="reusable-header">
                       <h6>Research</h6>
                     </div>
@@ -451,7 +451,7 @@ class Profile extends Component {
                     </div>
 
                   </div>
-                  <div className="projects">
+                  <div className="projects z-depth-2">
                     <div className="reusable-header">
                       <h6>Projects</h6>
                     </div>
@@ -469,7 +469,7 @@ class Profile extends Component {
                 </div>
 
               </div>
-              <div className="current-classes">
+              <div className="current-classes z-depth-2">
                 <div className="reusable-header">
                   <h6>Aaron's Current Classes</h6>
                 </div>
