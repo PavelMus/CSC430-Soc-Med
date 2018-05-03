@@ -2096,7 +2096,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
 
 .projects-modal {
   max-height: none !important;
-  top: 120px !important;
+  top: 40px !important;
   display: flex;
   flex-direction: column;
   width: 40% !important;
