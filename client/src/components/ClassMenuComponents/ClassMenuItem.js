@@ -76,9 +76,6 @@ class ClassMenuItem extends Component {
         <li>
           <Link to={`${"/profile"}/${this.props.class.teacher}`}>Teacher</Link>
         </li>
-        <li>
-          <a href="#">Classmates</a>
-        </li>
       </React.Fragment>
     );
   }
