@@ -187,7 +187,7 @@ class ComposeClass extends Component {
           <div className="col s12 m2 l2 xl2">
             <Fixedmenu />
           </div>
-          <div id="class-db-input" className="col s12 m6 l8 xl8">
+          <div id="class-db-input" className="col s12 m6 l7 xl7">
 
             <div className="reusable-header">
               <h4>Create a new class section</h4>

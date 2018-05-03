@@ -55,7 +55,8 @@ class CreateClass extends Component {
             <Fixedmenu />
           </div>
 
-          <div id="class-db-input" className="col s8 m4 l6 xl6">
+          <div id="class-db-input" className="col s8 m4 l7 xl7">
+
             <div className="reusable-header">
               <h4>Input Class to Database</h4>
             </div>
@@ -83,8 +84,8 @@ class CreateClass extends Component {
               </div>
               <button type="submit" className="btn">SUBMIT</button>
             </form>
-          </div>
 
+          </div>
         </div>
       </div>
       );

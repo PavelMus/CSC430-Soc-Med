@@ -3,12 +3,11 @@
   position: relative;
   top: 12%;
   left: 12%;
-  min-width: 525px;
-  max-width: 525px;
   width: 60%;
   border-radius: 10px 10px 0 0;
   border: 1px solid;
   height: 250px;
+  max-width: 746px;
   text-align: center;
   margin-top: 15px;
   padding: 0 12px 12px;
@@ -53,8 +52,25 @@
     margin: 0;
 
     .student-list-li {
-      padding: 18px 14px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 12px 8px;
       border-bottom: 1px solid #aaa;
+
+      circle {}
+
+      p {
+        margin: 0;
+
+        p {
+          margin: 4px 0;
+          display: block;
+        }
+      }
+
+      a {}
     }
   }
 

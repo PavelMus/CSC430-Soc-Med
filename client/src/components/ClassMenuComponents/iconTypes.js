@@ -30,3 +30,26 @@ export var iconType = icon => {
       return "";
   }
 };
+//Icon colors below
+export var iconColor = icon => {
+  switch (icon) {
+    case "CSC":
+      return "#e56004";
+    case "MTH":
+      return "#1dadb8";
+    case "COR":
+      return "#650d0d";
+    case "BIO":
+      return "#29ba13";
+    case "AST":
+      return "#3d1cd0";
+    case "ENG":
+      return "#055d75";
+    case "BUS":
+      return "#0173d1";
+    case "ACC":
+      return "#02d14d";
+    default:
+      return "";
+  }
+};

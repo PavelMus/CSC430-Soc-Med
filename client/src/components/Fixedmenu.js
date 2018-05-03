@@ -22,7 +22,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="/newNews"
           >
-          <i className="material-icons">public</i>
+          <i className="material-icons news-post">public</i>
             <span className="action">Post News Item</span>
           </Link>
         </li>
@@ -32,7 +32,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="/newEvent"
           >
-            <i className="material-icons">event_note</i>
+            <i className="material-icons event-post">event_note</i>
             <span>Post Event Item</span>
           </Link>
         </li>
@@ -42,7 +42,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="/newAlert"
           >
-            <i className="material-icons">notifications_none</i>
+            <i className="material-icons alert-icon">notifications_none</i>
             <span>Post Alert Item</span>
           </Link>
         </li>
@@ -59,7 +59,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="/classDBInput"
           >
-            <i className=" material-icons">input</i>
+            <i className="material-icons input-class-icon">input</i>
             <span>Input New Class</span>
           </Link>
         </li>
@@ -69,7 +69,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="/VerifyTeacher"
           >
-            <i className="material-icons">verified_user</i>
+            <i className="material-icons verify-teacher-icon">verified_user</i>
             <span>Verify Teacher</span>
           </Link>
         </li>
@@ -79,7 +79,7 @@ class Fixedmenu extends Component {
             onClick={this.props.close}
             to="/newClassSection"
           >
-            <i className="material-icons">create_new_folder</i>
+            <i className="material-icons createsection">create_new_folder</i>
 
                 <span className="item-overflow">Create New Class Section</span>
 

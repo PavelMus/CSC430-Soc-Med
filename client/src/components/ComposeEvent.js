@@ -18,6 +18,9 @@ class ComposeEvent extends Component {
       showPreview: false
     }
   }
+  redirectBack = () => {
+      this.props.history.push("/")
+  }
 
   quillMarkup = () => {
     let rawMarkup = marked(this.state.deltaMarkup.toString());
@@ -37,10 +40,7 @@ class ComposeEvent extends Component {
     this.setState({showPreview: !this.state.showPreview});
   }
 
-  initEventPreview = (e) =>{
-    let quill_innerHTML = document.getElementsByClassName('ql-editor')[0].innerHTML;
-    this.setState({deltaMarkup:quill_innerHTML}, this.showEventPreview(e));
-  }
+
 
   componentDidMount() {
     //Setting up the Quill toolbar options
@@ -91,7 +91,7 @@ class ComposeEvent extends Component {
     }
     axios.post("api/feed/event-post", eventPost).catch(err => {
       console.error(err);
-    });
+    }).then(this.redirectBack())
   }
   renderUser = () => {
       switch (this.props.user) {
@@ -106,7 +106,7 @@ class ComposeEvent extends Component {
                 <img className="user-pic" src={this.props.user.avatar} width="64"/>
               </div>
                 <p className="user-name">{this.props.user.displayName}</p>
-                <p className="time">Dec 13, 2017</p>
+                <p className="time">May 4, 2017</p>
             </div>
           </div>
         );
@@ -141,7 +141,6 @@ class ComposeEvent extends Component {
                 <div id="quill-area">
                   <div id="quill" />
                   <button id="saveDelta" className="btn" onClick={this.submitEvent}>SUBMIT</button>
-                  <button id="saveDelta" className="btn" onClick={this.initEventPreview}>Preview</button>
                 </div>
               </div>
             </div>
