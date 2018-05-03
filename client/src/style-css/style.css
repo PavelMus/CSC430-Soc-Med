@@ -1968,7 +1968,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
     display: flex;
     position: relative;
     height: 50px;
-    padding-left: 20px;
+    padding-left: 5px;
     width: 100%;
     overflow: visible;
     margin-top: 10px; }

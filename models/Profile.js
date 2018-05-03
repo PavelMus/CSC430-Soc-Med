@@ -24,7 +24,12 @@ const profileSchema = new Schema({
   },
   resume: String,
   research: Array,
-  projects: Array
+  projects: Array,
+  phone: String,
+  address: String,
+  about_me: String,
+  interests: String,
+  skills: String
 });
 
 module.exports = mongoose.model("user-profile", profileSchema);

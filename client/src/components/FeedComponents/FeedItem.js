@@ -159,6 +159,10 @@ class FeedItem extends Component {
     this.setState({all_comments:all_comments});
   };
 
+  scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  }
+
   renderComments = () => {
     switch (this.state.all_comments) {
       case false:
@@ -167,7 +171,7 @@ class FeedItem extends Component {
         return (
           <ul id="all-comment-list" className="hidden">
             {this.state.all_comments}
-            {this.state.total_comments > 5?<a href="#" onClick={this.loadMoreComments}>
+            {this.state.total_comments > this.state.skip + 5?<a href="#" onClick={this.loadMoreComments}>
               Load more..
             </a>:""}
           </ul>
@@ -240,6 +244,7 @@ class FeedItem extends Component {
     } else {
       comment_list.classList.add("hidden");
       show_hide.innerHTML = "Show";
+      setTimeout(this.scrollToBottom, 260);
     }
   }
 
@@ -266,6 +271,8 @@ class FeedItem extends Component {
                 </div>
                 {this.renderComments()}
               </div>
+              <div style={{ float:"left", clear: "both" }}
+                  ref={(el) => { this.messagesEnd = el; }}/>
               {this.renderNewCommentForm()}
             </div>
             {this.renderUser()}

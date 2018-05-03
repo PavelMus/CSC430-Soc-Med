@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var Class = require("../models/Class");
 var Users = require("../models/Users");
 var ClassTemplate = require("../models/ClassTemplate");
+var Profile = require("../models/Profile");
 
 var classRouter = express.Router();
 //adding the /class-list route to our /api classRouter
@@ -77,6 +78,14 @@ classRouter.route("/verify_user_of_class").put((req, res)=>{
         user.classes.push(temp_class);
         user.save(err => {
           if(err) throw err;
+          Profile.findOne({user_id:req.body.user_id}, (err, profile) => {
+            let class_for_profile = {type: _class.type, level: _class.level,
+            subject: _class.subject, description: _class.description};
+            profile.classes.push(class_for_profile);
+            profile.save(err => {
+              if(err) console.log(err);
+            });
+          });
         });
       });
       res.json({message: "Student verified!"});

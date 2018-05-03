@@ -81,6 +81,14 @@ module.exports = app => {
       profile.classes = [];
       profile.major = "";
       profile.social_media = {facebook: "", twitter: "", instagram: "", linkedIn: "", gitHub: ""};
+      profile.resume = "";
+      profile.research = [];
+      profile.projects = [];
+      profile.phone = "";
+      profile.address = "";
+      profile.about_me = "";
+      profile.interests = "";
+      profile.skills = "";
       profile.save(err => {
         if(err) console.log(err);
       });
