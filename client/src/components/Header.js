@@ -40,7 +40,6 @@ class Header extends Component {
       this.props.fetchClasses(this.props.user._id);
       this.props.fetchUser();
     }
-    console.log("Hello");
   }
 
   //Initializing Javascript variables for Materialize-CSS sidenav this function is on a small interval,

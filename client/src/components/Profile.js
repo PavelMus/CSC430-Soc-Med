@@ -73,12 +73,7 @@ class Profile extends Component {
     } else {
       let url_id = this.props.location.pathname.slice(9);
       if (this.props.user._id === url_id) {
-        this.setState({ edditable: true,
-          user_status: {admin: this.props.user.admin,
-            teacher: this.props.user.teacher}});
-      } else {
-        this.setState({ user_status: {admin: this.props.user.admin,
-            teacher: this.props.user.teacher}});
+        this.setState({ edditable: true});
       }
     }
   };
@@ -129,7 +124,7 @@ class Profile extends Component {
     axios.get(`${"/api/user-profile"}/${url_id}`).then(res => {
       console.log(res.data);
 
-      this.setState({ profile: res.data }, this.mapSocialMediaLinks);
+      this.setState({ profile: res.data, user_status:{admin: res.data.admin, teacher: res.data.teacher} }, this.mapSocialMediaLinks);
     });
   };
 
