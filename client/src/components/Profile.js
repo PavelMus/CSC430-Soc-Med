@@ -495,7 +495,7 @@ class Profile extends Component {
               </div>
               <div className="current-classes z-depth-2">
                 <div className="reusable-header">
-                  <h6>Aaron's Current Classes</h6>
+                  <h6>Current Classes</h6>
                 </div>
                 {this.state.profile_classes}
               </div>

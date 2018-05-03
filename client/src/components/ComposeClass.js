@@ -233,6 +233,7 @@ class ComposeClass extends Component {
                   <div className="input-field col s12">
                     <h6>Class Subject</h6>
                     <input
+                      required
                       value={this.state.classSubject}
                       id="class_subject"
                       onChange={this.onSubjectChange}
@@ -242,6 +243,7 @@ class ComposeClass extends Component {
                   <div className="input-field col s12">
                     <h6>Class Description</h6>
                     <input
+                      required
                       value={this.state.classDescription}
                       id="class_description"
                       onChange={this.onDescriptionChange}

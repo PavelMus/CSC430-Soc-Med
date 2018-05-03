@@ -114,7 +114,7 @@ class ComposeNews extends Component {
                 <img class="user-pic" src={this.props.user.avatar} width="64" />
               </div>
               <p className="user-name">{this.props.user.displayName}</p>
-              <p className="time">May 2, 2018</p>
+              <p className="time">May 4, 2018</p>
             </div>
           </div>
         );
