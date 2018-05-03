@@ -288,7 +288,13 @@ class Profile extends Component {
         .then(res => {
           M.toast({ html: res.data.message });
           this.setState({ new_picture_url: "" });
-          this.loadUserProfile();
+          let elem = document.getElementById("edit-user-avatar-input");
+            if (elem.classList.contains("scale-in")) {
+              elem.classList.remove("scale-in");
+            } else {
+              elem.classList.add("scale-in");
+            }
+          this.loadUserProfile(this.props.location.pathname);
         });
     }
   };
