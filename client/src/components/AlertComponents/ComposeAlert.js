@@ -22,7 +22,9 @@ class ComposeAlert extends Component {
         previewType: ""
     }
   }
-
+  redirectBack = () => {
+      this.props.history.push("/")
+  }
   submitAlert = (e) => {
     e.preventDefault();
     let alertType = document.querySelector('select');
@@ -30,7 +32,7 @@ class ComposeAlert extends Component {
       type: alertType.value,
       content: this.state.content
     }
-    axios.post("/api/new-alert/", alert);
+    axios.post("/api/new-alert/", alert).then(this.redirectBack())
   }
 
   onTextChange = (e) => {

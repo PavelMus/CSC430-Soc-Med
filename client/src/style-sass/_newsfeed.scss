@@ -18,18 +18,22 @@
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  .news{
+  .news {
     border-color: blue !important;
-    .divider{
+
+    .divider {
       background-color: blue !important;
     }
   }
-  .event{
-    border-color: orange !important;
-    .divider{
-      background-color: orange !important;
+
+  .event {
+    border-color: #e7a21d !important;
+
+    .divider {
+      background-color: #e7a21d !important;
     }
   }
+
   .feed-post {
     overflow: auto;
     background-color: $feedbackgroundcolor;
@@ -176,9 +180,9 @@
               padding: 5px;
               margin: 0;
             }
-            span{
-              align-self: center;
 
+            span {
+              align-self: center;
             }
           }
 
@@ -199,19 +203,22 @@
         //border-style: solid;
         //border-color: black;
         //border-radius: 0.5em;
-        padding: 0 0;
+        padding: 0;
         align-items: baseline;
         align-content: center;
-        ul{
-          li{
+
+        ul {
+          li {
             border: none;
-            img{
+
+            img {
               border-radius: 100% !important;
               display: inline-block;
               margin-bottom: 15px;
               //width: 8%;
             }
-            .card{
+
+            .card {
               display: inline-block;
               border-radius: 0.5em;
               margin-left: 12px;
@@ -219,7 +226,8 @@
               vertical-align: bottom;
               box-shadow: 0 0 0 0;
             }
-            .card::after{
+
+            .card::after {
               content: '';
               position: absolute;
               left: 0;
@@ -233,27 +241,30 @@
               margin-top: -0.562em;
               margin-left: -1.125em;
             }
-            .card-content{
-              padding: 3px 8px 10px 8px;
+
+            .card-content {
+              padding: 3px 8px 10px;
               min-height: 40px;
               text-align: left;
-              h6{
+
+              h6 {
                 font-size: 0.8em;
-                margin: 0 0 3px 0;
+                margin: 0 0 3px;
                 border-radius: 0.3em;
                 font-style: italic;
                 font-weight: bold;
               }
-              p{
+
+              p {
                 margin-left: 12px;
               }
-              .comment-post-date{
+
+              .comment-post-date {
                 float: right;
                 font-style: italic;
                 font-size: 0.6em;
               }
             }
-      
             opacity: 0;
             animation: {
               name: comments;
@@ -261,12 +272,13 @@
               timing-function: ease-in-out;
               fill-mode: forwards;
             }
-            @keyframes comments{
-              0%{
+            @keyframes comments {
+              0% {
                 opacity: 0;
                 transform: translateX(100px);
               }
-              100%{
+
+              100% {
                 opacity: 1;
                 transform: translateX(0px);
               }
@@ -279,6 +291,7 @@
     .show {
       display: block !important;
     }
+
     .input-comment-header {
       display: block;
       float: left;
@@ -289,13 +302,16 @@
         font-size: 18px;
       }
     }
+
     .new-comment {
       form {
         .input-comment-section {
           padding: 5px 0;
+
           .user-pic-wrapper {
             padding: 8px 0 0 8px;
             float: left;
+
             .user-pic {
               display: inline-block;
               height: 34px;
@@ -303,6 +319,7 @@
               border-radius: 50%;
             }
           }
+
           .input-comment-body {
             input {
               display: inline-block;
@@ -310,7 +327,8 @@
               border-bottom: none!important;
               //box-shadow: none!important;
             }
-            input:focus{
+
+            input:focus {
               border-bottom: 1px solid black;
               -webkit-box-shadow: 0 1px 0 0 black;
               -moz-box-shadow: 0 1px 0 0 black;
@@ -322,10 +340,7 @@
     }
   }
 }
-
-
 //////////////////////Old cart styles below
-
 #newsfeed .card-top {
   height: 55px;
   overflow: hidden;

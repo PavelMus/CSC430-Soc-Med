@@ -45,7 +45,7 @@ class VerifyStudents extends Component {
             <li className="student-list-li" key={student._id}>
 
                     <img className="circle"src={student.avatar} width="50px" height="50px" />
-                    <p>{student.displayName} <span>EMPLID: {student.EMPLID}</span></p>
+                    <p><p>{student.displayName}</p><p>EMPLID: {student.EMPLID}</p></p>
                     <a target={student._id} onClick={this.verifyStudent} className="btn-small">verify</a>
 
             </li>

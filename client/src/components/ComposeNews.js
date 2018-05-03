@@ -18,6 +18,10 @@ class ComposeNews extends Component {
     };
   }
 
+  redirectBack = () => {
+      this.props.history.push("/")
+  }
+
   quillMarkup = () => {
     let rawMarkup = marked(this.state.deltaMarkup.toString());
     return { __html: rawMarkup };
@@ -36,11 +40,6 @@ class ComposeNews extends Component {
     this.setState({ showPreview: !this.state.showPreview });
   };
 
-  initNewsPreview = e => {
-    let quill_innerHTML = document.getElementsByClassName("ql-editor")[0]
-      .innerHTML;
-    this.setState({ deltaMarkup: quill_innerHTML }, this.showNewsPreview(e));
-  };
 
   componentDidMount() {
     //Setting up the Quill toolbar options
@@ -95,7 +94,9 @@ class ComposeNews extends Component {
     };
     axios.post("api/feed/news-post", newsPost).catch(err => {
       console.error(err);
-    });
+    }).then(this.redirectBack())
+
+
   };
   renderUser = () => {
     switch (this.props.user) {
@@ -110,7 +111,7 @@ class ComposeNews extends Component {
                 <img class="user-pic" src={this.props.user.avatar} width="64" />
               </div>
               <p className="user-name">{this.props.user.displayName}</p>
-              <p className="time">Dec 13, 2017</p>
+              <p className="time">May 2, 2018</p>
             </div>
           </div>
         );
@@ -152,13 +153,7 @@ class ComposeNews extends Component {
                   >
                     SUBMIT
                   </button>
-                  <button
-                    id="saveDelta"
-                    className="btn"
-                    onClick={this.initNewsPreview}
-                  >
-                    Preview
-                  </button>
+
                 </div>
               </div>
             </div>

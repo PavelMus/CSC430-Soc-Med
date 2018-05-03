@@ -71,7 +71,7 @@
   min-height: 5vmax;
   min-width: 250px;
   border-radius: 5px;
-  border: 1px solid grey;
+  border: 1px solid #aaa;
   margin: 0 0 10px;
   background-color: #f5f5f5;
   overflow: hidden;
@@ -384,9 +384,9 @@ body {
     #newsfeed .news .divider {
       background-color: blue !important; }
   #newsfeed .event {
-    border-color: orange !important; }
+    border-color: #e7a21d !important; }
     #newsfeed .event .divider {
-      background-color: orange !important; }
+      background-color: #e7a21d !important; }
   #newsfeed .feed-post {
     overflow: auto;
     background-color: #f5f5f5;
@@ -498,7 +498,7 @@ body {
       #newsfeed .feed-post .comments-container .comments {
         margin-top: 6px;
         border: none;
-        padding: 0 0;
+        padding: 0;
         align-items: baseline;
         align-content: center; }
         #newsfeed .feed-post .comments-container .comments ul li {
@@ -533,12 +533,12 @@ body {
             margin-top: -0.562em;
             margin-left: -1.125em; }
           #newsfeed .feed-post .comments-container .comments ul li .card-content {
-            padding: 3px 8px 10px 8px;
+            padding: 3px 8px 10px;
             min-height: 40px;
             text-align: left; }
             #newsfeed .feed-post .comments-container .comments ul li .card-content h6 {
               font-size: 0.8em;
-              margin: 0 0 3px 0;
+              margin: 0 0 3px;
               border-radius: 0.3em;
               font-style: italic;
               font-weight: bold; }
@@ -1268,25 +1268,25 @@ textarea.materialize-textarea:focus:not([readonly]) {
       padding: 6px;
       background-color: #eeeeee;
       border-radius: 1em; }
-    #chat-box .other-messages .my-messages {
-      display: flex;
-      align-self: flex-end;
-      min-height: 30px;
-      margin: 3px 0;
-      flex-shrink: 0; }
-      #chat-box .other-messages .my-messages p {
-        color: white;
-        text-align: center;
-        word-wrap: break-word;
-        word-break: break-all;
-        width: fit-content;
-        min-width: 25px;
-        height: fit-content;
-        font-size: 1em;
-        margin: 0 0 0 5px;
-        padding: 6px;
-        background-color: #1e88e5;
-        border-radius: 1em; }
+  #chat-box .my-messages {
+    display: flex;
+    align-self: flex-end;
+    min-height: 30px;
+    margin: 3px 0;
+    flex-shrink: 0; }
+    #chat-box .my-messages p {
+      color: white;
+      text-align: center;
+      word-wrap: break-word;
+      word-break: break-all;
+      width: fit-content;
+      min-width: 25px;
+      height: fit-content;
+      font-size: 1em;
+      margin: 0 0 0 5px;
+      padding: 6px;
+      background-color: #1e88e5;
+      border-radius: 1em; }
   #chat-box .input-field {
     margin-left: 0 !important;
     padding-left: 0 !important; }
@@ -1493,8 +1493,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
   border-radius: 5px;
   border: 1px solid;
   margin-top: 15px;
-  min-width: 525px;
-  max-width: 525px;
   background-color: #c3ccd8; }
   #class-db-input h3 {
     margin: 0 0 5px;
@@ -1608,8 +1606,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   padding: 0;
   border-radius: 10px 10px 0 0;
   border: 1px solid;
-  min-width: 525px;
-  max-width: 525px;
   background-color: #c3ccd8; }
   #class-db-input h3 {
     margin: 0 0 5px;
@@ -1879,17 +1875,34 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   margin: 0;
   padding: 0 10px; }
 
+.news-post {
+  color: #25477A !important; }
+
+.event-post {
+  color: #e7a21d !important; }
+
+.verify-teacher-icon {
+  color: #04e598 !important; }
+
+.alert-icon {
+  color: #DD5753 !important; }
+
+.createsection {
+  color: #cebb08 !important; }
+
+.input-class-icon {
+  color: #2241df !important; }
+
 #verifyteacher-container {
   background-color: #c3ccd8;
   position: relative;
   top: 12%;
   left: 12%;
-  min-width: 525px;
-  max-width: 525px;
   width: 60%;
   border-radius: 10px 10px 0 0;
   border: 1px solid;
   height: 250px;
+  max-width: 746px;
   text-align: center;
   margin-top: 15px;
   padding: 0 12px 12px; }
@@ -1920,8 +1933,17 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   #student-list .student-list-ul {
     margin: 0; }
     #student-list .student-list-ul .student-list-li {
-      padding: 18px 14px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 12px 8px;
       border-bottom: 1px solid #aaa; }
+      #student-list .student-list-ul .student-list-li p {
+        margin: 0; }
+        #student-list .student-list-ul .student-list-li p p {
+          margin: 4px 0;
+          display: block; }
   #student-list .reusable-header {
     display: flex;
     justify-content: center; }

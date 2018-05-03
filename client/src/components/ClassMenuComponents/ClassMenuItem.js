@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { iconType } from "./iconTypes";
+import { iconType, iconColor } from "./iconTypes";
 
 class ClassMenuItem extends Component {
   constructor(props) {
@@ -91,7 +91,7 @@ class ClassMenuItem extends Component {
     } else {
       return this.props.user.teacher;
     }
-    
+
   }
 
   render() {
@@ -104,7 +104,7 @@ class ClassMenuItem extends Component {
             onClick={this.dropdownClick}
             className="menu-hoverable dropbtn"
           >
-            <i className="left-icon material-icons">
+            <i className="left-icon material-icons" style={{color:iconColor(this.props.class.type)}}>
               {iconType(this.props.class.type)}
             </i>
             <span>
@@ -132,7 +132,7 @@ class ClassMenuItem extends Component {
         </span>
       </a>)
     }
-    
+
   }
 }
 
