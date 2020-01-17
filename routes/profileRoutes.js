@@ -103,7 +103,12 @@ router
   .put((req, res) =>{
     Profile.findById(req.params.profile_id, (err, profile) => {
       if(req.body.profile_eddit.resume){
-        profile.resume = req.body.profile_eddit.resume;
+        let resume = req.body.profile_eddit.resume;
+        let link_check = resume.slice(8);
+        if(link_check !== "http://"){
+          resume = "http://" + resume;
+        }
+        profile.resume = resume;
       }
       profile.save(err => {
         if(err) console.log(err);

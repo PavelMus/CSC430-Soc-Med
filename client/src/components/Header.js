@@ -40,7 +40,6 @@ class Header extends Component {
       this.props.fetchClasses(this.props.user._id);
       this.props.fetchUser();
     }
-    console.log("Hello");
   }
 
   //Initializing Javascript variables for Materialize-CSS sidenav this function is on a small interval,
@@ -103,11 +102,6 @@ class Header extends Component {
       default:
         return (
           <React.Fragment>
-            <li>
-              <a href="/posts" className="btn-floating btn-medium cyan pulse">
-                <i className="material-icons">comment</i>
-              </a>
-            </li>
             <li className="header-user-btn">
               <a
                 data-target="slide-out"

@@ -91,7 +91,12 @@ class VerifyTeacher extends Component {
                     <option value="">Select Subject</option>
                     <option value="CSC">CSC</option>
                     <option value="ENG">ENG</option>
+                    <option value="COR">COR</option>
                     <option value="MTH">MTH</option>
+                    <option value="BIO">BIO</option>
+                    <option value="BUS">BUS</option>
+                    <option value="ACC">ACC</option>
+                    <option value="AST">AST</option>
                   </select>
                   <label>Class Type</label>
                 </div>
