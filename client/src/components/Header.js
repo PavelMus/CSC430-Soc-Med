@@ -150,7 +150,6 @@ class Header extends Component {
     );
   }
 }
-
 //Maps the user accont info from the Redux store to the component props.
 const mapStateToProps = state =>{
   return { user: state.user };

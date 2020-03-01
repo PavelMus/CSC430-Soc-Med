@@ -16,7 +16,7 @@ module.exports = app => {
   );
 
   app.get("/api/logout", (req, res) => {
-    console.log("LOGGING OUT");
+    // console.log("LOGGING OUT");
     req.logout();
     res.redirect("/");
   });

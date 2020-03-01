@@ -82,7 +82,7 @@ router
   .route("/teacher-list/:class_type")
   //retrieve all users from the database
   .get(function(req, res) {
-    console.log("IN TEACHER LIST GET");
+    // console.log("IN TEACHER LIST GET");
     //looks at our Users Schema
     Users.find({ teacher: true, teacherSubject: req.params.class_type },
       (err, users) => {

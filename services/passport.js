@@ -1,4 +1,5 @@
 const passport = require("passport");
+const Oauth2 = require("passport-google-oauth2").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
@@ -9,23 +10,24 @@ const User = mongoose.model("users");
 const Profile = require("../models/Profile");
 
 passport.serializeUser((user, done) => {
-  console.log("Serialize user!");
+  // console.log("Serialize user!");
   done(null, user.id);
 });
 passport.deserializeUser((id, done) => {
   User.findById(id).then(user => {
-    console.log("Deserialize user!");
+    // console.log("Deserialize user!");
     done(null, user);
   });
 });
 
 passport.use(
-  new GoogleStrategy(
+  new Oauth2(
     {
+      // authorizationURL: "/oauth2/authorize",
+      // tokenURL: "/oauth2/token",
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback",
-      proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
@@ -34,12 +36,13 @@ passport.use(
         done(null, existingUser);
       } else {
         // we don't have a user record with this ID, make a new record
+        // console.log(profile);
         const user = await new User({
           googleId: profile.id,
           displayName: profile.displayName,
           name: profile.name,
-          avatar: profile._json.image.url,
-          email: profile.emails[0].value,
+          avatar: profile._json.picture,
+          email: profile._json.email,
           teacher: false,
           admin: false
         }).save((err, user)=>{
@@ -78,6 +81,66 @@ passport.use(
     }
   )
 );
+
+// passport.use(
+//   new GoogleStrategy(
+//     {
+//       clientID: keys.googleClientID,
+//       clientSecret: keys.googleClientSecret,
+//       callbackURL: "/auth/google/callback",
+//       proxy: true
+//     },
+//     async (accessToken, refreshToken, profile, done) => {
+//       const existingUser = await User.findOne({ googleId: profile.id });
+//       if (existingUser) {
+//         // we already have a record with the given profile ID
+//         done(null, existingUser);
+//       } else {
+//         // we don't have a user record with this ID, make a new record
+//         const user = await new User({
+//           googleId: profile.id,
+//           displayName: profile.displayName,
+//           name: profile.name,
+//           avatar: profile._json.image.url,
+//           email: profile.emails[0].value,
+//           teacher: false,
+//           admin: false
+//         }).save((err, user)=>{
+//           let profile = new Profile();
+//           profile.user_id = user._id;
+//           profile.displayName = user.displayName;
+//           profile.name = user.name;
+//           profile.email = user.email;
+//           profile.avatar = user.avatar;
+//           profile.admin = user.admin;
+//           profile.teacher = user.teacher;
+//           profile.classes = [];
+//           profile.major = "";
+//           profile.social_media = {
+//             facebook: "",
+//             twitter: "",
+//             instagram: "",
+//             linkedIn: "",
+//             gitHub: ""
+//           };
+//           profile.resume = "";
+//           profile.research = [];
+//           profile.projects = [];
+//           profile.phone = "";
+//           profile.address = "";
+//           profile.about_me = "";
+//           profile.interests = "";
+//           profile.skills = "";
+//           profile.save(err => {
+//             if (err) console.log(err);
+//           });
+
+//         });
+//         done(null, user);
+//       }
+//     }
+//   )
+// );
 passport.use(
   "local",
   new LocalStrategy(
